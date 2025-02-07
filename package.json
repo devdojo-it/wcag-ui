@@ -1,0 +1,22 @@
+{
+  "name": "wcagUI",
+  "version": "0.0.1",
+  "description": "wcagUI Library",
+  "repository": "git@github.com:devdojo-it/wcagUI.git",
+  "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "clear:cache": "rm -rf .parcel-cache dist",
+    "clear": "yarn clear:cache && rm -rf node_modules yarn.lock",
+    "reset": "yarn clear && yarn",
+    "start": "parcel ./src/index.html",
+    "restart": "yarn clear:cache && yarn start",
+    "prebuild": "yarn clear:cache",
+    "build": "parcel build ./src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "2.13.3",
+    "svgo": "3.3.2"
+  }
+}
