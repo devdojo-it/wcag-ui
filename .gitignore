@@ -1,6 +1,6 @@
 .DS_Store
 .parcel-cache
-dist
 node_modules
 yarn.lock
 .idea
+lerna-debug.log

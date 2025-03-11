@@ -1,0 +1,42 @@
+{
+  "name": "@wcag-js/dom",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "DevDojo IT (https://www.devdojo.it)",
+  "contributors": [
+    "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
+    "Christian Nastasi <christian.nastasi@gmail.com>"
+  ],
+  "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
+  "license": "MIT",
+  "source": "lib/dom.js",
+  "browser": "dist/dom.js",
+  "targets": {
+    "browser": {
+      "optimize": true,
+      "sourceMap": false
+    }
+  },
+  "scripts": {
+    "test": "node ./__tests__/dom.test.js",
+    "build": "parcel build"
+  },
+  "dependencies": {
+    "@wcag-js/core": "^0.0.0"
+  },
+  "directories": {
+    "dist": "dist",
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devdojo-it/wcag-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devdojo-it/wcag-ui/issues"
+  }
+}
