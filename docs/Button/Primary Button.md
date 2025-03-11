@@ -8,6 +8,9 @@ Il componente `Button` viene utilizzato per eseguire un'azione all'interno dell'
 
 ## 2. Come utilizzare il componente
 
+
+Di seguito gli esempi per attivare le varianti del componente
+
 ### Primary Button
 
 ```html
