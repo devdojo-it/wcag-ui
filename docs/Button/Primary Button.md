@@ -12,7 +12,7 @@ Il componente `Primary Button` viene utilizzato per eseguire un'azione primaria 
 - Se il bottone contiene solo un'icona, deve avere un `aria-label` descrittivo o un `aria-labelledby` che punti a un'etichetta testuale.
 
 ```html
-<button aria-label="Chiudi il pop-up">
+<button is="wcag-button" aria-label="Chiudi il pop-up">
   <svg aria-hidden="true" focusable="false">...</svg>
 </button>
 ```
