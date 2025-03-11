@@ -2,7 +2,44 @@
 📌 Primary Button - Accessibilità
 
 ## 1. Overview del Componente
-Il componente `Primary Button` viene utilizzato per eseguire un'azione primaria all'interno dell'interfaccia. Deve essere chiaramente distinguibile, accessibile tramite tastiera e compatibile con gli screen reader.
+Il componente `Button` viene utilizzato per eseguire un'azione all'interno dell'interfaccia. Deve essere chiaramente distinguibile, accessibile tramite tastiera e compatibile con gli screen reader.
+
+---
+
+## 2. Come utilizzare il componente
+
+### Primary Button
+
+```html
+<button is="wcag-button">
+  Bottone
+</button>
+```
+
+### Secondary Button
+
+```html
+<button is="wcag-button" secondary>
+  Bottone
+</button>
+```
+
+### Tertiary Button
+
+```html
+<button is="wcag-button" tertiary>
+  Bottone
+</button>
+```
+
+### Destructive Button
+
+```html
+<button is="wcag-button" destructive>
+  Bottone
+</button>
+```
+
 
 ---
 
