@@ -1,0 +1,31 @@
+:root {
+  --wui-button--color: var(--wui-button--primary--color);
+  --wui-button--background-color: var(--wui-button--primary--background-color);
+
+  --wui-button--height: var(--wui-button--primary--height);
+  --wui-button--padding-inline: var(--wui-button--primary--padding-inline);
+  --wui-button--padding-block: var(--wui-button--primary--padding-block);
+  --wui-button--border-width: var(--wui-button--primary--border-width);
+  --wui-button--border-style: var(--wui-button--primary--border-style);
+  --wui-button--border-color: var(--wui-button--primary--border-color);
+  --wui-button--border-radius: var(--wui-button--primary--border-radius);
+}
+
+/* variants: primary, secondary, tertiary, destructive, link */
+/* dimensions: xs, s, m, l, xl */
+/* modifiers: icon, rounded, pill, square, circle */
+/* states: hover, active, focus, disabled, selected */
+
+[is="wcag-button"] {
+  color: var(--wui-button--color);
+  background-color: var(--wui-button--background-color);
+
+  padding-inline: var(--wui-button--padding-inline);
+  padding-block: var(--wui-button--padding-block);
+  border-width: var(--wui-button--border-width);
+  border-style: var(--wui-button--border-style);
+  border-color: var(--wui-button--border-color);
+  border-radius: var(--wui-button--border-radius);
+  
+  line-height: var(--wui-button--height);
+}

@@ -1,0 +1,17 @@
+:root {
+  --wcag-button--s-active--border-color: var(--wcag-button--border-color);
+  --wcag-button--s-active--border-style: var(--wcag-button--border-style);
+  --wcag-button--s-active--box-shadow: var(--mui--elevation-600, none);
+
+  --wcag-button--s-active--color: var(--wcag-button--color);
+  --wcag-button--s-active--background-color: var(--mui--theme--accent--color--darker);
+}
+
+[is="wcag-button"]:active {
+  --wcag-button--border-color: var(--wcag-button--s-active--border-color);
+  --wcag-button--border-style: var(--wcag-button--s-active--border-style);
+  --wcag-button--box-shadow: var(--wcag-button--s-active--box-shadow);
+
+  --wcag-button--color: var(--wcag-button--s-active--color);
+  --wcag-button--background-color: var(--wcag-button--s-active--background-color);
+}

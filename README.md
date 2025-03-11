@@ -35,5 +35,6 @@ A UI Kit build upon WCAG Patterns
   - ** https://codepen.io/miriamsuzanne/pen/QWoXPXP
   - https://codepen.io/miriamsuzanne/pen/ZEPdPpv
   - https://codepen.io/miriamsuzanne/pen/MWxmLYK
+  - https://evoluteur.github.io/isomorphic-table-cards/
   
   

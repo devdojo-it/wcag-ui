@@ -1,0 +1,19 @@
+:root {
+  --wcag-button--d-lg--gap: var(--mui--ff--d-lg--gap);
+  --wcag-button--d-lg--font-size: var(--mui--ff--d-lg--font-size);
+  --wcag-button--d-lg--size: var(--mui--ff--d-lg--size);
+  --wcag-button--d-lg--size-px: var(--mui--ff--d-lg--size-px);
+  --wcag-button--d-lg--padding: 0 calc(var(--mui--ff--d-lg--gap) * 2);
+  --wcag-button--d-lg--border-size: var(--mui--ff--d-lg--border-size);
+  --wcag-button--d-lg--border-radius: var(--mui--ff--d-lg--border-radius);
+}
+
+[is="wcag-button"][large] {
+  --wcag-button--gap: var(--wcag-button--d-lg--gap);
+  --wcag-button--font-size: var(--wcag-button--d-lg--font-size);
+  --wcag-button--size: var(--wcag-button--d-lg--size);
+  --wcag-button--size-px: var(--wcag-button--d-lg--size-px);
+  --wcag-button--padding: var(--wcag-button--d-lg--padding);
+  --wcag-button--border-size: var(--wcag-button--d-lg--border-size);
+  --wcag-button--border-radius: var(--wcag-button--d-lg--border-radius);
+}

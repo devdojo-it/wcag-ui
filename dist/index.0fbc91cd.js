@@ -604,6 +604,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Button", ()=>Button);
 var _core = require("@wcag-ui/core");
+var _buttonCss = require("./styles/button.css");
 var _buttonAttributes = require("./button.attributes");
 var _buttonAttributesDefault = parcelHelpers.interopDefault(_buttonAttributes);
 var _buttonEvents = require("./button.events");
@@ -626,7 +627,7 @@ class Button extends HTMLButtonElement {
     }
 }
 
-},{"@wcag-ui/core":"15LSd","./button.attributes":"4k1xP","./button.events":"swMO0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"15LSd":[function(require,module,exports,__globalThis) {
+},{"@wcag-ui/core":"15LSd","./button.attributes":"4k1xP","./button.events":"swMO0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./styles/button.css":"fgr5A"}],"15LSd":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("@wcag-js/core");
@@ -1695,6 +1696,6 @@ exports.default = {
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["cKNkg","fFaKF"], "fFaKF", "parcelRequire94c2")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fgr5A":[function() {},{}]},["cKNkg","fFaKF"], "fFaKF", "parcelRequire94c2")
 
 //# sourceMappingURL=index.0fbc91cd.js.map

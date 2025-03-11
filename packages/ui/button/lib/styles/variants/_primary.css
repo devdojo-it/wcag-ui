@@ -1,0 +1,18 @@
+:root {
+  --wui-button--primary--color: #fff;
+  --wui-button--primary--background-color: rgba(28, 17, 226, 1);
+
+  --wui-button--primary--hover--color: #fff;
+  --wui-button--primary--hover--background-color: rgba(28, 17, 226, 1);
+
+  --wui-button--primary--active--color: #fff;
+  --wui-button--primary--active--background-color: rgba(28, 17, 226, 1);
+
+  --wui-button--primary--disabled--color: #fff;
+  --wui-button--primary--disabled--background-color: rgba(28, 17, 226, 1);
+
+  --wui-button--primary--selected--color: #fff;
+  --wui-button--primary--selected--background-color: rgba(28, 17, 226, 1);
+
+
+}

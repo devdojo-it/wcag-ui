@@ -1,0 +1,17 @@
+:root {
+  --wcag-button--s-hover--border-color: var(--wcag-button--border-color);
+  --wcag-button--s-hover--border-style: var(--wcag-button--border-style);
+  --wcag-button--s-hover--box-shadow: var(--mui--elevation-400, none);
+
+  --wcag-button--s-hover--color: var(--wcag-button--color);
+  --wcag-button--s-hover--background-color: var(--mui--theme--accent--color--dark);
+}
+
+[is="wcag-button"]:hover {
+  --wcag-button--border-color: var(--wcag-button--s-hover--border-color);
+  --wcag-button--border-style: var(--wcag-button--s-hover--border-style);
+  --wcag-button--box-shadow: var(--wcag-button--s-hover--box-shadow);
+
+  --wcag-button--color: var(--wcag-button--s-hover--color);
+  --wcag-button--background-color: var(--wcag-button--s-hover--background-color);
+}

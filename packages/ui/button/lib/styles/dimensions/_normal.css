@@ -1,0 +1,19 @@
+:root {
+  --wcag-button--d-nm--gap: var(--mui--ff--gap);
+  --wcag-button--d-nm--font-size: var(--mui--ff--font-size);
+  --wcag-button--d-nm--size: var(--mui--ff--size);
+  --wcag-button--d-nm--size-px: var(--mui--ff--size-px);
+  --wcag-button--d-nm--padding: 0 calc(var(--mui--ff--gap) * 2);
+  --wcag-button--d-nm--border-size: var(--mui--ff--border-size);
+  --wcag-button--d-nm--border-radius: var(--mui--ff--border-radius);
+}
+
+[is="wcag-button"] {
+  --wcag-button--gap: var(--wcag-button--d-nm--gap);
+  --wcag-button--font-size: var(--wcag-button--d-nm--font-size);
+  --wcag-button--size: var(--wcag-button--d-nm--size);
+  --wcag-button--size-px: var(--wcag-button--d-nm--size-px);
+  --wcag-button--padding: var(--wcag-button--d-nm--padding);
+  --wcag-button--border-size: var(--wcag-button--d-nm--border-size);
+  --wcag-button--border-radius: var(--wcag-button--d-nm--border-radius);
+}

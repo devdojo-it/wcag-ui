@@ -1,0 +1,30 @@
+:root {
+  --wui-button--destructive--color: #fff;
+  --wui-button--destructive--background-color: rgba(0, 0, 30, 1);
+
+  --wui-button--destructive--hover--color: #fff;
+  --wui-button--destructive--hover--background-color: rgba(0, 0, 30, 1);
+
+  --wui-button--destructive--active--color: #fff;
+  --wui-button--destructive--active--background-color: rgba(0, 0, 30, 1);
+
+  --wui-button--destructive--disabled--color: #fff;
+  --wui-button--destructive--disabled--background-color: rgba(0, 0, 30, 1);
+
+  --wui-button--destructive--selected--color: #fff;
+  --wui-button--destructive--selected--background-color: rgba(0, 0, 30, 1);
+}
+
+[is="wcag-button"][destructive] {
+  --wui-button--color: var(--wui-button--destructive--color);
+  --wui-button--background-color: var(--wui-button--destructive--background-color);
+
+  --wui-button--padding-inline: var(--wui-button--destructive--padding-inline);
+  --wui-button--padding-block: var(--wui-button--destructive--padding-block);
+  --wui-button--border-width: var(--wui-button--destructive--border-width);
+  --wui-button--border-style: var(--wui-button--destructive--border-style);
+  --wui-button--border-color: var(--wui-button--destructive--border-color);
+  --wui-button--border-radius: var(--wui-button--destructive--border-radius);
+
+  --wui-button--height: var(--wui-button--destructive--height);
+}

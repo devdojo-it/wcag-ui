@@ -1,0 +1,17 @@
+:root {
+  --wcag-button--m-rounded--d-sm--border-radius: var(--wcag-button--d-sm--border-radius);
+  --wcag-button--m-rounded--d-nm--border-radius: var(--wcag-button--d-nm--border-radius);
+  --wcag-button--m-rounded--d-lg--border-radius: var(--wcag-button--d-lg--border-radius);
+}
+
+[is="wcag-button"][rounded] {
+  --wcag-button--border-radius: var(--wcag-button--m-rounded--d-nm--border-radius);
+
+  &:where([small] &, &[small]) {
+    --wcag-button--border-radius: var(--wcag-button--m-rounded--d-sm--border-radius);
+  }
+
+  &:where([large] &, &[large]) {
+    --wcag-button--border-radius: var(--wcag-button--m-rounded--d-lg--border-radius);
+  }
+}
