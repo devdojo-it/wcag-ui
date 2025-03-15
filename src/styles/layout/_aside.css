@@ -1,0 +1,3 @@
+body > aside {
+  grid-area: aside;
+}

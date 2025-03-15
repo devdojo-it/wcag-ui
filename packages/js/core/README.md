@@ -1,8 +1,8 @@
-# `core`
+## `core`
 
 > TODO: description
 
-## Usage
+### Usage
 
 ```
 const core = require('core');

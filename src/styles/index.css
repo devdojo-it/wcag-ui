@@ -1,3 +1,14 @@
-body {
-  margin: 0;
+@import 'npm:@wcag-ui/typography';
+
+@import '../assets/fonts/wcag-icons/style.css' layer(wcag-ui-docs.iconography);
+@import './_code.css' layer(wcag-ui-docs.code);
+@import './layout/layout.css' layer(wcag-ui-docs.layout);
+
+p:has(button) {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2rem;
+
+  place-content: start;
+  place-items: center;
 }

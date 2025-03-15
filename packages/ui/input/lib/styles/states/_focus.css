@@ -1,0 +1,12 @@
+:root {
+  --wcag-input--s-foc--outline-color: hsl(247, 69%, 14%);
+}
+
+[is="wcag-input"]:where(:focus, :focus-visible) {
+  --wcag-input--outline-color: var(--wcag-input--s-foc--outline-color);
+
+  outline-width: var(--wcag-input--outline-width);
+  outline-style: var(--wcag-input--outline-style);
+  outline-color: var(--wcag-input--outline-color);
+  outline-offset: var(--wcag-input--outline-offset);
+}

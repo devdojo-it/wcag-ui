@@ -1,5 +1,5 @@
-@import "./_core.css" layer(wcag-ui.button);
-@import "./variants/index.css" layer(wcag-ui.button);
-@import "./dimensions/index.css" layer(wcag-ui.button);
-@import "./modifiers/index.css" layer(wcag-ui.button);
-@import "./states/index.css" layer(wcag-ui.button);
+@import "./_core.css" layer(wcag-ui.components.button);
+@import "./variants/variants.css" layer(wcag-ui.components.button);
+@import "./dimensions/dimensions.css" layer(wcag-ui.components.button);
+@import "./modifiers/modifiers.css" layer(wcag-ui.components.button);
+@import "./states/states.css" layer(wcag-ui.components.button);

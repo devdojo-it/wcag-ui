@@ -1,14 +1,13 @@
 import { sanitizeHTML } from "./_sanitizeHTML";
 
 /**
- * @typedef TElementAttributes
- * @type {{[key: string]: string}}
+ * @typedef {Object.<string, string>} TElementAttributes
  */
 
 /**
  * @typedef TElementOptions
  * @type {object}
- * @property {string} tagName - element's tag name.
+ * @property {string} tag - element's tag name.
  * @property {string[]} [classes] - element's classes.
  * @property {TElementAttributes} [attributes] - element's attributes in the form of { [key: string]: string }.
  * @property {string} [content] - the content to be added as textContent in the element.
@@ -43,11 +42,11 @@ function isElement(elementOrOptions) {
  * @return {Element}
  */
 export const createElement = (options) => {
-  if (!options.tagName) {
-    throw new Error(`monk-ui.core.createElement error: no tagName provided`);
+  if (!options.tag) {
+    throw new Error(`monk-ui.core.createElement error: no tag provided`);
   }
 
-  const element = document.createElement(options.tagName);
+  const element = document.createElement(options.tag);
 
   options.classes && element.classList.add(...options.classes);
 
@@ -70,9 +69,7 @@ export const createElement = (options) => {
  * @return {Element}
  */
 export const ensureElement = (elementOrOptions) => {
-  const ensuredElement = isElement(elementOrOptions)
-    ? elementOrOptions
-    : createElement(elementOrOptions);
+  return isElement(elementOrOptions) ? elementOrOptions : createElement(elementOrOptions);
 };
 
 /**
@@ -86,7 +83,7 @@ export const ensureElement = (elementOrOptions) => {
  */
 
 export const insert = (html, targetElement, position, emptyTarget = false) => {
-  emptyTarget && (target.innerHTML = "");
+  emptyTarget && (targetElement.innerHTML = "");
 
   const sanitizedDOM = sanitizeHTML(html, true);
 
@@ -97,7 +94,7 @@ export const insert = (html, targetElement, position, emptyTarget = false) => {
   // position === 'afterbegin' && target.prepend(fragment);
   // position === 'beforeend' && target.append(fragment);
   // position === 'afterend' && target.after(fragment);
-  target[EInsertPositions[position]](fragment);
+  targetElement[position](fragment);
 
   return sanitizedDOM;
 };

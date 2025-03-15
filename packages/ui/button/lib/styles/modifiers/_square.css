@@ -1,41 +1,7 @@
 :root {
-  --wcag-button--m-square--padding-block: var(--mui--padding, 0.5rem);
-  --wcag-button--m-square--padding-inline: var(--mui--padding, 0.5rem);
   --wcag-button--m-square--aspect-ratio: 1;
-
-  --wcag-button--m-square--d-sm--size: calc(
-    var(--wcag-button--font-size) + var(--wcag-button--m-square--padding-block) * 2 +
-      var(--wcag-button--border-size) * 2
-  );
-
-  --wcag-button--m-square--d-nm--size: calc(
-    var(--wcag-button--font-size) + var(--wcag-button--m-square--padding-block) * 2 +
-      var(--wcag-button--border-size) * 2
-  );
-
-  --wcag-button--m-square--d-lg--size: calc(
-    var(--wcag-button--font-size) + var(--wcag-button--m-square--padding-block) * 2 +
-      var(--wcag-button--border-size) * 2
-  );
 }
 
 [is="wcag-button"][square] {
-  --wcag-button--padding-block: var(--wcag-button--m-square--padding-block);
-  --wcag-button--padding-inline: var(--wcag-button--m-square--padding-inline);
   --wcag-button--aspect-ratio: var(--wcag-button--m-square--aspect-ratio);
-
-  --wcag-button--size: var(--wcag-button--m-square--d-nm--size);
-
-  &:where([small] &, &[small]) {
-    --wcag-button--size: var(--wcag-button--m-square--d-sm--size);
-  }
-
-  &:where([large] &, &[large]) {
-    --wcag-button--size: var(--wcag-button--m-square--d-lg--size);
-  }
-
-  /* // TODO: check if it's possible to get rid of this
-    &:has([monk-icon]:only-child) {
-      --wcag-button--size: initial;
-    } */
 }

@@ -1,30 +1,45 @@
 :root {
-  --wui-button--tertiary--color: #fff;
-  --wui-button--tertiary--background-color: rgba(0, 0, 30, 1);
+  --wcag-button--v-ter--color: hsl(245, 93%, 67%);
+  --wcag-button--v-ter--background-color: transparent;
+  --wcag-button--v-ter--border-color: var(--wcag-button--v-ter--background-color);
+  --wcag-button--v-ter--text-decoration: underline;
 
-  --wui-button--tertiary--hover--color: #fff;
-  --wui-button--tertiary--hover--background-color: rgba(0, 0, 30, 1);
+  --wcag-button--v-ter--s-hov--color: hsl(245, 93%, 38%);
+  --wcag-button--v-ter--s-hov--background-color: var(--wcag-button--v-ter--background-color);
+  --wcag-button--v-ter--s-hov--border-color: var(--wcag-button--v-ter--border-color);
+  --wcag-button--v-ter--s-hov--text-decoration: underline;
 
-  --wui-button--tertiary--active--color: #fff;
-  --wui-button--tertiary--active--background-color: rgba(0, 0, 30, 1);
+  --wcag-button--v-ter--s-foc--outline-color: var(--wcag-button--v-ter--s-hov--color);
 
-  --wui-button--tertiary--disabled--color: #fff;
-  --wui-button--tertiary--disabled--background-color: rgba(0, 0, 30, 1);
+  --wcag-button--v-ter--s-act--color: hsl(245, 93%, 20%);
+  --wcag-button--v-ter--s-act--background-color: var(--wcag-button--v-ter--background-color);
+  --wcag-button--v-ter--s-act--border-color: var(--wcag-button--v-ter--border-color);
+  --wcag-button--v-ter--s-act--text-decoration: none;
 
-  --wui-button--tertiary--selected--color: #fff;
-  --wui-button--tertiary--selected--background-color: rgba(0, 0, 30, 1);
+  --wcag-button--v-ter--s-dis--color: hsl(248, 70%, 22%);
+  --wcag-button--v-ter--s-dis--background-color: var(--wcag-button--v-ter--background-color);
+  --wcag-button--v-ter--s-dis--border-color: var(--wcag-button--v-ter--border-color);
 }
 
 [is="wcag-button"][tertiary] {
-  --wui-button--color: var(--wui-button--tertiary--color);
-  --wui-button--background-color: var(--wui-button--tertiary--background-color);
+  --wcag-button--color: var(--wcag-button--v-ter--color);
+  --wcag-button--background-color: var(--wcag-button--v-ter--background-color);
+  --wcag-button--border-color: var(--wcag-button--v-ter--border-color);
+  --wcag-button--text-decoration: var(--wcag-button--v-ter--text-decoration);
 
-  --wui-button--padding-inline: var(--wui-button--tertiary--padding-inline);
-  --wui-button--padding-block: var(--wui-button--tertiary--padding-block);
-  --wui-button--border-width: var(--wui-button--tertiary--border-width);
-  --wui-button--border-style: var(--wui-button--tertiary--border-style);
-  --wui-button--border-color: var(--wui-button--tertiary--border-color);
-  --wui-button--border-radius: var(--wui-button--tertiary--border-radius);
+  --wcag-button--s-hov--color: var(--wcag-button--v-ter--s-hov--color);
+  --wcag-button--s-hov--background-color: var(--wcag-button--v-ter--s-hov--background-color);
+  --wcag-button--s-hov--border-color: var(--wcag-button--v-ter--s-hov--border-color);
+  --wcag-button--s-hov--text-decoration: var(--wcag-button--v-ter--s-hov--text-decoration);
 
-  --wui-button--height: var(--wui-button--tertiary--height);
+  --wcag-button--s-foc--outline-color: var(--wcag-button--v-ter--s-foc--outline-color);
+
+  --wcag-button--s-act--color: var(--wcag-button--v-ter--s-act--color);
+  --wcag-button--s-act--background-color: var(--wcag-button--v-ter--s-act--background-color);
+  --wcag-button--s-act--border-color: var(--wcag-button--v-ter--s-act--border-color);
+  --wcag-button--s-act--text-decoration: var(--wcag-button--v-ter--s-act--text-decoration);
+
+  --wcag-button--s-dis--color: var(--wcag-button--v-ter--s-dis--color);
+  --wcag-button--s-dis--background-color: var(--wcag-button--v-ter--s-dis--background-color);
+  --wcag-button--s-dis--border-color: var(--wcag-button--v-ter--s-dis--border-color);
 }

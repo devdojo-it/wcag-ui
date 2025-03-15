@@ -1,0 +1,7 @@
+/* @import 'npm:highlight.js/styles/tomorrow-night-blue.min.css'; */
+@import 'npm:highlight.js/styles/a11y-dark.min.css';
+
+.hljs {
+  background-color: hsl(247, 69%, 14%);
+  border: 1px solid hsl(245, 93%, 28%);
+}

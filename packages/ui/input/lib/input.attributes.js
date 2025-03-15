@@ -6,7 +6,7 @@ export default {
       if (textContent !== newValue) {
         this.label.childNodes[0].textContent = newValue;
 
-        // dispatchComponentEvent.call(this, "aria-label.change", { label: newValue });
+        dispatchComponentEvent.call(this, "aria-label.change", { label: newValue });
       }
     }
   },

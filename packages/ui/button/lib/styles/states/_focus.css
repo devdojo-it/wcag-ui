@@ -1,17 +1,14 @@
+/*
 :root {
-  --wcag-button--s-active--border-color: var(--wcag-button--border-color);
-  --wcag-button--s-active--border-style: var(--wcag-button--border-style);
-  --wcag-button--s-active--box-shadow: var(--mui--elevation-600, none);
-
-  --wcag-button--s-active--color: var(--wcag-button--color);
-  --wcag-button--s-active--background-color: var(--mui--theme--accent--color--darker);
+  --wcag-button--s-foc--outline-color: ;
 }
+*/
 
-[is="wcag-button"]:active {
-  --wcag-button--border-color: var(--wcag-button--s-active--border-color);
-  --wcag-button--border-style: var(--wcag-button--s-active--border-style);
-  --wcag-button--box-shadow: var(--wcag-button--s-active--box-shadow);
+[is="wcag-button"]:where(:focus, :focus-visible) {
+  --wcag-button--outline-color: var(--wcag-button--s-foc--outline-color);
 
-  --wcag-button--color: var(--wcag-button--s-active--color);
-  --wcag-button--background-color: var(--wcag-button--s-active--background-color);
+  outline-width: var(--wcag-button--outline-width);
+  outline-style: var(--wcag-button--outline-style);
+  outline-color: var(--wcag-button--outline-color);
+  outline-offset: var(--wcag-button--outline-offset);
 }

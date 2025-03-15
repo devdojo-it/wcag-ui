@@ -1,17 +1,16 @@
+/*
 :root {
-  --wcag-button--s-active--border-color: var(--wcag-button--border-color);
-  --wcag-button--s-active--border-style: var(--wcag-button--border-style);
-  --wcag-button--s-active--box-shadow: var(--mui--elevation-600, none);
-
-  --wcag-button--s-active--color: var(--wcag-button--color);
-  --wcag-button--s-active--background-color: var(--mui--theme--accent--color--darker);
+  --wcag-button--s-act--color: ;
+  --wcag-button--s-act--background-color: ;
+  --wcag-button--s-act--border-color: ;
 }
+*/
 
-[is="wcag-button"]:active {
-  --wcag-button--border-color: var(--wcag-button--s-active--border-color);
-  --wcag-button--border-style: var(--wcag-button--s-active--border-style);
-  --wcag-button--box-shadow: var(--wcag-button--s-active--box-shadow);
+[is="wcag-button"]:where(:active, [aria-pressed="true"]) {
+  --wcag-button--color: var(--wcag-button--s-act--color);
+  --wcag-button--background-color: var(--wcag-button--s-act--background-color);
+  --wcag-button--border-color: var(--wcag-button--s-act--border-color);
+  
+  --wcag-button--text-decoration: var(--wcag-button--s-act--text-decoration);
 
-  --wcag-button--color: var(--wcag-button--s-active--color);
-  --wcag-button--background-color: var(--wcag-button--s-active--background-color);
 }

@@ -7,3 +7,4 @@ export * from "./_md5";
 export * from "./_base64";
 export * from "./_jwt";
 export * from "./_cookieStorage";
+export * from "./_wcagUIExtender";

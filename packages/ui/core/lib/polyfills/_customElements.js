@@ -6,7 +6,6 @@
   check the fix I did on line 283 changing HTMLBuiltin 
   with HTMLElement for debugging purposes
 */
-
 (function () {
   var attributesObserver = (whenDefined, MutationObserver) => {
     const attributeChanged = (records) => {
@@ -65,11 +64,18 @@
   };
 
   /*! (c) Andrea Giammarchi - ISC */
-  const QSA$1 = "querySelectorAll";
 
   /**
+   * @callback TLifecycleCallback
+   * @param {Element} node
+   * @param {boolean} connected
+   * @returns {void}
+   */
+
+  /**
+  /**
    * Start observing a generic document or root element.
-   * @param {(node:Element, connected:boolean) => void} callback triggered per each dis/connected element
+   * @param {TLifecycleCallback} callback triggered per each dis/connected element
    * @param {Document|Element} [root=document] by default, the global document to observe
    * @param {Function} [MO=MutationObserver] by default, the global MutationObserver
    * @param {string[]} [query=['*']] the selectors to use within nodes
@@ -78,7 +84,7 @@
   const notify = (callback, root = document, MO = MutationObserver, query = ["*"]) => {
     const loop = (nodes, selectors, added, removed, connected, pass) => {
       for (const node of nodes) {
-        if (pass || QSA$1 in node) {
+        if (pass || 'querySelectorAll' in node) {
           if (connected) {
             if (!added.has(node)) {
               added.add(node);
@@ -91,7 +97,7 @@
             callback(node, connected);
           }
 
-          if (!pass) loop(node[QSA$1](selectors), selectors, added, removed, connected, true);
+          if (!pass) loop(node.querySelectorAll(selectors), selectors, added, removed, connected, true);
         }
       }
     };
@@ -117,19 +123,11 @@
 
   const QSA = "querySelectorAll";
 
-  const {
-    document: document$2,
-    Element: Element$1,
-    MutationObserver: MutationObserver$2,
-    Set: Set$2,
-    WeakMap: WeakMap$1,
-  } = self;
-
   const elements = (element) => QSA in element;
   const { filter } = [];
 
   var qsaObserver = (options) => {
-    const live = new WeakMap$1();
+    const live = new WeakMap();
 
     const drop = (elements) => {
       for (const element of elements) live.delete(element);
@@ -152,7 +150,7 @@
       if (connected) {
         for (let q, m = matches(element), i = 0, { length } = query; i < length; i++) {
           if (m.call(element, (q = query[i]))) {
-            !live.has(element) && live.set(element, new Set$2());
+            !live.has(element) && live.set(element, new Set());
 
             selectors = live.get(element);
 
@@ -177,12 +175,12 @@
     };
 
     const { query } = options;
-    const root = options.root || document$2;
-    const observer = notify(notifier, root, MutationObserver$2, query);
-    const { attachShadow } = Element$1.prototype;
+    const root = options.root || document;
+    const observer = notify(notifier, root, MutationObserver, query);
+    const { attachShadow } = Element.prototype;
 
     if (attachShadow)
-      Element$1.prototype.attachShadow = function (init) {
+      Element.prototype.attachShadow = function (init) {
         const shadowRoot = attachShadow.call(this, init);
         observer.observe(shadowRoot);
 
@@ -194,20 +192,7 @@
     return { drop, flush, observer, parse };
   };
 
-  const {
-    customElements,
-    document: document$1,
-    Element,
-    MutationObserver: MutationObserver$1,
-    Object: Object$1,
-    Promise: Promise$1,
-    Map,
-    Set: Set$1,
-    WeakMap,
-    Reflect,
-  } = self;
-
-  const { createElement } = document$1;
+  const { createElement } = document;
   const { define, get, upgrade } = customElements;
 
   const { construct } = Reflect || {
@@ -216,10 +201,10 @@
     },
   };
 
-  const { defineProperty, getOwnPropertyNames, setPrototypeOf } = Object$1;
+  const { defineProperty, getOwnPropertyNames, setPrototypeOf } = Object;
 
   const shadowRoots = new WeakMap();
-  const shadows = new Set$1();
+  const shadows = new Set();
 
   const classes = new Map();
   const defined = new Map();
@@ -278,7 +263,7 @@
   const whenDefined = (name) => {
     if (!defined.has(name)) {
       let _;
-      let $ = new Promise$1(($) => {
+      let $ = new Promise(($) => {
         _ = $;
       });
 
@@ -288,7 +273,7 @@
     return defined.get(name).$;
   };
 
-  const augment = attributesObserver(whenDefined, MutationObserver$1);
+  const augment = attributesObserver(whenDefined, MutationObserver);
 
   let override = null;
 
@@ -307,7 +292,7 @@
         if (is) {
           if (override) return augment(override, is);
 
-          const element = createElement.call(document$1, tag);
+          const element = createElement.call(document, tag);
           element.setAttribute("is", is);
 
           return augment(setPrototypeOf(element, constructor.prototype), is);
@@ -325,7 +310,7 @@
       defineProperty(self, k, { value: HTMLBuiltIn });
     });
 
-  document$1.createElement = function (name, options) {
+  document.createElement = function (name, options) {
     const is = options && options.is;
 
     if (is) {
@@ -334,7 +319,7 @@
       if (Class && classes.get(Class).tag === name) return new Class();
     }
 
-    const element = createElement.call(document$1, name);
+    const element = createElement.call(document, name);
 
     is && element.setAttribute("is", is);
 
@@ -382,10 +367,10 @@
 
     whenDefined(is).then(() => {
       if (tag) {
-        parse(document$1.querySelectorAll(selector));
+        parse(document.querySelectorAll(selector));
         shadows.forEach(parseShadow, [selector]);
       } else {
-        parseShadowed(document$1.querySelectorAll(selector));
+        parseShadowed(document.querySelectorAll(selector));
       }
     });
 

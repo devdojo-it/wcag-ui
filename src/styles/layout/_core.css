@@ -1,0 +1,52 @@
+:root {
+  --wcag-t--variant--opsz: "Auto";
+  --wcag-t--variant--weight: 400;
+
+  font-family: "InterVariable", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: var(--wcag-t--variant--weight);
+  font-variation-settings: "opsz" var(--wcag-t--variant--opsz),
+    "wght" var(--wcag-t--variant--weight);
+}
+
+:root {
+  --docs--background-color: hsl(248, 68%, 8%);
+  --docs--layout--header--background-color: hsl(247, 69%, 14%);
+  --docs--layout--header--box-shadow: 0 0.8rem 8rem -0.2rem hsla(0, 0%, 100%, 0.06);
+  --docs--layout--header--height: 9.6rem;
+  --docs--layout--header--font-size: 2.4rem;
+
+  --docs--layout--header--logo--height: 5rem;
+
+  --docs--layout--aside--width: 25rem;
+  --docs--layout--scroll-spy--width: 25rem;
+
+  --docs--layout--footer--height: 33rem;
+  --docs--layout--footer--background-color: hsl(247, 69%, 14%);
+}
+
+html {
+  inline-size: 100vw;
+  min-block-size: 100vh;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "aside main scroll-spy"
+    "footer footer footer";
+  grid-template-columns: var(--docs--layout--aside--width) 1fr var(
+      --docs--layout--scroll-spy--width
+    );
+
+  grid-template-rows: var(--docs--layout--header--height) 1fr var(--docs--layout--footer--height);
+
+  background-color: var(--docs--background-color);
+  background-image: url("../../assets/background-image.svg");
+  background-size: 100vw auto;
+  background-repeat: repeat-y;
+
+  inline-size: 100vw;
+  min-block-size: 100vh;
+}

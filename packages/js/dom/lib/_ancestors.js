@@ -1,9 +1,15 @@
 /**
+ * @callback TAncestorsComparer
+ * @param {Node} el
+ * @returns {boolean}
+ */
+
+/**
  * The ancestors method is designed to traverse the DOM
  * and retrieve ancestor nodes of a given element
  *
  * @param {Node} el - given element
- * @param {string | (el) => boolean} [selectorOrComparer=''] A CSS selector string to match ancestor elements or
+ * @param {string|TAncestorsComparer} [selectorOrComparer=''] A CSS selector string to match ancestor elements or
  * a function that receives a Node and returns true if the node matches the condition.
  * @param {boolean} [one=false] - return only the first matching ancestor or more than one
  * @param {boolean} [includeThis=false] - include the given element in the list of the ancestors
@@ -38,10 +44,10 @@ export const ancestors = (el, selector, one = false, includeThis = false) => {
  * and retrieve ancestor nodes of a given element
  *
  * @param {Node} el - given element
- * @param {string | (el) => boolean} [selectorOrComparer=''] A CSS selector string to match ancestor element or
+ * @param {string|TAncestorsComparer} [selectorOrComparer=''] A CSS selector string to match ancestor element or
  * a function that receives a Node and returns true if the node matches the condition.
  * @param {boolean} [includeThis=false] - include the given element in the list of the ancestors
- * @return {Element | undefined}
+ * @return {Element|undefined}
  */
 export const ancestor = (el, selectorOrComparer = "", includeThis = false) => {
   const ancestorsResult = ancestors(el, selector, true, includeThis);

@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "wcag-icons";
+  src: url("fonts/wcag-icons.ttf?bfvu5y") format("truetype"),
+    url("fonts/wcag-icons.woff?bfvu5y") format("woff"),
+    url("fonts/wcag-icons.svg?bfvu5y#wcag-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="wcag-icon-"],
+[class*=" wcag-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "wcag-icons" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wcag-icon-dev-dojo:before {
+  content: "\e901";
+}
+.wcag-icon-exeen:before {
+  content: "\e902";
+}
+.wcag-icon-wcag-ui:before {
+  content: "\e903";
+}
+.wcag-icon-chevron-up:before {
+  content: "\e904";
+}
+.wcag-icon-chevron-right:before {
+  content: "\e905";
+}
+.wcag-icon-chevron-down:before {
+  content: "\e906";
+}
+.wcag-icon-chevron-left:before {
+  content: "\e907";
+}
+.wcag-icon-checkmark:before {
+  content: "\e908";
+}
+.wcag-icon-copy:before {
+  content: "\e909";
+}
+.wcag-icon-github:before {
+  content: "\e90a";
+}
+.wcag-icon-scheme-system:before {
+  content: "\e90b";
+}
+.wcag-icon-scheme-light:before {
+  content: "\e90c";
+}
+.wcag-icon-scheme-dark:before {
+  content: "\e90d";
+}
+.wcag-icon-figma:before {
+  content: "\e90e";
+}
+.wcag-icon-linked-in:before {
+  content: "\e90f";
+}

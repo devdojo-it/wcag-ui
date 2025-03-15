@@ -1,6 +1,6 @@
 export function buildHandlers(attributesOrEvents, methodSuffix = "") {
   return Object.entries(attributesOrEvents).reduce((acc, item) => {
-    acc[`on${item[0].capitalize()}${methodSuffix}`] = item[1];
+    acc[`handle${item[0].pascalize()}${methodSuffix}`] = item[1];
 
     return acc;
   }, {});

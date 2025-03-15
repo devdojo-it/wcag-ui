@@ -1,21 +1,19 @@
 :root {
-  --wcag-button--s-disabled--border-color: var(--wcag-button--border-color);
-  --wcag-button--s-disabled--border-style: var(--wcag-button--border-style);
-  --wcag-button--s-disabled--box-shadow: var(--wcag-button--box-shadow);
-
-  --wcag-button--s-disabled--color: var(--wcag-button--color);
-  --wcag-button--s-disabled--background-color: var(--mui--theme--accent--color--lighter);
-
-  --wcag-button--s-disabled--cursor: not-allowed;
+  /*
+  --wcag-button--s-dis--color: ;
+  --wcag-button--s-dis--background-color: ;
+  --wcag-button--s-dis--border-color: ;
+  */
+  
+  --wcag-button--s-dis--cursor: not-allowed;
 }
 
 [is="wcag-button"]:where([disabled], :disabled, [aria-disabled="true"]) {
-  --wcag-button--border-color: var(--wcag-button--s-disabled--border-color);
-  --wcag-button--border-style: var(--wcag-button--s-disabled--border-style);
-  --wcag-button--box-shadow: var(--wcag-button--s-disabled--box-shadow);
-
-  --wcag-button--color: var(--wcag-button--s-disabled--color);
-  --wcag-button--background-color: var(--wcag-button--s-disabled--background-color);
-
-  --wcag-button--cursor: var(--wcag-button--s-disabled--cursor);
+  --wcag-button--color: var(--wcag-button--s-dis--color);
+  --wcag-button--background-color: var(--wcag-button--s-dis--background-color);
+  --wcag-button--border-color: var(--wcag-button--s-dis--border-color);
+  
+  --wcag-button--text-decoration: var(--wcag-button--s-dis--text-decoration);
+  
+  --wcag-button--cursor: var(--wcag-button--s-dis--cursor);
 }

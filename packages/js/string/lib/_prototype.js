@@ -29,6 +29,14 @@ export default {
     configurable: true,
     enumerable: false,
   },
+  pascalize: {
+    value() {
+      return this.replace(/(^|-)([a-z])/g, (match, separator, letter) => letter.toUpperCase());
+    },
+    writable: false,
+    configurable: true,
+    enumerable: false,
+  },
   toBoolean: {
     value() {
       // TODO: handle returning undefined when this is not a boolean string ('true','false','0','1'...)

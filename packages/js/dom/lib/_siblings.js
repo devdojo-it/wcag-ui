@@ -21,13 +21,13 @@ const isEmptyProperty = (sibling, property = "") => {
 /**
  * Checks if a sibling can be added to the siblings list
  * @param {ChildNode} sibling
- * @param {string[]} [excludeTagNames=[]]
+ * @param {string[]} [excludeTags=[]]
  * @param {ChildNode[]} [excludeElements=[]]
  * @return {boolean}
  */
 const canAddSibling = (
   sibling,
-  excludeTagNames = [],
+  excludeTags = [],
   excludeElements = [],
   includeComments = true
 ) => {
@@ -37,7 +37,7 @@ const canAddSibling = (
 
   // Element and outerHTML not empty check
   const isSiblingElementNotEmpty =
-    !excludeTagNames.includes(sibling.tagName?.toLowerCase()) &&
+    !excludeTags.includes(sibling.tag?.toLowerCase()) &&
     isEmptyProperty(sibling, "outerHTML");
 
   // Sibling not in excludeElements list

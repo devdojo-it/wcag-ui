@@ -1,0 +1,97 @@
+body > header {
+  grid-area: header;
+
+  position: sticky;
+  inset-block-start: 0;
+
+  display: flex;
+  place-content: space-between;
+  place-items: center;
+  gap: 2rem;
+
+  background-color: var(--docs--layout--header--background-color);
+  box-shadow: var(--docs--layout--header--box-shadow);
+
+  block-size: var(--docs--layout--header--height);
+
+  font-size: var(--docs--layout--header--font-size);
+
+  :where(a, label) {
+    color: CanvasText;
+
+    &:hover {
+      color: light-dark(
+        color-mix(in srgb, CanvasText, Canvas 40%),
+        color-mix(in srgb, CanvasText, Canvas 25%)
+      );
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    &[home] {
+      inline-size: 14.5rem;
+      block-size: 6rem;
+      font-size: var(--docs--layout--header--logo--height);
+    }
+  }
+
+  i {
+    display: inline-block;
+    aspect-ratio: 1;
+  }
+
+  nav {
+    i {
+      inline-size: 2.5rem;
+    }
+  }
+
+  menu {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    gap: 0;
+    place-content: center;
+    place-items: center;
+
+    block-size: 4rem;
+    border-radius: 2rem;
+    padding: 0.25rem;
+
+    background-color: color-mix(in srgb, CanvasText, transparent 90%);
+
+    label {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      place-content: center;
+      place-items: center;
+      gap: 1rem;
+
+      block-size: 3.5rem;
+      aspect-ratio: 1;
+      padding-inline: 1rem;
+      border-radius: 2rem;
+
+      font-size: 2rem;
+      line-height: 3.5rem;
+
+      i {
+        inline-size: 2rem;
+      }
+
+      &:hover {
+        color: color-mix(in srgb, CanvasText, Canvas 10%);
+        background-color: color-mix(in srgb, CanvasText, transparent 80%);
+      }
+
+      &:has(:checked) {
+        background-color: color-mix(in srgb, CanvasText, transparent 80%);
+
+        &:hover {
+          background-color: color-mix(in srgb, CanvasText, transparent 70%);
+        }
+      }
+    }
+  }
+}

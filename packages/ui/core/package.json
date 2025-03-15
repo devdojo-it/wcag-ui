@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@wcag-js/core": "^0.0.0",
+    "@wcag-js/dom": "^0.0.0",
     "@wcag-js/string": "^0.0.0"
   },
   "directories": {

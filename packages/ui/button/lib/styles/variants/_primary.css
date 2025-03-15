@@ -1,18 +1,39 @@
 :root {
-  --wui-button--primary--color: #fff;
-  --wui-button--primary--background-color: rgba(28, 17, 226, 1);
+  --wcag-button--v-pri--color: hsl(250, 30%, 96%);
+  --wcag-button--v-pri--background-color: hsl(245, 93%, 67%);
+  --wcag-button--v-pri--border-color: var(--wcag-button--v-pri--background-color);
 
-  --wui-button--primary--hover--color: #fff;
-  --wui-button--primary--hover--background-color: rgba(28, 17, 226, 1);
+  --wcag-button--v-pri--s-hov--color: var(--wcag-button--v-pri--color);
+  --wcag-button--v-pri--s-hov--background-color: hsl(245, 93%, 38%);
+  --wcag-button--v-pri--s-hov--border-color: var(--wcag-button--v-pri--s-hov--background-color);
 
-  --wui-button--primary--active--color: #fff;
-  --wui-button--primary--active--background-color: rgba(28, 17, 226, 1);
+  --wcag-button--v-pri--s-foc--outline-color: var(--wcag-button--v-pri--s-hov--background-color);
 
-  --wui-button--primary--disabled--color: #fff;
-  --wui-button--primary--disabled--background-color: rgba(28, 17, 226, 1);
+  --wcag-button--v-pri--s-act--color: var(--wcag-button--v-pri--color);
+  --wcag-button--v-pri--s-act--background-color: hsl(245, 93%, 20%);
+  --wcag-button--v-pri--s-act--border-color: var(--wcag-button--v-pri--s-act--background-color);
 
-  --wui-button--primary--selected--color: #fff;
-  --wui-button--primary--selected--background-color: rgba(28, 17, 226, 1);
+  --wcag-button--v-pri--s-dis--color: var(--wcag-button--v-pri--color);
+  --wcag-button--v-pri--s-dis--background-color: hsl(248, 70%, 30%);
+  --wcag-button--v-pri--s-dis--border-color: var(--wcag-button--v-pri--s-dis--background-color);
+}
 
+[is="wcag-button"] {
+  --wcag-button--color: var(--wcag-button--v-pri--color);
+  --wcag-button--background-color: var(--wcag-button--v-pri--background-color);
+  --wcag-button--border-color: var(--wcag-button--v-pri--border-color);
 
+  --wcag-button--s-hov--color: var(--wcag-button--v-pri--s-hov--color);
+  --wcag-button--s-hov--background-color: var(--wcag-button--v-pri--s-hov--background-color);
+  --wcag-button--s-hov--border-color: var(--wcag-button--v-pri--s-hov--border-color);
+
+  --wcag-button--s-foc--outline-color: var(--wcag-button--v-pri--s-foc--outline-color);
+
+  --wcag-button--s-act--color: var(--wcag-button--v-pri--s-act--color);
+  --wcag-button--s-act--background-color: var(--wcag-button--v-pri--s-act--background-color);
+  --wcag-button--s-act--border-color: var(--wcag-button--v-pri--s-act--border-color);
+
+  --wcag-button--s-dis--color: var(--wcag-button--v-pri--s-dis--color);
+  --wcag-button--s-dis--background-color: var(--wcag-button--v-pri--s-dis--background-color);
+  --wcag-button--s-dis--border-color: var(--wcag-button--v-pri--s-dis--border-color);
 }

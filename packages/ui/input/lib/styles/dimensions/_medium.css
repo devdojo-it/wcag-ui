@@ -1,0 +1,23 @@
+:root {
+  --wcag-input--md--gap: 1.2rem;
+
+  --wcag-input--md--height: 4.4rem;
+  --wcag-input--md--padding-inline: 2rem;
+  --wcag-input--md--padding-block: 0;
+  --wcag-input--md--border-width: 1px;
+  --wcag-input--md--border-radius: 0.4rem;
+
+  --wcag-input--md--font-size: 1.6rem;
+}
+
+[is="wcag-input"] {
+  --wcag-input--gap: var(--wcag-input--md--gap);
+
+  --wcag-input--height: var(--wcag-input--md--height);
+  --wcag-input--padding-inline: var(--wcag-input--md--padding-inline);
+  --wcag-input--padding-block: var(--wcag-input--md--padding-block);
+  --wcag-input--border-width: var(--wcag-input--md--border-width);
+  --wcag-input--border-radius: var(--wcag-input--md--border-radius);
+
+  --wcag-input--font-size: var(--wcag-input--md--font-size);
+}

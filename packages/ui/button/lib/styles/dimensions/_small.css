@@ -1,19 +1,23 @@
 :root {
-  --wcag-button--d-sm--gap: var(--mui--ff--d-sm--gap);
-  --wcag-button--d-sm--font-size: var(--mui--ff--d-sm--font-size);
-  --wcag-button--d-sm--size: var(--mui--ff--d-sm--size);
-  --wcag-button--d-sm--size-px: var(--mui--ff--d-sm--size-px);
-  --wcag-button--d-sm--padding: 0 calc(var(--mui--ff--d-sm--gap) * 2);
-  --wcag-button--d-sm--border-size: var(--mui--ff--d-sm--border-size);
-  --wcag-button--d-sm--border-radius: var(--mui--ff--d-sm--border-radius);
+  --wcag-button--sm--gap: 0.8rem;
+
+  --wcag-button--sm--height: 4rem;
+  --wcag-button--sm--padding-inline: 1.2rem;
+  --wcag-button--sm--padding-block: 0;
+  --wcag-button--sm--border-width: 1px;
+  --wcag-button--sm--border-radius: 0.35rem;
+
+  --wcag-button--sm--font-size: 1.4rem;
 }
 
-[is="wcag-button"][small] {
-  --wcag-button--gap: var(--wcag-button--d-sm--gap);
-  --wcag-button--font-size: var(--wcag-button--d-sm--font-size);
-  --wcag-button--size: var(--wcag-button--d-sm--size);
-  --wcag-button--size-px: var(--wcag-button--d-sm--size-px);
-  --wcag-button--padding: var(--wcag-button--d-sm--padding);
-  --wcag-button--border-size: var(--wcag-button--d-sm--border-size);
-  --wcag-button--border-radius: var(--wcag-button--d-sm--border-radius);
+[is="wcag-button"][sm] {
+  --wcag-button--gap: var(--wcag-button--sm--gap);
+
+  --wcag-button--height: var(--wcag-button--sm--height);
+  --wcag-button--padding-inline: var(--wcag-button--sm--padding-inline);
+  --wcag-button--padding-block: var(--wcag-button--sm--padding-block);
+  --wcag-button--border-width: var(--wcag-button--sm--border-width);
+  --wcag-button--border-radius: var(--wcag-button--sm--border-radius);
+
+  --wcag-button--font-size: var(--wcag-button--sm--font-size);
 }

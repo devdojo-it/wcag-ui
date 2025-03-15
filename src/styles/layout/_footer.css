@@ -1,0 +1,14 @@
+@layer footer {
+  body > footer {
+    grid-area: footer;
+
+    display: flex;
+    flex-flow: column nowrap;
+    place-content: center;
+    place-items: start;
+    gap: 1.5rem;
+
+    background-color: var(--docs--layout--footer--background-color);
+    block-size: var(--docs--layout--footer--height);
+  }
+}

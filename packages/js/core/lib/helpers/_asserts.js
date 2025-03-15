@@ -6,24 +6,18 @@
  */
 export class Asserts {
   static _checkAssert(assert, safe = false) {
-    if (!!assert) {
-      if (assert instanceof Function) {
-        // if safe a try catch will be executed
-        if (!!safe) {
-          try {
-            return assert();
-          } catch (e) {
-            return false;
-          }
-        }
+    if (!assert) return false;
+    if (!(assert instanceof Function)) return assert;
 
+    if (!!safe) {
+      try {
         return assert();
+      } catch (e) {
+        return false;
       }
-
-      return assert;
     }
 
-    return false;
+    return assert();
   }
 
   /**
@@ -37,9 +31,7 @@ export class Asserts {
    * @memberOf Asserts
    */
   static all(asserts = [], safe = false) {
-    return asserts.every((assert) => {
-      return Asserts._checkAssert(assert, safe);
-    });
+    return asserts.every((assert) => Asserts._checkAssert(assert, safe));
   }
 
   /**
@@ -53,8 +45,6 @@ export class Asserts {
    * @memberOf Asserts
    */
   static one(asserts = [], safe = false) {
-    return asserts.some((assert) => {
-      return Asserts._checkAssert(assert, safe);
-    });
+    return asserts.some((assert) => Asserts._checkAssert(assert, safe));
   }
 }

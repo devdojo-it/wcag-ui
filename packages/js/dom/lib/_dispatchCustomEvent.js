@@ -11,8 +11,8 @@ export const dispatchCustomEvent = function (
   eventNamespace,
   eventName,
   detail = {},
-  originalEvent?,
-  dispatcher?
+  originalEvent = undefined,
+  dispatcher = undefined
 ) {
   dispatcher = dispatcher ?? this ?? self;
 
@@ -24,6 +24,8 @@ export const dispatchCustomEvent = function (
       ...(originalEvent && { originalEvent }),
     },
   });
+
+  console.log(`CustomEvent emitted: ${eventNamespace}.${eventName}`);
 
   dispatcher.dispatchEvent(event);
 };

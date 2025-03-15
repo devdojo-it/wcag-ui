@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+:where(ul, ol, li, menu, dir) {
+  margin: 0;
+  padding: 0;
+}
+
+/* rem reset 1rem = 10px */
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+}
+
+hr {
+  display: block;
+
+  inline-size: 80%;
+  block-size: 1px;
+  margin-inline: auto;
+
+  border-color: color-mix(in srgb, CanvasText, transparent 80%);
+}

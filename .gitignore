@@ -4,4 +4,4 @@ node_modules
 yarn.lock
 .idea
 lerna-debug.log
-.obsidian  
+.obsidian

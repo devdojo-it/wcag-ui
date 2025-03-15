@@ -1,4 +1,4 @@
-import { isString } from '@wcag-js/core';
+import { isString } from "@wcag-js/core";
 
 export default {
   /**
@@ -21,17 +21,19 @@ export default {
     },
     writable: false,
     configurable: true,
-    enumerable: false
+    enumerable: false,
   },
   guid: {
     value() {
-      return `${Math.random().toString(16).slice(2, 10)}-${Math.random().toString(16).slice(2, 6)}-4${Math.random()
+      return `${Math.random().toString(16).slice(2, 10)}-${Math.random()
         .toString(16)
-        .slice(2, 5)}-${Math.random().toString(16).slice(2, 6)}-${Math.random().toString(16).slice(2, 14)}`;
+        .slice(2, 6)}-4${Math.random().toString(16).slice(2, 5)}-${Math.random()
+        .toString(16)
+        .slice(2, 6)}-${Math.random().toString(16).slice(2, 14)}`;
     },
     writable: false,
     configurable: true,
-    enumerable: false
+    enumerable: false,
   },
   capitalize: {
     configurable: true,
@@ -39,7 +41,7 @@ export default {
     writable: true,
     value(s) {
       return String.isString(s) && String.prototype.capitalize.call(s);
-    }
+    },
   },
   camelize: {
     configurable: true,
@@ -47,7 +49,15 @@ export default {
     writable: true,
     value(s) {
       return String.isString(s) && String.prototype.camelize.call(s);
-    }
+    },
+  },
+  pascalize: {
+    configurable: true,
+    enumerable: false,
+    writable: true,
+    value(s) {
+      return String.isString(s) && String.prototype.pascalize.call(s);
+    },
   },
   toBoolean: {
     configurable: true,
@@ -55,6 +65,6 @@ export default {
     writable: true,
     value(s) {
       return String.isString(s) && String.prototype.toBoolean.call(s);
-    }
-  }
+    },
+  },
 };

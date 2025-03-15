@@ -1,5 +1,7 @@
 "use strict";
 
+import "./styles/core.css";
+
 import { encodeBase64, decodeBase64, jsonToBase64 } from "@wcag-js/core";
 import "@wcag-js/string";
 
@@ -24,3 +26,4 @@ console.log(
 import "./polyfills";
 
 export * from "./decorator";
+export * from "./helpers";

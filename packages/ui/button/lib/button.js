@@ -5,12 +5,26 @@ import './styles/button.css';
 import attributes from "./button.attributes";
 import events from "./button.events";
 
+/**
+ * wcagUI Button class
+ *
+ * @export
+ * @class Button
+ * @extends {HTMLButtonElement}
+ */
 export class Button extends HTMLButtonElement {
   static name = "wcag-button";
   static extends = "button";
   static attributes = attributes;
   static events = events;
 
+  
+  /**
+   * static initialization
+   *
+   * @static
+   * @memberof Button
+   */
   static {
     componentDecorator("Button", Button);
   }
@@ -19,6 +33,7 @@ export class Button extends HTMLButtonElement {
     super();
 
     this.initialize();
+    this.onclick = this;
   }
 
   initialize() {

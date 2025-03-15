@@ -1,30 +1,39 @@
 :root {
-  --wui-button--destructive--color: #fff;
-  --wui-button--destructive--background-color: rgba(0, 0, 30, 1);
+  --wcag-button--v-des--color: hsl(352, 100%, 97%);
+  --wcag-button--v-des--background-color: hsl(353, 100%, 34%);
+  --wcag-button--v-des--border-color: var(--wcag-button--v-des--background-color);
 
-  --wui-button--destructive--hover--color: #fff;
-  --wui-button--destructive--hover--background-color: rgba(0, 0, 30, 1);
+  --wcag-button--v-des--s-hov--color: var(--wcag-button--v-des--color);
+  --wcag-button--v-des--s-hov--background-color: hsl(353, 100%, 25%);
+  --wcag-button--v-des--s-hov--border-color: var(--wcag-button--v-des--s-hov--background-color);
 
-  --wui-button--destructive--active--color: #fff;
-  --wui-button--destructive--active--background-color: rgba(0, 0, 30, 1);
+  --wcag-button--v-des--s-foc--outline-color: var(--wcag-button--v-des--s-hov--background-color);
 
-  --wui-button--destructive--disabled--color: #fff;
-  --wui-button--destructive--disabled--background-color: rgba(0, 0, 30, 1);
+  --wcag-button--v-des--s-act--color: var(--wcag-button--v-des--color);
+  --wcag-button--v-des--s-act--background-color: hsl(353, 100%, 20%);
+  --wcag-button--v-des--s-act--border-color: var(--wcag-button--v-des--s-act--background-color);
 
-  --wui-button--destructive--selected--color: #fff;
-  --wui-button--destructive--selected--background-color: rgba(0, 0, 30, 1);
+  --wcag-button--v-des--s-dis--color: var(--wcag-button--v-des--color);
+  --wcag-button--v-des--s-dis--background-color: hsl(353, 35%, 34%);
+  --wcag-button--v-des--s-dis--border-color: var(--wcag-button--v-des--s-dis--background-color);
 }
 
 [is="wcag-button"][destructive] {
-  --wui-button--color: var(--wui-button--destructive--color);
-  --wui-button--background-color: var(--wui-button--destructive--background-color);
+  --wcag-button--color: var(--wcag-button--v-des--color);
+  --wcag-button--background-color: var(--wcag-button--v-des--background-color);
+  --wcag-button--border-color: var(--wcag-button--v-des--border-color);
 
-  --wui-button--padding-inline: var(--wui-button--destructive--padding-inline);
-  --wui-button--padding-block: var(--wui-button--destructive--padding-block);
-  --wui-button--border-width: var(--wui-button--destructive--border-width);
-  --wui-button--border-style: var(--wui-button--destructive--border-style);
-  --wui-button--border-color: var(--wui-button--destructive--border-color);
-  --wui-button--border-radius: var(--wui-button--destructive--border-radius);
+  --wcag-button--s-hov--color: var(--wcag-button--v-des--s-hov--color);
+  --wcag-button--s-hov--background-color: var(--wcag-button--v-des--s-hov--background-color);
+  --wcag-button--s-hov--border-color: var(--wcag-button--v-des--s-hov--border-color);
+  
+  --wcag-button--s-foc--outline-color: var(--wcag-button--v-des--s-foc--outline-color);
 
-  --wui-button--height: var(--wui-button--destructive--height);
+  --wcag-button--s-act--color: var(--wcag-button--v-des--s-act--color);
+  --wcag-button--s-act--background-color: var(--wcag-button--v-des--s-act--background-color);
+  --wcag-button--s-act--border-color: var(--wcag-button--v-des--s-act--border-color);
+
+  --wcag-button--s-dis--color: var(--wcag-button--v-des--s-dis--color);
+  --wcag-button--s-dis--background-color: var(--wcag-button--v-des--s-dis--background-color);
+  --wcag-button--s-dis--border-color: var(--wcag-button--v-des--s-dis--border-color);
 }
