@@ -1,10 +1,14 @@
-export * from "./_trueTypeOf";
-export * from "./_asserts";
-export * from "./_debounce";
-export * from "./_throttle";
-export * from "./_file";
-export * from "./_md5";
-export * from "./_base64";
-export * from "./_jwt";
-export * from "./_cookieStorage";
-export * from "./_wcagUIExtender";
+import { debounce } from "./_debounce";
+import { throttle } from "./_throttle";
+
+import * as files from "./_files";
+import * as types from "./_types";
+
+const helpers = {
+  debounce,
+  throttle,
+  files,
+  types,
+};
+
+export { helpers };

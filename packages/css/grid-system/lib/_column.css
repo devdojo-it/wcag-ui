@@ -1,0 +1,8 @@
+:where(col, [col]) {
+  display: flex;
+  flex-flow: column nowrap;
+  grid-column: auto / span var(--gs--cols);
+
+  max-inline-size: var(--gs--container--size);
+  border: 1px solid red;
+}

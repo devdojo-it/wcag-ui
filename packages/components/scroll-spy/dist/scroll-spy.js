@@ -1,0 +1,1 @@
+Object.defineProperty(module.exports,"ScrollSpy",{get:()=>t,set:void 0,enumerable:!0,configurable:!0});class t extends HTMLElement{static name="wcag-scroll-spy";static extends="aside";static attributes=attributes;static events=events;static{componentDecorator("ScrollSpy",t)}constructor(){super()}}

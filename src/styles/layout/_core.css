@@ -5,8 +5,7 @@
   font-family: "InterVariable", sans-serif;
   font-optical-sizing: auto;
   font-weight: var(--wcag-t--variant--weight);
-  font-variation-settings: "opsz" var(--wcag-t--variant--opsz),
-    "wght" var(--wcag-t--variant--weight);
+  font-variation-settings: "opsz" var(--wcag-t--variant--opsz), "wght" var(--wcag-t--variant--weight);
 }
 
 :root {
@@ -14,6 +13,8 @@
   --docs--layout--header--background-color: hsl(247, 69%, 14%);
   --docs--layout--header--box-shadow: 0 0.8rem 8rem -0.2rem hsla(0, 0%, 100%, 0.06);
   --docs--layout--header--height: 9.6rem;
+  --docs--layout--header--padding-inline: 8rem;
+
   --docs--layout--header--font-size: 2.4rem;
 
   --docs--layout--header--logo--height: 5rem;
@@ -36,9 +37,7 @@ body {
     "header header header"
     "aside main scroll-spy"
     "footer footer footer";
-  grid-template-columns: var(--docs--layout--aside--width) 1fr var(
-      --docs--layout--scroll-spy--width
-    );
+  grid-template-columns: var(--docs--layout--aside--width) 1fr var(--docs--layout--scroll-spy--width);
 
   grid-template-rows: var(--docs--layout--header--height) 1fr var(--docs--layout--footer--height);
 

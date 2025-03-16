@@ -1,24 +1,28 @@
-import { Asserts } from '@wcag-js/core';
-
 /**
  * Convert the string to an HTML document
  * @return {Node} An HTML document
  */
 const stringToDOM = (html) => {
-  let parser = new DOMParser();
-  let dom = parser.parseFromString(html, 'text/html');
-  return dom.body || document.createElement('body');
+  const parser = new DOMParser();
+  const dom = parser.parseFromString(html, "text/html");
+
+  return dom.body || document.createElement("body");
 };
 
 /**
  * Check if the attribute is potentially dangerous
- * @param  {String}  name  The attribute name
- * @param  {String}  value The attribute value
- * @return {Boolean}       If true, the attribute is potentially dangerous
+ * @param  {String} name - The attribute name
+ * @param  {String} value - The attribute value
+ * @return {Boolean} true, if the attribute is potentially dangerous
  */
-const isPossiblyDangerous = (name, value) => {
-  let val = value.replace(/\s+/g, '').toLowerCase();
-  return Asserts.one([['src', 'href', 'xlink:href'].includes(name) && (val.includes('javascript:') || val.includes('data:text/html')), name.startsWith('on')]);
+const isPotentiallyDangerous = (name, value) => {
+  const val = value.replace(/\s+/g, "").toLowerCase();
+  const isPotentiallyScriptInjection = name.startsWith("on");
+
+  const isPotentiallyXSS =
+    ["src", "href", "xlink:href"].includes(name) && (val.includes("javascript:") || val.includes("data:text/html"));
+
+  return isPotentiallyScriptInjection || isPotentiallyXSS;
 };
 
 /**
@@ -31,18 +35,8 @@ const removeAttributes = (elem) => {
 
   // Otherwise, loop through each attribute
   // If it's dangerous, remove it
-  for (let { name, value } of elem.attributes) {
-    isPossiblyDangerous(name, value) && elem.removeAttribute(name);
-  }
-};
-
-/**
- * Remove <script> elements
- * @param  {Node} node The HTML
- */
-const removeScripts = (node) => {
-  for (let script of node?.querySelectorAll('script') ?? []) {
-    script.remove();
+  for (const { name, value } of elem.attributes) {
+    isPotentiallyDangerous(name, value) && elem.removeAttribute(name);
   }
 };
 
@@ -51,9 +45,19 @@ const removeScripts = (node) => {
  * @param  {Node} node The HTML document
  */
 const cleanDOM = (node) => {
-  for (let nodeItem of node.childNodes) {
+  for (const nodeItem of node.childNodes) {
     removeAttributes(nodeItem);
     cleanDOM(nodeItem);
+  }
+};
+
+/**
+ * Remove <script> elements
+ * @param  {Node} node The HTML
+ */
+const removeScripts = (node) => {
+  for (const script of node?.querySelectorAll("script") ?? []) {
+    script.remove();
   }
 };
 

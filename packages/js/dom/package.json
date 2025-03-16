@@ -1,5 +1,5 @@
 {
-  "name": "@wcag-js/dom",
+  "name": "@wcag-ui/dom",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "DevDojo IT (https://www.devdojo.it)",
@@ -20,9 +20,6 @@
   "scripts": {
     "test": "node ./__tests__/dom.test.js",
     "build": "parcel build"
-  },
-  "dependencies": {
-    "@wcag-js/core": "^0.0.0"
   },
   "directories": {
     "dist": "dist",

@@ -1,6 +1,8 @@
+@import 'npm:@wcag-ui/foundations';
+@import 'npm:@wcag-ui/grid-system';
+@import 'npm:@wcag-ui/iconography';
 @import 'npm:@wcag-ui/typography';
 
-@import '../assets/fonts/wcag-icons/style.css' layer(wcag-ui-docs.iconography);
 @import './_code.css' layer(wcag-ui-docs.code);
 @import './layout/layout.css' layer(wcag-ui-docs.layout);
 

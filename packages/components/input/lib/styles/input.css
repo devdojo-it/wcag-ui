@@ -1,0 +1,5 @@
+@import "./_core.css" layer(wcag-ui.components.input);
+@import "./variants/variants.css" layer(wcag-ui.components.input);
+@import "./dimensions/dimensions.css" layer(wcag-ui.components.input);
+@import "./modifiers/modifiers.css" layer(wcag-ui.components.input);
+@import "./states/states.css" layer(wcag-ui.components.input);

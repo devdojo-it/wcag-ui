@@ -13,6 +13,7 @@ body > header {
   box-shadow: var(--docs--layout--header--box-shadow);
 
   block-size: var(--docs--layout--header--height);
+  padding-inline: var(--docs--layout--header--padding-inline);
 
   font-size: var(--docs--layout--header--font-size);
 

@@ -13,21 +13,19 @@
     "start": "parcel ./src/index.html",
     "restart": "yarn clear:cache && yarn start",
     "prebuild": "yarn clear:cache",
-    "build": "yarn workspaces run build && parcel build ./src/index.html",
-    "test": "yarn workspaces run test",
-    "lint": "yarn workspaces run lint",
-    "docs:js": "jsdoc -c jsdoc-js.json -r --verbose && npx http-serve ./docs-js --gzip -p 1234",
-    "docs:ui": "jsdoc -c jsdoc-ui.json -r --verbose && npx http-serve ./docs-ui --gzip -p 1234"
+    "build": "lerna run build && parcel build ./src/index.html",
+    "test": "lerna run test",
+    "lint": "lerna run lint"
   },
   "workspaces": [
     "packages/**/*"
   ],
   "dependencies": {
-    "@wcag-js/core": "^0.0.0",
-    "@wcag-js/string": "^0.0.0",
-    "@wcag-ui/button": "^0.0.0",
     "@wcag-ui/core": "^0.0.0",
+    "@wcag-ui/button": "^0.0.0",
     "@wcag-ui/input": "^0.0.0",
+    "@wcag-ui/grid-system": "^0.0.0",
+    "@wcag-ui/iconography": "^0.0.0",
     "@wcag-ui/typography": "^0.0.0",
     "highlight.js": "11.11.1"
   },
@@ -36,9 +34,9 @@
     "lerna": "8.2.1",
     "parcel": "2.13.3",
     "posthtml": "0.16.6",
-    "posthtml-extend": "^0.6.5",
+    "posthtml-extend": "0.6.5",
     "posthtml-include": "2.0.1",
-    "posthtml-markdownit": "^3.1.1",
+    "posthtml-markdownit": "3.1.1",
     "svgo": "3.3.2"
   }
 }
