@@ -2,6 +2,7 @@
 📌 Primary Button - Accessibilità
 
 ## 1. Overview del Componente
+
 Il componente `Button` viene utilizzato per eseguire un'azione all'interno dell'interfaccia. Deve essere chiaramente distinguibile, accessibile tramite tastiera e compatibile con gli screen reader.
 
 ---

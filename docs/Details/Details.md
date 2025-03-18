@@ -4,8 +4,10 @@
 Il componente `Details` viene utilizzato per mostrare o nascondere informazioni aggiuntive su richiesta dell'utente. Deve essere accessibile sia per utenti che navigano con la tastiera che per chi utilizza screen reader.
 
 ---
+## 2. Come utilizzare il componente
 
-## 2. Requisiti di Accessibilità (WCAG)
+*// Quì va il codice come su button //*
+## 3. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
 - Il tag `<details>` è semanticamente corretto per nascondere e mostrare contenuti progressivi.
@@ -57,7 +59,7 @@ summary:focus-visible {
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 4. Linee Guida per gli Sviluppatori
 
 ✅ **Markup HTML Corretto**
 ```html
@@ -90,7 +92,7 @@ summary:focus-visible {
 
 ---
 
-## 4. Test e Validazione
+## 5. Test e Validazione
 
 🛠 **Tecnologie Assistive Testate**
 - NVDA
@@ -110,7 +112,7 @@ summary:focus-visible {
 
 ---
 
-## 5. Considerazioni Avanzate
+## 6. Considerazioni Avanzate
 
 🌍 **Internazionalizzazione**
 - Testare con testi più lunghi per lingue diverse.
@@ -131,7 +133,7 @@ summary:focus-visible {
 
 ---
 
-## 6. Esempi e Best Practices
+## 7. Esempi e Best Practices
 ✅ **Usare il tag `<details>` per migliorare l'accessibilità senza bisogno di ARIA extra.**
 ✅ **Garantire un chiaro focus visibile per la navigazione da tastiera.**
 ✅ **Non basarsi solo sul colore per indicare lo stato aperto/chiuso.**

@@ -4,8 +4,10 @@
 Il componente `Informative Chip` è utilizzato per visualizzare informazioni statiche e contestuali senza interazioni dirette. Deve essere chiaro, leggibile e accessibile per tutti gli utenti, inclusi quelli che utilizzano tecnologie assistive.
 
 ---
+## 2. Come utilizzare il componente
 
-## 2. Requisiti di Accessibilità (WCAG)
+*// Quì va il codice come su button //*
+## 3. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
 - Le chip informative devono essere identificate semanticamente tramite `aria-role="status"` o essere contenute in un elemento con una chiara relazione con il contesto.
@@ -39,7 +41,7 @@ Il componente `Informative Chip` è utilizzato per visualizzare informazioni sta
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 4. Linee Guida per gli Sviluppatori
 
 ✅ **Markup HTML Corretto**
 ```html
@@ -63,7 +65,7 @@ Il componente `Informative Chip` è utilizzato per visualizzare informazioni sta
 
 ---
 
-## 4. Test e Validazione
+## 5. Test e Validazione
 
 🛠 **Tecnologie Assistive Testate**
 - NVDA
@@ -82,7 +84,7 @@ Il componente `Informative Chip` è utilizzato per visualizzare informazioni sta
 
 ---
 
-## 5. Considerazioni Avanzate
+## 6. Considerazioni Avanzate
 
 🌍 **Internazionalizzazione**
 - Testare con testi più lunghi per lingue diverse.
@@ -103,7 +105,7 @@ Il componente `Informative Chip` è utilizzato per visualizzare informazioni sta
 
 ---
 
-## 6. Esempi e Best Practices
+## 7. Esempi e Best Practices
 ✅ **Usare `role="status"` o `aria-live` per garantire un’accessibilità chiara.**
 ✅ **Assicurare un contrasto sufficiente per il testo informativo.**
 ✅ **Evitare di usare solo il colore per trasmettere informazioni.**
