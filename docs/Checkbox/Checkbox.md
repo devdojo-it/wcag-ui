@@ -9,6 +9,9 @@ Le checkbox di controllo consentono agli utenti di selezionare zero, uno o più 
 
 *// Quì va il codice come su button //*
 
+---
+
+
 ## 3. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Informazioni e Relazioni

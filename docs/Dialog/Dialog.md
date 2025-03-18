@@ -7,6 +7,8 @@ Il componente `Dialog` è utilizzato per mostrare finestre modali o avvisi impor
 ## 2. Come utilizzare il componente
 
 *// Quì va il codice come su button //*
+
+---
 ## 3. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Informazioni e Relazioni

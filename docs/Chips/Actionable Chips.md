@@ -7,6 +7,8 @@ Il componente `Actionable Chip` è un elemento interattivo utilizzato per filtra
 ## 2. Come utilizzare il componente
 
 *// Quì va il codice come su button //*
+
+---
 ## 3. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.1.1 - Testo Alternativo
