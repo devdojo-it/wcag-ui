@@ -1,10 +1,8 @@
 [is="wcag-scroll-spy"] {
+  align-self: flex-start;
+  
   display: block;
   width: 250px;
-  position: sticky;
-  top: 20px;
-  margin-left: 20px;
-  align-self: flex-start;
 
   nav {
     ul {
