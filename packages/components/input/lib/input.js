@@ -19,10 +19,10 @@ export class Input extends HTMLInputElement {
   constructor() {
     super();
 
-    this.initialize();
+    this.#initialize();
   }
 
-  initialize() {
+  #initialize() {
     !this.hasAttribute("type") && this.setAttribute("type", "text");
 
     const fieldWrapper = DOM.wrapElement(this, {

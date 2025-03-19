@@ -1,6 +1,6 @@
 import { componentDecorator } from "@wcag-ui/core";
 
-import './styles/button.css';
+import "./styles/button.css";
 
 import attributes from "./button.attributes";
 import events from "./button.events";
@@ -18,7 +18,6 @@ export class Button extends HTMLButtonElement {
   static attributes = attributes;
   static events = events;
 
-  
   /**
    * static initialization
    *
@@ -32,11 +31,10 @@ export class Button extends HTMLButtonElement {
   constructor() {
     super();
 
-    this.initialize();
-    this.onclick = this;
+    this.#initialize();
   }
 
-  initialize() {
+  #initialize() {
     !this.hasAttribute("type") && this.setAttribute("type", "button");
     !this.hasAttribute("role") && this.setAttribute("role", "button");
   }

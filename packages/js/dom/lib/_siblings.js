@@ -2,7 +2,7 @@
  * Allowed Node Types Enumeration
  * @enum {number}
  */
-const EAllowedNodeType = Object.freeze({
+const EAllowedNodeTypes = Object.freeze({
   HTMLElement: 1,
   ChildNode: 3,
   Comment: 8,
@@ -25,26 +25,20 @@ const isEmptyProperty = (sibling, property = "") => {
  * @param {ChildNode[]} [excludeElements=[]]
  * @return {boolean}
  */
-const canAddSibling = (
-  sibling,
-  excludeTags = [],
-  excludeElements = [],
-  includeComments = true
-) => {
+const canAddSibling = (sibling, excludeTags = [], excludeElements = [], includeComments = true) => {
   // Text nodes and textContent not empty check
   const isSiblingTextNotEmpty =
-    sibling.nodeType === EAllowedNodeType.ChildNode && isEmptyProperty(sibling, "textContent");
+    sibling.nodeType === EAllowedNodeTypes.ChildNode && isEmptyProperty(sibling, "textContent");
 
   // Element and outerHTML not empty check
   const isSiblingElementNotEmpty =
-    !excludeTags.includes(sibling.tag?.toLowerCase()) &&
-    isEmptyProperty(sibling, "outerHTML");
+    !excludeTags.includes(sibling.tag?.toLowerCase()) && isEmptyProperty(sibling, "outerHTML");
 
   // Sibling not in excludeElements list
   const isSiblingElementNotInExcludeElements = !excludeElements.includes(sibling);
 
   return (
-    (!!includeComments && sibling.nodeType === EAllowedNodeType.Comment) ||
+    (!!includeComments && sibling.nodeType === EAllowedNodeTypes.Comment) ||
     ((isSiblingTextNotEmpty || isSiblingElementNotEmpty) && isSiblingElementNotInExcludeElements)
   );
 };
@@ -57,16 +51,11 @@ const canAddSibling = (
  * @param {ChildNode[]} [notAllowedElements=[]]
  * @return {ChildNode[]}
  */
-const getSiblings = (
-  child,
-  notAllowedTags = [],
-  notAllowedElements = [],
-  siblingMethod = "nextSibling"
-) => {
+const getSiblings = (child, notAllowedTags = [], notAllowedElements = [], siblingMethod = "nextSibling") => {
   const siblings = [];
   let sibling = child;
 
-  while (sibling && allowedNodeTypes.includes(sibling.nodeType)) {
+  while (sibling && Object.values(EAllowedNodeTypes).includes(sibling.nodeType)) {
     canAddSibling(sibling, notAllowedTags, notAllowedElements) && siblings.push(sibling);
     sibling = sibling[siblingMethod];
   }
