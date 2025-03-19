@@ -13,9 +13,13 @@
     "start": "parcel ./src/index.html",
     "restart": "yarn clear:cache && yarn start",
     "prebuild": "yarn clear:cache",
-    "build": "lerna run build && parcel build ./src/index.html --no-source-maps",
     "test": "lerna run test",
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "build": "lerna run build && parcel build ./src/index.html --no-source-maps --public-url ./ && git add . && git commit --amend --no-edit && git push -f",
+    "rel:push": "git push && git push --tags",
+    "rel:major": "yarn build && yarn version --major && yarn rel:push",
+    "rel:minor": "yarn build && yarn version --minor && yarn rel:push",
+    "rel:patch": "yarn build && yarn version --patch && yarn rel:push"
   },
   "workspaces": [
     "packages/**/*"
