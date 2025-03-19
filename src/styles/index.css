@@ -5,9 +5,11 @@
 
 @import "./_code.css" layer(wcag-ui-docs.code);
 @import "./layout/layout.css" layer(wcag-ui-docs.layout);
+@import "./pages/pages.css" layer(wcag-ui-docs.pages);
 
-:root {
-}
+/* :root {
+  transition: color 350ms ease-in-out, background-color 275ms ease-in-out;
+} */
 
 html {
   scroll-behavior: smooth;

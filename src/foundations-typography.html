@@ -1,40 +1,23 @@
-<extends src="_layout.html" locals='{"title": "Docs"}'>
+<extends src="_layout.html" locals='{"title": "Foundations - Typography"}'>
   <block name="aside">
     <include src="common/docs-nav.html"></include>
   </block>
   <block name="main">
-    <h1>Typography</h1>
+    <hgroup>
+      <h1 is="wcag-chip">Foundations</h1>
+      <h2>Typography</h2>
+    </hgroup>
     <section>
-      <h2>Primary</h2>
-      <p>
-        <button is="wcag-button" sm>Button/Primary/Small</button>
-        <button is="wcag-button">Button/Primary/Medium</button>
-        <button is="wcag-button" lg>Button/Primary/Large</button>
-      </p>
-    </section>
-    <section>
-      <h2>secondary</h2>
-      <p>
-        <button is="wcag-button" secondary sm>Button/Secondary/Small</button>
-        <button is="wcag-button" secondary>Button/Secondary/Medium</button>
-        <button is="wcag-button" secondary lg>Button/Secondary/Large</button>
-      </p>
-    </section>
-    <section>
-      <h2>tertiary</h2>
-      <p>
-        <button is="wcag-button" tertiary sm>Button/Tertiary/Small</button>
-        <button is="wcag-button" tertiary>Button/Tertiary/Medium</button>
-        <button is="wcag-button" tertiary lg>Button/Tertiary/Large</button>
-      </p>
-    </section>
-    <section>
-      <h2>destructive</h2>
-      <p>
-        <button is="wcag-button" destructive sm>Button/Destructive/Small</button>
-        <button is="wcag-button" destructive>Button/Destructive/Medium</button>
-        <button is="wcag-button" destructive lg>Button/Destructive/Large</button>
-      </p>
+      <h3>Type Scale</h3>
+      <section example>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+        <p>Paragraph</p>
+      </section>
     </section>
   </block>
 </extends>

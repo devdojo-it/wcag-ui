@@ -1,0 +1,41 @@
+@import "npm:@wcag-ui/iconography";
+
+:root {
+}
+
+[is="wcag-details"] {
+  summary {
+    &::marker {
+      content: "";
+      display: inline-block;
+
+      font-size: 0;
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+
+      color: transparent;
+    }
+
+    /* 
+  &:focus {
+    &::-webkit-details-marker {
+      display: none;
+
+      color: transparent;
+    }
+  } */
+
+    i {
+      display: inline-flex;
+      transition: rotate 0.25s linear;
+    }
+  }
+
+  &[open] {
+    summary i {
+      rotate: 180deg;
+    }
+  }
+}

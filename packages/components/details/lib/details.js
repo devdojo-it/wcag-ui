@@ -1,10 +1,10 @@
-import { componentDecorator } from "@wcag-ui/core";
-import { DOM } from "@wcag-ui/dom";
+import { componentDecorator } from '@wcag-ui/core';
+import { DOM } from '@wcag-ui/dom';
 
-import "./styles/details.css";
+import './styles/details.css';
 
-import attributes from "./details.attributes";
-import events from "./details.events";
+import attributes from './details.attributes';
+import events from './details.events';
 
 /**
  * wcagUI Details class
@@ -14,8 +14,8 @@ import events from "./details.events";
  * @extends {HTMLDetailsElement}
  */
 export class Details extends HTMLDetailsElement {
-  static name = "wcag-details";
-  static extends = "details";
+  static name = 'wcag-details';
+  static extends = 'details';
   static attributes = attributes;
   static events = events;
 
@@ -26,7 +26,7 @@ export class Details extends HTMLDetailsElement {
    * @memberof Details
    */
   static {
-    componentDecorator("Details", Details);
+    componentDecorator('Details', Details);
   }
 
   #guid = String.guid();
@@ -37,18 +37,19 @@ export class Details extends HTMLDetailsElement {
     super();
 
     this.#initialize();
-    this.onclick = this;
   }
 
   #initialize() {
-    this.setAttribute("aria-expanded", `${this.open.toString()}`);
+    this.setAttribute('aria-expanded', `${this.open.toString()}`);
 
-    this.#summary = this.querySelector("summary");
+    this.#summary = this.querySelector('summary');
 
-    !this.#summary.hasAttribute("id") && this.#summary.setAttribute("id", this.#guid);
+    !this.#summary.hasAttribute('id') && this.#summary.setAttribute('id', this.#guid);
 
-    !this.#summary.hasAttribute("aria-controls") &&
-      this.#summary.setAttribute("aria-controls", `${this.#guid}-content`);
+    !this.#summary.hasAttribute('aria-controls') &&
+      this.#summary.setAttribute('aria-controls', `${this.#guid}-content`);
+
+    DOM.insertElement({ tag: 'i', classes: ['wcag-icon-chevron-down'] }, this.#summary, 'append');
 
     // DOM.wrapElement(
     //   Icon.build({
@@ -63,17 +64,17 @@ export class Details extends HTMLDetailsElement {
     const contentElementsFragment = DOM.createFragment(...DOM.getNextSiblings(this.#summary));
 
     this.#content =
-      this.querySelector(":scope > section:only-of-type") ??
+      this.querySelector(':scope > section:only-of-type') ??
       DOM.createElement({
-        tag: "section",
+        tag: 'section',
       });
 
-    !this.#content.hasAttribute("content") && this.#content.setAttribute("content", "");
-    !this.#content.hasAttribute("id") && this.#content.setAttribute("id", `${this.#guid}-content`);
+    !this.#content.hasAttribute('content') && this.#content.setAttribute('content', '');
+    !this.#content.hasAttribute('id') && this.#content.setAttribute('id', `${this.#guid}-content`);
     // !this.#content.hasAttribute("aria-labelledby") && this.#content.setAttribute("aria-labelledby", this.#guid);
     // !this.#content.hasAttribute("role") && this.#content.setAttribute("role", "region");
 
-    DOM.insertElement(this.#content, this.#summary, "after");
+    DOM.insertElement(this.#content, this.#summary, 'after');
     this.#content.append(contentElementsFragment);
     // DOM.insertElement(contentElementsFragment, this.#content, "append"); // TODO: fix support for DocumentFragment in insertAdjacentElement
   }

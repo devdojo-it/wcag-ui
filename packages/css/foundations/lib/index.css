@@ -3,3 +3,5 @@
 @import "./_reset.css" layer(wcag-ui.core.reset);
 @import "./helpers/index.css" layer(wcag-ui.core.helpers);
 @import "./_focus.css" layer(wcag-ui.core.focus);
+@import "./_colors.css" layer(wcag-ui.foundations.colors);
+@import "./_spacings.css" layer(wcag-ui.foundations.spacings);
