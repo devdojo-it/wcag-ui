@@ -1,14 +1,102 @@
-@layer footer {
-  body > footer {
-    grid-area: footer;
+body > footer {
+  grid-area: footer;
 
+  display: flex;
+  flex-flow: row nowrap;
+  place-content: start;
+  place-items: start;
+  gap: 14.2rem;
+
+  block-size: var(--docs--footer--height);
+  padding: 4.8rem 8rem;
+
+  color: var(--docs--footer--color);
+  background-color: var(--docs--footer--background-color);
+  box-shadow: var(--docs--footer--box-shadow);
+
+  [logo] {
+    color: var(--docs--footer--logo--color);
+
+    font-size: 2.4rem;
+
+    &[logo="wcag-ui"] {
+      font-size: 7.2rem;
+    }
+  }
+
+  [credits] {
     display: flex;
     flex-flow: column nowrap;
-    place-content: center;
+    place-content: start;
     place-items: start;
-    gap: 1.5rem;
+    gap: 3.2rem;
 
-    background-color: var(--docs--layout--footer--background-color);
-    block-size: var(--docs--layout--footer--height);
+    section {
+      display: flex;
+      flex-flow: column nowrap;
+      place-content: start;
+      place-items: start;
+      gap: 1.2rem;
+    }
+  }
+
+  [links] {
+    display: flex;
+    flex-flow: row nowrap;
+    place-content: start;
+    place-items: start;
+    gap: 3rem;
+    flex-grow: 1;
+
+    section {
+      display: flex;
+      flex-flow: column nowrap;
+      place-content: start;
+      place-items: start;
+      gap: 1.6rem;
+
+      flex-grow: 1;
+    }
+
+    nav {
+      display: flex;
+      flex-flow: column nowrap;
+      place-content: start;
+      place-items: start;
+      gap: 1.6rem;
+    }
+
+    a {
+      display: inline-flex;
+      place-content: start;
+      place-items: center;
+      gap: 0.4rem;
+
+      color: var(--docs--footer--color);
+
+      &:not(:has(i + span)) {
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      &:has(i + span) {
+        i {
+          font-size: 2rem;
+        }
+
+        span {
+          text-decoration: underline;
+        }
+
+        &:hover {
+          span {
+            text-decoration: none;
+          }
+        }
+      }
+    }
   }
 }

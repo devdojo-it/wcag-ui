@@ -1,7 +1,7 @@
+import "./styles/input.css";
+
 import { componentDecorator } from "@wcag-ui/core";
 import { DOM } from "@wcag-ui/dom";
-
-import "./styles/input.css";
 
 import attributes from "./input.attributes";
 import events from "./input.events";

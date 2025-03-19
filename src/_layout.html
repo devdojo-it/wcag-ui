@@ -27,11 +27,13 @@
   </head>
   <body>
     <include src="common/header.html"></include>
-    <block name="aside"></block>
+    <aside>
+      <block name="aside"></block>
+    </aside>
     <main>
       <block name="main"></block>
     </main>
-    <block name="scroll-spy"></block>
+    <aside is="wcag-scroll-spy" target="main"></aside>
     <include src="common/footer.html"></include>
     <script type="module" src="./scripts/index.js"></script>
   </body>

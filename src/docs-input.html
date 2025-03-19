@@ -1,0 +1,17 @@
+<extends src="_layout.html" locals='{"title": "Docs"}'>
+  <block name="aside">
+    <a href="./docs-button.html">Button</a>
+    <a href="./docs-input.html">Input</a>
+  </block>
+  <block name="main">
+    <h1>Input Docs Example</h1>
+    <section>
+      <h2>Input</h2>
+      <p>
+        <input is="wcag-input" aria-label="Email2" placeholder="Insert you email2 here..." type="email" sm disabled />
+        <input is="wcag-input" aria-label="Email" placeholder="Insert you email here..." type="email" />
+        <input is="wcag-input" aria-label="Email2" placeholder="Insert you email2 here..." type="email" lg disabled />
+      </p>
+    </section>
+  </block>
+</extends>

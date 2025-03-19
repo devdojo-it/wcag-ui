@@ -1,3 +1,3 @@
-body > aside {
+body > aside:not([is="wcag-scroll-spy"]) {
   grid-area: aside;
 }

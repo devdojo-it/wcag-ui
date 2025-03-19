@@ -2,9 +2,14 @@
   box-sizing: border-box;
 }
 
+:where(menu, dir) {
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
 :where(ul, ol, li, menu, dir) {
-  margin: 0;
-  padding: 0;
+  margin-block: 0;
+  padding-block: 0;
 }
 
 /* rem reset 1rem = 10px */

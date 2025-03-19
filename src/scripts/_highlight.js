@@ -1,5 +1,5 @@
 // Using ES6 import syntax
-import hljs from "highlight.js";
+import hljs from "highlight.js/lib/core";
 import xml from "highlight.js/lib/languages/xml";
 import css from "highlight.js/lib/languages/css";
 import javascript from "highlight.js/lib/languages/javascript";

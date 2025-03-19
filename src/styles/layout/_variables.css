@@ -1,0 +1,62 @@
+:root {
+  --wcag-ui--t--variant--opsz: "Auto";
+  --wcag-ui--t--variant--weight: 400;
+}
+
+:root {
+  --docs--background-color: light-dark(hsl(248, 28%, 96%), hsl(248, 70%, 8%));
+
+  --docs--header--color: light-dark(hsl(248, 70%, 8%), #fff);
+  --docs--header--background-color: light-dark(hsl(248, 28%, 96%), hsl(248, 70%, 8%));
+  --docs--header--box-shadow: 0 0.8rem 8rem -0.2rem light-dark(hsla(248, 28%, 58%, 0.1), hsla(0, 0%, 100%, 0.06));
+
+  --docs--header--height: 9.6rem;
+  --docs--header--padding-inline: 8rem;
+
+  --docs--header--font-size: 2.4rem;
+
+  --docs--header--logo--color: light-dark(hsl(245, 95%, 28%), #fff);
+  --docs--header--logo--height: 5rem;
+
+  --docs--header--nav-item--border-radius: 0.8rem;
+  --docs--header--nav-item--padding-inline: 1.6rem;
+
+  --docs--header--nav-item--color: light-dark(hsl(248, 70%, 8%), hsl(248, 28%, 96%));
+  --docs--header--nav-item--background-color: transparent;
+  --docs--header--nav-item--hover--background-color: light-dark(hsl(248, 28%, 85%), hsl(245, 73%, 79%));
+  --docs--header--nav-item--active--background-color: light-dark(hsl(248, 28%, 80%), hsl(245, 73%, 74%));
+
+  --docs--header--nav-item--selected--color: light-dark(hsl(254, 27%, 96%), hsl(248, 70%, 8%));
+  --docs--header--nav-item--selected--background-color: light-dark(hsl(245, 94%, 38%), hsl(245, 73%, 84%));
+  --docs--header--nav-item--selected--hover--background-color: light-dark(hsl(245, 94%, 38%), hsl(245, 73%, 84%));
+  --docs--header--nav-item--selected--active--background-color: light-dark(hsl(245, 94%, 38%), hsl(245, 73%, 84%));
+
+  --docs--header--nav-item--font-size: 1.6rem;
+  --docs--header--nav-item--line-height: 3.2rem;
+
+  --docs--header--menu--border-radius: 0.8rem;
+
+  --docs--header--menu-item--border-radius: 0.8rem;
+
+  --docs--header--menu-item--color: light-dark(hsl(248, 70%, 8%), hsl(248, 28%, 96%));
+  --docs--header--menu-item--background-color: light-dark(hsl(248, 28%, 90%), hsl(248, 28%, 48%));
+  --docs--header--menu-item--hover--background-color: light-dark(hsl(248, 28%, 85%), hsl(248, 28%, 51%));
+  --docs--header--menu-item--active--background-color: light-dark(hsl(248, 28%, 80%), hsl(248, 28%, 54%));
+
+  --docs--header--menu-item--selected--color: light-dark(hsl(248, 28%, 96%), hsl(248, 70%, 8%));
+  --docs--header--menu-item--selected--background-color: light-dark(hsl(245, 94%, 38%), hsl(245, 73%, 84%));
+  --docs--header--menu-item--selected--hover--background-color: light-dark(hsl(245, 94%, 48%), hsl(245, 73%, 79%));
+  --docs--header--menu-item--selected--active--background-color: light-dark(hsl(245, 94%, 58%), hsl(245, 73%, 74%));
+
+  --docs--aside--width: 25rem;
+  --docs--scroll-spy--width: 25rem;
+
+  --docs--footer--height: 33rem;
+
+  --docs--footer--color: light-dark(hsl(247, 69%, 14%), hsl(248, 28%, 96%));
+  --docs--footer--background-color: light-dark(hsl(248, 28%, 92%), hsl(248, 70%, 8%));
+
+  --docs--footer--box-shadow: 0px 0.8rem 8rem -0.2rem light-dark(hsla(0, 0%, 100%, 0.06), hsla(248, 28%, 58%, 0.1));
+
+  --docs--footer--logo--color: light-dark(hsl(245, 94%, 28%), #fff);
+}

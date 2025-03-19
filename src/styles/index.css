@@ -1,10 +1,22 @@
-@import 'npm:@wcag-ui/foundations';
-@import 'npm:@wcag-ui/grid-system';
-@import 'npm:@wcag-ui/iconography';
-@import 'npm:@wcag-ui/typography';
+@import "npm:@wcag-ui/foundations";
+@import "npm:@wcag-ui/grid-system";
+@import "npm:@wcag-ui/iconography";
+@import "npm:@wcag-ui/typography";
 
-@import './_code.css' layer(wcag-ui-docs.code);
-@import './layout/layout.css' layer(wcag-ui-docs.layout);
+@import "./_code.css" layer(wcag-ui-docs.code);
+@import "./layout/layout.css" layer(wcag-ui-docs.layout);
+
+:root {
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--docs--header--height);
+}
+
+[is="wcag-scroll-spy"] {
+  top: var(--docs--header--height);
+}
 
 p:has(button) {
   display: flex;

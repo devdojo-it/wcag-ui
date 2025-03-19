@@ -6,6 +6,6 @@
     "posthtml-include": {
       "root": "./src"
     },
-    "posthtml-markdownit":{}
+    "posthtml-markdownit": {}
   }
 }

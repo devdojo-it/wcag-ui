@@ -1,4 +1,5 @@
 main {
   grid-area: main;
 
+  padding-block: 8rem;
 }
