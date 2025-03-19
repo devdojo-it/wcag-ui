@@ -6,6 +6,15 @@ import '@wcag-ui/scroll-spy';
 
 import './_highlight.js';
 
+function fixExternalLinks() {
+  const externalLinks = document.querySelectorAll('a[href^="http"]');
+
+  for (const externalLink of externalLinks) {
+    externalLink.setAttribute('target', '_blank');
+    externalLink.setAttribute('rel', 'noopener noreferrer');
+  }
+}
+
 function handleMainMenu() {
   const mainMenu = document.querySelector('body > header nav');
   const path = location.pathname;
@@ -15,19 +24,10 @@ function handleMainMenu() {
 
 function handleAsideMenu() {
   const asideMenu = document.querySelector('body > aside[nav]');
-  const path = location.pathname;
+  const path = location.pathname.replace('/', '');
 
   asideMenu?.querySelector(`[href*="${path}"]`)?.setAttribute('active', '');
   asideMenu?.querySelector(`[href*="${path}"]`)?.parentElement?.setAttribute('open', '');
-}
-
-function fixExternalLinks() {
-  const externalLinks = document.querySelectorAll('a[href^="http"]');
-
-  for (const externalLink of externalLinks) {
-    externalLink.setAttribute('target', '_blank');
-    externalLink.setAttribute('rel', 'noopener noreferrer');
-  }
 }
 
 function initColorSchemeSwitcher() {
@@ -49,8 +49,8 @@ function initColorSchemeSwitcher() {
 }
 
 addEventListener('DOMContentLoaded', () => {
+  fixExternalLinks();
   handleMainMenu();
   handleAsideMenu();
-  fixExternalLinks();
   initColorSchemeSwitcher();
 });
