@@ -22,6 +22,7 @@ import { outerHTML } from "./_outerHTML";
 import { sanitizeHTML } from "./_sanitizeHTML";
 
 // *** DOM Manipulation Helpers ***
+import { createFragment } from "./_createFragment";
 import { createElement } from "./_createElement";
 import { ensureElement } from "./_ensureElement";
 import { insertElement } from "./_insertElement";
@@ -41,6 +42,7 @@ const DOM = {
   sanitizeHTML,
   // *** DOM Manipulation Helpers ***
   insertHTML,
+  createFragment,
   createElement,
   ensureElement,
   insertElement,

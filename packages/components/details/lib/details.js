@@ -1,6 +1,7 @@
 import { componentDecorator } from "@wcag-ui/core";
+import { DOM } from "@wcag-ui/dom";
 
-import './styles/details.css';
+import "./styles/details.css";
 
 import attributes from "./details.attributes";
 import events from "./details.events";
@@ -18,7 +19,6 @@ export class Details extends HTMLDetailsElement {
   static attributes = attributes;
   static events = events;
 
-  
   /**
    * static initialization
    *
@@ -29,14 +29,60 @@ export class Details extends HTMLDetailsElement {
     componentDecorator("Details", Details);
   }
 
+  #guid = String.guid();
+  #summary;
+  #content;
+
   constructor() {
     super();
 
-    this.initialize();
+    this.#initialize();
     this.onclick = this;
   }
 
-  initialize() {
-    this.setAttribute('aria-expanded', `${this.open.toString()}`);
+  #initialize() {
+    this.setAttribute("aria-expanded", `${this.open.toString()}`);
+
+    this.#summary = this.querySelector("summary");
+
+    !this.#summary.hasAttribute("id") && this.#summary.setAttribute("id", this.#guid);
+
+    !this.#summary.hasAttribute("aria-controls") &&
+      this.#summary.setAttribute("aria-controls", `${this.#guid}-content`);
+
+    // DOM.wrapElement(
+    //   Icon.build({
+    //     ...(!!this.iconFont && !!this.iconClass
+    //       ? { customFont: this.iconFont, customClass: this.iconClass }
+    //       : { name: this.iconName }),
+    //     dimension: EMonkUIDimensions[this.dimension!]
+    //   }),
+    //   this.#summary
+    // );
+
+    const contentElementsFragment = DOM.createFragment(...DOM.getNextSiblings(this.#summary));
+
+    this.#content =
+      this.querySelector(":scope > section:only-of-type") ??
+      DOM.createElement({
+        tag: "section",
+      });
+
+    !this.#content.hasAttribute("content") && this.#content.setAttribute("content", "");
+    !this.#content.hasAttribute("id") && this.#content.setAttribute("id", `${this.#guid}-content`);
+    // !this.#content.hasAttribute("aria-labelledby") && this.#content.setAttribute("aria-labelledby", this.#guid);
+    // !this.#content.hasAttribute("role") && this.#content.setAttribute("role", "region");
+
+    DOM.insertElement(this.#content, this.#summary, "after");
+    this.#content.append(contentElementsFragment);
+    // DOM.insertElement(contentElementsFragment, this.#content, "append"); // TODO: fix support for DocumentFragment in insertAdjacentElement
+  }
+
+  expand() {
+    this.open = true;
+  }
+
+  collapse() {
+    this.open = false;
   }
 }

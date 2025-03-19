@@ -8,7 +8,7 @@ import { sanitizeHTML } from './_sanitizeHTML';
  */
 export const createElement = (options) => {
   if (!options.tag) {
-    throw new Error(`monk-ui.core.createElement error: no tag provided`);
+    throw new Error(`wcag-ui.core.createElement error: no tag provided`);
   }
 
   const element = document.createElement(options.tag);
