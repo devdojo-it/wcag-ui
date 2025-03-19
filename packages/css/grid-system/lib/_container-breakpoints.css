@@ -1,0 +1,49 @@
+
+/* iphone max */
+@media screen and (width >= 414px) {
+  :root {
+    --gs--container--size: 375px;
+  }
+}
+
+/* xs */
+@media screen and (width >= 576px) {
+  :root {
+    --gs--container--size: 540px;
+  }
+}
+
+/* sm */
+@media screen and (width >= 768px) {
+  :root {
+    --gs--container--size: 720px;
+  }
+}
+
+/* md */
+@media screen and (width >= 1024px) {
+  :root {
+    --gs--container--size: 960px;
+  }
+}
+
+/* lg */
+@media screen and (width >= 1366px) {
+  :root {
+    --gs--container--size: 1200px;
+  }
+}
+
+/* xl */
+@media screen and (width >= 1600px) {
+  :root {
+    --gs--container--size: 1366px;
+  }
+}
+
+/* xxl */
+@media screen and (width >= 1920px) {
+  :root {
+    --gs--container--size: 1600px;
+  }
+}

@@ -1,0 +1,2 @@
+@import "./_square.css" layer(modifiers.square);
+@import "./_circle.css" layer(modifiers.circle);

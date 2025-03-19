@@ -1,0 +1,69 @@
+:root {
+  --wcag-input--color: hsl(247, 69%, 14%);
+  --wcag-input--background-color: hsl(0, 0%, 100%);
+
+  --wcag-input--label--color: var(--wcag-input--color);
+  --wcag-input--placeholder--color: hsl(248, 29%, 78%);
+
+  /* 
+
+  --wcag-input--height: ;
+  --wcag-input--padding-inline: ;
+  --wcag-input--padding-block: ;
+
+  --wcag-input--border-width: ;
+  */
+
+  --wcag-input--border-style: solid;
+  --wcag-input--border-color: hsl(247, 69%, 14%);
+
+  /*
+  --wcag-input--border-radius: ;
+  */
+
+  --wcag-input--outline-width: 2px;
+  --wcag-input--outline-style: solid;
+  /* --wcag-input--outline-color: ; */
+  --wcag-input--outline-offset: var(--wcag-input--outline-width);
+  
+  --wcag-input--cursor: initial;
+}
+
+label:has([is="wcag-input"]) {
+  display: inline-flex;
+  flex-flow: column nowrap;
+  place-content: start;
+  place-items: start;
+  gap: 0.4rem;
+
+  &[inline] {
+    flex-flow: row nowrap;
+    place-content: start;
+    place-items: center;
+  }
+}
+
+[is="wcag-input"] {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  place-content: center;
+  place-items: center;
+  gap: var(--wcag-input--gap);
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  color: var(--wcag-input--color);
+  background-color: var(--wcag-input--background-color);
+
+  padding-inline: var(--wcag-input--padding-inline);
+  padding-block: var(--wcag-input--padding-block);
+  border-width: var(--wcag-input--border-width);
+  border-style: var(--wcag-input--border-style);
+  border-color: var(--wcag-input--border-color);
+  border-radius: var(--wcag-input--border-radius);
+
+  font-size: var(--wcag-input--font-size);
+  line-height: var(--wcag-input--height);
+  
+  cursor: var(--wcag-input--cursor);
+}

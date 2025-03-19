@@ -1,0 +1,53 @@
+:root {
+  /* 
+  --wcag-button--color: ;
+  --wcag-button--background-color: ;
+
+  --wcag-button--height: ;
+  --wcag-button--padding-inline: ;
+  --wcag-button--padding-block: ;
+
+  --wcag-button--border-width: ;
+  */
+
+  --wcag-button--border-style: solid;
+
+  /*
+  --wcag-button--border-color: ;
+  --wcag-button--border-radius: ;
+  */
+
+  --wcag-button--outline-width: 2px;
+  --wcag-button--outline-style: solid;
+  /* --wcag-button--outline-color: ; */
+  --wcag-button--outline-offset: var(--wcag-button--outline-width);
+
+  --wcag-button--cursor: pointer;
+}
+
+[is="wcag-button"] {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  place-content: center;
+  place-items: center;
+  gap: var(--wcag-button--gap);
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  color: var(--wcag-button--color);
+  background-color: var(--wcag-button--background-color);
+
+  aspect-ratio: var(--wcag-button--aspect-ratio);
+  padding-inline: var(--wcag-button--padding-inline);
+  padding-block: var(--wcag-button--padding-block);
+  border-width: var(--wcag-button--border-width);
+  border-style: var(--wcag-button--border-style);
+  border-color: var(--wcag-button--border-color);
+  border-radius: var(--wcag-button--border-radius);
+
+  --wcag-ui--t--font-size: var(--wcag-button--font-size);
+  --wcag-ui--t--line-height: var(--wcag-button--height);
+  --wcag-ui--t--text-decoration: var(--wcag-button--text-decoration);
+
+  cursor: var(--wcag-button--cursor);
+}

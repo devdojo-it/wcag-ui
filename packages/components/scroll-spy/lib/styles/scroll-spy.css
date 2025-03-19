@@ -1,0 +1,31 @@
+[is="wcag-scroll-spy"] {
+  display: block;
+  width: 250px;
+  position: sticky;
+  top: 20px;
+  margin-left: 20px;
+  align-self: flex-start;
+
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 10px;
+
+        a {
+          text-decoration: none;
+          color: #333;
+        }
+
+        &.active {
+          a {
+            font-weight: bold;
+            color: #007bff;
+          }
+        }
+      }
+    }
+  }
+}

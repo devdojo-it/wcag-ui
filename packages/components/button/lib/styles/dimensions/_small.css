@@ -1,0 +1,23 @@
+:root {
+  --wcag-button--sm--gap: 0.8rem;
+
+  --wcag-button--sm--height: 4rem;
+  --wcag-button--sm--padding-inline: 1.2rem;
+  --wcag-button--sm--padding-block: 0;
+  --wcag-button--sm--border-width: 1px;
+  --wcag-button--sm--border-radius: 0.35rem;
+
+  --wcag-button--sm--font-size: 1.4rem;
+}
+
+[is="wcag-button"][sm] {
+  --wcag-button--gap: var(--wcag-button--sm--gap);
+
+  --wcag-button--height: var(--wcag-button--sm--height);
+  --wcag-button--padding-inline: var(--wcag-button--sm--padding-inline);
+  --wcag-button--padding-block: var(--wcag-button--sm--padding-block);
+  --wcag-button--border-width: var(--wcag-button--sm--border-width);
+  --wcag-button--border-radius: var(--wcag-button--sm--border-radius);
+
+  --wcag-button--font-size: var(--wcag-button--sm--font-size);
+}

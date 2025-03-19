@@ -1,0 +1,17 @@
+:root {
+  --wcag-input--s-dis--color: hsl(248, 29%, 90%);
+  --wcag-input--s-dis--background-color: hsl(0, 0%, 100%);
+  --wcag-input--s-dis--border-color: hsl(248, 28%, 84%);
+
+  --wcag-input--s-dis--cursor: not-allowed;
+}
+
+[is="wcag-input"]:where([disabled], :disabled, [aria-disabled="true"]) {
+  --wcag-input--color: var(--wcag-input--s-dis--color);
+  --wcag-input--background-color: var(--wcag-input--s-dis--background-color);
+  --wcag-input--border-color: var(--wcag-input--s-dis--border-color);
+
+  --wcag-input--text-decoration: var(--wcag-input--s-dis--text-decoration);
+
+  --wcag-input--cursor: var(--wcag-input--s-dis--cursor);
+}

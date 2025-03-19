@@ -1,0 +1,5 @@
+@import "./_core.css" layer(wcag-ui.components.button);
+@import "./variants/variants.css" layer(wcag-ui.components.button);
+@import "./dimensions/dimensions.css" layer(wcag-ui.components.button);
+@import "./modifiers/modifiers.css" layer(wcag-ui.components.button);
+@import "./states/states.css" layer(wcag-ui.components.button);

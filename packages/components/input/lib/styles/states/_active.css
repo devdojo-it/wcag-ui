@@ -1,0 +1,16 @@
+:root {
+  /*
+  --wcag-input--s-act--color: ;
+  --wcag-input--s-act--background-color: ;
+  */
+
+  --wcag-input--s-act--border-color: hsl(248, 70%, 30%);
+}
+
+[is="wcag-input"]:where(:active, [aria-pressed="true"]) {
+  /*
+  --wcag-input--color: var(--wcag-input--s-act--color);
+  --wcag-input--background-color: var(--wcag-input--s-act--background-color);
+  */
+  --wcag-input--border-color: var(--wcag-input--s-act--border-color);
+}

@@ -1,0 +1,7 @@
+:root {
+  --gs--container--size: 100vw;
+  --gs--container--gap: 1.5rem;
+  --gs--cols: 12;
+  --gs--gap: 1.5rem;
+  --gs--v-gap: 1.5rem;
+}

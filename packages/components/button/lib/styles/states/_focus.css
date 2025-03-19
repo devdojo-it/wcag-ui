@@ -1,0 +1,14 @@
+/*
+:root {
+  --wcag-button--s-foc--outline-color: ;
+}
+*/
+
+[is="wcag-button"]:where(:focus, :focus-visible) {
+  --wcag-button--outline-color: var(--wcag-button--s-foc--outline-color);
+
+  outline-width: var(--wcag-button--outline-width);
+  outline-style: var(--wcag-button--outline-style);
+  outline-color: var(--wcag-button--outline-color);
+  outline-offset: var(--wcag-button--outline-offset);
+}

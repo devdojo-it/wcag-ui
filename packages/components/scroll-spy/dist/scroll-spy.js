@@ -1,0 +1,7 @@
+require("./scroll-spy.css");var e=require("@wcag-ui/core"),t=require("@wcag-ui/dom");Object.defineProperty(module.exports,"ScrollSpy",{get:()=>o,set:void 0,enumerable:!0,configurable:!0});var r={target:function(e,t){}},s={};class o extends HTMLElement{static name="wcag-scroll-spy";static extends="aside";static attributes=r;static events=s;static{(0,e.componentDecorator)("ScrollSpy",o)}_observer=null;sections=[];constructor(){super()}onConnected(){let e=this.getAttribute("target"),t=document.querySelector(e);if(!t){console.error("Target container non trovato per ScrollSpy:",e);return}this.sections=Array.from(t.querySelectorAll("section")).filter(e=>e.querySelector("h2, h3")),this.buildNav(),this.setupObserver()}onDisconnected(){this._observer&&this._observer.disconnect()}buildNav(){let e=`
+      <nav>
+        <ul>
+          ${this.sections.map(e=>(e.id||(e.id=e.querySelector("h2, h3").textContent.trim().toLowerCase().replace(/\s+/g,"-")),`<li><a href="#${e.id}">${e.querySelector("h2, h3").textContent}</a></li>`)).join("")}
+        </ul>
+      </nav>
+    `;(0,t.DOM).insertHTML(e,this)}setupObserver(){for(let e of(this._observer=new IntersectionObserver(e=>{for(let t of e){let e=t.target.id,r=this.querySelector(`a[href="#${e}"]`);t.isIntersecting&&(this.clearActive(),r&&r.parentElement&&r.parentElement.classList.add("active"))}},{root:null,rootMargin:"0px",threshold:.5}),this.sections))this._observer.observe(e)}clearActive(){for(let e of this.querySelectorAll("li.active"))e.classList.remove("active")}}

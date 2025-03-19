@@ -1,0 +1,7 @@
+:root {
+  --wcag-button--m-square--aspect-ratio: 1;
+}
+
+[is="wcag-button"][square] {
+  --wcag-button--aspect-ratio: var(--wcag-button--m-square--aspect-ratio);
+}

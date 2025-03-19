@@ -1,0 +1,39 @@
+:root {
+  --wcag-button--v-sec--color: hsl(245, 93%, 67%);
+  --wcag-button--v-sec--background-color: hsl(0, 0%, 100%);
+  --wcag-button--v-sec--border-color: var(--wcag-button--v-sec--color);
+
+  --wcag-button--v-sec--s-hov--color: hsl(245, 93%, 38%);
+  --wcag-button--v-sec--s-hov--background-color: var(--wcag-button--v-sec--background-color);
+  --wcag-button--v-sec--s-hov--border-color: var(--wcag-button--v-sec--s-hov--color);
+
+  --wcag-button--v-sec--s-foc--outline-color: var(--wcag-button--v-sec--s-hov--color);
+
+  --wcag-button--v-sec--s-act--color: hsl(245, 93%, 20%);
+  --wcag-button--v-sec--s-act--background-color: var(--wcag-button--v-sec--background-color);
+  --wcag-button--v-sec--s-act--border-color: var(--wcag-button--v-sec--s-act--color);
+
+  --wcag-button--v-sec--s-dis--color: hsl(248, 70%, 22%);
+  --wcag-button--v-sec--s-dis--background-color: var(--wcag-button--v-sec--background-color);
+  --wcag-button--v-sec--s-dis--border-color: var(--wcag-button--v-sec--s-dis--color);
+}
+
+[is="wcag-button"][secondary] {
+  --wcag-button--color: var(--wcag-button--v-sec--color);
+  --wcag-button--background-color: var(--wcag-button--v-sec--background-color);
+  --wcag-button--border-color: var(--wcag-button--v-sec--border-color);
+
+  --wcag-button--s-hov--color: var(--wcag-button--v-sec--s-hov--color);
+  --wcag-button--s-hov--background-color: var(--wcag-button--v-sec--s-hov--background-color);
+  --wcag-button--s-hov--border-color: var(--wcag-button--v-sec--s-hov--border-color);
+
+  --wcag-button--s-foc--outline-color: var(--wcag-button--v-sec--s-foc--outline-color);
+
+  --wcag-button--s-act--color: var(--wcag-button--v-sec--s-act--color);
+  --wcag-button--s-act--background-color: var(--wcag-button--v-sec--s-act--background-color);
+  --wcag-button--s-act--border-color: var(--wcag-button--v-sec--s-act--border-color);
+
+  --wcag-button--s-dis--color: var(--wcag-button--v-sec--s-dis--color);
+  --wcag-button--s-dis--background-color: var(--wcag-button--v-sec--s-dis--background-color);
+  --wcag-button--s-dis--border-color: var(--wcag-button--v-sec--s-dis--border-color);
+}

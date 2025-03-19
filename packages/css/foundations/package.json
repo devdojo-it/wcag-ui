@@ -1,0 +1,26 @@
+{
+  "name": "@wcag-ui/foundations",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "DevDojo IT (https://www.devdojo.it)",
+  "contributors": [
+    "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
+    "Christian Nastasi <christian.nastasi@gmail.com>"
+  ],
+  "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
+  "license": "MIT",
+  "main": "lib/index.css",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devdojo-it/wcag-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devdojo-it/wcag-ui/issues"
+  }
+}

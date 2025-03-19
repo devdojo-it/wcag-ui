@@ -1,0 +1,30 @@
+:root {
+  font-family: "InterVariable", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: var(--wcag-ui--t--variant--weight);
+  font-variation-settings: "opsz" var(--wcag-ui--t--variant--opsz), "wght" var(--wcag-ui--t--variant--weight);
+}
+
+html {
+  inline-size: 100vw;
+  min-block-size: 100vh;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "aside main scroll-spy"
+    "footer footer footer";
+  grid-template-columns: var(--docs--aside--width) 1fr var(--docs--scroll-spy--width);
+
+  grid-template-rows: var(--docs--header--height) 1fr var(--docs--footer--height);
+
+  background-color: var(--docs--background-color);
+  background-image: url("../../assets/background-image.svg");
+  background-size: 100vw auto;
+  background-repeat: repeat-y;
+
+  inline-size: 100vw;
+  min-block-size: 100vh;
+}

@@ -1,0 +1,7 @@
+@import "./_variables.css" layer(variables);
+@import "./_core.css" layer(core);
+@import "./_header.css" layer(header);
+@import "./_aside.css" layer(aside);
+@import "./_main.css" layer(main);
+@import "./_scroll-spy.css" layer(scroll-spy);
+@import "./_footer.css" layer(footer);

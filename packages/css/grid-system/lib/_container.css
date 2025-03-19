@@ -1,0 +1,14 @@
+:where(container, [container]) {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--gs--container--gap);
+
+  inline-size: var(--gs--container--size);
+  block-size: auto;
+  padding: 0;
+  margin: 0 auto;
+
+  &:where([fluid]) {
+    --gs--container--size: 100%;
+  }
+}

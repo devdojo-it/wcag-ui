@@ -1,0 +1,16 @@
+/*
+:root {
+  --wcag-button--s-act--color: ;
+  --wcag-button--s-act--background-color: ;
+  --wcag-button--s-act--border-color: ;
+}
+*/
+
+[is="wcag-button"]:where(:active, [aria-pressed="true"]) {
+  --wcag-button--color: var(--wcag-button--s-act--color);
+  --wcag-button--background-color: var(--wcag-button--s-act--background-color);
+  --wcag-button--border-color: var(--wcag-button--s-act--border-color);
+  
+  --wcag-button--text-decoration: var(--wcag-button--s-act--text-decoration);
+
+}

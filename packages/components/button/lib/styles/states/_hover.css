@@ -1,0 +1,15 @@
+/* 
+:root {
+  --wcag-button--s-hov--color: ;
+  --wcag-button--s-hov--background-color: ;
+  --wcag-button--s-hov--border-color: ;
+}
+*/
+
+[is="wcag-button"]:hover {
+  --wcag-button--color: var(--wcag-button--s-hov--color);
+  --wcag-button--background-color: var(--wcag-button--s-hov--background-color);
+  --wcag-button--border-color: var(--wcag-button--s-hov--border-color);
+  
+  --wcag-button--text-decoration: var(--wcag-button--s-hov--text-decoration);
+}

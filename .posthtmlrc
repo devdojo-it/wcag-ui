@@ -1,0 +1,11 @@
+{
+  "plugins": {
+    "posthtml-extend": {
+      "root": "./src"
+    },
+    "posthtml-include": {
+      "root": "./src"
+    },
+    "posthtml-markdownit": {}
+  }
+}

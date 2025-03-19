@@ -1,0 +1,23 @@
+:root {
+  --wcag-button--lg--gap: 1.6rem;
+
+  --wcag-button--lg--height: 5.6rem;
+  --wcag-button--lg--padding-inline: 2rem;
+  --wcag-button--lg--padding-block: 0;
+  --wcag-button--lg--border-width: 1px;
+  --wcag-button--lg--border-radius: 0.5rem;
+
+  --wcag-button--lg--font-size: 1.8rem;
+}
+
+[is="wcag-button"][lg] {
+  --wcag-button--gap: var(--wcag-button--lg--gap);
+
+  --wcag-button--height: var(--wcag-button--lg--height);
+  --wcag-button--padding-inline: var(--wcag-button--lg--padding-inline);
+  --wcag-button--padding-block: var(--wcag-button--lg--padding-block);
+  --wcag-button--border-width: var(--wcag-button--lg--border-width);
+  --wcag-button--border-radius: var(--wcag-button--lg--border-radius);
+
+  --wcag-button--font-size: var(--wcag-button--lg--font-size);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>wcagUI - {{title}}</title>
+    <link
+      rel="preload"
+      href="npm:@wcag-ui/iconography/./lib/fonts/wcag-icons/fonts/wcag-icons.woff"
+      as="font"
+      type="font/woff"
+      crossorigin />
+    <link
+      rel="preload"
+      href="npm:@wcag-ui/typography/./lib/fonts/inter/Inter.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link
+      rel="preload"
+      href="npm:@wcag-ui/typography/./lib/fonts/inter/Inter-Italic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <include src="common/header.html"></include>
+    <aside>
+      <block name="aside"></block>
+    </aside>
+    <main>
+      <block name="main"></block>
+    </main>
+    <aside is="wcag-scroll-spy" target="main"></aside>
+    <include src="common/footer.html"></include>
+    <script type="module" src="./scripts/index.js"></script>
+  </body>
+</html>

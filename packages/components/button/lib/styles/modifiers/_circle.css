@@ -1,0 +1,9 @@
+:root {
+  --wcag-button--m-circle--aspect-ratio: 1;
+  --wcag-button--m-circle--border-radius: 50%;
+}
+
+[is="wcag-button"][circle] {
+  --wcag-button--aspect-ratio: var(--wcag-button--m-circle--aspect-ratio);
+  --wcag-button--border-radius: var(--wcag-button--m-circle--border-radius);
+}
