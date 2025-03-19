@@ -167,99 +167,98 @@ body {
     letter-spacing: var(--wcag-t--letter-spacing);
     text-decoration: var(--wcag-t--text-decoration);
   }
-}
-
-h1 {
-  --wcag-t--font-size: var(--wcag-t--h1--font-size);
-  --wcag-t--line-height: var(--wcag-t--h1--line-height);
-}
-
-h2 {
-  --wcag-t--font-size: var(--wcag-t--h2--font-size);
-  --wcag-t--line-height: var(--wcag-t--h2--line-height);
-}
-
-h3 {
-  --wcag-t--font-size: var(--wcag-t--h3--font-size);
-  --wcag-t--line-height: var(--wcag-t--h3--line-height);
-}
-
-h4 {
-  --wcag-t--font-size: var(--wcag-t--h4--font-size);
-  --wcag-t--line-height: var(--wcag-t--h4--line-height);
-}
-
-h5 {
-  --wcag-t--font-size: var(--wcag-t--h5--font-size);
-  --wcag-t--line-height: var(--wcag-t--h5--line-height);
-}
-
-h6 {
-  --wcag-t--font-size: var(--wcag-t--h6--font-size);
-  --wcag-t--line-height: var(--wcag-t--h6--line-height);
-}
-
-:where([lg], label:has([lg])) {
-  --wcag-t--font-size: var(--wcag-t--scale--lg--font-size);
-  --wcag-t--line-height: var(--wcag-t--scale--lg--line-height);
-}
-
-/* :where([md], label:has([md])) {
-  --wcag-t--font-size: var(--wcag-t--scale--md--font-size);
-  --wcag-t--line-height: var(--wcag-t--scale--md--line-height);
-} */
-
-:where([sm], label:has([sm])) {
-  --wcag-t--font-size: var(--wcag-t--scale--sm--font-size);
-  --wcag-t--line-height: var(--wcag-t--scale--sm--line-height);
-}
-
-:where([xs], label:has([xs])) {
-  --wcag-t--font-size: var(--wcag-t--scale--xs--font-size);
-  --wcag-t--line-height: var(--wcag-t--scale--xs--line-height);
-}
-
-/* TODO: use this one for type scaled based on a ratio */
-/* h1 {
-  font-size: calc(1em * pow(var(--wcag-t--ratio), 6));
-}
-
-h2 {
-  font-size: calc(1em * pow(var(--wcag-t--ratio), 5));
-}
-
-h3 {
-  font-size: calc(1em * pow(var(--wcag-t--ratio), 4));
-}
-
-h4 {
-  font-size: calc(1em * pow(var(--wcag-t--ratio), 3));
-}
-
-h5 {
-  font-size: calc(1em * pow(var(--wcag-t--ratio), 2));
-}
-
-h6 {
-  font-size: calc(1em * pow(var(--wcag-t--ratio), 1));
-} */
-
-:where(h1, h2, h3, h4, h5, h6) {
-  --wcag-t--font-weight: 700;
-}
-
-:where(h1, h2, h3, h4, h5, h6, p) {
-  margin: 0;
-
-  + & {
-    margin-block-start: var(--wcag-t--gap);
+  h1 {
+    --wcag-t--font-size: var(--wcag-t--h1--font-size);
+    --wcag-t--line-height: var(--wcag-t--h1--line-height);
   }
-}
 
-a {
-  --wcag-t--text-decoration: underline;
+  h2 {
+    --wcag-t--font-size: var(--wcag-t--h2--font-size);
+    --wcag-t--line-height: var(--wcag-t--h2--line-height);
+  }
 
-  &:hover {
-    --wcag-t--text-decoration: none;
+  h3 {
+    --wcag-t--font-size: var(--wcag-t--h3--font-size);
+    --wcag-t--line-height: var(--wcag-t--h3--line-height);
+  }
+
+  h4 {
+    --wcag-t--font-size: var(--wcag-t--h4--font-size);
+    --wcag-t--line-height: var(--wcag-t--h4--line-height);
+  }
+
+  h5 {
+    --wcag-t--font-size: var(--wcag-t--h5--font-size);
+    --wcag-t--line-height: var(--wcag-t--h5--line-height);
+  }
+
+  h6 {
+    --wcag-t--font-size: var(--wcag-t--h6--font-size);
+    --wcag-t--line-height: var(--wcag-t--h6--line-height);
+  }
+
+  :where([lg], label:has([lg])) {
+    --wcag-t--font-size: var(--wcag-t--scale--lg--font-size);
+    --wcag-t--line-height: var(--wcag-t--scale--lg--line-height);
+  }
+
+  /* :where([md], label:has([md])) {
+    --wcag-t--font-size: var(--wcag-t--scale--md--font-size);
+    --wcag-t--line-height: var(--wcag-t--scale--md--line-height);
+  } */
+
+  :where([sm], label:has([sm])) {
+    --wcag-t--font-size: var(--wcag-t--scale--sm--font-size);
+    --wcag-t--line-height: var(--wcag-t--scale--sm--line-height);
+  }
+
+  :where([xs], label:has([xs])) {
+    --wcag-t--font-size: var(--wcag-t--scale--xs--font-size);
+    --wcag-t--line-height: var(--wcag-t--scale--xs--line-height);
+  }
+
+  /* TODO: use this one for type scaled based on a ratio */
+  /* h1 {
+    font-size: calc(1em * pow(var(--wcag-t--ratio), 6));
+  }
+  
+  h2 {
+    font-size: calc(1em * pow(var(--wcag-t--ratio), 5));
+  }
+  
+  h3 {
+    font-size: calc(1em * pow(var(--wcag-t--ratio), 4));
+  }
+  
+  h4 {
+    font-size: calc(1em * pow(var(--wcag-t--ratio), 3));
+  }
+  
+  h5 {
+    font-size: calc(1em * pow(var(--wcag-t--ratio), 2));
+  }
+  
+  h6 {
+    font-size: calc(1em * pow(var(--wcag-t--ratio), 1));
+  } */
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    --wcag-t--font-weight: 700;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6, p) {
+    margin: 0;
+
+    + & {
+      margin-block-start: var(--wcag-t--gap);
+    }
+  }
+
+  a {
+    --wcag-t--text-decoration: underline;
+
+    &:hover {
+      --wcag-t--text-decoration: none;
+    }
   }
 }
