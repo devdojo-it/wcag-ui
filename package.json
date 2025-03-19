@@ -1,6 +1,6 @@
 {
   "name": "wcag-ui",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "wcagUI Library",
   "repository": "git@github.com:devdojo-it/wcag-ui.git",
   "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",

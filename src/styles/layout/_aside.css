@@ -8,6 +8,9 @@ body > aside[nav] {
   grid-area: aside;
 
   [is="wcag-accordion"] {
+    position: sticky;
+    inset-block-start: 2rem;
+
     display: flex;
     flex-flow: column nowrap;
 
