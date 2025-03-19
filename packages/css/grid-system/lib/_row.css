@@ -1,10 +1,10 @@
 :where(row, [row]) {
   display: grid;
-  grid-template-columns: repeat(var(--gs--cols), 1fr);
+  grid-template-columns: repeat(var(--wcag-gs--cols), 1fr);
   grid-template-rows: auto;
   grid-auto-flow: row;
   /* grid-column-gap: 0; */
-  gap: var(--gs--v-gap) var(--gs--gap);
+  gap: var(--wcag-gs--v-gap) var(--wcag-gs--gap);
 
   inline-size: 100%;
   margin: 0;

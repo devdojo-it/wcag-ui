@@ -1,4 +1,5 @@
 @layer wcag-ui.core, wcag-ui.foundations, wcag-ui.components;
 
 @import "./_reset.css" layer(wcag-ui.core.reset);
-@import "./_helpers.css" layer(wcag-ui.core.helpers);
+@import "./helpers/index.css" layer(wcag-ui.core.helpers);
+@import "./_focus.css" layer(wcag-ui.core.focus);
