@@ -1,0 +1,40 @@
+<extends src="_layout.html" locals='{"title": "Docs"}'>
+  <block name="aside">
+    <include src="common/docs-nav.html"></include>
+  </block>
+  <block name="main">
+    <h1>Typography</h1>
+    <section>
+      <h2>Primary</h2>
+      <p>
+        <button is="wcag-button" sm>Button/Primary/Small</button>
+        <button is="wcag-button">Button/Primary/Medium</button>
+        <button is="wcag-button" lg>Button/Primary/Large</button>
+      </p>
+    </section>
+    <section>
+      <h2>secondary</h2>
+      <p>
+        <button is="wcag-button" secondary sm>Button/Secondary/Small</button>
+        <button is="wcag-button" secondary>Button/Secondary/Medium</button>
+        <button is="wcag-button" secondary lg>Button/Secondary/Large</button>
+      </p>
+    </section>
+    <section>
+      <h2>tertiary</h2>
+      <p>
+        <button is="wcag-button" tertiary sm>Button/Tertiary/Small</button>
+        <button is="wcag-button" tertiary>Button/Tertiary/Medium</button>
+        <button is="wcag-button" tertiary lg>Button/Tertiary/Large</button>
+      </p>
+    </section>
+    <section>
+      <h2>destructive</h2>
+      <p>
+        <button is="wcag-button" destructive sm>Button/Destructive/Small</button>
+        <button is="wcag-button" destructive>Button/Destructive/Medium</button>
+        <button is="wcag-button" destructive lg>Button/Destructive/Large</button>
+      </p>
+    </section>
+  </block>
+</extends>

@@ -1,0 +1,317 @@
+<extends src="_layout.html" locals='{"title": "Getting Started"}'>
+  <block name="aside">
+    <include src="common/docs-nav.html"></include>
+  </block>
+  <block name="main">
+    <hgroup>
+      <h1 is="wcag-chip">Getting Started</h1>
+      <h2>CSS APIs</h2>
+    </hgroup>
+    <p>
+      Link
+      <code>wcag-ui</code>
+      manually or via CDN for a dependency-free setup, or use NPM or Composer for advanced&nbsp;usage.
+    </p>
+    <section id="content" role="document">
+      <p>There are 4 ways to get started with wcag-ui:</p>
+      <section>
+        <h2>Install manually</h2>
+        <p>
+          <a
+            rel="noopener noreferrer"
+            href="https://github.com/picocss/pico/archive/refs/heads/main.zip"
+            target="_blank">
+            Download Pico
+          </a>
+          and link
+          <code>/css/pico.min.css</code>
+          in the
+          <code class="language-html">
+            <span class="token tag punctuation">&lt;</span>
+            <span class="token tag">head</span>
+            <span class="token tag punctuation">&gt;</span>
+          </code>
+          of your website.
+        </p>
+        <div class="code small" data-theme="dark">
+          <a
+            class="copy-to-clipboard"
+            tabindex="-1"
+            aria-label="Copy code"
+            data-tooltip="Copy to clipboard"
+            data-placement="left"
+            data-discover="true"
+            href="/docs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="clipboard">
+              <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+              <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+            </svg>
+          </a>
+          <pre
+            class="prismjs"><code class="language-html"><span class="token tag punctuation">&lt;</span><span class="token tag">link</span><span class="token tag"> </span><span class="token tag attr-name">rel</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">stylesheet</span><span class="token tag attr-value punctuation">"</span><span class="token tag"> </span><span class="token tag attr-name">href</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">css/pico.min.css</span><span class="token tag attr-value punctuation">"</span><span class="token tag punctuation">&gt;</span></code></pre>
+        </div>
+      </section>
+      <section>
+        <h2>
+          Usage from CDN
+          <a href="#usage-from-cdn" id="usage-from-cdn" class="secondary" tabindex="-1">#</a>
+        </h2>
+        <p>
+          Alternatively, you can use
+          <a rel="noopener noreferrer" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/" target="_blank">
+            jsDelivr CDN
+          </a>
+          to link
+          <code>pico.min.css</code>
+          .
+        </p>
+        <div class="code" data-theme="dark">
+          <a
+            class="copy-to-clipboard"
+            tabindex="-1"
+            aria-label="Copy code"
+            data-tooltip="Copy to clipboard"
+            data-placement="left"
+            data-discover="true"
+            href="/docs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="clipboard">
+              <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+              <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+            </svg>
+          </a>
+          <pre
+            class="prismjs"><code class="language-html"><span class="token tag punctuation">&lt;</span><span class="token tag">link</span><span class="token tag">
+</span><span class="token tag">  </span><span class="token tag attr-name">rel</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">stylesheet</span><span class="token tag attr-value punctuation">"</span><span class="token tag">
+</span><span class="token tag">  </span><span class="token tag attr-name">href</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css</span><span class="token tag attr-value punctuation">"</span><span class="token tag">
+</span><span class="token tag"></span><span class="token tag punctuation">&gt;</span></code></pre>
+        </div>
+      </section>
+      <section>
+        <h2>
+          Install with NPM
+          <a href="#install-with-npm" id="install-with-npm" class="secondary" tabindex="-1">#</a>
+        </h2>
+        <div class="code small" data-theme="dark">
+          <a
+            class="copy-to-clipboard"
+            tabindex="-1"
+            aria-label="Copy code"
+            data-tooltip="Copy to clipboard"
+            data-placement="left"
+            data-discover="true"
+            href="/docs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="clipboard">
+              <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+              <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+            </svg>
+          </a>
+          <pre
+            class="prismjs"><code class="language-bash"><span class="token function">npm</span><span class=""> </span><span class="token function">install</span><span class=""> @picocss/pico</span></code></pre>
+        </div>
+        <p>Or</p>
+        <div class="code small" data-theme="dark">
+          <a
+            class="copy-to-clipboard"
+            tabindex="-1"
+            aria-label="Copy code"
+            data-tooltip="Copy to clipboard"
+            data-placement="left"
+            data-discover="true"
+            href="/docs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="clipboard">
+              <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+              <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+            </svg>
+          </a>
+          <pre
+            class="prismjs"><code class="language-bash"><span class="token function">yarn</span><span class=""> </span><span class="token function">add</span><span class=""> @picocss/pico</span></code></pre>
+        </div>
+        <p>
+          Then, import Pico into your SCSS file with
+          <a rel="noopener noreferrer" href="https://sass-lang.com/documentation/at-rules/use" target="_blank">@use</a>
+          :
+        </p>
+        <div class="code small" data-theme="dark">
+          <a
+            class="copy-to-clipboard"
+            tabindex="-1"
+            aria-label="Copy code"
+            data-tooltip="Copy to clipboard"
+            data-placement="left"
+            data-discover="true"
+            href="/docs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="clipboard">
+              <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+              <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+            </svg>
+          </a>
+          <pre
+            class="prismjs"><code class="language-scss"><span class="token keyword">@use</span><span class=""> </span><span class="token string">"pico"</span><span class="token punctuation">;</span></code></pre>
+        </div>
+        <p>
+          Learn more about the
+          <a data-discover="true" href="/docs/sass">customization with Sass</a>
+          .
+        </p>
+      </section>
+      <section>
+        <h2>
+          Install with Composer
+          <a href="#install-with-composer" id="install-with-composer" class="secondary" tabindex="-1">#</a>
+        </h2>
+        <div class="code small" data-theme="dark">
+          <a
+            class="copy-to-clipboard"
+            tabindex="-1"
+            aria-label="Copy code"
+            data-tooltip="Copy to clipboard"
+            data-placement="left"
+            data-discover="true"
+            href="/docs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="clipboard">
+              <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+              <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+            </svg>
+          </a>
+          <pre
+            class="prismjs"><code class="language-bash"><span class="token function">composer</span><span class=""> require picocss/pico</span></code></pre>
+        </div>
+      </section>
+      <section>
+        <h2>
+          Starter HTML template
+          <a href="#starter-html-template" id="starter-html-template" class="secondary" tabindex="-1">#</a>
+        </h2>
+        <div class="code" data-theme="dark">
+          <a
+            class="copy-to-clipboard"
+            tabindex="-1"
+            aria-label="Copy code"
+            data-tooltip="Copy to clipboard"
+            data-placement="left"
+            data-discover="true"
+            href="/docs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="clipboard">
+              <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+              <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+            </svg>
+          </a>
+          <pre
+            class="prismjs"><code class="language-html"><span class="token doctype punctuation">&lt;!</span><span class="token doctype doctype-tag">doctype</span><span class="token doctype"> </span><span class="token doctype name">html</span><span class="token doctype punctuation">&gt;</span><span class="">
+</span><span class=""></span><span class="token tag punctuation">&lt;</span><span class="token tag">html</span><span class="token tag"> </span><span class="token tag attr-name">lang</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">en</span><span class="token tag attr-value punctuation">"</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">  </span><span class="token tag punctuation">&lt;</span><span class="token tag">head</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">    </span><span class="token tag punctuation">&lt;</span><span class="token tag">meta</span><span class="token tag"> </span><span class="token tag attr-name">charset</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">utf-8</span><span class="token tag attr-value punctuation">"</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">    </span><span class="token tag punctuation">&lt;</span><span class="token tag">meta</span><span class="token tag"> </span><span class="token tag attr-name">name</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">viewport</span><span class="token tag attr-value punctuation">"</span><span class="token tag"> </span><span class="token tag attr-name">content</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">width=device-width, initial-scale=1</span><span class="token tag attr-value punctuation">"</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">    </span><span class="token tag punctuation">&lt;</span><span class="token tag">meta</span><span class="token tag"> </span><span class="token tag attr-name">name</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">color-scheme</span><span class="token tag attr-value punctuation">"</span><span class="token tag"> </span><span class="token tag attr-name">content</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">light dark</span><span class="token tag attr-value punctuation">"</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">    </span><span class="token tag punctuation">&lt;</span><span class="token tag">link</span><span class="token tag"> </span><span class="token tag attr-name">rel</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">stylesheet</span><span class="token tag attr-value punctuation">"</span><span class="token tag"> </span><span class="token tag attr-name">href</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">css/pico.min.css</span><span class="token tag attr-value punctuation">"</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">    </span><span class="token tag punctuation">&lt;</span><span class="token tag">title</span><span class="token tag punctuation">&gt;</span><span class="">Hello world!</span><span class="token tag punctuation">&lt;/</span><span class="token tag">title</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">  </span><span class="token tag punctuation">&lt;/</span><span class="token tag">head</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">  </span><span class="token tag punctuation">&lt;</span><span class="token tag">body</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">    </span><span class="token tag punctuation">&lt;</span><span class="token tag">main</span><span class="token tag"> </span><span class="token tag attr-name">class</span><span class="token tag attr-value punctuation attr-equals">=</span><span class="token tag attr-value punctuation">"</span><span class="token tag attr-value">container</span><span class="token tag attr-value punctuation">"</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">      </span><span class="token tag punctuation">&lt;</span><span class="token tag">h1</span><span class="token tag punctuation">&gt;</span><span class="">Hello world!</span><span class="token tag punctuation">&lt;/</span><span class="token tag">h1</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">    </span><span class="token tag punctuation">&lt;/</span><span class="token tag">main</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class="">  </span><span class="token tag punctuation">&lt;/</span><span class="token tag">body</span><span class="token tag punctuation">&gt;</span><span class="">
+</span><span class=""></span><span class="token tag punctuation">&lt;/</span><span class="token tag">html</span><span class="token tag punctuation">&gt;</span></code></pre>
+        </div>
+      </section>
+      <section class="edit-on-github">
+        <p>
+          <a
+            rel="noopener noreferrer"
+            class="secondary"
+            href="https://github.com/picocss/picocss.com/blob/main/app/routes/docs._index.jsx"
+            target="_blank">
+            <small>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-edit">
+                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                <path d="M16 5l3 3"></path>
+              </svg>
+              Edit this page on GitHub
+            </small>
+          </a>
+        </p>
+      </section>
+    </section>
+  </block>
+</extends>

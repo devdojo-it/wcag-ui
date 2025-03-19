@@ -1,1 +1,1 @@
-module.exports=function(){return"Hello from accordion"};
+"use strict";function $55db53a9c8559bf1$var$accordion(){return"Hello from accordion"}module.exports=$55db53a9c8559bf1$var$accordion;

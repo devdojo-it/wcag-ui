@@ -1,1 +1,1 @@
-module.exports=function(){return"Hello from select"};
+"use strict";function $e48e881933c70e5e$var$select(){return"Hello from select"}module.exports=$e48e881933c70e5e$var$select;

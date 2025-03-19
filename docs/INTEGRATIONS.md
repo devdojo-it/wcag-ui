@@ -4,7 +4,7 @@ wcagUI’s custom elements are built on standard web components, ensuring seamle
 
 ---
 
-### Angular
+## Angular
 
 **Import:**  
 In your main module or bootstrap file, import the custom element:
@@ -35,7 +35,7 @@ export class AppModule {}
 
 ---
 
-### Vue
+## Vue
 
 **Import:**  
 In your main entry file, import the component:
@@ -70,7 +70,7 @@ Use a native button enhanced with the `is` attribute:
 
 ---
 
-### React
+## React
 
 **Import:**  
 In your React component, import the custom element:
@@ -95,7 +95,7 @@ _Tip:_ Ensure the wcagUI script is loaded before your React bundle to guarantee 
 
 ---
 
-### Svelte
+## Svelte
 
 **Import:**  
 In your Svelte component, simply import the custom element:
@@ -113,7 +113,7 @@ In your Svelte component, simply import the custom element:
 
 ---
 
-### Astro
+## Astro
 
 **Import:**  
 In your Astro component, import the custom element at the top of your file:
