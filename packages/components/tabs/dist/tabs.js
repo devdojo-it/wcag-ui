@@ -1,1 +1,1 @@
-module.exports=function(){return"Hello from tabs"};
+"use strict";function $a205c9c4b5c7d7a5$var$tabs(){return"Hello from tabs"}module.exports=$a205c9c4b5c7d7a5$var$tabs;

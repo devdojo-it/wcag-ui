@@ -24,6 +24,10 @@ body > header {
     &[logo] {
       --wcag-t--font-size: var(--docs--header--logo--height);
 
+      display: inline-block;
+      inline-size: 14.6rem;
+      block-size: 6.5rem;
+
       padding-inline: 0.5rem;
       border-radius: var(--docs--header--menu--border-radius);
 
@@ -42,7 +46,9 @@ body > header {
       --wcag-t--text-decoration: none;
 
       display: inline-flex;
+      place-content: center;
       place-items: center;
+      gap: 0.5rem;
 
       color: var(--docs--header--nav-item--color);
       background-color: var(--docs--header--nav-item--background-color);
@@ -73,7 +79,11 @@ body > header {
     }
 
     i {
-      inline-size: 2.5rem;
+      --wcag-t--font-size: 1.8rem;
+
+      display: inline-block;
+      inline-size: var(--wcag-t--font-size);
+      aspect-ratio: 1;
     }
   }
 
@@ -108,6 +118,9 @@ body > header {
 
       i {
         --wcag-t--font-size: 1.8rem;
+
+        inline-size: var(--wcag-t--font-size);
+        aspect-ratio: 1;
       }
 
       &:hover {

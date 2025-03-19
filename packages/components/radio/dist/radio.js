@@ -1,1 +1,1 @@
-module.exports=function(){return"Hello from radio"};
+"use strict";function $d88fc10cd77aff81$var$radio(){return"Hello from radio"}module.exports=$d88fc10cd77aff81$var$radio;

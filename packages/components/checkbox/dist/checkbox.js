@@ -1,1 +1,1 @@
-module.exports=function(){return"Hello from checkbox"};
+"use strict";function $ec64eec82605c68d$var$checkbox(){return"Hello from checkbox"}module.exports=$ec64eec82605c68d$var$checkbox;

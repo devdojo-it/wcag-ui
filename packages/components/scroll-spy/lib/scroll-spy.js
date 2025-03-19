@@ -40,9 +40,7 @@ export class ScrollSpy extends HTMLElement {
     }
 
     // Seleziona tutte le sezioni che contengono un h2 o h3
-    this.sections = Array.from(container.querySelectorAll("section")).filter((section) =>
-      section.querySelector("h2, h3")
-    );
+    this.sections = [...container.querySelectorAll("section:has(> :where(h2, h3))")];
 
     // Costruisce la navigazione
     this.buildNav();
@@ -56,6 +54,8 @@ export class ScrollSpy extends HTMLElement {
   }
 
   buildNav() {
+    // <a href="#install-manually" id="install-manually" class="secondary" tabindex="-1">#</a>
+
     // Crea un elemento nav e una lista non ordinata
     let template = `
       <nav>

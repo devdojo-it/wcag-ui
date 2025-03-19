@@ -1,1 +1,1 @@
-module.exports=function(){return"Hello from dialog"};
+"use strict";function $473dd64b2d9865c7$var$dialog(){return"Hello from dialog"}module.exports=$473dd64b2d9865c7$var$dialog;

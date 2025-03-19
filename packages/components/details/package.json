@@ -1,5 +1,5 @@
 {
-  "name": "@wcag-ui/disclosure",
+  "name": "@wcag-ui/details",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "DevDojo IT (https://www.devdojo.it)",
@@ -9,8 +9,8 @@
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "source": "lib/disclosure.js",
-  "browser": "dist/disclosure.js",
+  "source": "lib/details.js",
+  "browser": "dist/details.js",
   "targets": {
     "browser": {
       "optimize": true,
@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "test": "node ./__tests__/disclosure.test.js",
+    "test": "node ./__tests__/details.test.js",
     "build": "parcel build"
   },
   "dependencies": {
