@@ -15,11 +15,12 @@
     "prebuild": "yarn clear:cache",
     "test": "lerna run test",
     "lint": "lerna run lint",
-    "build": "lerna run build && parcel build ./src/index.html --no-source-maps --public-url ./ && git add . && git commit --amend --no-edit && git push -f",
+    "build": "lerna run build && parcel build ./src/index.html --no-source-maps --public-url ./",
+    "build:push": "git add . && git commit --amend --no-edit && git push -f",
     "rel:push": "git push && git push --tags",
-    "rel:major": "yarn build && yarn version --major && yarn rel:push",
-    "rel:minor": "yarn build && yarn version --minor && yarn rel:push",
-    "rel:patch": "yarn build && yarn version --patch && yarn rel:push"
+    "rel:major": "yarn build && yarn build:push && yarn version --major && yarn rel:push",
+    "rel:minor": "yarn build && yarn build:push && yarn version --minor && yarn rel:push",
+    "rel:patch": "yarn build && yarn build:push && yarn version --patch && yarn rel:push"
   },
   "workspaces": [
     "packages/**/*"
@@ -29,6 +30,7 @@
     "@wcag-ui/grid-system": "^0.0.0",
     "@wcag-ui/iconography": "^0.0.0",
     "@wcag-ui/typography": "^0.0.0",
+    "@wcag-ui/accordion": "^0.0.0",
     "@wcag-ui/button": "^0.0.0",
     "@wcag-ui/details": "^0.0.0",
     "@wcag-ui/input": "^0.0.0",

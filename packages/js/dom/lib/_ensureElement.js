@@ -7,7 +7,7 @@ import { createElement } from './_createElement';
  * @return {boolean} true, if the parameter is an Element
  */
 function isElement(elementOrOptions) {
-  return elementOrOptions instanceof HTMLElement;
+  return elementOrOptions instanceof HTMLElement || elementOrOptions instanceof DocumentFragment;
 }
 
 /**

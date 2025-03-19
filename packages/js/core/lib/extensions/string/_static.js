@@ -1,4 +1,4 @@
-import { isString } from '../../helpers/_types';
+import { isString } from "../../helpers/_types";
 
 export default {
   /**
