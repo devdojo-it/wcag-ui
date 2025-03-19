@@ -1,0 +1,13 @@
+:root {
+  --wcag-focus--outline-width: 2px;
+  --wcag-focus--outline-style: solid;
+  --wcag-focus--outline-color: hsl(245, 93%, 38%);
+  --wcag-focus--outline-offset: var(--wcag-focus--outline-width);
+}
+
+:where(:focus-visible, :has(> [sr-only]):focus-within) {
+  outline-width: var(--wcag-focus--outline-width);
+  outline-style: var(--wcag-focus--outline-style);
+  outline-color: var(--wcag-focus--outline-color);
+  outline-offset: var(--wcag-focus--outline-offset);
+}

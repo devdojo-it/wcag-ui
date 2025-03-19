@@ -1,8 +1,8 @@
 :root {
   font-family: "InterVariable", sans-serif;
   font-optical-sizing: auto;
-  font-weight: var(--wcag-ui--t--variant--weight);
-  font-variation-settings: "opsz" var(--wcag-ui--t--variant--opsz), "wght" var(--wcag-ui--t--variant--weight);
+  font-weight: var(--wcag-t--variant--weight);
+  font-variation-settings: "opsz" var(--wcag-t--variant--opsz), "wght" var(--wcag-t--variant--weight);
 }
 
 html {
@@ -27,4 +27,10 @@ body {
 
   inline-size: 100vw;
   min-block-size: 100vh;
+}
+
+a {
+  --wcag-focus--outline-offset: calc(var(--wcag-focus--outline-width) * 2);
+
+  border-radius: 0.4rem;
 }

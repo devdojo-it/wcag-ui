@@ -45,9 +45,9 @@
   border-color: var(--wcag-button--border-color);
   border-radius: var(--wcag-button--border-radius);
 
-  --wcag-ui--t--font-size: var(--wcag-button--font-size);
-  --wcag-ui--t--line-height: var(--wcag-button--height);
-  --wcag-ui--t--text-decoration: var(--wcag-button--text-decoration);
+  --wcag-t--font-size: var(--wcag-button--font-size);
+  --wcag-t--line-height: var(--wcag-button--height);
+  --wcag-t--text-decoration: var(--wcag-button--text-decoration);
 
   cursor: var(--wcag-button--cursor);
 }

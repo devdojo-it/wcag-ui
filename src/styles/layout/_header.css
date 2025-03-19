@@ -1,4 +1,6 @@
 body > header {
+  --wcag-t--font-size: var(--docs--header--font-size);
+
   grid-area: header;
 
   position: sticky;
@@ -16,17 +18,16 @@ body > header {
   block-size: var(--docs--header--height);
   padding-inline: var(--docs--header--padding-inline);
 
-  font-size: var(--docs--header--font-size);
-
   a {
-    text-decoration: none;
+    --wcag-t--text-decoration: none;
 
     &[logo] {
-      inline-size: 14.5rem;
-      block-size: 6rem;
+      --wcag-t--font-size: var(--docs--header--logo--height);
+
+      padding-inline: 0.5rem;
+      border-radius: var(--docs--header--menu--border-radius);
 
       color: var(--docs--header--logo--color);
-      font-size: var(--docs--header--logo--height);
     }
   }
 
@@ -36,6 +37,10 @@ body > header {
 
   nav {
     a {
+      --wcag-t--font-size: var(--docs--header--nav-item--font-size);
+      --wcag-t--line-height: var(--docs--header--nav-item--line-height);
+      --wcag-t--text-decoration: none;
+
       display: inline-flex;
       place-items: center;
 
@@ -44,9 +49,6 @@ body > header {
 
       padding-inline: var(--docs--header--nav-item--padding-inline);
       border-radius: var(--docs--header--nav-item--border-radius);
-
-      font-size: var(--docs--header--nav-item--font-size);
-      line-height: var(--docs--header--nav-item--line-height);
 
       &:hover {
         --docs--header--nav-item--background-color: var(--docs--header--nav-item--hover--background-color);
@@ -75,7 +77,7 @@ body > header {
     }
   }
 
-  menu {
+  menu[color-scheme] {
     display: inline-flex;
     flex-flow: row nowrap;
     gap: 0;
@@ -89,6 +91,9 @@ body > header {
     background-color: var(--docs--header--menu-item--background-color);
 
     label {
+      --wcag-t--font-size: 1.4rem;
+      --wcag-t--line-height: 2.85714286;
+
       display: inline-flex;
       flex-flow: row nowrap;
       place-content: center;
@@ -98,16 +103,11 @@ body > header {
       padding-inline: 1rem;
       border-radius: var(--docs--header--menu--border-radius);
 
-      font-size: 1.4rem;
-      line-height: 4rem;
-
       color: var(--docs--header--menu-item--color);
       background-color: var(--docs--header--menu-item--background-color);
 
       i {
-        inline-size: 2rem;
-
-        font-size: 1.8rem;
+        --wcag-t--font-size: 1.8rem;
       }
 
       &:hover {
@@ -121,6 +121,8 @@ body > header {
       &:has(:checked) {
         --docs--header--menu-item--color: var(--docs--header--menu-item--selected--color);
         --docs--header--menu-item--background-color: var(--docs--header--menu-item--selected--background-color);
+
+        z-index: 1;
 
         &:hover {
           --docs--header--menu-item--background-color: var(

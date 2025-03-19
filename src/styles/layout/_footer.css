@@ -15,12 +15,13 @@ body > footer {
   box-shadow: var(--docs--footer--box-shadow);
 
   [logo] {
+    --wcag-t--font-size: 2.4rem;
+    --wcag-t--text-decoration: none;
+
     color: var(--docs--footer--logo--color);
 
-    font-size: 2.4rem;
-
     &[logo="wcag-ui"] {
-      font-size: 7.2rem;
+      --wcag-t--font-size: 7.2rem;
     }
   }
 
@@ -74,26 +75,20 @@ body > footer {
 
       color: var(--docs--footer--color);
 
-      &:not(:has(i + span)) {
-        text-decoration: underline;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-
       &:has(i + span) {
+        --wcag-t--text-decoration: none;
+
         i {
-          font-size: 2rem;
+          --wcag-t--font-size: 2rem;
         }
 
         span {
-          text-decoration: underline;
+          --wcag-t--text-decoration: underline;
         }
 
         &:hover {
           span {
-            text-decoration: none;
+            --wcag-t--text-decoration: none;
           }
         }
       }

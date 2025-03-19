@@ -1,7 +1,7 @@
 :root {
-  --gs--container--size: 100vw;
-  --gs--container--gap: 1.5rem;
-  --gs--cols: 12;
-  --gs--gap: 1.5rem;
-  --gs--v-gap: 1.5rem;
+  --wcag-gs--container--size: 100vw;
+  --wcag-gs--container--gap: 1.5rem;
+  --wcag-gs--cols: 12;
+  --wcag-gs--gap: 1.5rem;
+  --wcag-gs--v-gap: 1.5rem;
 }
