@@ -1,6 +1,9 @@
 body > footer {
   grid-area: footer;
 
+  position: relative;
+  z-index: 2;
+
   display: flex;
   flex-flow: row nowrap;
   place-content: start;

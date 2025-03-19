@@ -1,3 +1,9 @@
 [is="scroll-spy"] {
   grid-area: scroll-spy;
+
+  nav {
+    position: sticky;
+    inset-block-start: 2rem;
+    margin-inline-start: 2rem;
+  }
 }
