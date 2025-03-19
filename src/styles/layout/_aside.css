@@ -1,3 +1,78 @@
-body > aside:not([is="wcag-scroll-spy"]) {
+:root {
+  --docs--aside--link--color: light-dark(hsl(248, 70%, 8%), hsl(248, 28%, 96%));
+  --docs--aside--link--indicator--color: light-dark(hsl(248, 28%, 84%), hsl(245, 73%, 74%));
+  --docs--aside--active-link--indicator--color: light-dark(hsl(245, 94%, 38%), hsl(248, 28%, 92%));
+}
+
+body > aside[nav] {
   grid-area: aside;
+
+  [is="wcag-accordion"] {
+    display: flex;
+    flex-flow: column nowrap;
+
+    place-content: center;
+    place-items: center;
+    gap: 1.6rem;
+
+    inline-size: 19.5rem;
+    padding: 2rem 1.2rem;
+    margin: 0 auto;
+  }
+
+  [is="wcag-details"] {
+    inline-size: 100%;
+
+    summary {
+      display: flex;
+      place-content: space-between;
+      place-items: center;
+
+      padding-inline: 2rem 0;
+
+      i {
+        --wcag-t--font-size: 0.6em;
+      }
+    }
+
+    [content] {
+      display: flex;
+      flex-flow: column nowrap;
+      place-content: start;
+      place-items: start;
+      gap: 0;
+
+      padding-inline-start: 3rem;
+      padding-block: 1.6rem;
+    }
+
+    a {
+      --wcag-t--text-decoration: none;
+
+      display: flex;
+      place-content: start;
+      place-items: center;
+      gap: 2rem;
+
+      color: var(--docs--aside--link--color);
+
+      &::before {
+        content: "";
+
+        display: inline-flex;
+        inline-size: 0.4rem;
+        block-size: 4rem;
+
+        background-color: var(--docs--aside--link--indicator--color);
+      }
+
+      &[active] {
+        --wcag-t--font-weight: 700;
+
+        &::before {
+          background-color: var(--docs--aside--active-link--indicator--color);
+        }
+      }
+    }
+  }
 }
