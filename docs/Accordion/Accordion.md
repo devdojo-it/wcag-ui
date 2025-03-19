@@ -5,8 +5,13 @@
 Il componente `Accordion` permette di mostrare e nascondere sezioni di contenuto in modo dinamico. È particolarmente utile per organizzare informazioni in spazi ristretti e migliorare la leggibilità. Deve essere accessibile sia per utenti che navigano con la tastiera che per chi utilizza screen reader.
 
 ---
+## 2. Come utilizzare il componente
 
-## 2. Requisiti di Accessibilità (WCAG)
+*// Quì va il codice come su button //*
+
+---
+
+## 3. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
 - Ogni sezione dell'accordion deve essere strutturata semanticamente utilizzando `<button>` per il titolo e `<div>` per il contenuto.
@@ -60,7 +65,7 @@ button:focus-visible {
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 4. Linee Guida per gli Sviluppatori
 
 ✅ **Markup HTML Corretto**
 ```html
@@ -92,7 +97,7 @@ button:focus-visible {
 
 ---
 
-## 4. Test e Validazione
+## 5. Test e Validazione
 
 🛠 **Tecnologie Assistive Testate**
 - NVDA
@@ -112,7 +117,7 @@ button:focus-visible {
 
 ---
 
-## 5. Considerazioni Avanzate
+## 6. Considerazioni Avanzate
 
 🌍 **Internazionalizzazione**
 - Testare con testi più lunghi per lingue diverse.
@@ -133,7 +138,7 @@ button:focus-visible {
 
 ---
 
-## 6. Esempi e Best Practices
+## 7. Esempi e Best Practices
 ✅ **Usare `aria-controls` e `aria-expanded` per migliorare l'accessibilità.**
 ✅ **Garantire un chiaro focus visibile per la navigazione da tastiera.**
 ✅ **Non basarsi solo sul colore per indicare lo stato aperto/chiuso.**

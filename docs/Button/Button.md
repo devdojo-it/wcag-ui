@@ -2,6 +2,7 @@
 📌 Primary Button - Accessibilità
 
 ## 1. Overview del Componente
+
 Il componente `Button` viene utilizzato per eseguire un'azione all'interno dell'interfaccia. Deve essere chiaramente distinguibile, accessibile tramite tastiera e compatibile con gli screen reader.
 
 ---
@@ -46,7 +47,7 @@ Di seguito gli esempi per attivare le varianti del componente
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+## 3. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.1.1 - Testo Alternativo
 - Se il bottone contiene solo un'icona, deve avere un `aria-label` descrittivo o un `aria-labelledby` che punti a un'etichetta testuale.
@@ -95,7 +96,7 @@ button:focus-visible {
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 4. Linee Guida per gli Sviluppatori
 
 ✅ **Markup HTML Corretto**
 ```html
@@ -123,7 +124,7 @@ button:focus-visible {
 
 ---
 
-## 4. Test e Validazione
+## 5. Test e Validazione
 
 🛠 **Tecnologie Assistive Testate**
 - NVDA
@@ -143,7 +144,7 @@ button:focus-visible {
 
 ---
 
-## 5. Considerazioni Avanzate
+## 6. Considerazioni Avanzate
 
 🌍 **Internazionalizzazione**
 - Testare con testi più lunghi per lingue diverse.
@@ -164,7 +165,7 @@ button:focus-visible {
 
 ---
 
-## 6. Esempi e Best Practices
+## 7. Esempi e Best Practices
 ✅ **Meglio usare `<button>` per compatibilità e semantica.**
 ✅ **Testare il focus con tastiera e screen reader.**
 ✅ **Garantire etichette accessibili per bottoni con sole icone.**

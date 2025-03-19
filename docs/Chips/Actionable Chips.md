@@ -4,8 +4,12 @@
 Il componente `Actionable Chip` è un elemento interattivo utilizzato per filtrare contenuti o selezionare opzioni all’interno di un set compatto. Deve essere accessibile sia visivamente che attraverso tecnologie assistive per garantire un’esperienza utente inclusiva.
 
 ---
+## 2. Come utilizzare il componente
 
-## 2. Requisiti di Accessibilità (WCAG)
+*// Quì va il codice come su button //*
+
+---
+## 3. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.1.1 - Testo Alternativo
 - Se la chip contiene solo un'icona (es. una "X" per la rimozione), deve avere un `aria-label` descrittivo o un `aria-labelledby` che punti a un testo associato.
@@ -54,7 +58,7 @@ Il componente `Actionable Chip` è un elemento interattivo utilizzato per filtra
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 4. Linee Guida per gli Sviluppatori
 
 ✅ **Markup HTML Corretto**
 ```html
@@ -89,7 +93,7 @@ Il componente `Actionable Chip` è un elemento interattivo utilizzato per filtra
 
 ---
 
-## 4. Test e Validazione
+## 5. Test e Validazione
 
 🛠 **Tecnologie Assistive Testate**
 - NVDA
@@ -109,7 +113,7 @@ Il componente `Actionable Chip` è un elemento interattivo utilizzato per filtra
 
 ---
 
-## 5. Considerazioni Avanzate
+## 6. Considerazioni Avanzate
 
 🌍 **Internazionalizzazione**
 - Testare con testi più lunghi per lingue diverse.
@@ -130,7 +134,7 @@ Il componente `Actionable Chip` è un elemento interattivo utilizzato per filtra
 
 ---
 
-## 6. Esempi e Best Practices
+## 7. Esempi e Best Practices
 ✅ **Usare ruoli e attributi ARIA per migliorare la comprensione del contenuto.**
 ✅ **Garantire un chiaro focus visibile per gli elementi interattivi.**
 ✅ **Se la chip è selezionabile, indicare il suo stato con `aria-pressed`.**

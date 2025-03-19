@@ -1,11 +1,18 @@
-# 📌 Checkbox Unchecked - Accessibilità
+# 📌 Checkbox  - Accessibilità
 
 ## 1. Overview del Componente
-Il componente `Checkbox` nello stato **unchecked** (non selezionato) consente agli utenti di scegliere tra diverse opzioni o confermare selezioni. Deve essere chiaramente distinguibile visivamente e accessibile tramite tastiera e screen reader.
+
+Le checkbox di controllo consentono agli utenti di selezionare zero, uno o più elementi da un elenco.
+
+---
+## 2. Come utilizzare il componente
+
+*// Quì va il codice come su button //*
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+
+## 3. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
 - Le checkbox devono essere associate a un'etichetta chiara utilizzando `<label>` per garantire che siano leggibili dagli screen reader.
@@ -14,8 +21,8 @@ Il componente `Checkbox` nello stato **unchecked** (non selezionato) consente ag
 ```html
 <fieldset>
   <legend>Seleziona i tuoi interessi</legend>
-  <label><input type="checkbox" name="hobby" value="sport"> Sport</label>
-  <label><input type="checkbox" name="hobby" value="musica"> Musica</label>
+  <label><input type="checkbox" name="hobby" value="sport" checked> Sport</label>
+  <label><input type="checkbox" name="hobby" value="musica" checked> Musica</label>
 </fieldset>
 ```
 
@@ -24,11 +31,11 @@ Il componente `Checkbox` nello stato **unchecked** (non selezionato) consente ag
 - Il testo dell’etichetta deve avere un contrasto minimo di **4.5:1** rispetto allo sfondo per garantire la leggibilità.
 
 ### 🔹 WCAG 2.1.1 - Tastiera
-- Tutte le checkbox devono essere navigabili con `Tab` e selezionabili con `Space`.
+- Tutte le checkbox devono essere navigabili con `Tab` e selezionabili/deselezionabili con `Space`.
 - Se viene fornita una checkbox personalizzata, deve mantenere lo stesso comportamento della checkbox nativa.
 
 ```html
-<input type="checkbox" id="accept" name="accept">
+<input type="checkbox" id="accept" name="accept" checked>
 <label for="accept">Accetto i termini e condizioni</label>
 ```
 
@@ -43,33 +50,33 @@ input[type="checkbox"]:focus-visible {
 ```
 
 ### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
-- Gli screen reader devono percepire correttamente lo stato `unchecked` della checkbox tramite `aria-checked="false"` se viene utilizzato `role="checkbox"` in un componente custom.
+- Gli screen reader devono percepire correttamente lo stato `checked` della checkbox tramite `aria-checked="true"` se viene utilizzato `role="checkbox"` in un componente custom.
 
 ```html
-<div role="checkbox" tabindex="0" aria-checked="false" id="custom-checkbox">
+<div role="checkbox" tabindex="0" aria-checked="true" id="custom-checkbox">
   Accetto i termini e condizioni
 </div>
 ```
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 4. Linee Guida per gli Sviluppatori
 
 ✅ **Markup HTML Corretto**
 ```html
 <label>
-  <input type="checkbox" name="notifiche" value="email"> Ricevi notifiche via email
+  <input type="checkbox" name="notifiche" value="email" checked> Ricevi notifiche via email
 </label>
 ```
 
 🚫 **Esempio Errato (mancanza di label associata)**
 ```html
-<input type="checkbox" name="notifiche"> Ricevi notifiche via email <!-- Non associato correttamente -->
+<input type="checkbox" name="notifiche" checked> Ricevi notifiche via email <!-- Non associato correttamente -->
 ```
 
 ✅ **Se la checkbox è personalizzata**
 ```html
-<div role="checkbox" tabindex="0" aria-checked="false">
+<div role="checkbox" tabindex="0" aria-checked="true">
   Accetto le promozioni
 </div>
 ```
@@ -81,7 +88,7 @@ input[type="checkbox"]:focus-visible {
 
 ---
 
-## 4. Test e Validazione
+## 5. Test e Validazione
 
 🛠 **Tecnologie Assistive Testate**
 - NVDA
@@ -94,14 +101,14 @@ input[type="checkbox"]:focus-visible {
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
 
 🎯 **Casi d’Uso da Testare**
-- La checkbox è navigabile e selezionabile da tastiera?
+- La checkbox è navigabile e selezionabile/deselezionabile da tastiera?
 - Il focus è visibile e ben distinto?
-- Lo stato `aria-checked="false"` è correttamente aggiornato nei componenti custom?
+- Lo stato `aria-checked="true"` è correttamente aggiornato nei componenti custom?
 - Il contrasto tra testo e sfondo è sufficiente?
 
 ---
 
-## 5. Considerazioni Avanzate
+## 6. Considerazioni Avanzate
 
 🌍 **Internazionalizzazione**
 - Testare con testi più lunghi per lingue diverse.
@@ -122,10 +129,10 @@ input[type="checkbox"]:focus-visible {
 
 ---
 
-## 6. Esempi e Best Practices
+## 7. Esempi e Best Practices
 ✅ **Utilizzare `<label>` per garantire la corretta associazione tra checkbox e testo.**
 ✅ **Assicurare un chiaro focus visibile per la navigazione da tastiera.**
-✅ **Se la checkbox è personalizzata, fornire `aria-checked="false"` per comunicare lo stato agli screen reader.**
+✅ **Se la checkbox è personalizzata, fornire `aria-checked="true"` per comunicare lo stato agli screen reader.**
 ✅ **Non rimuovere il focus senza fornire un’alternativa visiva.**
 
 ---
