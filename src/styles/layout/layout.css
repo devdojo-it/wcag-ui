@@ -1,6 +1,8 @@
 @import "./_variables.css" layer(variables);
 @import "./_core.css" layer(core);
 @import "./_header.css" layer(header);
+@import "./_header-nav.css" layer(header.nav);
+@import "./_color-scheme.css" layer(color-scheme);
 @import "./_aside.css" layer(aside);
 @import "./_main.css" layer(main);
 @import "./_scroll-spy.css" layer(scroll-spy);

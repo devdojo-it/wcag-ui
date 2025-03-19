@@ -31,8 +31,7 @@
   --wcag-t--scale--lg--font-size: 1.125em;
   --wcag-t--scale--lg--line-height: 1.33333333;
   --wcag-t--scale--md--font-size: 1em;
-  /* --wcag-t--scale--md--line-height: 1.25; */
-  --wcag-t--scale--md--line-height: 1.3;
+  --wcag-t--scale--md--line-height: 1.375;
   --wcag-t--scale--sm--font-size: 0.875em;
   --wcag-t--scale--sm--line-height: 1.42857143;
   --wcag-t--scale--xs--font-size: 0.75em;

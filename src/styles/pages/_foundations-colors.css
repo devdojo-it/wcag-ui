@@ -1,0 +1,167 @@
+[example]:has([color-box]) {
+  display: flex;
+  flex-flow: row wrap;
+  place-content: start;
+  place-items: start;
+  gap: var(--wcag-s--32);
+
+  color: var(--docs--colors--example--color);
+  background-color: var(--docs--colors--example--background-color);
+
+  [color] {
+    display: flex;
+    flex-flow: column nowrap;
+    place-content: center;
+    place-items: center;
+    gap: var(--wcag-s--4);
+
+    [color-box] {
+      display: block;
+
+      inline-size: 8.5rem;
+      aspect-ratio: 1;
+
+      background-color: var(--docs--color-box--background-color);
+    }
+
+    &[color="neutral-00"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-00);
+    }
+
+    &[color="neutral-20"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-20);
+    }
+
+    &[color="neutral-50"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-50);
+    }
+
+    &[color="neutral-100"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-100);
+    }
+
+    &[color="neutral-200"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-200);
+    }
+
+    &[color="neutral-300"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-300);
+    }
+
+    &[color="neutral-400"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-400);
+    }
+
+    &[color="neutral-500"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-500);
+    }
+
+    &[color="neutral-600"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-600);
+    }
+
+    &[color="neutral-700"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-700);
+    }
+
+    &[color="neutral-800"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-800);
+    }
+
+    &[color="neutral-900"] {
+      --docs--color-box--background-color: var(--wcag-c--neutral-900);
+    }
+
+    &[color="blue-100"] {
+      --docs--color-box--background-color: var(--wcag-c--blue-100);
+    }
+
+    &[color="blue-200"] {
+      --docs--color-box--background-color: var(--wcag-c--blue-200);
+    }
+
+    &[color="blue-300"] {
+      --docs--color-box--background-color: var(--wcag-c--blue-300);
+    }
+
+    &[color="blue-400"] {
+      --docs--color-box--background-color: var(--wcag-c--blue-400);
+    }
+
+    &[color="blue-500"] {
+      --docs--color-box--background-color: var(--wcag-c--blue-500);
+    }
+
+    &[color="blue-600"] {
+      --docs--color-box--background-color: var(--wcag-c--blue-600);
+    }
+
+    &[color="blue-700"] {
+      --docs--color-box--background-color: var(--wcag-c--blue-700);
+    }
+
+    &[color="blue-800"] {
+      --docs--color-box--background-color: var(--wcag-c--blue-800);
+    }
+
+    &[color="green-100"] {
+      --docs--color-box--background-color: var(--wcag-c--green-100);
+    }
+
+    &[color="green-200"] {
+      --docs--color-box--background-color: var(--wcag-c--green-200);
+    }
+
+    &[color="green-300"] {
+      --docs--color-box--background-color: var(--wcag-c--green-300);
+    }
+
+    &[color="green-400"] {
+      --docs--color-box--background-color: var(--wcag-c--green-400);
+    }
+
+    &[color="green-500"] {
+      --docs--color-box--background-color: var(--wcag-c--green-500);
+    }
+
+    &[color="yellow-100"] {
+      --docs--color-box--background-color: var(--wcag-c--yellow-100);
+    }
+
+    &[color="yellow-200"] {
+      --docs--color-box--background-color: var(--wcag-c--yellow-200);
+    }
+
+    &[color="yellow-300"] {
+      --docs--color-box--background-color: var(--wcag-c--yellow-300);
+    }
+
+    &[color="yellow-400"] {
+      --docs--color-box--background-color: var(--wcag-c--yellow-400);
+    }
+
+    &[color="yellow-500"] {
+      --docs--color-box--background-color: var(--wcag-c--yellow-500);
+    }
+
+    &[color="red-100"] {
+      --docs--color-box--background-color: var(--wcag-c--red-100);
+    }
+
+    &[color="red-200"] {
+      --docs--color-box--background-color: var(--wcag-c--red-200);
+    }
+
+    &[color="red-300"] {
+      --docs--color-box--background-color: var(--wcag-c--red-300);
+    }
+
+    &[color="red-400"] {
+      --docs--color-box--background-color: var(--wcag-c--red-400);
+    }
+
+    &[color="red-500"] {
+      --docs--color-box--background-color: var(--wcag-c--red-500);
+    }
+  }
+}

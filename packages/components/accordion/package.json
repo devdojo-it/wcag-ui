@@ -22,7 +22,8 @@
     "build": "parcel build"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.0"
+    "@wcag-ui/core": "^0.0.0",
+    "@wcag-ui/dom": "^0.0.0"
   },
   "directories": {
     "dist": "dist",
