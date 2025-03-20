@@ -12,13 +12,12 @@ html {
 
 body {
   display: grid;
-  grid-template-areas:
-    "header header header"
-    "aside main scroll-spy"
-    "footer footer footer";
   grid-template-columns: var(--docs--aside--width) 1fr var(--docs--scroll-spy--width);
-
   grid-template-rows: var(--docs--header--height) 1fr var(--docs--footer--height);
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "footer footer";
 
   background-color: var(--docs--background-color);
   background-image: url("../../assets/background-image.svg");
@@ -27,6 +26,15 @@ body {
 
   inline-size: 100vw;
   min-block-size: 100vh;
+}
+
+@media screen and (width >= 1024px) {
+  body {
+    grid-template-areas:
+      "header header header"
+      "aside main scroll-spy"
+      "footer footer footer";
+  }
 }
 
 a {

@@ -42,6 +42,11 @@ export default {
       return String.isString(s) && String.prototype.pascalize.call(s);
     },
   },
+  stripEmojis: {
+    value(s) {
+      return String.isString(s) && String.prototype.stripEmojis.call(s);
+    },
+  },
   toBoolean: {
     value(s) {
       return String.isString(s) && String.prototype.toBoolean.call(s);

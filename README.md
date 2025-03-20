@@ -1,8 +1,14 @@
-# wcagUI, crafting UIs with Accessibility built-in!
+# ✨ wcagUI ✨
 
-## Making A11y... Accessible
+## Making Accessibility... Accessible!
 
-Welcome to wcagUI - where accessibility is seamlessly woven into every line of code. Designed with developers in mind, wcagUI empowers you to build stunning, inclusive interfaces with ease. Here’s what can make wcagUI your choice:
+wcagUI is a Design System, is a UI Kit, it's based on WCAG APG Patterns and designed to help developers creating accessible and inclusive user interfaces.
+
+This solution makes it simple to build technology that everyone can use, with accessibility integrated into every step of the design process.
+
+Designed with developers in mind, wcagUI empowers to build stunning, inclusive interfaces with ease.
+
+Here's what can make wcagUI your choice:
 
 - **Zero External Dependencies** 📦: Crafted in pure HTML, CSS, and JavaScript, wcagUI is entirely self-contained, ensuring a lightweight, straightforward integration without the overhead of bulky libraries.
 - **Semantic HTML at Its Core** 📜: Every component is built with semantic HTML, so your UI communicates clear meaning to browsers and assistive technologies—boosting both accessibility and SEO.

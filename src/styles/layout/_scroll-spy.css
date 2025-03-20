@@ -1,9 +1,11 @@
-[is="scroll-spy"] {
+body > aside[scroll-spy] {
   grid-area: scroll-spy;
-
-  nav {
+  
+  [is="wcag-scroll-spy"] {
     position: sticky;
-    inset-block-start: 2rem;
-    margin-inline-start: 2rem;
+    inset-block-start: calc(var(--docs--header--height) + 3rem);
+
+    inline-size: 19.3rem;
+    margin: 0 auto 0 2rem;
   }
 }
