@@ -33,7 +33,11 @@
     <main>
       <block name="main"></block>
     </main>
-    <aside is="wcag-scroll-spy" target="main"></aside>
+    <block name="scroll-spy">
+      <aside scroll-spy>
+        <section is="wcag-scroll-spy" target="main"></section>
+      </aside>
+    </block>
     <include src="common/footer.html"></include>
     <script type="module" src="./scripts/index.js"></script>
   </body>

@@ -1,14 +1,14 @@
-import "./styles/scroll-spy.css";
+import './styles/scroll-spy.css';
 
-import { componentDecorator } from "@wcag-ui/core";
-import { DOM } from "@wcag-ui/dom";
+import { componentDecorator } from '@wcag-ui/core';
+import { DOM } from '@wcag-ui/dom';
 
-import attributes from "./scroll-spy.attributes";
-import events from "./scroll-spy.events";
+import attributes from './scroll-spy.attributes';
+import events from './scroll-spy.events';
 
 export class ScrollSpy extends HTMLElement {
-  static name = "wcag-scroll-spy";
-  static extends = "aside";
+  static name = 'wcag-scroll-spy';
+  static extends = 'section';
   static attributes = attributes;
   static events = events;
 
@@ -19,11 +19,13 @@ export class ScrollSpy extends HTMLElement {
    * @memberof ScrollSpy
    */
   static {
-    componentDecorator("ScrollSpy", ScrollSpy);
+    componentDecorator('ScrollSpy', ScrollSpy);
   }
 
-  _observer = null;
-  sections = [];
+  #observer;
+
+  #title;
+  #headings = [];
 
   constructor() {
     super();
@@ -31,16 +33,17 @@ export class ScrollSpy extends HTMLElement {
 
   onConnected() {
     // Legge l'attributo target per individuare il contenuto esterno
-    const targetSelector = this.getAttribute("target");
+    const targetSelector = this.getAttribute('target');
     const container = document.querySelector(targetSelector);
 
     if (!container) {
-      console.error("Target container non trovato per ScrollSpy:", targetSelector);
+      console.error('Target container non trovato per ScrollSpy:', targetSelector);
       return;
     }
 
-    // Seleziona tutte le sezioni che contengono un h2 o h3
-    this.sections = [...container.querySelectorAll("section:has(> :where(h2, h3))")];
+    // Seleziona tutte i gli headings h1 h2
+    this.#title = container.querySelector('h1');
+    this.#headings = [...container.querySelectorAll('h2')];
 
     // Costruisce la navigazione
     this.buildNav();
@@ -50,7 +53,7 @@ export class ScrollSpy extends HTMLElement {
   }
 
   onDisconnected() {
-    this._observer && this._observer.disconnect();
+    this.#observer && this.#observer.disconnect();
   }
 
   buildNav() {
@@ -58,17 +61,17 @@ export class ScrollSpy extends HTMLElement {
 
     // Crea un elemento nav e una lista non ordinata
     let template = `
+      <span>${this.#title.textContent.stripEmojis()}</span>
       <nav>
         <ul>
-          ${this.sections
-            .map((section) => {
+          ${this.#headings
+            .map((heading) => {
               // Se la sezione non ha un id, lo genera a partire dal testo del titolo
-              !section.id &&
-                (section.id = section.querySelector("h2, h3").textContent.trim().toLowerCase().replace(/\s+/g, "-"));
+              !heading.id && (heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-'));
 
-              return `<li><a href="#${section.id}">${section.querySelector("h2, h3").textContent}</a></li>`;
+              return `<li><a href="#${heading.id}">${heading.textContent.stripEmojis()}</a></li>`;
             })
-            .join("")}
+            .join('')}
         </ul>
       </nav>
     `;
@@ -79,11 +82,11 @@ export class ScrollSpy extends HTMLElement {
   setupObserver() {
     const options = {
       root: null, // viewport
-      rootMargin: "0px",
+      rootMargin: '0px',
       threshold: 0.5, // Modifica il valore in base alle esigenze
     };
 
-    this._observer = new IntersectionObserver((entries) => {
+    this.#observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         const id = entry.target.id;
         const navLink = this.querySelector(`a[href="#${id}"]`);
@@ -91,22 +94,22 @@ export class ScrollSpy extends HTMLElement {
         if (entry.isIntersecting) {
           this.clearActive();
 
-          navLink && navLink.parentElement && navLink.parentElement.classList.add("active");
+          navLink && navLink.parentElement && navLink.parentElement.classList.add('active');
         }
       }
     }, options);
 
     // Osserva ogni sezione individuata
-    for (const section of this.sections) {
-      this._observer.observe(section);
+    for (const heading of this.#headings) {
+      this.#observer.observe(heading);
     }
   }
 
   clearActive() {
-    const activeItems = this.querySelectorAll("li.active");
+    const activeItems = this.querySelectorAll('li.active');
 
     for (const activeItem of activeItems) {
-      activeItem.classList.remove("active");
+      activeItem.classList.remove('active');
     }
   }
 }
