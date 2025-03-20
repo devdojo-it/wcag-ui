@@ -1,6 +1,9 @@
 :root {
   --docs--aside--link--color: light-dark(hsl(248, 70%, 8%), hsl(248, 28%, 96%));
   --docs--aside--link--indicator--color: light-dark(hsl(248, 28%, 84%), hsl(245, 73%, 74%));
+
+  --docs--aside--link--hover--background-color: light-dark(hsl(248, 28%, 92%), hsl(248, 70%, 30%));
+
   --docs--aside--active-link--indicator--color: light-dark(hsl(245, 94%, 38%), hsl(248, 28%, 92%));
 }
 
@@ -9,16 +12,15 @@ body > aside[nav] {
 
   [is="wcag-accordion"] {
     position: sticky;
-    inset-block-start: 2rem;
+    inset-block-start: calc(var(--docs--header--height) + 3rem);
 
     display: flex;
     flex-flow: column nowrap;
-
     place-content: center;
     place-items: center;
     gap: 1.6rem;
 
-    inline-size: 19.5rem;
+    inline-size: 19.3rem;
     padding: 2rem 1.2rem;
     margin: 0 auto;
   }
@@ -27,6 +29,8 @@ body > aside[nav] {
     inline-size: 100%;
 
     summary {
+      --wcag-t--line-height: 4rem;
+
       display: flex;
       place-content: space-between;
       place-items: center;
@@ -35,6 +39,10 @@ body > aside[nav] {
 
       i {
         --wcag-t--font-size: 0.6em;
+      }
+
+      &:hover {
+        background-color: var(--docs--aside--link--hover--background-color);
       }
     }
 
@@ -57,16 +65,25 @@ body > aside[nav] {
       place-items: center;
       gap: 2rem;
 
+      inline-size: 100%;
+      padding-inline: 1.2rem;
+
       color: var(--docs--aside--link--color);
 
       &::before {
         content: "";
+        
+        flex-shrink: 0;
 
         display: inline-flex;
         inline-size: 0.4rem;
         block-size: 4rem;
 
         background-color: var(--docs--aside--link--indicator--color);
+      }
+
+      &:hover {
+        background-color: var(--docs--aside--link--hover--background-color);
       }
 
       &[active] {

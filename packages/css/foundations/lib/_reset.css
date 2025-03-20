@@ -24,9 +24,11 @@ body {
 hr {
   display: block;
 
-  inline-size: 80%;
-  block-size: 1px;
-  margin-inline: auto;
+  inline-size: 50%;
+  block-size: 0;
 
-  border-color: color-mix(in srgb, CanvasText, transparent 80%);
+  margin: 6em auto;
+
+  border: 1px solid color-mix(in srgb, CanvasText, transparent 90%);
+  border-radius: 1.5px;
 }

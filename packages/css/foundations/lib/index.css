@@ -4,4 +4,5 @@
 @import "./helpers/index.css" layer(wcag-ui.core.helpers);
 @import "./_focus.css" layer(wcag-ui.core.focus);
 @import "./_colors.css" layer(wcag-ui.foundations.colors);
+@import "./_elevations.css" layer(wcag-ui.foundations.elevations);
 @import "./_spacings.css" layer(wcag-ui.foundations.spacings);

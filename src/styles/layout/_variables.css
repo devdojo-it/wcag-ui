@@ -50,8 +50,8 @@
   --docs--header--menu-item--selected--hover--background-color: light-dark(hsl(245, 94%, 48%), hsl(245, 73%, 79%));
   --docs--header--menu-item--selected--active--background-color: light-dark(hsl(245, 94%, 58%), hsl(245, 73%, 74%));
 
-  --docs--aside--width: 22vw;
-  --docs--scroll-spy--width: 22vw;
+  --docs--aside--width: 23vw;
+  --docs--scroll-spy--width: 23vw;
 
   --docs--footer--height: 33rem;
 

@@ -245,12 +245,16 @@ body {
     --wcag-t--font-weight: 700;
   }
 
-  :where(h1, h2, h3, h4, h5, h6, p) {
+  :where(h1, h2, h3, h4, h5, h6, p, ul, ol, pre) {
     margin: 0;
 
     + & {
       margin-block-start: var(--wcag-t--gap);
     }
+  }
+
+  li + li {
+    margin-block-start: calc(var(--wcag-t--gap) / 2);
   }
 
   a {
