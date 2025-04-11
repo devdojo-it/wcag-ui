@@ -1,7 +1,7 @@
 export function buildLifecycleMethods(component) {
   return {
     handleEvent(e) {
-      this[`handle${e.type.capitalize()}`](e);
+      this[`handle${e.type.capitalize()}`]?.(e);
     },
     attributeChangedCallback(name, oldValue, newValue) {
       this[`handle${name.pascalize()}Change`]?.(oldValue, newValue);

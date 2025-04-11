@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
-    <title>wcagUI - Homepage</title>
+    <title>wcagUI - Foundations - Elevations</title>
     <link rel="preload" href="/wcag-icons.250d9898.woff" as="font" type="font/woff" crossorigin="">
     <link rel="preload" href="/Inter.bc470e90.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="preload" href="/Inter-Italic.29bdd0cc.woff2" as="font" type="font/woff2" crossorigin="">
@@ -46,26 +46,76 @@
 
     <aside nav="">
       
+    <section is="wcag-accordion">
+  <details is="wcag-details">
+    <summary>Getting Started</summary>
+    <a href="/getting-started-quick-start.html">Quick Start</a>
+    <a href="/getting-started-integrations.html">Integrations</a>
+    <a href="/getting-started-css-apis.html">CSS APIs</a>
+  </details>
+  <details is="wcag-details">
+    <summary>Foundations</summary>
+    <a href="/foundations-colors.html">Colors</a>
+    <a href="/foundations-elevations.html">Elevations</a>
+    <a href="/foundations-spacings.html">Spacings</a>
+    <a href="/foundations-typography.html">Typography</a>
+  </details>
+  <details is="wcag-details">
+    <summary>Components</summary>
+    <a href="/components-button.html">Button</a>
+    <a href="/components-chips.html">Checkbox</a>
+    <a href="/components-input.html">Input</a>
+    <a href="/components-textarea.html">Textarea</a>
+    <a href="/components-select.html">Select</a>
+    <a href="/components-checkbox.html">Checkbox</a>
+    <a href="/components-switch.html">Switch</a>
+    <a href="/components-radio.html">Radio</a>
+    <a href="/components-tooltip.html">Tooltip</a>
+    <a href="/components-details.html">Details</a>
+    <a href="/components-accordion.html">Accordion</a>
+    <a href="/components-dialog.html">Dialog</a>
+  </details>
+</section>
+
+  
     </aside>
     <main>
       
-    <h1>✨ wcagUI ✨</h1>
-<h2>Making Accessibility... Accessible!</h2>
-<p>wcagUI is a Design System, is a UI Kit, it's based on WCAG APG Patterns and designed to help developers creating accessible and inclusive user interfaces.</p>
-<p>This solution makes it simple to build technology that everyone can use, with accessibility integrated into every step of the design process.</p>
-<p>Designed with developers in mind, wcagUI empowers to build stunning, inclusive interfaces with ease.</p>
-<p>Here's what can make wcagUI your choice:</p>
-<ul>
-<li><strong>Zero External Dependencies</strong> 📦: Crafted in pure HTML, CSS, and JavaScript, wcagUI is entirely self-contained, ensuring a lightweight, straightforward integration without the overhead of bulky libraries.</li>
-<li><strong>Semantic HTML at Its Core</strong> 📜: Every component is built with semantic HTML, so your UI communicates clear meaning to browsers and assistive technologies—boosting both accessibility and SEO.</li>
-<li><strong>Accessibile by Design</strong> 🤖: based on <a href="https://www.w3.org/WAI/ARIA/apg/patterns">WCAG Patterns</a> and featuring mostly automatic WAI-ARIA attribute handling, wcagUI makes it effortless to create interfaces that are inclusive and robust.</li>
-<li><strong>Cutting-Edge Web APIs</strong> 🚀: Leverage the power of the latest core web technologies; wcagUI harnesses state-of-the-art HTML, CSS, and JavaScript APIs for fast, modern, and future-proof interfaces.</li>
-</ul>
-<p>Focus on crafting amazing user experiences while wcagUI takes care of making every interface accessible to everyone. Welcome to a world where inclusive design is truly effortless! 🌍✨</p>
-<p>A special thanks to <a href="https://www.exeen.it">Exeen</a>, a Milan-based design studio with Accessibility at Its core, whose invaluable support made this project possible.</p>
+    <h1>Foundations – Elevations</h1>
+<p>Elevations add a sense of depth and hierarchy to your user interface. They simulate physical space through subtle shadow effects, guiding the user's focus and distinguishing interactive elements from the background. In wcagUI, elevations are defined using CSS box-shadow properties and design tokens, ensuring that the visual depth is both consistent and accessible.</p>
+<hr>
+<h2>Elevation Levels</h2>
+<p><strong>Small Elevation</strong><br>
+Used for a slight lift, the small elevation creates minimal depth. It’s perfect for elements that need a gentle separation from the background.</p>
+<pre><code class="language-html">&lt;section el=&quot;sm&quot;&gt;box-shadow: 0px 2px 40px -2px hsla(248, 28%, 55%, 0.08)&lt;/section&gt;
+</code></pre>
+<p><strong>Medium Elevation</strong><br>
+This level offers a more pronounced shadow, ideal for elements that require more emphasis, such as buttons or cards that invite interaction.</p>
+<pre><code class="language-html">&lt;section el=&quot;md&quot;&gt;box-shadow: 0px 8px 40px -2px hsla(248, 28%, 55%, 0.1)&lt;/section&gt;
+</code></pre>
+<p><strong>Large Elevation</strong><br>
+Large elevation creates a deep shadow effect, commonly used for modals or dialogs. It clearly separates the element from the rest of the interface, drawing immediate attention.</p>
+<pre><code class="language-html">&lt;section el=&quot;lg&quot;&gt;box-shadow: 0px 18px 60px 2px hsla(248, 28%, 55%, 0.1)&lt;/section&gt;
+</code></pre>
+<hr>
+<h2>Design Considerations</h2>
+<p>Elevations are more than just visual effects—they communicate the structure and importance of elements within your design. The careful use of shadow intensity and spread creates a visual narrative, helping users intuitively understand which elements are interactive or primary. Always test your elevations under various conditions to ensure that they enhance usability without compromising accessibility.</p>
+<hr>
+<p>Navigation:<br>
+Previous: <a href="/foundations-colors.html">Colors →</a><br>
+Next: <a href="/foundations-spacings.html">Spacings →</a></p>
 
+    <section example="">
+      <section el="sm">box-shadow: 0px 2px 40px -2px var(--ColorShadowS); hsla(248, 28%, 55%, 0.08)</section>
+      <section el="md">box-shadow: 0px 8px 40px -2px var(--ColorShadowM); hsla(248, 28%, 55%, 0.1)</section>
+      <section el="lg">box-shadow: 0px 18px 60px 2px var(--ColorShadowM); hsla(248, 28%, 55%, 0.1)</section>
+    </section>
   
     </main>
+    
+      <aside scroll-spy="">
+        <section is="wcag-scroll-spy" target="main"></section>
+      </aside>
     
     <footer>
   <section credits="">

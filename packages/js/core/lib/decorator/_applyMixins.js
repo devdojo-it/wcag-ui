@@ -1,7 +1,7 @@
 import { buildAttributeHandlers, buildEventHandlers } from "./_buildHandlers";
 import { buildLifecycleMethods } from "./_buildLifecycleMethods";
 
-export function applyMixinsToComponent(component) {
+export function applyMixins(component) {
   Object.assign(
     component.prototype,
     { componentName: component.name },
