@@ -17,7 +17,7 @@ export const buildFileList = (fileArrayOrList) => {
 // fileArrayOrList: File[] | FileList
 // returns a File[]
 export const buildFileArray = (fileArrayOrList) => {
-  if (fileArrayOrList instanceof Array) {
+  if (Array.isArray(fileArrayOrList)) {
     return fileArrayOrList;
   }
 

@@ -36,6 +36,21 @@ export class Button extends HTMLButtonElement {
 
   #initialize() {
     !this.hasAttribute("type") && this.setAttribute("type", "button");
-    !this.hasAttribute("role") && this.setAttribute("role", "button");
+    // !this.hasAttribute("role") && this.setAttribute("role", "button");
   }
 }
+
+
+// import '@wcag-ui/button';
+
+// <button is="wcag-button">Ciao<button>
+// <wcag-button>Ciao<wcag-button>
+
+// import '@wcag-ui/input';
+
+// <input is="wcag-input" type="text" aria-label="Username" />
+
+// <label>
+//   Username
+//   <input is="wcag-input" type="text" aria-label="Username" />
+// </label>

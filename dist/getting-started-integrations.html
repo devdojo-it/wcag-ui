@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><link rel="stylesheet" href="/wcag-ui.9f367d21.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>wcagUI - Getting Started - Integrations</title>
+    <link rel="preload" href="/wcag-icons.250d9898.woff" as="font" type="font/woff" crossorigin="">
+    <link rel="preload" href="/Inter.bc470e90.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="/Inter-Italic.29bdd0cc.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="stylesheet" href="/wcag-ui.ebeadb08.css">
+  </head>
+  <body>
+    <header>
+  <a logo="" href="/" aria-label="wcagUI logo, to the homepage">
+    <i class="wcag-icon-wcag-ui"></i>
+  </a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/why.html">Why</a>
+    <a href="/how.html">How</a>
+    <a href="/getting-started-quick-start.html">Docs</a>
+    <a href="https://github.com/devdojo-it/wcag-ui" target="_blank" rel="noopener noreferrer">
+      <i class="wcag-icon-github"></i>
+      GitHub
+    </a>
+  </nav>
+  <menu color-scheme="docs">
+    <label>
+      <input type="radio" name="color-scheme" value="light dark" sr-only="">
+      <i class="wcag-icon-scheme-system"></i>
+      System
+    </label>
+    <label>
+      <input type="radio" name="color-scheme" value="light" sr-only="">
+      <i class="wcag-icon-scheme-light"></i>
+      Light
+    </label>
+    <label>
+      <input type="radio" name="color-scheme" value="dark" sr-only="">
+      <i class="wcag-icon-scheme-dark"></i>
+      Dark
+    </label>
+  </menu>
+</header>
+
+    <aside nav="">
+      
+    <section is="wcag-accordion">
+  <details is="wcag-details">
+    <summary>Getting Started</summary>
+    <a href="/getting-started-quick-start.html">Quick Start</a>
+    <a href="/getting-started-integrations.html">Integrations</a>
+    <a href="/getting-started-css-apis.html">CSS APIs</a>
+  </details>
+  <details is="wcag-details">
+    <summary>Foundations</summary>
+    <a href="/foundations-colors.html">Colors</a>
+    <a href="/foundations-elevations.html">Elevations</a>
+    <a href="/foundations-spacings.html">Spacings</a>
+    <a href="/foundations-typography.html">Typography</a>
+  </details>
+  <details is="wcag-details">
+    <summary>Components</summary>
+    <a href="/components-button.html">Button</a>
+    <a href="/components-chips.html">Checkbox</a>
+    <a href="/components-input.html">Input</a>
+    <a href="/components-textarea.html">Textarea</a>
+    <a href="/components-select.html">Select</a>
+    <a href="/components-checkbox.html">Checkbox</a>
+    <a href="/components-switch.html">Switch</a>
+    <a href="/components-radio.html">Radio</a>
+    <a href="/components-tooltip.html">Tooltip</a>
+    <a href="/components-details.html">Details</a>
+    <a href="/components-accordion.html">Accordion</a>
+    <a href="/components-dialog.html">Dialog</a>
+  </details>
+</section>
+
+  
+    </aside>
+    <main>
+      
+    <h1>Integrations with wcagUI</h1>
+<p>Integrating wcagUI into your project is straightforward and flexible. Built as standard web components, wcagUI works seamlessly with a variety of frontend frameworks and modern build systems. This guide provides detailed technical instructions for integrating wcagUI across multiple environments, including specific examples for both the latest versions and the most commonly used legacy versions of Angular, React, and Vue, as well as examples for Svelte, Astro, and Qwik.</p>
+<h2>General Integration Concepts</h2>
+<p>wcagUI components are built on native web component standards. Key aspects include:</p>
+<ul>
+<li>
+<p><strong>Standard Web Components:</strong><br>
+All components adhere to the Custom Elements specification and are implemented without shadow DOM. This means components reside in the global DOM, which simplifies styling, debugging, and integration with other libraries.</p>
+</li>
+<li>
+<p><strong>Automatic WAI-ARIA Handling:</strong><br>
+Accessibility features, such as ARIA attributes, are applied automatically to reduce the need for manual adjustments.</p>
+</li>
+<li>
+<p><strong>Flexible Import System:</strong><br>
+Components can be imported individually or as part of a bundle. The support for the <code>is</code> attribute lets you extend native HTML elements seamlessly, preserving familiar markup while enhancing functionality.</p>
+</li>
+<li>
+<p><strong>Modular Architecture:</strong><br>
+Leveraging JavaScript mixins and static initialization blocks, wcagUI components are designed to be extended and customized without modifying the core code.</p>
+</li>
+<li>
+<p><strong>Browser Compatibility:</strong><br>
+Targeting modern browsers with ES6+ features, wcagUI remains adaptable through the use of polyfills (for example, <code>@webcomponents/webcomponentsjs</code>) when supporting older environments.</p>
+</li>
+</ul>
+<hr>
+<h2>Angular Integration</h2>
+<h3>Latest Angular (v15+ / Standalone Components)</h3>
+<p><em>Main Application Bootstrap (main.ts):</em></p>
+<pre><code class="language-typescript">// main.ts (Latest Angular using Standalone Components)
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import '@wcag-ui/button';
+
+bootstrapApplication(AppComponent)
+  .catch(err =&gt; console.error(err));
+</code></pre>
+<p><em>Standalone App Component (app.component.ts):</em></p>
+<pre><code class="language-typescript">// app.component.ts (Latest Angular Standalone)
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  template: `&lt;button is=&quot;wcag-button&quot;&gt;Click Me&lt;/button&gt;`,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+export class AppComponent {}
+</code></pre>
+<h3>Legacy Angular (v8 – v9)</h3>
+<p><em>NgModule-Based Setup (app.module.ts):</em></p>
+<pre><code class="language-typescript">// app.module.ts (Legacy Angular)
+import '@wcag-ui/button';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+</code></pre>
+<p><em>Component Template (app.component.html):</em></p>
+<pre><code class="language-html">&lt;!-- app.component.html (Legacy Angular) --&gt;
+&lt;button is=&quot;wcag-button&quot;&gt;Click Me&lt;/button&gt;
+</code></pre>
+<p><em>Note:</em> If issues arise with custom elements not being recognized, ensure that the necessary polyfills for custom elements are included in your project.</p>
+<hr>
+<h2>React Integration (v16+)</h2>
+<p>This unified example works for React versions 16 and above.</p>
+<pre><code class="language-jsx">// App.jsx (React v16+)
+import React from 'react';
+import ReactDOM from 'react-dom';
+import '@wcag-ui/button';
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;button is=&quot;wcag-button&quot;&gt;Click Me&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+</code></pre>
+<p><em>Technical Considerations:</em></p>
+<ul>
+<li><strong>Script Loading Order:</strong> Ensure the wcagUI script is loaded before your React bundle. This can be managed via your HTML template or dynamic imports.</li>
+<li><strong>Server-Side Rendering (SSR):</strong> When using SSR, confirm that custom elements are properly hydrated on the client side.</li>
+<li><strong>Type Safety:</strong> Consider defining TypeScript interfaces for wcagUI components to enhance the developer experience.</li>
+</ul>
+<hr>
+<h2>Vue Integration</h2>
+<h3>Latest Vue (Vue 3)</h3>
+<p><em>Importing and Configuring with createApp (main.js):</em></p>
+<pre><code class="language-javascript">// main.js (Latest Vue)
+import { createApp } from 'vue';
+import App from './App.vue';
+import '@wcag-ui/button';
+
+const app = createApp(App);
+
+// Configure Vue 3 to recognize custom elements
+app.config.compilerOptions.isCustomElement = (tag) =&gt; tag === 'button' || tag.startsWith('wcag-');
+
+app.mount('#app');
+</code></pre>
+<p><em>Component Template (App.vue):</em></p>
+<pre><code class="language-html">&lt;!-- App.vue (Latest Vue) --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;button is=&quot;wcag-button&quot;&gt;Click Me&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3>Legacy Vue (Vue 2)</h3>
+<p><em>Importing and Configuring with Vue Instance (main.js):</em></p>
+<pre><code class="language-javascript">// main.js (Legacy Vue)
+import Vue from 'vue';
+import App from './App.vue';
+import '@wcag-ui/button';
+
+// Configure Vue 2 to ignore custom elements
+Vue.config.ignoredElements = ['button', /^wcag-/];
+
+new Vue({
+  render: h =&gt; h(App),
+}).$mount('#app');
+</code></pre>
+<p><em>Component Template (App.vue):</em></p>
+<pre><code class="language-html">&lt;!-- App.vue (Legacy Vue) --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;button is=&quot;wcag-button&quot;&gt;Click Me&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p><em>Technical Tip:</em> Vue 2 uses <code>ignoredElements</code> to prevent warnings about unknown elements, while Vue 3 uses <code>compilerOptions.isCustomElement</code> for custom element recognition.</p>
+<hr>
+<h2>Svelte Integration</h2>
+<p>Svelte makes it simple to integrate wcagUI components. Just import the component in your Svelte file:</p>
+<pre><code class="language-html">&lt;!-- App.svelte --&gt;
+&lt;script&gt;
+  import '@wcag-ui/button';
+&lt;/script&gt;
+
+&lt;main&gt;
+  &lt;button is=&quot;wcag-button&quot;&gt;Click Me&lt;/button&gt;
+&lt;/main&gt;
+</code></pre>
+<hr>
+<h2>Astro Integration</h2>
+<p>Astro supports both static and dynamic content. To integrate wcagUI, import the component at the top of your Astro file:</p>
+<pre><code class="language-jsx">---
+// Navbar.astro
+import '@wcag-ui/button';
+---
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;button is=&quot;wcag-button&quot;&gt;Click Me&lt;/button&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2>Qwik Integration</h2>
+<p>Qwik, known for its resumability, supports web components effortlessly. Here’s an example of integrating wcagUI in a Qwik component:</p>
+<pre><code class="language-tsx">// src/components/App.tsx (Qwik)
+import { component$ } from '@builder.io/qwik';
+import '@wcag-ui/button';
+
+export const App = component$(() =&gt; {
+  return (
+    &lt;div&gt;
+      &lt;button is=&quot;wcag-button&quot;&gt;Click Me&lt;/button&gt;
+    &lt;/div&gt;
+  );
+});
+</code></pre>
+<p>And in your entry point:</p>
+<pre><code class="language-tsx">// src/entry.tsx (Qwik)
+import { render } from '@builder.io/qwik';
+import { App } from './components/App';
+
+render(document.getElementById('root')!, &lt;App /&gt;);
+</code></pre>
+<hr>
+<h2>Additional Technical Considerations</h2>
+<ul>
+<li><strong>Polyfills and Browser Support:</strong> For older browsers, include polyfills for custom elements and ES6 features. Tools like <code>@webcomponents/webcomponentsjs</code> help ensure compatibility.</li>
+<li><strong>Module Bundlers:</strong> wcagUI components are distributed as ES modules and work with bundlers such as Webpack, Rollup, or Parcel. Ensure your bundler supports dynamic imports if needed.</li>
+<li><strong>Customization and Extensibility:</strong> The modular design allows for easy customization using JavaScript mixins and static initialization blocks, so you can extend component functionality without modifying the core code.</li>
+<li><strong>Performance Optimization:</strong> The absence of shadow DOM allows natural CSS cascading, reducing style recalculation overhead. Combined with modular CSS practices using custom properties and <code>@layer</code>, wcagUI supports fast rendering and smooth performance.</li>
+<li><strong>Documentation and Community Support:</strong> Comprehensive documentation is available to address integration challenges and share best practices. Engage with the community for troubleshooting tips and advanced configurations.</li>
+</ul>
+<hr>
+<p>By following these detailed guidelines, wcagUI can be integrated into virtually any project environment. This versatile toolkit is engineered for modern frontend frameworks and build systems, enabling the creation of accessible, efficient, and future-proof digital experiences.</p>
+<p><a href="/index.html">Return to Home →</a></p>
+
+  
+    </main>
+    
+      <aside scroll-spy="">
+        <section is="wcag-scroll-spy" target="main"></section>
+      </aside>
+    
+    <footer>
+  <section credits="">
+    <a logo="wcag-ui" href="/" aria-label="wcagUI logo, to the homepage">
+      <i class="wcag-icon-wcag-ui"></i>
+    </a>
+    <section>
+      <span>
+        Designed by
+        <a logo="exeen" href="https://exeen.it" aria-label="Exeen logo, to Exeen website" target="_blank" rel="noopener noreferrer">
+          <i class="wcag-icon-exeen"></i>
+        </a>
+      </span>
+      <span>
+        & Developed by
+        <a logo="dev-dojo" href="https://devdojo.it" aria-label="Dev Dojo IT logo, to Dev Dojo IT website" target="_blank" rel="noopener noreferrer">
+          <i class="wcag-icon-dev-dojo"></i>
+        </a>
+      </span>
+    </section>
+  </section>
+  <section links="">
+    <section>
+      <h5>Navigation</h5>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/why.html">Why</a>
+        <a href="/how.html">How</a>
+        <a href="/getting-started-quick-start.html">Docs</a>
+      </nav>
+    </section>
+    <section>
+      <h5>Links</h5>
+      <a href="https://github.com/devdojo-it/wcag-ui" target="_blank" rel="noopener noreferrer">
+        <i class="wcag-icon-github"></i>
+        <span>GitHub</span>
+      </a>
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <i class="wcag-icon-figma"></i>
+        <span>
+          Figma
+          <em>(W.I.P.)</em>
+        </span>
+      </a>
+    </section>
+    <section>
+      <h5>Resources</h5>
+      <a href="#" target="_blank" rel="noopener noreferrer">WCAG 2.2 (English)</a>
+      <a href="#" target="_blank" rel="noopener noreferrer">WCAG 2.2 (Italian)</a>
+      <a href="#" target="_blank" rel="noopener noreferrer">WCAG Patterns (APG)</a>
+      <a href="#" target="_blank" rel="noopener noreferrer">Mozilla Accessibility</a>
+    </section>
+    <section>
+      <h5>Follow us</h5>
+      <a href="https://it.linkedin.com/company/exeen" target="_blank" rel="noopener noreferrer">
+        <i class="wcag-icon-linked-in"></i>
+        <span>Exeen s.r.l.</span>
+      </a>
+      <a href="https://it.linkedin.com/company/dev-dojo-it" target="_blank" rel="noopener noreferrer">
+        <i class="wcag-icon-linked-in"></i>
+        <span>Dev Dojo IT</span>
+      </a>
+    </section>
+  </section>
+</footer>
+
+    <script type="module" src="/wcag-ui.c6396971.js"></script>
+  </body>
+</html>
+
