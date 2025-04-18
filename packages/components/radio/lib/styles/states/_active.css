@@ -1,0 +1,16 @@
+:root {
+  /*
+  --wcag-radio--s-act--color: ;
+  --wcag-radio--s-act--background-color: ;
+  */
+
+  --wcag-radio--s-act--border-color: var(--wcag-c--neutral-600);
+}
+
+[is="wcag-radio"]:where(:active, [aria-pressed="true"]) {
+  /*
+  --wcag-radio--color: var(--wcag-radio--s-act--color);
+  --wcag-radio--background-color: var(--wcag-radio--s-act--background-color);
+  */
+  --wcag-radio--border-color: var(--wcag-radio--s-act--border-color);
+}

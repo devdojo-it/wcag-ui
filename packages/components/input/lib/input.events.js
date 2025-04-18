@@ -3,14 +3,15 @@ import { events } from "@wcag-ui/core";
 export default {
   input: function (e) {
     console.log("input emitted input", this.ariaLabel);
-    // this.updateValidity();
+
+    // style :user-invalid or :user-valid
 
     events.dispatchComponentEvent.call(this, "input", { value: this.value }, e);
   },
   change: function (e) {
     console.log("input emitted change", this.ariaLabel);
 
-    // this.updateValidity();
+    // style :user-invalid or :user-valid
 
     events.dispatchComponentEvent.call(this, "change", { value: this.value }, e);
   },
@@ -27,7 +28,7 @@ export default {
   invalid: function (e) {
     console.log("input emitted invalid", this.ariaLabel);
 
-    // this.updateValidity();
+    // style :user-invalid or :user-valid
 
     events.dispatchComponentEvent.call(this, "invalid", { value: this.value }, e);
   },

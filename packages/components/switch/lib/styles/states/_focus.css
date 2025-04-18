@@ -1,0 +1,13 @@
+:root {
+  --wcag-switch--s-foc--outline-width: var(--wcag-focus--outline-width);
+  --wcag-switch--s-foc--outline-style: solid;
+  --wcag-switch--s-foc--outline-color: var(--wcag-focus--outline-color);
+  --wcag-switch--s-foc--outline-offset: var(--wcag-focus--outline-width);
+}
+
+[is="wcag-switch"]:where(:focus, :focus-visible) {
+  --wcag-switch--outline-width: var(--wcag-switch--s-foc--outline-width);
+  --wcag-switch--outline-style: var(--wcag-switch--s-foc--outline-style);
+  --wcag-switch--outline-color: var(--wcag-switch--s-foc--outline-color);
+  --wcag-switch--outline-offset: var(--wcag-switch--s-foc--outline-offset);
+}

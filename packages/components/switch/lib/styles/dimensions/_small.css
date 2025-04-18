@@ -1,0 +1,23 @@
+:root {
+  --wcag-switch--sm--gap: 0.8rem;
+
+  --wcag-switch--sm--height: 4rem;
+  --wcag-switch--sm--padding-inline: 1.2rem;
+  --wcag-switch--sm--padding-block: 0;
+  --wcag-switch--sm--border-width: 1px;
+  --wcag-switch--sm--border-radius: 0.35rem;
+
+  --wcag-switch--sm--font-size: 1.4rem;
+}
+
+[is="wcag-switch"][sm] {
+  --wcag-switch--gap: var(--wcag-switch--sm--gap);
+
+  --wcag-switch--height: var(--wcag-switch--sm--height);
+  --wcag-switch--padding-inline: var(--wcag-switch--sm--padding-inline);
+  --wcag-switch--padding-block: var(--wcag-switch--sm--padding-block);
+  --wcag-switch--border-width: var(--wcag-switch--sm--border-width);
+  --wcag-switch--border-radius: var(--wcag-switch--sm--border-radius);
+
+  --wcag-switch--font-size: var(--wcag-switch--sm--font-size);
+}

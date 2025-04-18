@@ -1,0 +1,16 @@
+:root {
+  /*
+  --wcag-checkbox--s-act--color: ;
+  --wcag-checkbox--s-act--background-color: ;
+  */
+
+  --wcag-checkbox--s-act--border-color: var(--wcag-c--neutral-600);
+}
+
+[is="wcag-checkbox"]:where(:active, [aria-pressed="true"]) {
+  /*
+  --wcag-checkbox--color: var(--wcag-checkbox--s-act--color);
+  --wcag-checkbox--background-color: var(--wcag-checkbox--s-act--background-color);
+  */
+  --wcag-checkbox--border-color: var(--wcag-checkbox--s-act--border-color);
+}
