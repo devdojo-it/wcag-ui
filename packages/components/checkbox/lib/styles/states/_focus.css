@@ -1,0 +1,13 @@
+:root {
+  --wcag-checkbox--s-foc--outline-width: var(--wcag-focus--outline-width);
+  --wcag-checkbox--s-foc--outline-style: solid;
+  --wcag-checkbox--s-foc--outline-color: var(--wcag-focus--outline-color);
+  --wcag-checkbox--s-foc--outline-offset: var(--wcag-focus--outline-width);
+}
+
+[is="wcag-checkbox"]:where(:focus, :focus-visible) {
+  --wcag-checkbox--outline-width: var(--wcag-checkbox--s-foc--outline-width);
+  --wcag-checkbox--outline-style: var(--wcag-checkbox--s-foc--outline-style);
+  --wcag-checkbox--outline-color: var(--wcag-checkbox--s-foc--outline-color);
+  --wcag-checkbox--outline-offset: var(--wcag-checkbox--s-foc--outline-offset);
+}

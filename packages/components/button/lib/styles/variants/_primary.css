@@ -1,20 +1,20 @@
 :root {
-  --wcag-button--v-pri--color: hsl(250, 30%, 96%);
-  --wcag-button--v-pri--background-color: hsl(245, 93%, 67%);
+  --wcag-button--v-pri--color: var(--wcag-c--neutral-00);
+  --wcag-button--v-pri--background-color: var(--wcag-c--blue-400);
   --wcag-button--v-pri--border-color: var(--wcag-button--v-pri--background-color);
 
   --wcag-button--v-pri--s-hov--color: var(--wcag-button--v-pri--color);
-  --wcag-button--v-pri--s-hov--background-color: hsl(245, 93%, 38%);
+  --wcag-button--v-pri--s-hov--background-color: var(--wcag-c--blue-700);
   --wcag-button--v-pri--s-hov--border-color: var(--wcag-button--v-pri--s-hov--background-color);
 
   --wcag-button--v-pri--s-foc--outline-color: var(--wcag-button--v-pri--s-hov--background-color);
 
   --wcag-button--v-pri--s-act--color: var(--wcag-button--v-pri--color);
-  --wcag-button--v-pri--s-act--background-color: hsl(245, 93%, 20%);
+  --wcag-button--v-pri--s-act--background-color: var(--wcag-c--blue-800);
   --wcag-button--v-pri--s-act--border-color: var(--wcag-button--v-pri--s-act--background-color);
 
   --wcag-button--v-pri--s-dis--color: var(--wcag-button--v-pri--color);
-  --wcag-button--v-pri--s-dis--background-color: hsl(248, 70%, 30%);
+  --wcag-button--v-pri--s-dis--background-color: var(--wcag-c--neutral-600);
   --wcag-button--v-pri--s-dis--border-color: var(--wcag-button--v-pri--s-dis--background-color);
 }
 

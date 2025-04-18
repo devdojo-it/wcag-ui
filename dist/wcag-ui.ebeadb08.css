@@ -155,6 +155,8 @@
 
 @layer wcag-ui.foundations.colors {
   :root {
+    --wcag-c--light: #fff;
+    --wcag-c--dark: #000;
     --wcag-c--neutral-00: #f3f2f8;
     --wcag-c--neutral-20: #e6e5f0;
     --wcag-c--neutral-50: #e0deed;
@@ -206,7 +208,7 @@
     --wcag-s--12--ratio: .75;
     --wcag-s--12: 1.2rem;
     --wcag-s--16--ratio: 1;
-    --wcag-s--16: 1.5rem;
+    --wcag-s--16: 1.6rem;
     --wcag-s--20--ratio: 1.25;
     --wcag-s--20: 2rem;
     --wcag-s--24--ratio: 1.5;

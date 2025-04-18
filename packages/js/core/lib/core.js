@@ -9,6 +9,7 @@ import { componentDecorator } from "./decorator";
 import { events } from "./events";
 import { encoding } from "./encoding";
 import { helpers } from "./helpers";
+import { error } from "./_error";
 
 import { extender } from "./_extender";
 

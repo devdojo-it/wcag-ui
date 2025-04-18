@@ -1,0 +1,17 @@
+:root {
+  --wcag-radio--s-dis--color: var(--wcag-c--neutral-50);
+  --wcag-radio--s-dis--background-color: var(--wcag-c--light);
+  --wcag-radio--s-dis--border-color: var(--wcag-c--neutral-100);
+
+  --wcag-radio--s-dis--cursor: not-allowed;
+}
+
+[is="wcag-radio"]:where([disabled], :disabled, [aria-disabled="true"]) {
+  --wcag-radio--color: var(--wcag-radio--s-dis--color);
+  --wcag-radio--background-color: var(--wcag-radio--s-dis--background-color);
+  --wcag-radio--border-color: var(--wcag-radio--s-dis--border-color);
+
+  --wcag-radio--text-decoration: var(--wcag-radio--s-dis--text-decoration);
+
+  --wcag-radio--cursor: var(--wcag-radio--s-dis--cursor);
+}

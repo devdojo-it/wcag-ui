@@ -1,0 +1,5 @@
+@import "./_core.css" layer(wcag-ui.components.radio);
+@import "./variants/variants.css" layer(wcag-ui.components.radio);
+@import "./dimensions/dimensions.css" layer(wcag-ui.components.radio);
+@import "./modifiers/modifiers.css" layer(wcag-ui.components.radio);
+@import "./states/states.css" layer(wcag-ui.components.radio);

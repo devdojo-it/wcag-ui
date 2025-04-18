@@ -1,6 +1,6 @@
 :root {
-  --wcag-button--v-des--color: hsl(352, 100%, 97%);
-  --wcag-button--v-des--background-color: hsl(353, 100%, 34%);
+  --wcag-button--v-des--color: hsl(352, 100%, 97%); /* TODO: take this color from design tokens */
+  --wcag-button--v-des--background-color: hsl(353, 100%, 34%); /* TODO: take this color from design tokens */
   --wcag-button--v-des--border-color: var(--wcag-button--v-des--background-color);
 
   --wcag-button--v-des--s-hov--color: var(--wcag-button--v-des--color);

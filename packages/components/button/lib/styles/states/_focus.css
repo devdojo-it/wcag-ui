@@ -1,14 +1,13 @@
-/*
 :root {
-  --wcag-button--s-foc--outline-color: ;
+  --wcag-button--s-foc--outline-width: var(--wcag-focus--outline-width);
+  --wcag-button--s-foc--outline-style: solid;
+  --wcag-button--s-foc--outline-color: var(--wcag-focus--outline-color);
+  --wcag-button--s-foc--outline-offset: var(--wcag-focus--outline-width);
 }
-*/
 
 [is="wcag-button"]:where(:focus, :focus-visible) {
+  --wcag-button--outline-width: var(--wcag-button--s-foc--outline-width);
+  --wcag-button--outline-style: var(--wcag-button--s-foc--outline-style);
   --wcag-button--outline-color: var(--wcag-button--s-foc--outline-color);
-
-  outline-width: var(--wcag-button--outline-width);
-  outline-style: var(--wcag-button--outline-style);
-  outline-color: var(--wcag-button--outline-color);
-  outline-offset: var(--wcag-button--outline-offset);
+  --wcag-button--outline-offset: var(--wcag-button--s-foc--outline-offset);
 }

@@ -1,0 +1,16 @@
+:root {
+  /*
+  --wcag-switch--s-hov--color: ;
+  --wcag-switch--s-hov--background-color: ;
+  */
+  --wcag-switch--s-hov--border-color: var(--wcag-c--neutral-600);
+}
+
+[is="wcag-switch"]:hover {
+  /*
+  --wcag-switch--color: var(--wcag-switch--s-hov--color);
+  --wcag-switch--background-color: var(--wcag-switch--s-hov--background-color);
+  */
+
+  --wcag-switch--border-color: var(--wcag-switch--s-hov--border-color);
+}

@@ -1,0 +1,17 @@
+:root {
+  --wcag-checkbox--s-dis--color: var(--wcag-c--neutral-50);
+  --wcag-checkbox--s-dis--background-color: var(--wcag-c--light);
+  --wcag-checkbox--s-dis--border-color: var(--wcag-c--neutral-100);
+
+  --wcag-checkbox--s-dis--cursor: not-allowed;
+}
+
+[is="wcag-checkbox"]:where([disabled], :disabled, [aria-disabled="true"]) {
+  --wcag-checkbox--color: var(--wcag-checkbox--s-dis--color);
+  --wcag-checkbox--background-color: var(--wcag-checkbox--s-dis--background-color);
+  --wcag-checkbox--border-color: var(--wcag-checkbox--s-dis--border-color);
+
+  --wcag-checkbox--text-decoration: var(--wcag-checkbox--s-dis--text-decoration);
+
+  --wcag-checkbox--cursor: var(--wcag-checkbox--s-dis--cursor);
+}

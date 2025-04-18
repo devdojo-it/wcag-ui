@@ -3,7 +3,7 @@
   --wcag-input--s-hov--color: ;
   --wcag-input--s-hov--background-color: ;
   */
-  --wcag-input--s-hov--border-color: hsl(248, 70%, 30%);
+  --wcag-input--s-hov--border-color: var(--wcag-c--neutral-600);
 }
 
 [is="wcag-input"]:hover {

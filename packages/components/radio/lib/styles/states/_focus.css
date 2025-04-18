@@ -1,0 +1,13 @@
+:root {
+  --wcag-radio--s-foc--outline-width: var(--wcag-focus--outline-width);
+  --wcag-radio--s-foc--outline-style: solid;
+  --wcag-radio--s-foc--outline-color: var(--wcag-focus--outline-color);
+  --wcag-radio--s-foc--outline-offset: var(--wcag-focus--outline-width);
+}
+
+[is="wcag-radio"]:where(:focus, :focus-visible) {
+  --wcag-radio--outline-width: var(--wcag-radio--s-foc--outline-width);
+  --wcag-radio--outline-style: var(--wcag-radio--s-foc--outline-style);
+  --wcag-radio--outline-color: var(--wcag-radio--s-foc--outline-color);
+  --wcag-radio--outline-offset: var(--wcag-radio--s-foc--outline-offset);
+}

@@ -1,0 +1,23 @@
+:root {
+  --wcag-checkbox--sm--gap: 0.8rem;
+
+  --wcag-checkbox--sm--height: 4rem;
+  --wcag-checkbox--sm--padding-inline: 1.2rem;
+  --wcag-checkbox--sm--padding-block: 0;
+  --wcag-checkbox--sm--border-width: 1px;
+  --wcag-checkbox--sm--border-radius: 0.35rem;
+
+  --wcag-checkbox--sm--font-size: 1.4rem;
+}
+
+[is="wcag-checkbox"][sm] {
+  --wcag-checkbox--gap: var(--wcag-checkbox--sm--gap);
+
+  --wcag-checkbox--height: var(--wcag-checkbox--sm--height);
+  --wcag-checkbox--padding-inline: var(--wcag-checkbox--sm--padding-inline);
+  --wcag-checkbox--padding-block: var(--wcag-checkbox--sm--padding-block);
+  --wcag-checkbox--border-width: var(--wcag-checkbox--sm--border-width);
+  --wcag-checkbox--border-radius: var(--wcag-checkbox--sm--border-radius);
+
+  --wcag-checkbox--font-size: var(--wcag-checkbox--sm--font-size);
+}

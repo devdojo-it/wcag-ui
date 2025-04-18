@@ -1,4 +1,7 @@
 :root {
+  --wcag-c--light: hsl(0, 0%, 100%);
+  --wcag-c--dark: hsl(0, 0%, 0%);
+  
   /* Neutral - same in light and dark modes */
   --wcag-c--neutral-00: hsl(248, 28%, 96%);
   /* --wcag-c--neutral-00--hex: #f3f2f8; */
@@ -24,7 +27,7 @@
   /* --wcag-c--neutral-800--hex: #110b3d; */
   --wcag-c--neutral-900: hsl(248, 70%, 8%);
   /* --wcag-c--neutral-900--hex: #0a0623; */
-
+  
   /* Blue */
   --wcag-c--blue-100: light-dark(hsl(245, 94%, 98%), hsl(245, 73%, 98%));
   /* --wcag-c--blue-100--hex: light-dark(#f4f3ff, #f5f5fd); */

@@ -1,0 +1,135 @@
+:root {
+  --wcag-checkbox--color: var(--wcag-c--neutral-800);
+  --wcag-checkbox--background-color: var(--wcag-c--light);
+
+  --wcag-checkbox--label--gap: var(--wcag-s--4);
+  --wcag-checkbox--label--color: var(--wcag-checkbox--color);
+  --wcag-checkbox--placeholder--color: var(--wcag-c--neutral-200);
+
+  /* 
+
+  --wcag-checkbox--height: ;
+  --wcag-checkbox--padding-inline: ;
+  --wcag-checkbox--padding-block: ;
+
+  --wcag-checkbox--border-width: ;
+  */
+
+  --wcag-checkbox--border-style: solid;
+  --wcag-checkbox--border-color: var(--wcag-c--neutral-800);
+
+  /*
+  --wcag-checkbox--border-radius: ;
+  */
+
+  /* 
+  --wcag-checkbox--outline-width: 0;
+  --wcag-checkbox--outline-style: solid;
+  --wcag-checkbox--outline-color: transparent;
+  --wcag-checkbox--outline-offset: 0;
+  */
+
+  --wcag-checkbox--cursor: initial;
+}
+
+label:has([is="wcag-checkbox"]) {
+  display: inline-flex;
+  flex-flow: column nowrap;
+  place-content: start;
+  place-items: start;
+  gap: var(--wcag-checkbox--label--gap);
+
+  inline-size: fit-content;
+
+  &[inline] {
+    flex-flow: row nowrap;
+    place-content: start;
+    place-items: center;
+  }
+
+  > span {
+    position: relative;
+    display: inline-flex;
+    place-content: center;
+    place-items: center;
+
+    cursor: pointer;
+
+    &::before {
+      content: "";
+
+      display: inline-flex;
+      inline-size: 2.2rem;
+      aspect-ratio: 1;
+
+      border-width: 1px;
+      border-style: solid;
+      border-color: hsl(245, 94%, 28%);
+      border-radius: 2px;
+    }
+
+    &::after {
+      content: "\e908";
+
+      position: absolute;
+      opacity: 0;
+
+      font-family: "wcag-icons";
+    }
+
+    &:hover {
+      &::before {
+        border-color: hsl(245, 94%, 48%);
+      }
+    }
+  }
+
+  &:has(:checked) {
+    > span {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:has([aria-disabled="true"]) {
+    > span {
+      &::before {
+        background-color: hsl(248, 28%, 58%);
+        border-color: hsl(248, 28%, 58%);
+      }
+    }
+  }
+}
+
+[is="wcag-checkbox"] {
+  --wcag-t--font-size: var(--wcag-checkbox--font-size);
+  --wcag-t--line-height: var(--wcag-checkbox--height);
+
+  appearance: none;
+
+  /* display: inline-flex;
+  flex-flow: row nowrap;
+  place-content: center;
+  place-items: center;
+  gap: var(--wcag-checkbox--gap);
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  color: var(--wcag-checkbox--color);
+  background-color: var(--wcag-checkbox--background-color);
+
+  padding-inline: var(--wcag-checkbox--padding-inline);
+  padding-block: var(--wcag-checkbox--padding-block);
+  border-width: var(--wcag-checkbox--border-width);
+  border-style: var(--wcag-checkbox--border-style);
+  border-color: var(--wcag-checkbox--border-color);
+  border-radius: var(--wcag-checkbox--border-radius);
+
+  outline-width: var(--wcag-checkbox--outline-width);
+  outline-style: var(--wcag-checkbox--outline-style);
+  outline-color: var(--wcag-checkbox--outline-color);
+  outline-offset: var(--wcag-checkbox--outline-offset);
+
+  cursor: var(--wcag-checkbox--cursor); */
+}

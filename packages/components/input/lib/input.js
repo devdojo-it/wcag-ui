@@ -1,21 +1,21 @@
-import "./styles/input.css";
+import './styles/input.css';
 
-import { componentDecorator } from "@wcag-ui/core";
-import { DOM } from "@wcag-ui/dom";
+import { componentDecorator } from '@wcag-ui/core';
+import { DOM } from '@wcag-ui/dom';
 
-import attributes from "./input.attributes";
-import events from "./input.events";
+import attributes from './input.attributes';
+import events from './input.events';
 
 export class Input extends HTMLInputElement {
-  static name = "wcag-input";
-  static extends = "input";
+  static name = 'wcag-input';
+  static extends = 'input';
   static attributes = attributes;
   static events = events;
 
   static {
-    componentDecorator("Input", Input);
+    componentDecorator('Input', Input);
   }
-
+  
   constructor() {
     super();
 
@@ -23,14 +23,24 @@ export class Input extends HTMLInputElement {
   }
 
   #initialize() {
-    !this.hasAttribute("type") && this.setAttribute("type", "text");
+    // settings default type attribute to text, if missing
+    !this.hasAttribute('type') && this.setAttribute('type', 'text');
 
-    const fieldWrapper = DOM.wrapElement(this, {
-      tag: "span",
-      attributes: { "field-wrapper": "" },
-    });
+    // wrapping the input with a <span field-wrapper></span>
+    // in order to use the wrapper for additional actions and icons
+    const fieldWrapper = DOM.wrapElement(this, { tag: 'span' });
 
-    const label = DOM.wrapElement(fieldWrapper, { tag: "label" });
-    DOM.insertHTML(this.ariaLabel, label, "prepend");
+    // wrapping the fieldWrapper with a label for having this final DOM result
+    // <label>
+    //   {{ariaLabel value}}
+    //   <span>
+    //     <input type="TYPE" />
+    //   </span>
+    // </label>
+    const label = DOM.wrapElement(fieldWrapper, { tag: 'label' });
+    DOM.insertHTML(this.ariaLabel ?? 'aria-label N/A', label, 'prepend');
+    
+    // removing aria-label attribute from input because of label text
+    this.removeAttribute('aria-label');
   }
 }

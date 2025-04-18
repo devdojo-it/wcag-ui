@@ -11,6 +11,7 @@
   entry,
   mainEntry,
   parcelRequireName,
+  externals,
   distDir,
   publicUrl,
   devServer
@@ -44,6 +45,9 @@
   function newRequire(name, jumped) {
     if (!cache[name]) {
       if (!modules[name]) {
+        if (externals[name]) {
+          return externals[name];
+        }
         // if we cannot find the module within our internal map or
         // cache jump to the current global require ie. the last bundle
         // that was added to the page.
@@ -156,7 +160,7 @@
       });
     }
   }
-})({"lGQ9V":[function(require,module,exports,__globalThis) {
+})({"2aZ6o":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -288,7 +292,8 @@ if (!parent || !parent.isParcelRequire) {
         if (typeof WebSocket !== 'undefined') try {
             ws = new WebSocket(protocol + '://' + hostname + (port ? ':' + port : '') + '/');
         } catch (err) {
-            if (err.message) console.error(err.message);
+            // Ignore cloudflare workers error.
+            if (err.message && !err.message.includes('Disallowed operation called within global scope')) console.error(err.message);
         }
     }
     if (ws) {
@@ -664,9 +669,12 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"8JWvp":[function(require,module,exports,__globalThis) {
 var _accordion = require("@wcag-ui/accordion");
 var _button = require("@wcag-ui/button");
+var _checkbox = require("@wcag-ui/checkbox");
 var _details = require("@wcag-ui/details");
 var _input = require("@wcag-ui/input");
+var _radio = require("@wcag-ui/radio");
 var _scrollSpy = require("@wcag-ui/scroll-spy");
+var _switch = require("@wcag-ui/switch");
 var _highlightJs = require("./_highlight.js");
 function fixExternalLinks() {
     const externalLinks = document.querySelectorAll('a[href^="http"]');
@@ -706,7 +714,7 @@ addEventListener('DOMContentLoaded', ()=>{
     initColorSchemeSwitcher();
 });
 
-},{"@wcag-ui/accordion":"69RHM","@wcag-ui/button":"cqD0H","@wcag-ui/details":"5ykFQ","@wcag-ui/input":"ibO7g","@wcag-ui/scroll-spy":"g2UEa","./_highlight.js":"eeY3P"}],"69RHM":[function(require,module,exports,__globalThis) {
+},{"@wcag-ui/accordion":"69RHM","@wcag-ui/button":"cqD0H","@wcag-ui/checkbox":"27xqY","@wcag-ui/details":"5ykFQ","@wcag-ui/input":"ibO7g","@wcag-ui/radio":"1zlPi","@wcag-ui/scroll-spy":"g2UEa","@wcag-ui/switch":"9fSHc","./_highlight.js":"eeY3P"}],"69RHM":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -763,10 +771,11 @@ var _decorator = require("./decorator");
 var _events = require("./events");
 var _encoding = require("./encoding");
 var _helpers = require("./helpers");
+var _error = require("./_error");
 var _extender = require("./_extender");
 "use strict";
 
-},{"./styles/styles.css":"5qQ72","./extensions":"5bg3g","./polyfills":"esMgz","./decorator":"b1p95","./events":"jULtC","./encoding":"ju3ra","./helpers":"fzDy5","./_extender":"7Sy1N","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5qQ72":[function() {},{}],"5bg3g":[function(require,module,exports,__globalThis) {
+},{"./styles/styles.css":"5qQ72","./extensions":"5bg3g","./polyfills":"esMgz","./decorator":"b1p95","./events":"jULtC","./encoding":"ju3ra","./helpers":"fzDy5","./_error":"acf3M","./_extender":"7Sy1N","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5qQ72":[function() {},{}],"5bg3g":[function(require,module,exports,__globalThis) {
 var _string = require("./string/string");
 
 },{"./string/string":"1VJyD"}],"1VJyD":[function(require,module,exports,__globalThis) {
@@ -1813,6 +1822,19 @@ const buildFileArray = (fileArrayOrList)=>{
     return Array.from(fileArrayOrList);
 };
 
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"acf3M":[function(require,module,exports,__globalThis) {
+/**
+ * Throws a wcagUI error
+ *
+ * @param {string} componentName
+ * @param {string} errorMessage
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "error", ()=>error);
+const error = function(componentName, errorMessage) {
+    throw new Error(`wcag-ui.${componentName} error: ${errorMessage}})`);
+};
+
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7Sy1N":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -2269,7 +2291,114 @@ exports.default = {
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5ykFQ":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"27xqY":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Checkbox", ()=>Checkbox);
+var _checkboxCss = require("./styles/checkbox.css");
+var _core = require("@wcag-ui/core");
+var _dom = require("@wcag-ui/dom");
+var _checkboxAttributes = require("./checkbox.attributes");
+var _checkboxAttributesDefault = parcelHelpers.interopDefault(_checkboxAttributes);
+var _checkboxEvents = require("./checkbox.events");
+var _checkboxEventsDefault = parcelHelpers.interopDefault(_checkboxEvents);
+class Checkbox extends HTMLInputElement {
+    static name = 'wcag-checkbox';
+    static extends = 'input';
+    static attributes = (0, _checkboxAttributesDefault.default);
+    static events = (0, _checkboxEventsDefault.default);
+    static{
+        (0, _core.componentDecorator)('Checkbox', Checkbox);
+    }
+    constructor(){
+        super();
+        this.#initialize();
+    }
+    #initialize() {
+        // sets type="checkbox" if not present
+        this.setAttribute('type', 'checkbox');
+        // wrapping the Checkbox with a <span></span>
+        // in order to use the wrapper for additional actions and icons
+        const fieldWrapper = (0, _dom.DOM).wrapElement(this, {
+            tag: 'span'
+        });
+        // wrapping the fieldWrapper with a label for having this final DOM result
+        // <label>
+        //   {{ariaLabel value}}
+        //   <span>
+        //     <input type="checkbox" />
+        //   </span>
+        // </label>
+        const label = (0, _dom.DOM).wrapElement(fieldWrapper, {
+            tag: 'label'
+        });
+        (0, _dom.DOM).insertHTML(this.ariaLabel ?? 'aria-label N/A', label, 'prepend');
+        // hiding the real input checkbox for showing the custom one
+        this.setAttribute('sr-only', '');
+        // removing aria-label attribute from Checkbox because of label text
+        this.removeAttribute('aria-label');
+    }
+}
+
+},{"./styles/checkbox.css":"cwqUT","@wcag-ui/core":"cGTNs","@wcag-ui/dom":"5XTOL","./checkbox.attributes":"asil7","./checkbox.events":"6qF9H","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cwqUT":[function() {},{}],"asil7":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("@wcag-ui/core");
+exports.default = {
+    "aria-label": function(oldValue, newValue) {
+        if (this.label) {
+            let textContent = this.label.textContent;
+            if (textContent !== newValue) {
+                this.label.childNodes[0].textContent = newValue;
+                (0, _core.events).dispatchComponentEvent.call(this, "aria-label.change", {
+                    label: newValue
+                });
+            }
+        }
+    }
+};
+
+},{"@wcag-ui/core":"cGTNs","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6qF9H":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("@wcag-ui/core");
+exports.default = {
+    checkbox: function(e) {
+        console.log('checkbox emitted input', this.ariaLabel);
+        // style :user-invalid or :user-valid
+        (0, _core.events).dispatchComponentEvent.call(this, 'checkbox', {
+            value: this.value
+        }, e);
+    },
+    change: function(e) {
+        console.log('checkbox emitted change', this.ariaLabel);
+        // style :user-invalid or :user-valid
+        (0, _core.events).dispatchComponentEvent.call(this, 'change', {
+            value: this.value
+        }, e);
+    },
+    focus: function(e) {
+        console.log('checkbox emitted focus', this.ariaLabel);
+        (0, _core.events).dispatchComponentEvent.call(this, 'focus', {
+            value: this.value
+        }, e);
+    },
+    blur: function(e) {
+        console.log('checkbox emitted blur', this.ariaLabel);
+        (0, _core.events).dispatchComponentEvent.call(this, 'blur', {
+            value: this.value
+        }, e);
+    },
+    invalid: function(e) {
+        console.log('checkbox emitted invalid', this.ariaLabel);
+        // style :user-invalid or :user-valid
+        (0, _core.events).dispatchComponentEvent.call(this, 'invalid', {
+            value: this.value
+        }, e);
+    }
+};
+
+},{"@wcag-ui/core":"cGTNs","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5ykFQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -2378,29 +2507,38 @@ var _inputAttributesDefault = parcelHelpers.interopDefault(_inputAttributes);
 var _inputEvents = require("./input.events");
 var _inputEventsDefault = parcelHelpers.interopDefault(_inputEvents);
 class Input extends HTMLInputElement {
-    static name = "wcag-input";
-    static extends = "input";
+    static name = 'wcag-input';
+    static extends = 'input';
     static attributes = (0, _inputAttributesDefault.default);
     static events = (0, _inputEventsDefault.default);
     static{
-        (0, _core.componentDecorator)("Input", Input);
+        (0, _core.componentDecorator)('Input', Input);
     }
     constructor(){
         super();
         this.#initialize();
     }
     #initialize() {
-        !this.hasAttribute("type") && this.setAttribute("type", "text");
+        // settings default type attribute to text, if missing
+        !this.hasAttribute('type') && this.setAttribute('type', 'text');
+        // wrapping the input with a <span field-wrapper></span>
+        // in order to use the wrapper for additional actions and icons
         const fieldWrapper = (0, _dom.DOM).wrapElement(this, {
-            tag: "span",
-            attributes: {
-                "field-wrapper": ""
-            }
+            tag: 'span'
         });
+        // wrapping the fieldWrapper with a label for having this final DOM result
+        // <label>
+        //   {{ariaLabel value}}
+        //   <span>
+        //     <input type="TYPE" />
+        //   </span>
+        // </label>
         const label = (0, _dom.DOM).wrapElement(fieldWrapper, {
-            tag: "label"
+            tag: 'label'
         });
-        (0, _dom.DOM).insertHTML(this.ariaLabel, label, "prepend");
+        (0, _dom.DOM).insertHTML(this.ariaLabel ?? 'aria-label N/A', label, 'prepend');
+        // removing aria-label attribute from input because of label text
+        this.removeAttribute('aria-label');
     }
 }
 
@@ -2429,14 +2567,14 @@ var _core = require("@wcag-ui/core");
 exports.default = {
     input: function(e) {
         console.log("input emitted input", this.ariaLabel);
-        // this.updateValidity();
+        // style :user-invalid or :user-valid
         (0, _core.events).dispatchComponentEvent.call(this, "input", {
             value: this.value
         }, e);
     },
     change: function(e) {
         console.log("input emitted change", this.ariaLabel);
-        // this.updateValidity();
+        // style :user-invalid or :user-valid
         (0, _core.events).dispatchComponentEvent.call(this, "change", {
             value: this.value
         }, e);
@@ -2455,8 +2593,115 @@ exports.default = {
     },
     invalid: function(e) {
         console.log("input emitted invalid", this.ariaLabel);
-        // this.updateValidity();
+        // style :user-invalid or :user-valid
         (0, _core.events).dispatchComponentEvent.call(this, "invalid", {
+            value: this.value
+        }, e);
+    }
+};
+
+},{"@wcag-ui/core":"cGTNs","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"1zlPi":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Radio", ()=>Radio);
+var _radioCss = require("./styles/radio.css");
+var _core = require("@wcag-ui/core");
+var _dom = require("@wcag-ui/dom");
+var _radioAttributes = require("./radio.attributes");
+var _radioAttributesDefault = parcelHelpers.interopDefault(_radioAttributes);
+var _radioEvents = require("./radio.events");
+var _radioEventsDefault = parcelHelpers.interopDefault(_radioEvents);
+class Radio extends HTMLInputElement {
+    static name = 'wcag-radio';
+    static extends = 'input';
+    static attributes = (0, _radioAttributesDefault.default);
+    static events = (0, _radioEventsDefault.default);
+    static{
+        (0, _core.componentDecorator)('Radio', Radio);
+    }
+    constructor(){
+        super();
+        this.#initialize();
+    }
+    #initialize() {
+        // sets type="radio" if not present
+        this.setAttribute('type', 'radio');
+        // wrapping the Radio with a <span></span>
+        // in order to use the wrapper for additional actions and icons
+        const fieldWrapper = (0, _dom.DOM).wrapElement(this, {
+            tag: 'span'
+        });
+        // wrapping the fieldWrapper with a label for having this final DOM result
+        // <label>
+        //   {{ariaLabel value}}
+        //   <span>
+        //     <input type="radio" />
+        //   </span>
+        // </label>
+        const label = (0, _dom.DOM).wrapElement(fieldWrapper, {
+            tag: 'label'
+        });
+        (0, _dom.DOM).insertHTML(this.ariaLabel ?? 'aria-label N/A', label, 'prepend');
+        // hiding the real input radio for showing the custom one
+        this.setAttribute('sr-only', '');
+        // removing aria-label attribute from Radio because of label text
+        this.removeAttribute('aria-label');
+    }
+}
+
+},{"./styles/radio.css":"fBPaP","@wcag-ui/core":"cGTNs","@wcag-ui/dom":"5XTOL","./radio.attributes":"lucmV","./radio.events":"dP0n7","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fBPaP":[function() {},{}],"lucmV":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("@wcag-ui/core");
+exports.default = {
+    "aria-label": function(oldValue, newValue) {
+        if (this.label) {
+            let textContent = this.label.textContent;
+            if (textContent !== newValue) {
+                this.label.childNodes[0].textContent = newValue;
+                (0, _core.events).dispatchComponentEvent.call(this, "aria-label.change", {
+                    label: newValue
+                });
+            }
+        }
+    }
+};
+
+},{"@wcag-ui/core":"cGTNs","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dP0n7":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("@wcag-ui/core");
+exports.default = {
+    radio: function(e) {
+        console.log('radio emitted input', this.ariaLabel);
+        // style :user-invalid or :user-valid
+        (0, _core.events).dispatchComponentEvent.call(this, 'radio', {
+            value: this.value
+        }, e);
+    },
+    change: function(e) {
+        console.log('radio emitted change', this.ariaLabel);
+        // style :user-invalid or :user-valid
+        (0, _core.events).dispatchComponentEvent.call(this, 'change', {
+            value: this.value
+        }, e);
+    },
+    focus: function(e) {
+        console.log('radio emitted focus', this.ariaLabel);
+        (0, _core.events).dispatchComponentEvent.call(this, 'focus', {
+            value: this.value
+        }, e);
+    },
+    blur: function(e) {
+        console.log('radio emitted blur', this.ariaLabel);
+        (0, _core.events).dispatchComponentEvent.call(this, 'blur', {
+            value: this.value
+        }, e);
+    },
+    invalid: function(e) {
+        console.log('radio emitted invalid', this.ariaLabel);
+        // style :user-invalid or :user-valid
+        (0, _core.events).dispatchComponentEvent.call(this, 'invalid', {
             value: this.value
         }, e);
     }
@@ -2570,7 +2815,115 @@ parcelHelpers.defineInteropFlag(exports);
 exports.default = {
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"eeY3P":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9fSHc":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Switch", ()=>Switch);
+var _switchCss = require("./styles/switch.css");
+var _core = require("@wcag-ui/core");
+var _dom = require("@wcag-ui/dom");
+var _switchAttributes = require("./switch.attributes");
+var _switchAttributesDefault = parcelHelpers.interopDefault(_switchAttributes);
+var _switchEvents = require("./switch.events");
+var _switchEventsDefault = parcelHelpers.interopDefault(_switchEvents);
+class Switch extends HTMLInputElement {
+    static name = 'wcag-switch';
+    static extends = 'input';
+    static attributes = (0, _switchAttributesDefault.default);
+    static events = (0, _switchEventsDefault.default);
+    static{
+        (0, _core.componentDecorator)('Switch', Switch);
+    }
+    constructor(){
+        super();
+        this.#initialize();
+    }
+    #initialize() {
+        // sets type="checkbox" and switch attributes if not present
+        this.setAttribute('type', 'checkbox');
+        this.setAttribute('switch', '');
+        // wrapping the Switch with a <span></span>
+        // in order to use the wrapper for additional actions and icons
+        const fieldWrapper = (0, _dom.DOM).wrapElement(this, {
+            tag: 'span'
+        });
+        // wrapping the fieldWrapper with a label for having this final DOM result
+        // <label>
+        //   {{ariaLabel value}}
+        //   <span>
+        //     <input type="checkbox" switch />
+        //   </span>
+        // </label>
+        const label = (0, _dom.DOM).wrapElement(fieldWrapper, {
+            tag: 'label'
+        });
+        (0, _dom.DOM).insertHTML(this.ariaLabel ?? 'aria-label N/A', label, 'prepend');
+        // hiding the real input switch for showing the custom one
+        this.setAttribute('sr-only', '');
+        // removing aria-label attribute from Switch because of label text
+        this.removeAttribute('aria-label');
+    }
+}
+
+},{"./styles/switch.css":"dYvvK","@wcag-ui/core":"cGTNs","@wcag-ui/dom":"5XTOL","./switch.attributes":"kZDVt","./switch.events":"4E0eO","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dYvvK":[function() {},{}],"kZDVt":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("@wcag-ui/core");
+exports.default = {
+    "aria-label": function(oldValue, newValue) {
+        if (this.label) {
+            let textContent = this.label.textContent;
+            if (textContent !== newValue) {
+                this.label.childNodes[0].textContent = newValue;
+                (0, _core.events).dispatchComponentEvent.call(this, "aria-label.change", {
+                    label: newValue
+                });
+            }
+        }
+    }
+};
+
+},{"@wcag-ui/core":"cGTNs","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4E0eO":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("@wcag-ui/core");
+exports.default = {
+    switch: function(e) {
+        console.log('switch emitted input', this.ariaLabel);
+        // style :user-invalid or :user-valid
+        (0, _core.events).dispatchComponentEvent.call(this, 'switch', {
+            value: this.value
+        }, e);
+    },
+    change: function(e) {
+        console.log('switch emitted change', this.ariaLabel);
+        // style :user-invalid or :user-valid
+        (0, _core.events).dispatchComponentEvent.call(this, 'change', {
+            value: this.value
+        }, e);
+    },
+    focus: function(e) {
+        console.log('switch emitted focus', this.ariaLabel);
+        (0, _core.events).dispatchComponentEvent.call(this, 'focus', {
+            value: this.value
+        }, e);
+    },
+    blur: function(e) {
+        console.log('switch emitted blur', this.ariaLabel);
+        (0, _core.events).dispatchComponentEvent.call(this, 'blur', {
+            value: this.value
+        }, e);
+    },
+    invalid: function(e) {
+        console.log('switch emitted invalid', this.ariaLabel);
+        // style :user-invalid or :user-valid
+        (0, _core.events).dispatchComponentEvent.call(this, 'invalid', {
+            value: this.value
+        }, e);
+    }
+};
+
+},{"@wcag-ui/core":"cGTNs","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"eeY3P":[function(require,module,exports,__globalThis) {
 // Using ES6 import syntax
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _core = require("highlight.js/lib/core");
@@ -7450,6 +7803,6 @@ Category: common, scripting
 }
 module.exports = typescript;
 
-},{}]},["lGQ9V","8JWvp"], "8JWvp", "parcelRequire6b9b")
+},{}]},["2aZ6o","8JWvp"], "8JWvp", "parcelRequire6b9b", {})
 
 //# sourceMappingURL=wcag-ui.c6396971.js.map
