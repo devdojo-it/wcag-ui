@@ -1,7 +1,7 @@
 :root {
-  --wcag-input--s-dis--color: hsl(248, 29%, 90%);
-  --wcag-input--s-dis--background-color: hsl(0, 0%, 100%);
-  --wcag-input--s-dis--border-color: hsl(248, 28%, 84%);
+  --wcag-input--s-dis--color: var(--wcag-c--neutral-50);
+  --wcag-input--s-dis--background-color: var(--wcag-c--light);
+  --wcag-input--s-dis--border-color: var(--wcag-c--neutral-100);
 
   --wcag-input--s-dis--cursor: not-allowed;
 }

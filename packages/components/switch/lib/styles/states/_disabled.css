@@ -1,0 +1,17 @@
+:root {
+  --wcag-switch--s-dis--color: var(--wcag-c--neutral-50);
+  --wcag-switch--s-dis--background-color: var(--wcag-c--light);
+  --wcag-switch--s-dis--border-color: var(--wcag-c--neutral-100);
+
+  --wcag-switch--s-dis--cursor: not-allowed;
+}
+
+[is="wcag-switch"]:where([disabled], :disabled, [aria-disabled="true"]) {
+  --wcag-switch--color: var(--wcag-switch--s-dis--color);
+  --wcag-switch--background-color: var(--wcag-switch--s-dis--background-color);
+  --wcag-switch--border-color: var(--wcag-switch--s-dis--border-color);
+
+  --wcag-switch--text-decoration: var(--wcag-switch--s-dis--text-decoration);
+
+  --wcag-switch--cursor: var(--wcag-switch--s-dis--cursor);
+}

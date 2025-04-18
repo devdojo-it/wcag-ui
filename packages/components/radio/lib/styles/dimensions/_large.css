@@ -1,0 +1,23 @@
+:root {
+  --wcag-radio--lg--gap: 1.6rem;
+
+  --wcag-radio--lg--height: 5.6rem;
+  --wcag-radio--lg--padding-inline: 2rem;
+  --wcag-radio--lg--padding-block: 0;
+  --wcag-radio--lg--border-width: 1px;
+  --wcag-radio--lg--border-radius: 0.5rem;
+
+  --wcag-radio--lg--font-size: 1.8rem;
+}
+
+[is="wcag-radio"][lg] {
+  --wcag-radio--gap: var(--wcag-radio--lg--gap);
+
+  --wcag-radio--height: var(--wcag-radio--lg--height);
+  --wcag-radio--padding-inline: var(--wcag-radio--lg--padding-inline);
+  --wcag-radio--padding-block: var(--wcag-radio--lg--padding-block);
+  --wcag-radio--border-width: var(--wcag-radio--lg--border-width);
+  --wcag-radio--border-radius: var(--wcag-radio--lg--border-radius);
+
+  --wcag-radio--font-size: var(--wcag-radio--lg--font-size);
+}

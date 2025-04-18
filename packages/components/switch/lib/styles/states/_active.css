@@ -1,0 +1,16 @@
+:root {
+  /*
+  --wcag-switch--s-act--color: ;
+  --wcag-switch--s-act--background-color: ;
+  */
+
+  --wcag-switch--s-act--border-color: var(--wcag-c--neutral-600);
+}
+
+[is="wcag-switch"]:where(:active, [aria-pressed="true"]) {
+  /*
+  --wcag-switch--color: var(--wcag-switch--s-act--color);
+  --wcag-switch--background-color: var(--wcag-switch--s-act--background-color);
+  */
+  --wcag-switch--border-color: var(--wcag-switch--s-act--border-color);
+}

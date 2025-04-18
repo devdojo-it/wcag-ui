@@ -17,15 +17,21 @@
   --wcag-button--border-radius: ;
   */
 
-  --wcag-button--outline-width: 2px;
+  /* 
+  --wcag-button--outline-width: 0;
   --wcag-button--outline-style: solid;
-  /* --wcag-button--outline-color: ; */
-  --wcag-button--outline-offset: var(--wcag-button--outline-width);
+  --wcag-button--outline-color: transparent;
+  --wcag-button--outline-offset: 0;
+  */  
 
   --wcag-button--cursor: pointer;
 }
 
 [is="wcag-button"] {
+  --wcag-t--font-size: var(--wcag-button--font-size);
+  --wcag-t--line-height: var(--wcag-button--height);
+  --wcag-t--text-decoration: var(--wcag-button--text-decoration);
+
   display: inline-flex;
   flex-flow: row nowrap;
   place-content: center;
@@ -45,9 +51,10 @@
   border-color: var(--wcag-button--border-color);
   border-radius: var(--wcag-button--border-radius);
 
-  --wcag-t--font-size: var(--wcag-button--font-size);
-  --wcag-t--line-height: var(--wcag-button--height);
-  --wcag-t--text-decoration: var(--wcag-button--text-decoration);
-
+  outline-width: var(--wcag-input--outline-width);
+  outline-style: var(--wcag-input--outline-style);
+  outline-color: var(--wcag-input--outline-color);
+  outline-offset: var(--wcag-input--outline-offset);
+  
   cursor: var(--wcag-button--cursor);
 }
