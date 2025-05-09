@@ -1,37 +1,30 @@
 {
   "name": "@wcag-ui/switch",
-  "version": "0.0.0",
+  "version": "0.0.7",
   "description": "> TODO: description",
   "author": "DevDojo IT (https://www.devdojo.it)",
   "contributors": [
-    "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
-    "Christian Nastasi <christian.nastasi@gmail.com>"
+    "Emiliano Pisu <pixu1980@github>",
+    "Massimo Artizzu <maxart2501@github>",
+    "Alessio Tortolini <alestormoody@github>",
+    "Christian Nastasi <cnastasi@github>",
+    "Salvatore Tropea <salvotropea96@github>"
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "source": "lib/switch.js",
-  "browser": "dist/switch.js",
-  "targets": {
-    "browser": {
-      "optimize": true,
-      "sourceMap": false
-    }
-  },
+  "main": "lib/switch.js",
   "scripts": {
-    "test": "node ./__tests__/switch.test.js",
-    "build": "parcel build"
+    "test": "node ./__tests__/switch.test.js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.0",
-    "@wcag-ui/dom": "^0.0.0"
+    "@wcag-ui/core": "^0.0.7",
+    "@wcag-ui/dom": "^0.0.7"
   },
   "directories": {
-    "dist": "dist",
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
-    "dist"
+    "lib"
   ],
   "repository": {
     "type": "git",

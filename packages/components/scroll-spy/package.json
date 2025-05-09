@@ -1,29 +1,20 @@
 {
   "name": "@wcag-ui/scroll-spy",
-  "version": "0.0.0",
+  "version": "0.0.7",
   "description": "> TODO: description",
   "author": "Emiliano Pisu <75838944+pixu1980@users.noreply.github.com>",
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "source": "lib/scroll-spy.js",
-  "browser": "dist/scroll-spy.js",
-  "targets": {
-    "browser": {
-      "optimize": true,
-      "sourceMap": false
-    }
-  },
+  "main": "lib/scroll-spy.js",
   "scripts": {
-    "test": "node ./__tests__/scroll-spy.test.js",
-    "build": "parcel build"
+    "test": "node ./__tests__/scroll-spy.test.js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.0",
-    "@wcag-ui/dom": "^0.0.0"
+    "@wcag-ui/core": "^0.0.7",
+    "@wcag-ui/dom": "^0.0.7"
   },
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
     "lib"
