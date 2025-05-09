@@ -1,11 +1,14 @@
 {
   "name": "@wcag-ui/grid-system",
-  "version": "0.0.0",
+  "version": "0.0.7",
   "description": "> TODO: description",
   "author": "DevDojo IT (https://www.devdojo.it)",
   "contributors": [
-    "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
-    "Christian Nastasi <christian.nastasi@gmail.com>"
+    "Emiliano Pisu <pixu1980@github>",
+    "Massimo Artizzu <maxart2501@github>",
+    "Alessio Tortolini <alestormoody@github>",
+    "Christian Nastasi <cnastasi@github>",
+    "Salvatore Tropea <salvotropea96@github>"
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
