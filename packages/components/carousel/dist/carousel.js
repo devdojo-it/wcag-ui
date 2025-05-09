@@ -1,1 +1,0 @@
-"use strict";function $2989b31a213e7818$var$carousel(){return"Hello from carousel"}module.exports=$2989b31a213e7818$var$carousel;
