@@ -166,6 +166,7 @@ body {
     letter-spacing: var(--wcag-t--letter-spacing);
     text-decoration: var(--wcag-t--text-decoration);
   }
+  
   h1 {
     --wcag-t--font-size: var(--wcag-t--h1--font-size);
     --wcag-t--line-height: var(--wcag-t--h1--line-height);

@@ -15,6 +15,7 @@
 /* rem reset 1rem = 10px */
 html {
   font-size: 0.625em;
+  overscroll-behavior: none;
 }
 
 body {

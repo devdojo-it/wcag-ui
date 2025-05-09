@@ -2519,26 +2519,29 @@ class Input extends HTMLInputElement {
         this.#initialize();
     }
     #initialize() {
+        // <input name="NAME" type="TYPE" aria-label="..." />
         // settings default type attribute to text, if missing
         !this.hasAttribute('type') && this.setAttribute('type', 'text');
-        // wrapping the input with a <span field-wrapper></span>
-        // in order to use the wrapper for additional actions and icons
-        const fieldWrapper = (0, _dom.DOM).wrapElement(this, {
-            tag: 'span'
-        });
-        // wrapping the fieldWrapper with a label for having this final DOM result
-        // <label>
-        //   {{ariaLabel value}}
-        //   <span>
-        //     <input type="TYPE" />
-        //   </span>
-        // </label>
-        const label = (0, _dom.DOM).wrapElement(fieldWrapper, {
-            tag: 'label'
-        });
-        (0, _dom.DOM).insertHTML(this.ariaLabel ?? 'aria-label N/A', label, 'prepend');
-        // removing aria-label attribute from input because of label text
-        this.removeAttribute('aria-label');
+        if (this.ariaLabel) {
+            // wrapping the input with a <span field-wrapper></span>
+            // in order to use the wrapper for additional actions and icons
+            const fieldWrapper = (0, _dom.DOM).wrapElement(this, {
+                tag: 'span'
+            });
+            // wrapping the fieldWrapper with a label for having this final DOM result
+            // <label>
+            //   {{ariaLabel value}}
+            //   <span field-wrapper>
+            //     <input name="NAME" type="TYPE" />
+            //   </span>
+            // </label>
+            const label = (0, _dom.DOM).wrapElement(fieldWrapper, {
+                tag: 'label'
+            });
+            (0, _dom.DOM).insertHTML(this.ariaLabel ?? 'aria-label N/A', label, 'prepend');
+            // removing aria-label attribute from input because of label text
+            this.removeAttribute('aria-label');
+        }
     }
 }
 
