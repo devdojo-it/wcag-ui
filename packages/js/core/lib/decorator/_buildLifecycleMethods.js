@@ -1,4 +1,4 @@
-export function buildLifecycleMethods(component) {
+export function buildLifecycleMethods(componentIdentifier) {
   return {
     handleEvent(e) {
       this[`handle${e.type.capitalize()}`]?.(e);
@@ -9,14 +9,14 @@ export function buildLifecycleMethods(component) {
       this.onAttributeChanged instanceof Function && this.onAttributeChanged(name, oldValue, newValue);
     },
     connectedCallback() {
-      for (const event of Object.keys(component.events)) {
+      for (const event of Object.keys(componentIdentifier.events)) {
         this.addEventListener(event, this);
       }
 
       this.onConnected instanceof Function && this.onConnected();
     },
     disconnectedCallback() {
-      for (const event of Object.keys(component.events)) {
+      for (const event of Object.keys(componentIdentifier.events)) {
         this.removeEventListener(event, this);
       }
 

@@ -10,6 +10,10 @@
 /* :root {
   transition: color 350ms ease-in-out, background-color 275ms ease-in-out;
 } */
+ 
+@view-transition {
+  navigation: auto;
+}
 
 html {
   scroll-behavior: smooth;

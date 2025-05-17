@@ -23,7 +23,7 @@ export class Input extends HTMLInputElement {
   }
 
   #initialize() {
-    // <input name="NAME" type="TYPE" aria-label="..." />
+    // <input is="wcag-input" name="NAME" type="TYPE" aria-label="..." />
 
     // settings default type attribute to text, if missing
     !this.hasAttribute('type') && this.setAttribute('type', 'text');
@@ -37,7 +37,7 @@ export class Input extends HTMLInputElement {
       // <label>
       //   {{ariaLabel value}}
       //   <span field-wrapper>
-      //     <input name="NAME" type="TYPE" />
+      //     <input is="wcag-input" name="NAME" type="TYPE" />
       //   </span>
       // </label>
       const label = DOM.wrapElement(fieldWrapper, { tag: 'label' });
