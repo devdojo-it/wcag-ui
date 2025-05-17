@@ -1,11 +1,12 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy wcag-ui documentation Pages
 
+# This workflow runs when any of the following occur:
+# - A tag starting with "v" is created
 on:
   push:
-    branches:
-      - master
-
+    tags:
+      - v*
+  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -20,25 +21,33 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
+  
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    if: startsWith(github.event.head_commit.message, 'rel(') && contains(github.event.head_commit.message, ')')
+  # This pushes the image to GitHub Packages.
+  push:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+      #
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+
+      - name: Install packages
+        run: npm i --legacy-peer-deps
+        
+      - name: Build Web Site
+        run: npm run build --ignore-scripts
+        
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: './dist'
+  
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
