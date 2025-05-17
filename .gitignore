@@ -1,7 +1,9 @@
 .DS_Store
 .parcel-cache
 node_modules
+package-lock.json
 yarn.lock
 .idea
 lerna-debug.log
 .obsidian
+/dist
