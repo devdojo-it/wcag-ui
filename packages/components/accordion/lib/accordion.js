@@ -1,4 +1,4 @@
-import { componentDecorator } from "@wcag-ui/core";
+import { componentDecorator, helpers } from "@wcag-ui/core";
 import { DOM } from "@wcag-ui/dom";
 
 import "./styles/accordion.css";
@@ -11,7 +11,7 @@ import events from "./accordion.events";
  *
  * @export
  * @class Accordion
- * @extends {HTMLAccordionElement}
+ * @extends {HTMLElement}
  */
 export class Accordion extends HTMLElement {
   static name = "wcag-accordion";
@@ -29,7 +29,7 @@ export class Accordion extends HTMLElement {
     componentDecorator("Accordion", Accordion);
   }
 
-  #guid = String.guid();
+  #guid = helpers.strings.guid();
   #items;
 
   constructor() {

@@ -42,6 +42,20 @@ export const isDate = (any) => {
   return trueTypeOf(any) === "Date";
 };
 
+/**
+ * checks if "something" is a string
+ *
+ * @example <caption>eg. usage</caption>
+ * const x = 'hi';
+ * const y = new Date();
+ *
+ * console.log(String.isString(x)); // true
+ * console.log(String.isString(y)); // false
+ * @memberOf string
+ * @method isString()
+ * @param {any} any - the provided "something"
+ * @return {boolean}
+ */
 export const isString = (any) => {
   return trueTypeOf(any) === "String";
 };

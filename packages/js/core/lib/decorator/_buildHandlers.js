@@ -1,15 +1,17 @@
+import { pascalize } from "../helpers/_strings";
+
 export function buildHandlers(attributesOrEvents, methodSuffix = "") {
   return Object.entries(attributesOrEvents).reduce((acc, item) => {
-    acc[`handle${item[0].pascalize()}${methodSuffix}`] = item[1];
+    acc[`handle${pascalize(item[0])}${methodSuffix}`] = item[1];
 
     return acc;
   }, {});
 }
 
 export function buildEventHandlers(componentEvents) {
-  return buildHandlers(componentEvents);
+  return buildHandlers(componentEvents, "Event");
 }
 
 export function buildAttributeHandlers(componentAttributes) {
-  return buildHandlers(componentAttributes, "Change");
+  return buildHandlers(componentAttributes, "AttributeChanged");
 }
