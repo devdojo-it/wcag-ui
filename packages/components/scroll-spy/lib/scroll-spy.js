@@ -1,10 +1,12 @@
 import './styles/scroll-spy.css';
 
-import { componentDecorator } from '@wcag-ui/core';
+import { componentDecorator, helpers } from '@wcag-ui/core';
 import { DOM } from '@wcag-ui/dom';
 
 import attributes from './scroll-spy.attributes';
 import events from './scroll-spy.events';
+
+const { stripEmojis } = helpers.strings;
 
 export class ScrollSpy extends HTMLElement {
   static name = 'wcag-scroll-spy';
@@ -61,7 +63,7 @@ export class ScrollSpy extends HTMLElement {
 
     // Crea un elemento nav e una lista non ordinata
     let template = `
-      <span>${this.#title.textContent.stripEmojis()}</span>
+      <span>${stripEmojis(this.#title.textContent)}</span>
       <nav>
         <ul>
           ${this.#headings
@@ -69,7 +71,7 @@ export class ScrollSpy extends HTMLElement {
               // Se la sezione non ha un id, lo genera a partire dal testo del titolo
               !heading.id && (heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-'));
 
-              return `<li><a href="#${heading.id}">${heading.textContent.stripEmojis()}</a></li>`;
+              return `<li><a href="#${heading.id}">${stripEmojis(heading.textContent)}</a></li>`;
             })
             .join('')}
         </ul>

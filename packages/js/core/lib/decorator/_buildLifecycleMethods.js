@@ -1,12 +1,14 @@
+import { pascalize } from "../helpers/_strings";
+
 export function buildLifecycleMethods(component) {
   return {
     handleEvent(e) {
-      this[`handle${e.type.capitalize()}`]?.(e);
+      this[`handle${pascalize(e.type)}Event`]?.(e);
     },
     attributeChangedCallback(name, oldValue, newValue) {
-      this[`handle${name.pascalize()}Change`]?.(oldValue, newValue);
+      this[`handle${pascalize(name)}AttributeChanged`]?.(oldValue, newValue);
 
-      this.onAttributeChanged instanceof Function && this.onAttributeChanged(name, oldValue, newValue);
+      this.onAttributeChanged?.(name, oldValue, newValue);
     },
     connectedCallback() {
       for (const event of Object.keys(component.events)) {
