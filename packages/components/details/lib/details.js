@@ -1,4 +1,4 @@
-import { componentDecorator } from '@wcag-ui/core';
+import { componentDecorator, helpers } from '@wcag-ui/core';
 import { DOM } from '@wcag-ui/dom';
 
 import './styles/details.css';
@@ -29,7 +29,7 @@ export class Details extends HTMLDetailsElement {
     componentDecorator('Details', Details);
   }
 
-  #guid = String.guid();
+  #guid = helpers.string.guid();
   #summary;
   #content;
 
