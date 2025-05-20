@@ -30,9 +30,6 @@
     "rel:minor": "lerna publish minor -y && yarn deps && yarn build && yarn version --minor && yarn changelog",
     "rel:patch": "lerna publish patch -y && yarn deps && yarn build && yarn version --patch && yarn changelog"
   },
-  "workspaces": [
-    "packages/**/*"
-  ],
   "dependencies": {
     "@wcag-ui/accordion": "^0.0.8",
     "@wcag-ui/button": "^0.0.8",
