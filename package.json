@@ -1,6 +1,6 @@
 {
   "name": "wcag-ui",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "wcagUI Library",
   "repository": "git@github.com:devdojo-it/wcag-ui.git",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
@@ -30,22 +30,19 @@
     "rel:minor": "lerna publish minor -y && yarn deps && yarn build && yarn version --minor && yarn changelog",
     "rel:patch": "lerna publish patch -y && yarn deps && yarn build && yarn version --patch && yarn changelog"
   },
-  "workspaces": [
-    "packages/**/*"
-  ],
   "dependencies": {
-    "@wcag-ui/accordion": "^0.0.8",
-    "@wcag-ui/button": "^0.0.8",
-    "@wcag-ui/checkbox": "^0.0.8",
-    "@wcag-ui/core": "^0.0.8",
-    "@wcag-ui/details": "^0.0.8",
-    "@wcag-ui/grid-system": "^0.0.8",
-    "@wcag-ui/iconography": "^0.0.8",
-    "@wcag-ui/input": "^0.0.8",
-    "@wcag-ui/radio": "^0.0.8",
-    "@wcag-ui/scroll-spy": "^0.0.8",
-    "@wcag-ui/switch": "^0.0.8",
-    "@wcag-ui/typography": "^0.0.8",
+    "@wcag-ui/accordion": "^0.0.9",
+    "@wcag-ui/button": "^0.0.9",
+    "@wcag-ui/checkbox": "^0.0.9",
+    "@wcag-ui/core": "^0.0.9",
+    "@wcag-ui/details": "^0.0.9",
+    "@wcag-ui/grid-system": "^0.0.9",
+    "@wcag-ui/iconography": "^0.0.9",
+    "@wcag-ui/input": "^0.0.9",
+    "@wcag-ui/radio": "^0.0.9",
+    "@wcag-ui/scroll-spy": "^0.0.9",
+    "@wcag-ui/switch": "^0.0.9",
+    "@wcag-ui/typography": "^0.0.9",
     "highlight.js": "11.11.1"
   },
   "devDependencies": {
