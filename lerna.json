@@ -1,10 +1,12 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "version": "0.0.0",
-  "packages": [
-    "packages/js/*",
-    "packages/css/*",
-    "packages/components/*"
-  ],
-  "npmClient": "yarn"
+  "packages": ["packages/js/*", "packages/css/*", "packages/components/*"],
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "registry": "http://localhost:4873"
+    }
+  },
+  "message": "@wcag-ui release"
 }
