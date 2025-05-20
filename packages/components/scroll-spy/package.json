@@ -1,7 +1,7 @@
 {
   "name": "@wcag-ui/scroll-spy",
   "version": "0.0.7",
-  "description": "> TODO: description",
+  "description": "ScrollSpy component for the wcagUI library",
   "author": "Emiliano Pisu <75838944+pixu1980@users.noreply.github.com>",
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
@@ -17,8 +17,11 @@
     "lib": "lib"
   },
   "files": [
-    "lib"
+    "lib",
+    "package.json",
+    "README.md"
   ],
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"
