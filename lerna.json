@@ -1,7 +1,11 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
-  "version": "0.0.0",
-  "packages": ["packages/js/*", "packages/css/*", "packages/components/*"],
+  "version": "0.0.1",
+  "packages": [
+    "packages/js/*",
+    "packages/css/*",
+    "packages/components/*"
+  ],
   "npmClient": "yarn",
   "command": {
     "publish": {

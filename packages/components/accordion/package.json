@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/accordion",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "> TODO: description",
   "author": "DevDojo IT (https://www.devdojo.it)",
   "contributors": [
@@ -17,8 +17,8 @@
     "test": "node ./__tests__/accordion.test.js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.0",
-    "@wcag-ui/dom": "^0.0.0"
+    "@wcag-ui/core": "^0.0.1",
+    "@wcag-ui/dom": "^0.0.1"
   },
   "directories": {
     "lib": "lib"
