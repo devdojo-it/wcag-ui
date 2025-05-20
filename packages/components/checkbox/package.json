@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/checkbox",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "> TODO: description",
   "author": "DevDojo IT (https://www.devdojo.it)",
   "contributors": [
@@ -17,8 +17,8 @@
     "test": "node ./__tests__/checkbox.test.js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.6",
-    "@wcag-ui/dom": "^0.0.0"
+    "@wcag-ui/core": "^0.0.7",
+    "@wcag-ui/dom": "^0.0.7"
   },
   "directories": {
     "lib": "lib"
