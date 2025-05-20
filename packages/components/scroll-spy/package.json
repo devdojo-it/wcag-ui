@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/scroll-spy",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "ScrollSpy component for the wcagUI library",
   "author": "Emiliano Pisu <75838944+pixu1980@users.noreply.github.com>",
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
@@ -10,8 +10,8 @@
     "test": "node ./__tests__/scroll-spy.test.js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.8",
-    "@wcag-ui/dom": "^0.0.8"
+    "@wcag-ui/core": "^0.0.9",
+    "@wcag-ui/dom": "^0.0.9"
   },
   "directories": {
     "lib": "lib"

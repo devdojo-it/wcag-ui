@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/input",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Input component for the wcagUI library",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
@@ -17,8 +17,8 @@
     "test": "node ./__tests__/input.test.js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.8",
-    "@wcag-ui/dom": "^0.0.8"
+    "@wcag-ui/core": "^0.0.9",
+    "@wcag-ui/dom": "^0.0.9"
   },
   "directories": {
     "lib": "lib"
