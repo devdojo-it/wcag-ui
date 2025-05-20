@@ -26,9 +26,9 @@
     "build:push": "git add . && git commit --amend --no-edit && git push -f",
     "deps": "yarn reset && yarn upgrade-interactive --latest",
     "changelog": "changelog -t $(git log --grep='rel(' --format='%H' --max-count=2 | head -n 2 | tail -1)..$(git log --grep='rel(' --format='%H' --max-count=2 | head -n 1) -x rel,build && git add . && git commit --amend --no-edit",
-    "rel:major": "lerna publish major -y && yarn deps && yarn build && yarn version --major && yarn changelog",
-    "rel:minor": "lerna publish minor -y && yarn deps && yarn build && yarn version --minor && yarn changelog",
-    "rel:patch": "lerna publish patch -y && yarn deps && yarn build && yarn version --patch && yarn changelog"
+    "rel:major": "lerna publish major -y --temp-tag && yarn deps && yarn build && yarn version --major && yarn changelog",
+    "rel:minor": "lerna publish minor -y --temp-tag && yarn deps && yarn build && yarn version --minor && yarn changelog",
+    "rel:patch": "lerna publish patch -y --temp-tag && yarn deps && yarn build && yarn version --patch && yarn changelog"
   },
   "dependencies": {
     "@wcag-ui/accordion": "^0.0.9",
