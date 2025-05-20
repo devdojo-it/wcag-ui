@@ -1,8 +1,8 @@
 {
   "name": "@wcag-ui/details",
-  "version": "0.0.7",
-  "description": "> TODO: description",
-  "author": "DevDojo IT (https://www.devdojo.it)",
+  "version": "0.0.8",
+  "description": "Details component for the wcagUI library",
+  "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
     "Emiliano Pisu <pixu1980@github>",
     "Massimo Artizzu <maxart2501@github>",
@@ -17,15 +17,17 @@
     "test": "node ./__tests__/details.test.js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.7",
-    "@wcag-ui/dom": "^0.0.7",
-    "@wcag-ui/iconography": "^0.0.7"
+    "@wcag-ui/core": "^0.0.8",
+    "@wcag-ui/dom": "^0.0.8",
+    "@wcag-ui/iconography": "^0.0.8"
   },
   "directories": {
     "lib": "lib"
   },
   "files": [
-    "lib"
+    "lib",
+    "package.json",
+    "README.md"
   ],
   "repository": {
     "type": "git",
