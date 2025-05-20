@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/select",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Select component for the wcagUI library",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
@@ -17,7 +17,7 @@
     "test": "node ./__tests__/select.test.js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.7"
+    "@wcag-ui/core": "^0.0.8"
   },
   "directories": {
     "lib": "lib"
@@ -27,7 +27,6 @@
     "package.json",
     "README.md"
   ],
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

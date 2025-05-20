@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/iconography",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "CSS Iconography for the wcagUI Design System",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
@@ -21,7 +21,6 @@
     "package.json",
     "README.md"
   ],
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"
