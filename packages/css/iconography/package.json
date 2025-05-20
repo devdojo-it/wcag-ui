@@ -1,8 +1,8 @@
 {
   "name": "@wcag-ui/iconography",
-  "version": "0.0.7",
-  "description": "> TODO: description",
-  "author": "DevDojo IT (https://www.devdojo.it)",
+  "version": "0.0.8",
+  "description": "CSS Iconography for the wcagUI Design System",
+  "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
     "Emiliano Pisu <pixu1980@github>",
     "Massimo Artizzu <maxart2501@github>",
@@ -17,7 +17,9 @@
     "lib": "lib"
   },
   "files": [
-    "lib"
+    "lib",
+    "package.json",
+    "README.md"
   ],
   "repository": {
     "type": "git",
