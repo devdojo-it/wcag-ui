@@ -1,3 +1,9 @@
+#### 0.0.11 (2025-05-20)
+
+##### New Features
+
+* **accordion:**  add accordion css layer (a3449e9f)
+
 #### 0.0.10 (2025-05-20)
 
 ##### New Features
