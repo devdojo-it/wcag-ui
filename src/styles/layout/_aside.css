@@ -12,7 +12,7 @@ body > aside[nav] {
 
   [is="wcag-accordion"] {
     position: sticky;
-    inset-block-start: calc(var(--docs--header--height) + 3rem);
+    inset-block-start: calc(var(--docs--header--min-height) + 3rem);
 
     display: flex;
     flex-flow: column nowrap;

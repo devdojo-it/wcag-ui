@@ -3,7 +3,7 @@ body > aside[scroll-spy] {
   
   [is="wcag-scroll-spy"] {
     position: sticky;
-    inset-block-start: calc(var(--docs--header--height) + 3rem);
+    inset-block-start: calc(var(--docs--header--min-height) + 3rem);
 
     inline-size: 19.3rem;
     margin: 0 auto 0 2rem;

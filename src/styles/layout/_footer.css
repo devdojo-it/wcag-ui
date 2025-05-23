@@ -10,7 +10,7 @@ body > footer {
   place-items: start;
   gap: 14.2rem;
 
-  block-size: var(--docs--footer--height);
+  min-block-size: var(--docs--footer--min-height);
   padding: 4.8rem 8rem;
 
   color: var(--docs--footer--color);
