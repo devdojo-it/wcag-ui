@@ -1,3 +1,3 @@
-export function buildExtendOptions(mixins) {
-  return mixins.extends ? { extends: mixins.extends } : undefined;
+export function buildExtendOptions(component) {
+  return component.extends ? { extends: component.extends } : undefined;
 }

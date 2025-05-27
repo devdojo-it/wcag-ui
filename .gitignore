@@ -6,4 +6,5 @@ yarn.lock
 .idea
 lerna-debug.log
 .obsidian
-/dist
+*.min.css
+dist

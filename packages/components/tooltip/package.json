@@ -1,11 +1,12 @@
 {
   "name": "@wcag-ui/tooltip",
-  "version": "0.0.10",
+  "version": "0.0.0",
   "description": "Tooltip component for the wcagUI library",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
     "Emiliano Pisu <pixu1980@github>",
     "Massimo Artizzu <maxart2501@github>",
+    "Mirela Rosca <mirirosca@github>",
     "Alessio Tortolini <alestormoody@github>",
     "Christian Nastasi <cnastasi@github>",
     "Salvatore Tropea <salvotropea96@github>"
@@ -13,11 +14,13 @@
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
   "main": "lib/tooltip.js",
+  "type": "module",
   "scripts": {
-    "test": "node ./__tests__/tooltip.test.js"
+    "test": "node ./__tests__/tooltip.test.js",
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/tooltip.css -o ./lib/tooltip.min.css"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.10"
+    "@wcag-ui/core": "^0.0.0"
   },
   "directories": {
     "lib": "lib"
@@ -27,6 +30,9 @@
     "package.json",
     "README.md"
   ],
+  "exports": {
+    "./tooltip.css": "./lib/tooltip.min.css"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

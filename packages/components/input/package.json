@@ -1,11 +1,12 @@
 {
   "name": "@wcag-ui/input",
-  "version": "0.0.10",
+  "version": "0.0.0",
   "description": "Input component for the wcagUI library",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
     "Emiliano Pisu <pixu1980@github>",
     "Massimo Artizzu <maxart2501@github>",
+    "Mirela Rosca <mirirosca@github>",
     "Alessio Tortolini <alestormoody@github>",
     "Christian Nastasi <cnastasi@github>",
     "Salvatore Tropea <salvotropea96@github>"
@@ -13,12 +14,14 @@
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
   "main": "lib/input.js",
+  "type": "module",
   "scripts": {
-    "test": "node ./__tests__/input.test.js"
+    "test": "node ./__tests__/input.test.js",
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/input.css -o ./lib/input.min.css"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.10",
-    "@wcag-ui/dom": "^0.0.10"
+    "@wcag-ui/core": "^0.0.0",
+    "@wcag-ui/dom": "^0.0.0"
   },
   "directories": {
     "lib": "lib"
@@ -28,6 +31,9 @@
     "package.json",
     "README.md"
   ],
+  "exports": {
+    "./input.css": "./lib/input.min.css"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

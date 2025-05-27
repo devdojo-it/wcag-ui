@@ -1,12 +1,12 @@
 import { events } from '@wcag-ui/core';
 
 export default {
-  switch: function (e) {
+  input: function (e) {
     console.log('switch emitted input', this.ariaLabel);
 
     // style :user-invalid or :user-valid
 
-    events.dispatchComponentEvent.call(this, 'switch', { value: this.value }, e);
+    events.dispatchComponentEvent.call(this, 'input', { value: this.value }, e);
   },
   change: function (e) {
     console.log('switch emitted change', this.ariaLabel);

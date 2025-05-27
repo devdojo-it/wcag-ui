@@ -1,0 +1,2 @@
+@import "../fonts/fonts.css" layer(wcag-ui.foundations.typography.fonts);
+@import "./_core.css" layer(wcag-ui.foundations.typography);
