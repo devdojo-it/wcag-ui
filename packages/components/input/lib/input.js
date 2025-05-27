@@ -48,3 +48,16 @@ export class Input extends HTMLInputElement {
     }
   }
 }
+
+
+// import '@wcag-ui/input';
+
+// <input is="wcag-input" type="text" aria-label="Username" />
+
+// <label>
+//   Username
+//   <span field-wrapper>
+//     <input is="wcag-input" type="text" aria-label="Username" />
+//   </span>
+// </label>
+

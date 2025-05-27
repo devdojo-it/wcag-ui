@@ -1,18 +1,22 @@
 {
   "name": "@wcag-ui/grid-system",
-  "version": "0.0.10",
+  "version": "0.0.0",
   "description": "CSS Grid System for the wcagUI Design System",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
     "Emiliano Pisu <pixu1980@github>",
     "Massimo Artizzu <maxart2501@github>",
+    "Mirela Rosca <mirirosca@github>",
     "Alessio Tortolini <alestormoody@github>",
     "Christian Nastasi <cnastasi@github>",
     "Salvatore Tropea <salvotropea96@github>"
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "main": "lib/index.css",
+  "main": "lib/grid-system.min.css",
+  "scripts": {
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/grid-system.css -o ./lib/grid-system.min.css"
+  },
   "directories": {
     "lib": "lib"
   },

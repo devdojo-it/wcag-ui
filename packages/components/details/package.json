@@ -1,11 +1,12 @@
 {
   "name": "@wcag-ui/details",
-  "version": "0.0.10",
+  "version": "0.0.0",
   "description": "Details component for the wcagUI library",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
     "Emiliano Pisu <pixu1980@github>",
     "Massimo Artizzu <maxart2501@github>",
+    "Mirela Rosca <mirirosca@github>",
     "Alessio Tortolini <alestormoody@github>",
     "Christian Nastasi <cnastasi@github>",
     "Salvatore Tropea <salvotropea96@github>"
@@ -13,13 +14,15 @@
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
   "main": "lib/details.js",
+  "type": "module",
   "scripts": {
-    "test": "node ./__tests__/details.test.js"
+    "test": "node ./__tests__/details.test.js",
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/details.css -o ./lib/details.min.css"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.10",
-    "@wcag-ui/dom": "^0.0.10",
-    "@wcag-ui/iconography": "^0.0.10"
+    "@wcag-ui/core": "^0.0.0",
+    "@wcag-ui/dom": "^0.0.0",
+    "@wcag-ui/iconography": "^0.0.0"
   },
   "directories": {
     "lib": "lib"
@@ -29,6 +32,9 @@
     "package.json",
     "README.md"
   ],
+  "exports": {
+    "./details.css": "./lib/details.min.css"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

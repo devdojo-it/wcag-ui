@@ -1,1 +1,0 @@
-[is=wcag-scroll-spy]{align-self:flex-start;width:250px;display:block;& nav{& ul{padding:0;list-style:none;& li{margin-bottom:10px;& a{color:#333;text-decoration:none}&.active{& a{color:#007bff;font-weight:700}}}}}}

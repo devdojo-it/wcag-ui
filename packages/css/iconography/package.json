@@ -1,18 +1,22 @@
 {
   "name": "@wcag-ui/iconography",
-  "version": "0.0.10",
+  "version": "0.0.0",
   "description": "CSS Iconography for the wcagUI Design System",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
     "Emiliano Pisu <pixu1980@github>",
     "Massimo Artizzu <maxart2501@github>",
+    "Mirela Rosca <mirirosca@github>",
     "Alessio Tortolini <alestormoody@github>",
     "Christian Nastasi <cnastasi@github>",
     "Salvatore Tropea <salvotropea96@github>"
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "main": "lib/iconography.css",
+  "main": "lib/iconography.min.css",
+  "scripts": {
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/iconography.css -o ./lib/iconography.min.css"
+  },
   "directories": {
     "lib": "lib"
   },
