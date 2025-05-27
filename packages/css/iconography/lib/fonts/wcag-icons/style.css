@@ -1,8 +1,8 @@
 @font-face {
   font-family: "wcag-icons";
-  src: url("fonts/wcag-icons.ttf?bfvu5y") format("truetype"),
-    url("fonts/wcag-icons.woff?bfvu5y") format("woff"),
-    url("fonts/wcag-icons.svg?bfvu5y#wcag-icons") format("svg");
+  src: url("fonts/wcag-icons/fonts/wcag-icons.ttf?bfvu5y") format("truetype"),
+    url("fonts/wcag-icons/fonts/wcag-icons.woff?bfvu5y") format("woff"),
+    url("fonts/wcag-icons/fonts/wcag-icons.svg?bfvu5y#wcag-icons") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
