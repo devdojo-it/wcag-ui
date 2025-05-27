@@ -1,4 +1,4 @@
-export function guid() {
+function guid() {
   // TODO: check if necessary
   return `${Math.random().toString(16).slice(2, 10)}-${Math.random().toString(16).slice(2, 6)}-4${Math.random()
     .toString(16)
@@ -16,14 +16,14 @@ export function guid() {
  * @method capitalize()
  * @return {string}
  */
-export function capitalize(string) {
+function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 /**
  * @param {string} string
  */
-export function camelize(string) {
+function camelize(string) {
   return string
     .toLowerCase() // Convertiamo tutto in minuscolo
     .replace(/[-_\s]+(.)?/g, (match, chr) => (chr ? chr.toUpperCase() : '')) // Rimuoviamo delimitatori e capitalizziamo la lettera successiva
@@ -33,14 +33,14 @@ export function camelize(string) {
 /**
  * @param {string} string
  */
-export function pascalize(string) {
+function pascalize(string) {
   return string.replace(/(^|-)([a-z])/g, (match, separator, letter) => letter.toUpperCase());
 }
 
 /**
  * @param {string} string
  */
-export function stripEmojis(string) {
+function stripEmojis(string) {
   return string
     .replace(
       /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
@@ -53,7 +53,18 @@ export function stripEmojis(string) {
 /**
  * @param {string} string
  */
-export function toBoolean(string) {
+function toBoolean(string) {
   // TODO: handle returning undefined when string is not a boolean string ('true','false','0','1'...)
   return /^\s*(true|1|on|yes)\s*$/i.test(string);
 }
+
+const strings = {
+  guid,
+  capitalize,
+  camelize,
+  pascalize,
+  stripEmojis,
+  toBoolean,
+};
+
+export { strings };

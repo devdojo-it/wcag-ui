@@ -4,42 +4,42 @@
  * @param  {Object} obj The object
  * @return {String} The object type
  */
-export const trueTypeOf = (obj) => Object.prototype.toString.call(obj).slice(8, -1);
+const trueTypeOf = (obj) => Object.prototype.toString.call(obj).slice(8, -1);
 
-export const isNull = (any) => {
-  return trueTypeOf(any) === "Null";
+const isNull = (any) => {
+  return trueTypeOf(any) === 'Null';
 };
 
-export const isUndefined = (any) => {
-  return trueTypeOf(any) === "Undefined";
+const isUndefined = (any) => {
+  return trueTypeOf(any) === 'Undefined';
 };
 
-export const isNullOrUndefined = (any) => {
+const isNullOrUndefined = (any) => {
   return isNull(any) || isUndefined(any);
 };
 
-export const isObject = (any) => {
-  return trueTypeOf(any) === "Object";
+const isObject = (any) => {
+  return trueTypeOf(any) === 'Object';
 };
 
-export const isSymbol = (any) => {
-  return trueTypeOf(any) === "Symbol";
+const isSymbol = (any) => {
+  return trueTypeOf(any) === 'Symbol';
 };
 
-export const isFunction = (any) => {
-  return trueTypeOf(any) === "Function";
+const isFunction = (any) => {
+  return trueTypeOf(any) === 'Function';
 };
 
-export const isBoolean = (any) => {
-  return trueTypeOf(any) === "Boolean";
+const isBoolean = (any) => {
+  return trueTypeOf(any) === 'Boolean';
 };
 
-export const isNumber = (any) => {
-  return trueTypeOf(any) === "Number";
+const isNumber = (any) => {
+  return trueTypeOf(any) === 'Number';
 };
 
-export const isDate = (any) => {
-  return trueTypeOf(any) === "Date";
+const isDate = (any) => {
+  return trueTypeOf(any) === 'Date';
 };
 
 /**
@@ -56,14 +56,32 @@ export const isDate = (any) => {
  * @param {any} any - the provided "something"
  * @return {boolean}
  */
-export const isString = (any) => {
-  return trueTypeOf(any) === "String";
+const isString = (any) => {
+  return trueTypeOf(any) === 'String';
 };
 
-export const isRegExp = (any) => {
-  return trueTypeOf(any) === "RegExp";
+const isRegExp = (any) => {
+  return trueTypeOf(any) === 'RegExp';
 };
 
-export const isArray = (any) => {
-  return trueTypeOf(any) === "Array";
+const isArray = (any) => {
+  return trueTypeOf(any) === 'Array';
 };
+
+const types = {
+  trueTypeOf,
+  isNull,
+  isUndefined,
+  isNullOrUndefined,
+  isObject,
+  isSymbol,
+  isFunction,
+  isBoolean,
+  isNumber,
+  isDate,
+  isString,
+  isRegExp,
+  isArray,
+};
+
+export { types };

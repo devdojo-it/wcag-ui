@@ -1,17 +1,19 @@
 {
   "name": "@wcag-ui/scroll-spy",
-  "version": "0.0.10",
+  "version": "0.0.0",
   "description": "ScrollSpy component for the wcagUI library",
   "author": "Emiliano Pisu <75838944+pixu1980@users.noreply.github.com>",
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
   "main": "lib/scroll-spy.js",
+  "type": "module",
   "scripts": {
-    "test": "node ./__tests__/scroll-spy.test.js"
+    "test": "node ./__tests__/scroll-spy.test.js",
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/scroll-spy.css -o ./lib/scroll-spy.min.css"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.10",
-    "@wcag-ui/dom": "^0.0.10"
+    "@wcag-ui/core": "^0.0.0",
+    "@wcag-ui/dom": "^0.0.0"
   },
   "directories": {
     "lib": "lib"
@@ -21,6 +23,9 @@
     "package.json",
     "README.md"
   ],
+  "exports": {
+    "./scroll-spy.css": "./lib/scroll-spy.min.css"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

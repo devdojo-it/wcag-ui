@@ -1,4 +1,4 @@
-import { isObject, isString } from "../helpers/_types";
+import { types } from "../helpers/_types";
 
 const base64 = {
   /**
@@ -8,7 +8,7 @@ const base64 = {
    * @return {string}
    */
   encode: (s) => {
-    if (!isString(s)) {
+    if (types.isString(s)) {
       throw new Error("@wcag-js/core error, encodeBase64: the provided parameter is not a valid string");
     }
 
@@ -21,7 +21,7 @@ const base64 = {
    * @return {string}
    */
   decode: (s) => {
-    if (!isString(s)) {
+    if (!types.isString(s)) {
       throw new Error("@wcag-js/core error, decodeBase64: the provided parameter is not a valid string");
     }
 
@@ -34,7 +34,7 @@ const base64 = {
    * @return {string}
    */
   fromJSON: (o) => {
-    if (!isObject(o)) {
+    if (!types.isObject(o)) {
       throw new Error("@wcag-js/core error, base64.fromJSON: the provided parameter is not a valid object");
     }
     return encodeBase64(JSON.stringify(o));
@@ -46,7 +46,7 @@ const base64 = {
    * @return {object}
    */
   toJSON: (s) => {
-    if (!isString(s)) {
+    if (!types.isString(s)) {
       throw new Error("@wcag-js/core error, base64ToJson: the provided parameter is not a valid string");
     }
 

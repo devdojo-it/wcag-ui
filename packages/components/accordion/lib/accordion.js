@@ -1,8 +1,6 @@
 import { componentDecorator, helpers } from "@wcag-ui/core";
 import { DOM } from "@wcag-ui/dom";
 
-import './styles/accordion.css';
-
 import attributes from './accordion.attributes';
 import events from './accordion.events';
 
@@ -29,7 +27,7 @@ export class Accordion extends HTMLElement {
     componentDecorator('Accordion', Accordion);
   }
 
-  #guid = helpers.strings.guid();
+  #guid;
 
   get name() {
     return this.getAttribute('name') ?? `${this.#guid}-accordion`;
@@ -63,6 +61,8 @@ export class Accordion extends HTMLElement {
   }
 
   #initialize() {
+    this.#guid = helpers.strings.guid();
+    
     this.#mutationObserver = new MutationObserver(this.#mutationHandler.bind(this));
 
     this.#mutationObserver.observe(this, {

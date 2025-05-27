@@ -1,7 +1,5 @@
 import { componentDecorator } from "@wcag-ui/core";
 
-import "./styles/button.css";
-
 import attributes from "./button.attributes";
 import events from "./button.events";
 

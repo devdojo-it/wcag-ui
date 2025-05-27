@@ -1,5 +1,6 @@
 @font-face {
-  src: url("Inter.woff2") format("woff2 supports variations"), url("Inter.woff2") format("woff2-variations");
+  src: url("fonts/inter/Inter.woff2") format("woff2 supports variations"),
+    url("fonts/inter/Inter.woff2") format("woff2-variations");
   font-family: Inter;
   font-style: normal;
   font-weight: 100 900;
@@ -7,8 +8,8 @@
 }
 
 @font-face {
-  src: url("Inter-Italic.woff2") format("woff2 supports variations"),
-    url("Inter-Italic.woff2") format("woff2-variations");
+  src: url("fonts/inter/Inter-Italic.woff2") format("woff2 supports variations"),
+    url("fonts/inter/Inter-Italic.woff2") format("woff2-variations");
   font-family: Inter;
   font-style: italic;
   font-weight: 100 900;
