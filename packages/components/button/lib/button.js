@@ -3,11 +3,6 @@ import { componentDecorator } from "@wcag-ui/core";
 import attributes from "./button.attributes";
 import events from "./button.events";
 
-// - static initialization block
-// - meta programming
-// - decorator pattern
-// - javascript mixins
-
 /**
  * wcagUI Button class
  *
@@ -45,6 +40,6 @@ export class Button extends HTMLButtonElement {
 
 // import '@wcag-ui/button';
 
-// <button is="wcag-button">Ciao<button>
+// before: <button is="wcag-button">Ciao<button>
 
-// <button is="wcag-button" type="button">Ciao<button>
+// after: <button is="wcag-button" type="button">Ciao<button>

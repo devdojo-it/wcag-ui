@@ -49,7 +49,7 @@ export const ancestors = (el, selector, one = false, includeThis = false) => {
  * @param {boolean} [includeThis=false] - include the given element in the list of the ancestors
  * @return {Element|undefined}
  */
-export const ancestor = (el, selectorOrComparer = "", includeThis = false) => {
+export const ancestor = (el, selectorOrComparer = '', includeThis = false) => {
   const ancestorsResult = ancestors(el, selector, true, includeThis);
 
   return ancestorsResult.length > 0 ? ancestorsResult[0] : undefined;

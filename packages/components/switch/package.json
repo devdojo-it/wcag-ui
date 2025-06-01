@@ -13,11 +13,13 @@
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "main": "lib/switch.js",
+  "main": "switch.min.js",
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/switch.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/switch.css -o ./lib/switch.min.css"
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/switch.css -o ./switch.min.css",
+    "build:js": "rolldown -c ./rolldown.config.js",
+    "build": "yarn build:css && yarn build:js"
   },
   "dependencies": {
     "@wcag-ui/core": "^0.0.0",
@@ -31,7 +33,8 @@
     "README.md"
   ],
   "exports": {
-    "./switch.css": "./lib/switch.min.css"
+    "./switch.css": "./switch.min.css",
+    "./switch.js": "./switch.min.js"
   },
   "repository": {
     "type": "git",

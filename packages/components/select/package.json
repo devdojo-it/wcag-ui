@@ -13,11 +13,13 @@
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "main": "lib/select.js",
+  "main": "select.min.js",
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/select.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/select.css -o ./lib/select.min.css"
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/select.css -o ./select.min.css",
+    "build:js": "rolldown -c ./rolldown.config.js",
+    "build": "yarn build:css && yarn build:js"
   },
   "dependencies": {
     "@wcag-ui/core": "^0.0.0"
@@ -31,7 +33,8 @@
     "README.md"
   ],
   "exports": {
-    "./select.css": "./lib/select.min.css"
+    "./select.css": "./select.min.css",
+    "./select.js": "./select.min.js"
   },
   "repository": {
     "type": "git",

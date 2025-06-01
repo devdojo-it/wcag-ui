@@ -13,11 +13,13 @@
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "main": "lib/tooltip.js",
+  "main": "tooltip.min.js",
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/tooltip.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/tooltip.css -o ./lib/tooltip.min.css"
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/tooltip.css -o ./tooltip.min.css",
+    "build:js": "rolldown -c ./rolldown.config.js",
+    "build": "yarn build:css && yarn build:js"
   },
   "dependencies": {
     "@wcag-ui/core": "^0.0.0"
@@ -31,7 +33,8 @@
     "README.md"
   ],
   "exports": {
-    "./tooltip.css": "./lib/tooltip.min.css"
+    "./tooltip.css": "./tooltip.min.css",
+    "./tooltip.js": "./tooltip.min.js"
   },
   "repository": {
     "type": "git",

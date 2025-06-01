@@ -1,4 +1,4 @@
-import { sanitizeHTML } from "./_sanitizeHTML";
+import { sanitizeHTML } from './_sanitizeHTML';
 
 /**
  * Inserts a sanitized HTML code in a certain position relative to another element.
@@ -10,7 +10,7 @@ import { sanitizeHTML } from "./_sanitizeHTML";
  * @return {NodeList} The inserted elements NodeList
  */
 export const insertHTML = (html, targetElement, position, emptyTarget = false) => {
-  emptyTarget && (targetElement.innerHTML = "");
+  emptyTarget && (targetElement.innerHTML = '');
 
   const sanitizedDOM = sanitizeHTML(html, true);
 
@@ -21,7 +21,7 @@ export const insertHTML = (html, targetElement, position, emptyTarget = false) =
   // position === 'afterbegin' && target.prepend(fragment);
   // position === 'beforeend' && target.append(fragment);
   // position === 'afterend' && target.after(fragment);
-  targetElement[position ?? "append"](fragment);
+  targetElement[position ?? 'append'](fragment);
 
   return sanitizedDOM;
 };
