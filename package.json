@@ -15,6 +15,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "commitlint": "commitlint --from HEAD~1",
     "clear:cache": "rm -rf .parcel-cache dist",
     "clear": "yarn clear:cache && rm -rf node_modules yarn.lock package-lock.json",
     "reset": "yarn clear && yarn",
@@ -50,7 +51,10 @@
     "highlight.js": "11.11.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "generate-changelog": "1.8.0",
+    "husky": "^9.1.7",
     "jsdoc": "4.0.4",
     "lerna": "8.2.2",
     "lightningcss": "1.30.1",
