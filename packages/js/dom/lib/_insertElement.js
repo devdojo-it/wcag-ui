@@ -1,15 +1,15 @@
-import { ensureElement } from "./_ensureElement";
+import { ensureElement } from './_ensureElement';
 
 /**
  * @typedef TInsertPositions
  * @type {'before'|'prepend'|'append'|'after'}
  */
 
-const EInsertPositions = Object.freeze({
-  before: "beforebegin",
-  prepend: "afterbegin",
-  append: "beforeend",
-  after: "afterend",
+export const EInsertPositions = Object.freeze({
+  before: 'beforebegin',
+  prepend: 'afterbegin',
+  append: 'beforeend',
+  after: 'afterend',
 });
 
 /**

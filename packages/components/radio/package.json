@@ -7,17 +7,21 @@
     "Emiliano Pisu <pixu1980@github>",
     "Massimo Artizzu <maxart2501@github>",
     "Mirela Rosca <mirirosca@github>",
+    "Marco Pollacci <marcopollacci@github>",
+    "Valeria Salis <vallss@github>",
     "Alessio Tortolini <alestormoody@github>",
     "Christian Nastasi <cnastasi@github>",
     "Salvatore Tropea <salvotropea96@github>"
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "main": "lib/radio.js",
+  "main": "radio.min.js",
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/radio.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/radio.css -o ./lib/radio.min.css"
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/radio.css -o ./radio.min.css",
+    "build:js": "rolldown -c ./rolldown.config.js",
+    "build": "yarn build:css && yarn build:js"
   },
   "dependencies": {
     "@wcag-ui/core": "^0.0.0",
@@ -32,7 +36,8 @@
     "README.md"
   ],
   "exports": {
-    "./radio.css": "./lib/radio.min.css"
+    "./radio.css": "./radio.min.css",
+    "./radio.js": "./radio.min.js"
   },
   "repository": {
     "type": "git",

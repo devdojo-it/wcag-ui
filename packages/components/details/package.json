@@ -7,17 +7,21 @@
     "Emiliano Pisu <pixu1980@github>",
     "Massimo Artizzu <maxart2501@github>",
     "Mirela Rosca <mirirosca@github>",
+    "Marco Pollacci <marcopollacci@github>",
+    "Valeria Salis <vallss@github>",
     "Alessio Tortolini <alestormoody@github>",
     "Christian Nastasi <cnastasi@github>",
     "Salvatore Tropea <salvotropea96@github>"
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "main": "lib/details.js",
+  "main": "details.min.js",
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/details.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/details.css -o ./lib/details.min.css"
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/details.css -o ./details.min.css",
+    "build:js": "rolldown -c ./rolldown.config.js",
+    "build": "yarn build:css && yarn build:js"
   },
   "dependencies": {
     "@wcag-ui/core": "^0.0.0",
@@ -33,7 +37,8 @@
     "README.md"
   ],
   "exports": {
-    "./details.css": "./lib/details.min.css"
+    "./details.css": "./details.min.css",
+    "./details.js": "./details.min.js"
   },
   "repository": {
     "type": "git",

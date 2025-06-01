@@ -5,6 +5,10 @@ function guid() {
     .slice(2, 5)}-${Math.random().toString(16).slice(2, 6)}-${Math.random().toString(16).slice(2, 14)}`;
 }
 
+function microId(prefix) {
+  return `${prefix ? `${prefix}-` : ''}${Math.random().toString(16).slice(2)}`;
+}
+
 /**
  * Capitalizes a string
  *
@@ -60,6 +64,7 @@ function toBoolean(string) {
 
 const strings = {
   guid,
+  microId,
   capitalize,
   camelize,
   pascalize,
