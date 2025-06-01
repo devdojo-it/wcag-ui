@@ -29,7 +29,8 @@
     "changelog": "changelog -t $(git log --grep='rel(' --format='%H' --max-count=2 | head -n 2 | tail -1)..$(git log --grep='rel(' --format='%H' --max-count=2 | head -n 1) -x rel,build && git add . && git commit --amend --no-edit",
     "rel:major": "yarn build && lerna publish major -y --no-git-tag-version && yarn deps && yarn version --major && yarn changelog",
     "rel:minor": "yarn build && lerna publish minor -y --no-git-tag-version && yarn deps && yarn version --minor && yarn changelog",
-    "rel:patch": "yarn build && lerna publish patch -y --no-git-tag-version && yarn deps && yarn version --patch && yarn changelog"
+    "rel:patch": "yarn build && lerna publish patch -y --no-git-tag-version && yarn deps && yarn version --patch && yarn changelog",
+    "prepare": "husky"
   },
   "workspaces": [
     "packages/**/*"
@@ -51,10 +52,10 @@
     "highlight.js": "11.11.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
     "generate-changelog": "1.8.0",
-    "husky": "^9.1.7",
+    "husky": "9.1.7",
     "jsdoc": "4.0.4",
     "lerna": "8.2.2",
     "lightningcss": "1.30.1",
