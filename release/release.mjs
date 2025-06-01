@@ -18,19 +18,41 @@ function collectPackageJson(dir) {
 }
 
 const packageJsonPaths = collectPackageJson(path.join(root, "packages"));
+// console.log("detected packageJsonPaths: ", packageJsonPaths);
+
 const localPackages = packageJsonPaths.map((p) => JSON.parse(fs.readFileSync(p, "utf8")).name);
+// console.log("detected localPackages: ", localPackages);
 
-/** 1. Costruisci ogni pacchetto */
-execSync("pnpm --filter ./packages... run build", { stdio: "inherit" });
+// /** 2. Calcola next version */
+let lastTagOrCommit;
 
-/** 2. Calcola next version */
-const lastTag = execSync("git describe --tags --abbrev=0").toString().trim();
-const commits = execSync(`git log ${lastTag}..HEAD --pretty=%s`).toString().split("\n");
+try {
+  lastTagOrCommit = execSync("git describe --tags --abbrev=0").toString().trim();
+} catch {
+  lastTagOrCommit = execSync("git log --format='%H' | tail -1").toString().trim();
+}
+// console.log("detected lastTagOrCommit: ", lastTagOrCommit);
+
+const commitsLogCommand = `git log ${!!lastTagOrCommit ? `${lastTagOrCommit}..HEAD` : ""} --pretty=%s`;
+
+// // console.log("running: ", commitsLogCommand);
+
+const commits = execSync(commitsLogCommand).toString().split("\n").filter(String);
+// console.log("involved commits: ", commits);
+
 let bump = "patch";
 if (commits.some((c) => /BREAKING CHANGE/.test(c))) bump = "major";
 else if (commits.some((c) => c.startsWith("feat"))) bump = "minor";
 
-const [major, minor, patch] = lastTag.substring(1).split(".").map(Number);
+// is semver or commit?
+const isSemverRegex =
+  /^(v)?([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/g;
+
+let lastTag = !!lastTagOrCommit.match(isSemverRegex) ? lastTagOrCommit : "0.0.0";
+console.log("detected lastTag", lastTag);
+
+let [major, minor, patch] = lastTag.split(".").map(Number);
+
 const next =
   bump === "major"
     ? `${major + 1}.0.0`
@@ -38,42 +60,52 @@ const next =
     ? `${major}.${minor + 1}.0`
     : `${major}.${minor}.${patch + 1}`;
 
+console.log(`Bumping version from ${lastTag} to ${next} (${bump})`);
+
 /** 3. Aggiorna versioni & dipendenze interne */
 for (const file of packageJsonPaths) {
   const data = JSON.parse(fs.readFileSync(file, "utf8"));
+
   data.version = next;
+
   for (const field of ["dependencies", "peerDependencies", "devDependencies"]) {
     if (!data[field]) continue;
+
     for (const dep in data[field]) {
       if (localPackages.includes(dep)) data[field][dep] = `^${next}`;
     }
   }
+
   fs.writeFileSync(file, JSON.stringify(data, null, 2) + "\n");
+
+  Object.keys(data.scripts).includes("build:css") &&
+    execSync(`npm run --workspace ${path.dirname(file)} build:css`, { stdio: "inherit" });
 }
 // Aggiorna root se presente
 const rootPkgPath = path.join(root, "package.json");
+
 if (fs.existsSync(rootPkgPath)) {
   const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, "utf8"));
+
   rootPkg.version = next;
+
   localPackages.forEach((name) => {
     rootPkg.dependencies ??= {};
     rootPkg.dependencies[name] = `^${next}`;
   });
+
   fs.writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2) + "\n");
 }
 
-/** 4. Rigenera sito docs */
-execSync("pnpm run docs:build", { stdio: "inherit" });
+// // /** 5. Changelog, commit & TAG di release generale */
+execSync(`changelog -t ${lastTagOrCommit}..HEAD -x rel,build`, { stdio: "inherit" });
+// execSync("git add .", { stdio: "inherit" });
+// execSync(`git commit -m "chore(release): v${next}"`, { stdio: "inherit" });
+// execSync(`git tag v${next}`);
+// execSync("git push --follow-tags", { stdio: "inherit" });
 
-/** 5. Changelog, commit & TAG di release generale */
-execSync("npx generate-changelog -p > CHANGELOG.md", { stdio: "inherit" });
-execSync("git add .", { stdio: "inherit" });
-execSync(`git commit -m "chore(release): v${next}"`, { stdio: "inherit" });
-execSync(`git tag v${next}`);
-execSync("git push --follow-tags", { stdio: "inherit" });
-
-/** 6. Pubblica su registry */
-for (const file of packageJsonPaths) {
-  const dir = path.dirname(file);
-  execSync(`npm publish --workspace ${dir} --access public`, { stdio: "inherit" });
-}
+// /** 6. Pubblica su registry */
+// for (const file of packageJsonPaths) {
+//   const dir = path.dirname(file);
+//   execSync(`npm publish --workspace ${dir} --access public`, { stdio: "inherit" });
+// }
