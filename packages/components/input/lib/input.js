@@ -1,5 +1,3 @@
-import './styles/input.css';
-
 import { componentDecorator } from '@wcag-ui/core';
 import { DOM } from '@wcag-ui/dom';
 
@@ -52,12 +50,13 @@ export class Input extends HTMLInputElement {
 
 // import '@wcag-ui/input';
 
-// <input is="wcag-input" type="text" aria-label="Username" />
+// before: <input is="wcag-input" type="text" aria-label="Username" />
 
+// after:
 // <label>
 //   Username
 //   <span field-wrapper>
-//     <input is="wcag-input" type="text" aria-label="Username" />
+//     <input is="wcag-input" type="text" />
 //   </span>
 // </label>
 

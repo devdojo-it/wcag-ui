@@ -7,15 +7,18 @@
     "Emiliano Pisu <pixu1980@github>",
     "Massimo Artizzu <maxart2501@github>",
     "Mirela Rosca <mirirosca@github>",
+    "Marco Pollacci <marcopollacci@github>",
+    "Valeria Salis <vallss@github>",
     "Alessio Tortolini <alestormoody@github>",
     "Christian Nastasi <cnastasi@github>",
     "Salvatore Tropea <salvotropea96@github>"
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "main": "lib/typography.min.css",
+  "main": "typography.min.css",
   "scripts": {
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/typography.css -o ./lib/typography.min.css"
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/typography.css -o ./typography.min.css",
+    "build": "yarn build:css"
   },
   "directories": {
     "lib": "lib"
@@ -25,6 +28,9 @@
     "package.json",
     "README.md"
   ],
+  "exports": {
+    "./typography.css": "./typography.min.css"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"
