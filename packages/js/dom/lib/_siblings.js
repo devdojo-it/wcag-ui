@@ -14,7 +14,7 @@ const EAllowedNodeTypes = Object.freeze({
  * @param {string} [property='']
  * @return {boolean}
  */
-const isEmptyProperty = (sibling, property = "") => {
+const isEmptyProperty = (sibling, property = '') => {
   return property && sibling[property]?.trim().length > 0;
 };
 
@@ -28,11 +28,11 @@ const isEmptyProperty = (sibling, property = "") => {
 const canAddSibling = (sibling, excludeTags = [], excludeElements = [], includeComments = true) => {
   // Text nodes and textContent not empty check
   const isSiblingTextNotEmpty =
-    sibling.nodeType === EAllowedNodeTypes.ChildNode && isEmptyProperty(sibling, "textContent");
+    sibling.nodeType === EAllowedNodeTypes.ChildNode && isEmptyProperty(sibling, 'textContent');
 
   // Element and outerHTML not empty check
   const isSiblingElementNotEmpty =
-    !excludeTags.includes(sibling.tag?.toLowerCase()) && isEmptyProperty(sibling, "outerHTML");
+    !excludeTags.includes(sibling.tag?.toLowerCase()) && isEmptyProperty(sibling, 'outerHTML');
 
   // Sibling not in excludeElements list
   const isSiblingElementNotInExcludeElements = !excludeElements.includes(sibling);
@@ -51,7 +51,7 @@ const canAddSibling = (sibling, excludeTags = [], excludeElements = [], includeC
  * @param {ChildNode[]} [notAllowedElements=[]]
  * @return {ChildNode[]}
  */
-const getSiblings = (child, notAllowedTags = [], notAllowedElements = [], siblingMethod = "nextSibling") => {
+const getSiblings = (child, notAllowedTags = [], notAllowedElements = [], siblingMethod = 'nextSibling') => {
   const siblings = [];
   let sibling = child;
 
@@ -93,5 +93,5 @@ export const getNextSiblings = (elem, notAllowedTags = []) => {
  * @return {ChildNode[]}
  */
 export const getPrevSiblings = (elem, notAllowedTags = []) => {
-  return getSiblings(elem.previousSibling, notAllowedTags, [], "previousSibling");
+  return getSiblings(elem.previousSibling, notAllowedTags, [], 'previousSibling');
 };

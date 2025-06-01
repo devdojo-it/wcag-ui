@@ -1,8 +1,6 @@
 import { componentDecorator } from '@wcag-ui/core';
 import { DOM } from '@wcag-ui/dom';
 
-import './styles/dialog.css';
-
 import attributes from './dialog.attributes';
 import events from './dialog.events';
 

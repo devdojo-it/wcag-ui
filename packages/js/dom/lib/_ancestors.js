@@ -15,18 +15,18 @@
  * @param {boolean} [includeThis=false] - include the given element in the list of the ancestors
  * @return {Element[]}
  */
-export const ancestors = (el, selector, one = false, includeThis = false) => {
+export const ancestors = (el, selectorOrComparer, one = false, includeThis = false) => {
   const ancestorsList = [];
 
   while ((one ? ancestorsList.length === 0 : true) && el !== document) {
     // (!selector || (el.matches && el.matches(selector))) && ancestorsList.unshift(el);
 
-    if (!selector) {
+    if (!selectorOrComparer) {
       ancestorsList.unshift(el);
     } else {
-      if (selector instanceof Function) {
-        selector(el) && ancestorsList.unshift(el);
-      } else if (el instanceof Element && el.matches && el.matches(selector)) {
+      if (selectorOrComparer instanceof Function) {
+        selectorOrComparer(el) && ancestorsList.unshift(el);
+      } else if (el instanceof Element && el.matches && el.matches(selectorOrComparer)) {
         ancestorsList.unshift(el);
       }
     }
@@ -49,7 +49,7 @@ export const ancestors = (el, selector, one = false, includeThis = false) => {
  * @param {boolean} [includeThis=false] - include the given element in the list of the ancestors
  * @return {Element|undefined}
  */
-export const ancestor = (el, selectorOrComparer = "", includeThis = false) => {
+export const ancestor = (el, selectorOrComparer = '', includeThis = false) => {
   const ancestorsResult = ancestors(el, selector, true, includeThis);
 
   return ancestorsResult.length > 0 ? ancestorsResult[0] : undefined;
