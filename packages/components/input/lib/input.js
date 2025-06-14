@@ -47,10 +47,11 @@ export class Input extends HTMLInputElement {
   }
 }
 
-
 // import '@wcag-ui/input';
+// <script src="cdn @wcag-ui/input"></script>
 
-// before: <input is="wcag-input" type="text" aria-label="Username" />
+// before:
+// <input is="wcag-input" type="text" aria-label="Username" />
 
 // after:
 // <label>
@@ -59,4 +60,3 @@ export class Input extends HTMLInputElement {
 //     <input is="wcag-input" type="text" />
 //   </span>
 // </label>
-

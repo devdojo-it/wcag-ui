@@ -18,7 +18,7 @@
   "main": "typography.min.css",
   "scripts": {
     "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/typography.css -o ./typography.min.css",
-    "build": "yarn build:css"
+    "build": "pnpm run build:css"
   },
   "directories": {
     "lib": "lib"

@@ -6,9 +6,12 @@ import path from "node:path";
 /* ------------------------------------------------------------------------ */
 export function collectPackageJson(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
+
   return entries.flatMap((entry) => {
     const full = path.join(dir, entry.name);
+
     if (entry.isDirectory()) return collectPackageJson(full);
+
     return entry.name === "package.json" ? [full] : [];
   });
 }
@@ -29,7 +32,7 @@ export function sortPackageJsonByWeights(
     })
     .sort((a, b) => weights[a.type] - weights[b.type]);
 
-  console.log(packageJsonPathsRemap);
+  // console.log(packageJsonPathsRemap);
 
   return packageJsonPathsRemap;
 }

@@ -7,7 +7,6 @@ import { sortPackageJsonByWeights } from "./_utils.mjs";
 const root = process.cwd();
 
 // TODO: handle the "verbose" CLI version enabling (console.log)s if needed
-
 /* ------------------------------------------------------------------------ */
 /* 1. Collects package.json files from packages                             */
 /* ------------------------------------------------------------------------ */
@@ -41,9 +40,11 @@ const commits = execSync(commitsLogCommand).toString().split("\n").filter(String
 /* ------------------------------------------------------------------------ */
 /* 4. Computes the next semver for the packages                             */
 /* ------------------------------------------------------------------------ */
-let bump = "patch";
-if (commits.some((c) => /BREAKING CHANGE/.test(c))) bump = "major";
-else if (commits.some((c) => c.startsWith("feat"))) bump = "minor";
+let bump = commits.some((c) => /BREAKING CHANGE/.test(c))
+  ? "major"
+  : commits.some((c) => c.startsWith("feat"))
+  ? "minor"
+  : "patch";
 
 // is semver or commit?
 const isSemverRegex =
@@ -81,14 +82,14 @@ for (const packageJson of packageJsonPathsRemap) {
     if (!pkg[field]) continue;
 
     for (const dep in pkg[field]) {
-      if (localPackages.includes(dep)) pkg[field][dep] = `^${next}`;
+      localPackages.includes(dep) && (pkg[field][dep] = `^${next}`);
     }
   }
 
   fs.writeFileSync(packageJson.path, JSON.stringify(pkg, null, 2) + "\n");
 
   Object.keys(pkg.scripts).includes("build") &&
-    execSync(`npm run --workspace ${path.dirname(packageJson.path)} build`, { stdio: "inherit" });
+    execSync(`npm --prefix=${path.dirname(packageJson.path)} run build`, { stdio: "inherit" });
 }
 
 /* ------------------------------------------------------------------------ */
@@ -133,5 +134,5 @@ execSync("git push --tags", { stdio: "inherit" });
 /* 10. Publishes the packages into the configured registry (default: npm)   */
 /* ------------------------------------------------------------------------ */
 for (const packageJson of packageJsonPathsRemap) {
-  execSync(`npm publish --workspace ${path.dirname(packageJson.path)} --access public`, { stdio: "inherit" });
+  execSync(`npm publish --prefix=${path.dirname(packageJson.path)} --access public`, { stdio: "inherit" });
 }

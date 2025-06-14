@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/grid-system",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "CSS Grid System for the wcagUI Design System",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
@@ -18,7 +18,7 @@
   "main": "grid-system.min.css",
   "scripts": {
     "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/grid-system.css -o ./grid-system.min.css",
-    "build": "yarn build:css"
+    "build": "pnpm run build:css"
   },
   "directories": {
     "lib": "lib"
