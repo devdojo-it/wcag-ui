@@ -18,7 +18,7 @@
   "main": "iconography.min.css",
   "scripts": {
     "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/iconography.css -o ./iconography.min.css",
-    "build": "yarn build:css"
+    "build": "pnpm run build:css"
   },
   "directories": {
     "lib": "lib"

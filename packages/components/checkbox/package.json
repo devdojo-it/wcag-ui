@@ -20,12 +20,12 @@
   "scripts": {
     "test": "node ./__tests__/checkbox.test.js",
     "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/checkbox.css -o ./checkbox.min.css",
-    "build:js": "rolldown -c ./rolldown.config.js",
-    "build": "yarn build:css && yarn build:js"
+    "build:js": "rolldown -c ./rolldown.config.mjs",
+    "build": "pnpm run build:css && pnpm run build:js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.0",
-    "@wcag-ui/dom": "^0.0.0"
+    "@wcag-ui/core": "workspace:^0.0.0",
+    "@wcag-ui/dom": "workspace:^0.0.0"
   },
   "directories": {
     "lib": "lib"

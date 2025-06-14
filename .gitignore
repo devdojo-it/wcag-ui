@@ -9,3 +9,4 @@ lerna-debug.log
 *.min.css
 *.min.js
 dist
+pnpm-lock.yaml

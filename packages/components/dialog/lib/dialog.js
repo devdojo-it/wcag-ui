@@ -35,3 +35,5 @@ export class Dialog extends HTMLDialogElement {
 
   #initialize() {}
 }
+
+// import "@wcag-ui/dialog";
