@@ -1,8 +1,6 @@
 import { componentDecorator, helpers } from '@wcag-ui/core';
 import { DOM } from '@wcag-ui/dom';
 
-import './styles/details.css';
-
 import attributes from './details.attributes';
 import events from './details.events';
 
@@ -29,13 +27,13 @@ export class Details extends HTMLDetailsElement {
     componentDecorator('Details', Details);
   }
 
-  #guid = helpers.string.guid();
+  #guid;
   #summary;
   #content;
 
   constructor() {
     super();
-
+    this.#guid = helpers.strings.guid();
     this.#initialize();
   }
 
