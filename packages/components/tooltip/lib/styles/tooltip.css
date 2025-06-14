@@ -1,0 +1,13 @@
+:root {
+  --wcag-tooltip--padding-inline: .75rem;
+  --wcag-tooltip--padding-block: .75rem;
+  --wcag-tooltip--border-width: 0px;
+  --wcag-tooltip--border-radius: 0.25rem;
+}
+
+[is="wcag-tooltip"] {
+  border-radius: var(--wcag-tooltip--border-radius);
+  border-width: var(--wcag-tooltip--border-width);
+  padding-inline: var(--wcag-tooltip--padding-inline);
+  padding-block: var(--wcag-tooltip--padding-block);
+}
