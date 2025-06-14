@@ -3,6 +3,9 @@
 @import "npm:@wcag-ui/iconography";
 @import "npm:@wcag-ui/typography";
 
+@import "npm:@wcag-ui/details/lib/styles/details.css";
+@import "npm:@wcag-ui/tooltip/lib/styles/tooltip.css";
+
 @import "./_code.css" layer(wcag-ui-docs.code);
 @import "./layout/layout.css" layer(wcag-ui-docs.layout);
 @import "./pages/pages.css" layer(wcag-ui-docs.pages);

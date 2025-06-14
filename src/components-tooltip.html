@@ -3,6 +3,21 @@
     <include src="common/docs-nav.html"></include>
   </block>
   <block name="main">
-    <h1>Details Docs Example</h1>
+    <h1>Tooltip Docs Example</h1>
+    <section>
+      <h2>Tooltip</h2>
+      <p>
+        <span aria-labelledby="test-tooltip">ℹ️</span>
+      </p>
+      <div is="wcag-tooltip" id="test-tooltip">
+        These are some information
+      </div>
+      <p>
+        <button is="wcag-button" type="button" aria-describedby="test-tooltip-btn">Do stuff</button>
+      </p>
+      <div is="wcag-tooltip" id="test-tooltip-btn">
+        This allows you to do stuff
+      </div>
+    </section>
   </block>
 </extends>
