@@ -2,7 +2,7 @@
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import { collectPackageJson, sortPackageJsonByWeights } from './_utils.mjs';
+import { collectPackageJson, sortPackageJsonByWeights } from "./_utils.mjs";
 
 const rootPath = process.cwd();
 
@@ -24,5 +24,5 @@ for (const packageJson of packageJsonPathsRemap) {
   const pkg = JSON.parse(fs.readFileSync(packageJson.path, "utf8"));
 
   Object.keys(pkg.scripts).includes("build") &&
-    execSync(`npm run --workspace ${path.dirname(packageJson.path)} build`, { stdio: "inherit" });
+    execSync(`npm --prefix=${path.dirname(packageJson.path)} run build`, { stdio: "inherit" });
 }
