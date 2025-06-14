@@ -9,8 +9,12 @@
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
+  "type": "module",
   "source": "lib/dom.js",
-  "browser": "dist/dom.js",
+  "module": "lib/dom.js",
+  "exports": {
+    ".": "./lib/dom.js"
+  },
   "targets": {
     "browser": {
       "optimize": true,

@@ -17,9 +17,9 @@
 import { ancestor, ancestors } from "./_ancestors";
 import { containsHTML } from "./_containsHTML";
 import { findNodes } from "./_findNodes";
-import { getAllSiblings, getPrevSiblings, getNextSiblings } from "./_siblings";
+import { getReferencedElement } from "./_getReferencedElement";
 import { outerHTML } from "./_outerHTML";
-import { sanitizeHTML } from "./_sanitizeHTML";
+import { getAllSiblings, getPrevSiblings, getNextSiblings } from "./_siblings";
 
 // *** DOM Manipulation Helpers ***
 import { createFragment } from "./_createFragment";
@@ -27,7 +27,11 @@ import { createElement } from "./_createElement";
 import { ensureElement } from "./_ensureElement";
 import { insertElement } from "./_insertElement";
 import { insertHTML } from "./_insertHTML";
+import { sanitizeHTML } from "./_sanitizeHTML";
 import { wrapElement } from "./_wrapElement";
+
+// *** DOM Utility Helpers ***
+import { isNativelyFocusable } from "./_isNativelyFocusable";
 
 const DOM = {
   // *** DOM Traversing Helpers ***
@@ -36,17 +40,20 @@ const DOM = {
   containsHTML,
   findNodes,
   getAllSiblings,
-  getPrevSiblings,
   getNextSiblings,
+  getPrevSiblings,
+  getReferencedElement,
   outerHTML,
-  sanitizeHTML,
   // *** DOM Manipulation Helpers ***
   insertHTML,
   createFragment,
   createElement,
   ensureElement,
   insertElement,
+  sanitizeHTML,
   wrapElement,
+  // *** DOM Utility Helpers ***
+  isNativelyFocusable
 };
 
 export { DOM };
