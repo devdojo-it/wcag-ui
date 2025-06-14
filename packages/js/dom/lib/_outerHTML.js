@@ -12,5 +12,5 @@ export const outerHTML = (element, excludeContent = false) => {
     return element.outerHTML;
   }
 
-  return element.outerHTML.replaceAll("\n", "").replace(/(?<=<.*?>).*(?=<\/.*>)/gm, "");
+  return element.outerHTML.replaceAll('\n', '').replace(/(?<=<.*?>).*(?=<\/.*>)/gm, '');
 };

@@ -14,20 +14,20 @@
 // export * from './_detector';
 
 // *** DOM Traversing Helpers ***
-import { ancestor, ancestors } from "./_ancestors";
-import { containsHTML } from "./_containsHTML";
-import { findNodes } from "./_findNodes";
-import { getAllSiblings, getPrevSiblings, getNextSiblings } from "./_siblings";
-import { outerHTML } from "./_outerHTML";
-import { sanitizeHTML } from "./_sanitizeHTML";
+import { ancestor, ancestors } from './_ancestors';
+import { containsHTML } from './_containsHTML';
+import { findNodes } from './_findNodes';
+import { getAllSiblings, getPrevSiblings, getNextSiblings } from './_siblings';
+import { outerHTML } from './_outerHTML';
+import { sanitizeHTML } from './_sanitizeHTML';
 
 // *** DOM Manipulation Helpers ***
-import { createFragment } from "./_createFragment";
-import { createElement } from "./_createElement";
-import { ensureElement } from "./_ensureElement";
-import { insertElement } from "./_insertElement";
-import { insertHTML } from "./_insertHTML";
-import { wrapElement } from "./_wrapElement";
+import { createFragment } from './_createFragment';
+import { createElement } from './_createElement';
+import { ensureElement } from './_ensureElement';
+import { insertElement } from './_insertElement';
+import { insertHTML } from './_insertHTML';
+import { wrapElement } from './_wrapElement';
 
 const DOM = {
   // *** DOM Traversing Helpers ***

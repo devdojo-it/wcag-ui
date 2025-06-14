@@ -1,12 +1,12 @@
 import { events } from '@wcag-ui/core';
 
 export default {
-  radio: function (e) {
+  input: function (e) {
     console.log('radio emitted input', this.ariaLabel);
 
     // style :user-invalid or :user-valid
 
-    events.dispatchComponentEvent.call(this, 'radio', { value: this.value }, e);
+    events.dispatchComponentEvent.call(this, 'input', { value: this.value }, e);
   },
   change: function (e) {
     console.log('radio emitted change', this.ariaLabel);

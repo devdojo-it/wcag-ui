@@ -1,4 +1,4 @@
-import { sanitizeHTML } from "./_sanitizeHTML";
+import { sanitizeHTML } from './_sanitizeHTML';
 
 /**
  * create an document fragment, appends the specified children to it and returns it

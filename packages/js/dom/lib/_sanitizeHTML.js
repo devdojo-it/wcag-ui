@@ -4,9 +4,9 @@
  */
 const stringToDOM = (html) => {
   const parser = new DOMParser();
-  const dom = parser.parseFromString(html, "text/html");
+  const dom = parser.parseFromString(html, 'text/html');
 
-  return dom.body || document.createElement("body");
+  return dom.body || document.createElement('body');
 };
 
 /**
@@ -16,11 +16,11 @@ const stringToDOM = (html) => {
  * @return {Boolean} true, if the attribute is potentially dangerous
  */
 const isPotentiallyDangerous = (name, value) => {
-  const val = value.replace(/\s+/g, "").toLowerCase();
-  const isPotentiallyScriptInjection = name.startsWith("on");
+  const val = value.replace(/\s+/g, '').toLowerCase();
+  const isPotentiallyScriptInjection = name.startsWith('on');
 
   const isPotentiallyXSS =
-    ["src", "href", "xlink:href"].includes(name) && (val.includes("javascript:") || val.includes("data:text/html"));
+    ['src', 'href', 'xlink:href'].includes(name) && (val.includes('javascript:') || val.includes('data:text/html'));
 
   return isPotentiallyScriptInjection || isPotentiallyXSS;
 };
@@ -56,7 +56,7 @@ const cleanDOM = (node) => {
  * @param  {Node} node The HTML
  */
 const removeScripts = (node) => {
-  for (const script of node?.querySelectorAll("script") ?? []) {
+  for (const script of node?.querySelectorAll('script') ?? []) {
     script.remove();
   }
 };
