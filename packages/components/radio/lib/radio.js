@@ -1,6 +1,4 @@
-import './styles/radio.css';
-
-import { componentDecorator, error } from '@wcag-ui/core';
+import { componentDecorator } from '@wcag-ui/core';
 import { DOM } from '@wcag-ui/dom';
 
 import attributes from './radio.attributes';

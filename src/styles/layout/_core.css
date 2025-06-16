@@ -13,7 +13,7 @@ html {
 body {
   display: grid;
   grid-template-columns: var(--docs--aside--width) 1fr var(--docs--scroll-spy--width);
-  grid-template-rows: var(--docs--header--height) 1fr var(--docs--footer--height);
+  grid-template-rows: var(--docs--header--min-height) 1fr var(--docs--footer--min-height);
   grid-template-areas:
     "header header"
     "aside main"

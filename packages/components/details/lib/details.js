@@ -33,11 +33,12 @@ export class Details extends HTMLDetailsElement {
 
   constructor() {
     super();
-    this.#guid = helpers.strings.guid();
     this.#initialize();
   }
 
   #initialize() {
+    this.#guid = helpers.strings.guid();
+
     this.setAttribute('aria-expanded', `${this.open.toString()}`);
 
     this.#summary = this.querySelector('summary');

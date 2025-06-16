@@ -1,5 +1,3 @@
-import './styles/scroll-spy.css';
-
 import { componentDecorator, helpers } from '@wcag-ui/core';
 import { DOM } from '@wcag-ui/dom';
 

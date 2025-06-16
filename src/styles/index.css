@@ -14,13 +14,17 @@
   transition: color 350ms ease-in-out, background-color 275ms ease-in-out;
 } */
 
+@view-transition {
+  navigation: auto;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--docs--header--height);
+  scroll-padding-top: var(--docs--header--min-height);
 }
 
 [is="wcag-scroll-spy"] {
-  top: var(--docs--header--height);
+  top: var(--docs--header--min-height);
 }
 
 p:has(button) {

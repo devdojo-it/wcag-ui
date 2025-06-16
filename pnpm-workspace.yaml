@@ -1,0 +1,10 @@
+packages:
+  - packages/**/*
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
+  - lightningcss-cli
+  - lmdb
+  - msgpackr-extract
+  - sharp

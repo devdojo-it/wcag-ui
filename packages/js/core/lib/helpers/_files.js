@@ -1,6 +1,6 @@
 // fileArrayOrList: File[] | FileList
 // returns a FileList instance
-export const buildFileList = (fileArrayOrList) => {
+const buildFileList = (fileArrayOrList) => {
   if (fileArrayOrList instanceof FileList) {
     return fileArrayOrList;
   }
@@ -16,10 +16,17 @@ export const buildFileList = (fileArrayOrList) => {
 
 // fileArrayOrList: File[] | FileList
 // returns a File[]
-export const buildFileArray = (fileArrayOrList) => {
+const buildFileArray = (fileArrayOrList) => {
   if (Array.isArray(fileArrayOrList)) {
     return fileArrayOrList;
   }
 
   return Array.from(fileArrayOrList);
 };
+
+const files = {
+  buildFileList,
+  buildFileArray,
+};
+
+export { files };

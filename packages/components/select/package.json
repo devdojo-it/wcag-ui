@@ -1,37 +1,43 @@
 {
   "name": "@wcag-ui/select",
   "version": "0.0.0",
-  "description": "> TODO: description",
-  "author": "DevDojo IT (https://www.devdojo.it)",
+  "description": "Select component for the wcagUI library",
+  "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
-    "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
-    "Christian Nastasi <christian.nastasi@gmail.com>"
+    "Emiliano Pisu <pixu1980@github>",
+    "Massimo Artizzu <maxart2501@github>",
+    "Mirela Rosca <mirirosca@github>",
+    "Marco Pollacci <marcopollacci@github>",
+    "Valeria Salis <vallss@github>",
+    "Alessio Tortolini <alestormoody@github>",
+    "Christian Nastasi <cnastasi@github>",
+    "Salvatore Tropea <salvotropea96@github>"
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "source": "lib/select.js",
-  "browser": "dist/select.js",
-  "targets": {
-    "browser": {
-      "optimize": true,
-      "sourceMap": false
-    }
-  },
+  "main": "select.min.js",
+  "type": "module",
   "scripts": {
     "test": "node ./__tests__/select.test.js",
-    "build": "parcel build"
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/select.css -o ./select.min.css",
+    "build:js": "rolldown -c ./rolldown.config.mjs",
+    "build": "pnpm run build:css && pnpm run build:js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.0"
+    "@wcag-ui/core": "workspace:^0.0.0"
   },
   "directories": {
-    "dist": "dist",
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
-    "dist"
+    "lib",
+    "package.json",
+    "README.md"
   ],
+  "exports": {
+    "./select.css": "./select.min.css",
+    "./select.js": "./select.min.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

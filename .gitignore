@@ -7,3 +7,7 @@ yarn.lock
 lerna-debug.log
 .obsidian
 /dist
+*.min.css
+*.min.js
+dist
+pnpm-lock.yaml

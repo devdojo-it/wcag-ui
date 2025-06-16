@@ -16,7 +16,7 @@ body > header {
   background-color: var(--docs--header--background-color);
   box-shadow: var(--docs--header--box-shadow);
 
-  block-size: var(--docs--header--height);
+  min-block-size: var(--docs--header--min-height);
   padding-inline: var(--docs--header--padding-inline);
 
   a {

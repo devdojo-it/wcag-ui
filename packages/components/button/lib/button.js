@@ -1,7 +1,5 @@
 import { componentDecorator } from "@wcag-ui/core";
 
-import "./styles/button.css";
-
 import attributes from "./button.attributes";
 import events from "./button.events";
 
@@ -19,7 +17,7 @@ export class Button extends HTMLButtonElement {
   static events = events;
 
   /**
-   * static initialization
+   * static initialization block
    *
    * @static
    * @memberof Button
@@ -40,17 +38,8 @@ export class Button extends HTMLButtonElement {
   }
 }
 
-
 // import '@wcag-ui/button';
 
-// <button is="wcag-button">Ciao<button>
-// <wcag-button>Ciao<wcag-button>
+// before: <button is="wcag-button">Ciao<button>
 
-// import '@wcag-ui/input';
-
-// <input is="wcag-input" type="text" aria-label="Username" />
-
-// <label>
-//   Username
-//   <input is="wcag-input" type="text" aria-label="Username" />
-// </label>
+// after: <button is="wcag-button" type="button">Ciao<button>

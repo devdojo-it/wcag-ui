@@ -1,0 +1,5 @@
+@layer wcag-ui.components.accordion {
+  [is="wcag-accordion"] {
+    border-radius: 0.5rem;
+  }
+}
