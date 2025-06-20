@@ -28,6 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
+      pages: write
       contents: read
       pull-requests: write
       id-token: write
