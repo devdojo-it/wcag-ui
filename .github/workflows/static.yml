@@ -30,7 +30,6 @@ jobs:
       packages: write
       contents: read
       pull-requests: write
-      id-token: write
       #
     steps:
       - uses: actions/checkout@v4
@@ -42,7 +41,7 @@ jobs:
         run: npm run build --ignore-scripts
         
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
