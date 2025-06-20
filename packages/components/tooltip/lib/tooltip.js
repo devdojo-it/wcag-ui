@@ -1,7 +1,24 @@
-'use strict';
+import { componentDecorator } from '@wcag-ui/core';
+import { DOM } from '@wcag-ui/dom';
 
-module.exports = tooltip;
+import attributes from './tooltip.attributes';
+import events from './tooltip.events';
 
-function tooltip() {
-  return 'Hello from tooltip';
+export class Tooltip extends HTMLElement {
+  static name = 'wcag-tooltip';
+  static extends = 'span';
+  static attributes = attributes;
+  static events = events;
+
+  static {
+    componentDecorator('Tooltip', Tooltip);
+  }
+
+  constructor() {
+    super();
+
+    this.#initialize();
+  }
+
+  #initialize() {}
 }

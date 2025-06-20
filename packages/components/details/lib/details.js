@@ -1,8 +1,6 @@
 import { componentDecorator, helpers } from '@wcag-ui/core';
 import { DOM } from '@wcag-ui/dom';
 
-import './styles/details.css';
-
 import attributes from './details.attributes';
 import events from './details.events';
 
@@ -29,7 +27,7 @@ export class Details extends HTMLDetailsElement {
     componentDecorator('Details', Details);
   }
 
-  #guid = helpers.string.guid();
+  #guid;
   #summary;
   #content;
 
@@ -40,6 +38,8 @@ export class Details extends HTMLDetailsElement {
   }
 
   #initialize() {
+    this.#guid = helpers.strings.guid();
+
     this.setAttribute('aria-expanded', `${this.open.toString()}`);
 
     this.#summary = this.querySelector('summary');

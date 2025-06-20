@@ -1,4 +1,4 @@
-import { ensureElement } from "./_ensureElement";
+import { ensureElement } from './_ensureElement';
 import { insertElement } from './_insertElement';
 /**
  * insert an element in a certain position respect to another element
@@ -13,9 +13,9 @@ export const wrapElement = (elementOrOptions, wrapperElementOrOptions) => {
 
   // checks if the wrapperElement isConnected or not to the DOM,
   // if not the wrapperElement will be put before begin the element
-  !wrapperElement.isConnected && insertElement(wrapperElement, element, "before");
+  !wrapperElement.isConnected && insertElement(wrapperElement, element, 'before');
 
-  insertElement(element, wrapperElement, "append");
+  insertElement(element, wrapperElement, 'append');
 
   return wrapperElement;
 };

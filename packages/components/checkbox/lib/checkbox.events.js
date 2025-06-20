@@ -1,12 +1,12 @@
 import { events } from '@wcag-ui/core';
 
 export default {
-  checkbox: function (e) {
+  input: function (e) {
     console.log('checkbox emitted input', this.ariaLabel);
 
     // style :user-invalid or :user-valid
 
-    events.dispatchComponentEvent.call(this, 'checkbox', { value: this.value }, e);
+    events.dispatchComponentEvent.call(this, 'input', { value: this.value }, e);
   },
   change: function (e) {
     console.log('checkbox emitted change', this.ariaLabel);

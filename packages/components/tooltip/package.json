@@ -1,37 +1,43 @@
 {
   "name": "@wcag-ui/tooltip",
   "version": "0.0.0",
-  "description": "> TODO: description",
-  "author": "DevDojo IT (https://www.devdojo.it)",
+  "description": "Tooltip component for the wcagUI library",
+  "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
-    "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
-    "Christian Nastasi <christian.nastasi@gmail.com>"
+    "Emiliano Pisu <pixu1980@github>",
+    "Massimo Artizzu <maxart2501@github>",
+    "Mirela Rosca <mirirosca@github>",
+    "Marco Pollacci <marcopollacci@github>",
+    "Valeria Salis <vallss@github>",
+    "Alessio Tortolini <alestormoody@github>",
+    "Christian Nastasi <cnastasi@github>",
+    "Salvatore Tropea <salvotropea96@github>"
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "source": "lib/tooltip.js",
-  "browser": "dist/tooltip.js",
-  "targets": {
-    "browser": {
-      "optimize": true,
-      "sourceMap": false
-    }
-  },
+  "main": "tooltip.min.js",
+  "type": "module",
   "scripts": {
     "test": "node ./__tests__/tooltip.test.js",
-    "build": "parcel build"
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/tooltip.css -o ./tooltip.min.css",
+    "build:js": "rolldown -c ./rolldown.config.mjs",
+    "build": "pnpm run build:css && pnpm run build:js"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.0.0"
+    "@wcag-ui/core": "workspace:^0.0.0"
   },
   "directories": {
-    "dist": "dist",
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
-    "dist"
+    "lib",
+    "package.json",
+    "README.md"
   ],
+  "exports": {
+    "./tooltip.css": "./tooltip.min.css",
+    "./tooltip.js": "./tooltip.min.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"
