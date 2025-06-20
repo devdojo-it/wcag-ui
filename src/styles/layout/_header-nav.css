@@ -1,10 +1,17 @@
 body > header nav {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  place-content: center;
+  place-items: center;
+  gap: 0.5rem;
+
   a {
     --wcag-t--font-size: var(--docs--header--nav-item--font-size);
     --wcag-t--line-height: var(--docs--header--nav-item--line-height);
     --wcag-t--text-decoration: none;
 
     display: inline-flex;
+    flex-flow: row nowrap;
     place-content: center;
     place-items: center;
     gap: 0.5rem;

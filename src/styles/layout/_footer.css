@@ -5,10 +5,10 @@ body > footer {
   z-index: 2;
 
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   place-content: start;
-  place-items: start;
-  gap: 14.2rem;
+  place-items: center;
+  gap: 4rem;
 
   min-block-size: var(--docs--footer--min-height);
   padding: 4.8rem 8rem;
@@ -16,6 +16,14 @@ body > footer {
   color: var(--docs--footer--color);
   background-color: var(--docs--footer--background-color);
   box-shadow: var(--docs--footer--box-shadow);
+
+  @media screen and (width >= 1024px) {
+    flex-flow: row nowrap;
+    place-content: start;
+    place-items: start;
+
+    gap: 14.2rem;
+  }
 
   [logo] {
     --wcag-t--font-size: 2.4rem;
@@ -46,11 +54,19 @@ body > footer {
 
   [links] {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     place-content: start;
     place-items: start;
     gap: 3rem;
     flex-grow: 1;
+
+    @media screen and (width >= 768px) {
+      flex-flow: row wrap;
+    }
+
+    @media screen and (width >= 1024px) {
+      flex-flow: row nowrap;
+    }
 
     section {
       display: flex;

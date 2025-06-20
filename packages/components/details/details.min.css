@@ -1,0 +1,18 @@
+@layer wcag-ui.components.details {
+  [is="wcag-details"] summary::marker {
+    content: "";
+    font-size: 0;
+    display: inline-block;
+  }
+  [is="wcag-details"] summary::-webkit-details-marker {
+    color: transparent;
+    display: none;
+  }
+  [is="wcag-details"] summary i {
+    transition: rotate 0.25s linear;
+    display: inline-flex;
+  }
+  [is="wcag-details"][open] summary i {
+    rotate: 180deg;
+  }
+}

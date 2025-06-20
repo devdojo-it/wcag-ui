@@ -50,8 +50,8 @@
   --docs--header--menu-item--selected--hover--background-color: light-dark(hsl(245, 94%, 48%), hsl(245, 73%, 79%));
   --docs--header--menu-item--selected--active--background-color: light-dark(hsl(245, 94%, 58%), hsl(245, 73%, 74%));
 
-  --docs--aside--width: 23vw;
-  --docs--scroll-spy--width: 23vw;
+  --docs--aside--width: 10vw;
+  --docs--scroll-spy--width: 10vw;
 
   --docs--footer--min-height: 33rem;
 
@@ -61,4 +61,9 @@
   --docs--footer--box-shadow: 0px 0.8rem 8rem -0.2rem light-dark(hsla(0, 0%, 100%, 0.06), hsla(248, 28%, 58%, 0.1));
 
   --docs--footer--logo--color: light-dark(hsl(245, 94%, 28%), hsl(0, 0%, 100%));
+
+  @media screen and (width >= 1024px) {
+    --docs--aside--width: 23vw;
+    --docs--scroll-spy--width: 23vw;
+  }
 }

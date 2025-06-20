@@ -13,11 +13,11 @@ html {
 body {
   display: grid;
   grid-template-columns: var(--docs--aside--width) 1fr var(--docs--scroll-spy--width);
-  grid-template-rows: var(--docs--header--min-height) 1fr var(--docs--footer--min-height);
+  grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "header header"
-    "aside main"
-    "footer footer";
+    "header header header"
+    "aside main -"
+    "footer footer footer";
 
   background-color: var(--docs--background-color);
   background-image: url("../../assets/background-image.svg");
@@ -28,8 +28,10 @@ body {
   min-block-size: 100vh;
 }
 
-@media screen and (width >= 1024px) {
+@media screen and (width >= 1366px) {
   body {
+    grid-template-rows: var(--docs--header--min-height) 1fr var(--docs--footer--min-height);
+
     grid-template-areas:
       "header header header"
       "aside main scroll-spy"
