@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/scroll-spy",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "ScrollSpy component for the wcagUI library",
   "author": "Emiliano Pisu <75838944+pixu1980@users.noreply.github.com>",
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
@@ -11,11 +11,12 @@
     "test": "node ./__tests__/scroll-spy.test.js",
     "build:css": "esbuild --bundle --minify ./lib/styles/scroll-spy.css --outfile=./scroll-spy.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
-    "build": "pnpm run build:css && pnpm run build:js"
+    "build": "pnpm run build:css && pnpm run build:js",
+    "publish:package": "npm publish --access public --registry http://localhost:4873/"
   },
   "dependencies": {
-    "@wcag-ui/core": "workspace:^0.0.0",
-    "@wcag-ui/dom": "workspace:^0.0.0"
+    "@wcag-ui/core": "workspace:^0.1.0",
+    "@wcag-ui/dom": "workspace:^0.1.0"
   },
   "directories": {
     "lib": "lib"

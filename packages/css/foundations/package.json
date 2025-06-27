@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/foundations",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "CSS Foundations for the wcagUI Design System",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
@@ -18,7 +18,8 @@
   "main": "foundations.min.css",
   "scripts": {
     "build:css": "esbuild --bundle --minify ./lib/foundations.css --outfile=./foundations.min.css",
-    "build": "npm run build:css"
+    "build": "npm run build:css",
+    "publish:package": "npm publish --access public --registry http://localhost:4873/"
   },
   "directories": {
     "lib": "lib"

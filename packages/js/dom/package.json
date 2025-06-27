@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/dom",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "DOM manipulation library for the wcagUI Design System",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
@@ -20,13 +20,15 @@
   "scripts": {
     "test": "node ./__tests__/dom.test.js",
     "build:js": "rolldown -c ./rolldown.config.mjs",
-    "build": "pnpm run build:js"
+    "build": "pnpm run build:js",
+    "publish:package": "npm publish --access public --registry http://localhost:4873/"
   },
   "directories": {
     "lib": "lib"
   },
   "files": [
     "lib",
+    "dom.min.js",
     "package.json",
     "README.md"
   ],

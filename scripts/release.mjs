@@ -2,7 +2,7 @@
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import { sortPackageJsonByWeights } from "./_utils.mjs";
+import { collectPackageJson, sortPackageJsonByWeights } from "./_utils.mjs";
 
 const root = process.cwd();
 
@@ -89,7 +89,7 @@ for (const packageJson of packageJsonPathsRemap) {
   fs.writeFileSync(packageJson.path, JSON.stringify(pkg, null, 2) + "\n");
 
   Object.keys(pkg.scripts).includes("build") &&
-    execSync(`npm --prefix=${path.dirname(packageJson.path)} run build`, { stdio: "inherit" });
+    execSync(`pnpm --prefix=${path.dirname(packageJson.path)} build`, { stdio: "inherit" });
 }
 
 /* ------------------------------------------------------------------------ */
@@ -109,7 +109,7 @@ if (fs.existsSync(rootPkgPath)) {
 
   fs.writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2) + "\n");
 
-  Object.keys(rootPkg.scripts).includes("build") && execSync(`npm run build`, { stdio: "inherit" });
+  Object.keys(rootPkg.scripts).includes("build") && execSync(`pnpm build`, { stdio: "inherit" });
 }
 
 /* ------------------------------------------------------------------------ */
@@ -117,22 +117,41 @@ if (fs.existsSync(rootPkgPath)) {
 /* ------------------------------------------------------------------------ */
 execSync(`changelog -t ${lastTagOrCommit}..HEAD -x rel,build,chore`, { stdio: "inherit" });
 
-/* ------------------------------------------------------------------------ */
-/* 8. Pushes all the updated files in a chore(release): commit              */
-/* ------------------------------------------------------------------------ */
-execSync("git add .", { stdio: "inherit" });
-execSync(`git commit -m "chore(release): v${next}"`, { stdio: "inherit" });
-execSync("git push", { stdio: "inherit" });
+// /* ------------------------------------------------------------------------ */
+// /* 8. Pushes all the updated files in a chore(release): commit              */
+// /* ------------------------------------------------------------------------ */
+// execSync("git add .", { stdio: "inherit" });
+// execSync(`git commit -m "chore(release): v${next}"`, { stdio: "inherit" });
+// execSync("git push", { stdio: "inherit" });
 
-/* ------------------------------------------------------------------------ */
-/* 9. Generates and pushes the {next} semver tag                            */
-/* ------------------------------------------------------------------------ */
-execSync(`git tag v${next}`);
-execSync("git push --tags", { stdio: "inherit" });
+// /* ------------------------------------------------------------------------ */
+// /* 9. Generates and pushes the {next} semver tag                            */
+// /* ------------------------------------------------------------------------ */
+// execSync(`git tag v${next}`);
+// execSync("git push --tags", { stdio: "inherit" });
 
 /* ------------------------------------------------------------------------ */
 /* 10. Publishes the packages into the configured registry (default: npm)   */
 /* ------------------------------------------------------------------------ */
 for (const packageJson of packageJsonPathsRemap) {
-  execSync(`npm publish --prefix=${path.dirname(packageJson.path)} --access public`, { stdio: "inherit" });
+  if (path.dirname(packageJson.path).includes("packages")) {
+    execSync(`pnpm --prefix=${path.dirname(packageJson.path)} publish:package`, { stdio: "inherit" });
+  }
 }
+
+for (const packageJson of packageJsonPathsRemap) {
+  const pkg = JSON.parse(fs.readFileSync(packageJson.path, "utf8"));
+
+  if (!pkg.dependencies) continue;
+
+  localPackages.includes(dep) && (pkg[field][dep] = `workspace:^${next}`);
+
+  fs.writeFileSync(packageJson.path, JSON.stringify(pkg, null, 2) + "\n");
+}
+
+localPackages.forEach((name) => {
+  rootPkg.dependencies ??= {};
+  rootPkg.dependencies[name] = `workspace^${next}`;
+});
+
+fs.writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2) + "\n");
