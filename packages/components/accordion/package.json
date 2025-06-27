@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/accordion",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Accordion component for the wcagUI library",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
@@ -21,11 +21,12 @@
     "test": "node ./__tests__/accordion.test.js",
     "build:css": "esbuild --bundle --minify ./lib/styles/accordion.css --outfile=./accordion.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
-    "build": "pnpm run build:css && pnpm run build:js"
+    "build": "pnpm run build:css && pnpm run build:js",
+    "publish:package": "npm publish --access public --registry http://localhost:4873/"
   },
   "dependencies": {
-    "@wcag-ui/core": "workspace:^0.0.0",
-    "@wcag-ui/dom": "workspace:^0.0.0"
+    "@wcag-ui/core": "workspace:^0.1.0",
+    "@wcag-ui/dom": "workspace:^0.1.0"
   },
   "directories": {
     "lib": "lib"
