@@ -2,6 +2,18 @@
 @import "npm:@wcag-ui/grid-system";
 @import "npm:@wcag-ui/iconography";
 @import "npm:@wcag-ui/typography";
+@import "npm:@wcag-ui/accordion/accordion.min.css";
+@import "npm:@wcag-ui/button/button.min.css";
+@import "npm:@wcag-ui/checkbox/checkbox.min.css";
+@import "npm:@wcag-ui/details/details.min.css";
+@import "npm:@wcag-ui/dialog/dialog.min.css";
+@import "npm:@wcag-ui/input/input.min.css";
+@import "npm:@wcag-ui/radio/radio.min.css";
+@import "npm:@wcag-ui/scroll-spy/scroll-spy.min.css";
+@import "npm:@wcag-ui/select/select.min.css";
+@import "npm:@wcag-ui/switch/switch.min.css";
+@import "npm:@wcag-ui/tooltip/tooltip.min.css";
+@import "npm:@wcag-ui/textarea/textarea.min.css";
 
 @import "./_code.css" layer(wcag-ui-docs.code);
 @import "./layout/layout.css" layer(wcag-ui-docs.layout);

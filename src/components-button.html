@@ -5,48 +5,52 @@
   <block name="main">
     <h1>Button Docs Example</h1>
     <section>
-      <h2>Primary</h2>
-      <p>
-        <button is="wcag-button" sm>Button/Primary/Small</button>
-        <button is="wcag-button">Button/Primary/Medium</button>
-        <button is="wcag-button" lg>Button/Primary/Large</button>
-      </p>
+      <h2>Usage</h2>
       <pre>
         <code>
 &lt;script type="importmap">
   {
     "imports": {
-      "@wcag-ui/core": "CDN url",
-      "@wcag-ui/dom": "CDN url",
-      "@wcag-ui/button": "CDN url",
+      "@wcag-ui/core": "https://unpkg.com/@wcag-ui/core",
+      "@wcag-ui/button": "https://unpkg.com/@wcag-ui/button"
     }
   }
 &lt;/script>
+&lt;link rel="stylesheet" href="https://unpkg.com/@wcag-ui/button/button.css" />
+&lt;button is="wcag-button">Button/Primary/Medium&lt;/button>
         </code>
       </pre>
     </section>
     <section>
+      <h2>Primary</h2>
+      <p>
+        <button is="wcag-button" lg>Button/Primary/Large</button>
+        <button is="wcag-button">Button/Primary/Medium</button>
+        <button is="wcag-button" sm>Button/Primary/Small</button>
+      </p>
+    </section>
+    <section>
       <h2>secondary</h2>
       <p>
-        <button is="wcag-button" secondary sm>Button/Secondary/Small</button>
-        <button is="wcag-button" secondary>Button/Secondary/Medium</button>
         <button is="wcag-button" secondary lg>Button/Secondary/Large</button>
+        <button is="wcag-button" secondary>Button/Secondary/Medium</button>
+        <button is="wcag-button" secondary sm>Button/Secondary/Small</button>
       </p>
     </section>
     <section>
       <h2>tertiary</h2>
       <p>
-        <button is="wcag-button" tertiary sm>Button/Tertiary/Small</button>
-        <button is="wcag-button" tertiary>Button/Tertiary/Medium</button>
         <button is="wcag-button" tertiary lg>Button/Tertiary/Large</button>
+        <button is="wcag-button" tertiary>Button/Tertiary/Medium</button>
+        <button is="wcag-button" tertiary sm>Button/Tertiary/Small</button>
       </p>
     </section>
     <section>
       <h2>destructive</h2>
       <p>
-        <button is="wcag-button" destructive sm>Button/Destructive/Small</button>
-        <button is="wcag-button" destructive>Button/Destructive/Medium</button>
         <button is="wcag-button" destructive lg>Button/Destructive/Large</button>
+        <button is="wcag-button" destructive>Button/Destructive/Medium</button>
+        <button is="wcag-button" destructive sm>Button/Destructive/Small</button>
       </p>
     </section>
   </block>

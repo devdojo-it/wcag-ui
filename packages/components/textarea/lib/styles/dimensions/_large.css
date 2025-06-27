@@ -1,0 +1,23 @@
+:root {
+  --wcag-textarea--lg--gap: 1.6rem;
+
+  --wcag-textarea--lg--height: 5.6rem;
+  --wcag-textarea--lg--padding-inline: 2rem;
+  --wcag-textarea--lg--padding-block: 0;
+  --wcag-textarea--lg--border-width: 1px;
+  --wcag-textarea--lg--border-radius: 0.5rem;
+
+  --wcag-textarea--lg--font-size: 1.8rem;
+}
+
+[is="wcag-textarea"][lg] {
+  --wcag-textarea--gap: var(--wcag-textarea--lg--gap);
+
+  --wcag-textarea--height: var(--wcag-textarea--lg--height);
+  --wcag-textarea--padding-inline: var(--wcag-textarea--lg--padding-inline);
+  --wcag-textarea--padding-block: var(--wcag-textarea--lg--padding-block);
+  --wcag-textarea--border-width: var(--wcag-textarea--lg--border-width);
+  --wcag-textarea--border-radius: var(--wcag-textarea--lg--border-radius);
+
+  --wcag-textarea--font-size: var(--wcag-textarea--lg--font-size);
+}

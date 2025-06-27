@@ -17,7 +17,7 @@
   "license": "MIT",
   "main": "foundations.min.css",
   "scripts": {
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/foundations.css -o ./foundations.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/foundations.css --outfile=./foundations.min.css",
     "build": "npm run build:css"
   },
   "directories": {
@@ -25,12 +25,10 @@
   },
   "files": [
     "lib",
+    "foundations.min.css",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./foundations.css": "./foundations.min.css"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

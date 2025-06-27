@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/dialog.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/dialog.css -o ./dialog.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/styles/dialog.css --outfile=./dialog.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
     "build": "pnpm run build:css && pnpm run build:js"
   },
@@ -32,13 +32,11 @@
   },
   "files": [
     "lib",
+    "dialog.min.css",
+    "dialog.min.js",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./dialog.css": "./dialog.min.css",
-    "./dialog.js": "./dialog.min.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

@@ -1,0 +1,23 @@
+:root {
+  --wcag-textarea--md--gap: 1.2rem;
+
+  --wcag-textarea--md--height: 4.4rem;
+  --wcag-textarea--md--padding-inline: 2rem;
+  --wcag-textarea--md--padding-block: 0;
+  --wcag-textarea--md--border-width: 1px;
+  --wcag-textarea--md--border-radius: 0.4rem;
+
+  --wcag-textarea--md--font-size: 1.6rem;
+}
+
+[is="wcag-textarea"] {
+  --wcag-textarea--gap: var(--wcag-textarea--md--gap);
+
+  --wcag-textarea--height: var(--wcag-textarea--md--height);
+  --wcag-textarea--padding-inline: var(--wcag-textarea--md--padding-inline);
+  --wcag-textarea--padding-block: var(--wcag-textarea--md--padding-block);
+  --wcag-textarea--border-width: var(--wcag-textarea--md--border-width);
+  --wcag-textarea--border-radius: var(--wcag-textarea--md--border-radius);
+
+  --wcag-textarea--font-size: var(--wcag-textarea--md--font-size);
+}

@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/input.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/input.css -o ./input.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/styles/input.css --outfile=./input.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
     "build": "pnpm run build:css && pnpm run build:js"
   },
@@ -32,13 +32,11 @@
   },
   "files": [
     "lib",
+    "input.min.css",
+    "input.min.js",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./input.css": "./input.min.css",
-    "./input.js": "./input.min.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

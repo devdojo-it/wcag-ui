@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/tooltip.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/tooltip.css -o ./tooltip.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/styles/tooltip.css --outfile=./tooltip.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
     "build": "pnpm run build:css && pnpm run build:js"
   },
@@ -31,13 +31,11 @@
   },
   "files": [
     "lib",
+    "tooltip.min.css",
+    "tooltip.min.js",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./tooltip.css": "./tooltip.min.css",
-    "./tooltip.js": "./tooltip.min.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

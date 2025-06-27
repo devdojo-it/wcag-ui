@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/button.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/button.css -o ./button.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/styles/button.css --outfile=./button.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
     "build": "pnpm run build:css && pnpm run build:js"
   },
@@ -31,13 +31,11 @@
   },
   "files": [
     "lib",
+    "button.min.css",
+    "button.min.js",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./button.css": "./button.min.css",
-    "./button.js": "./button.min.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

@@ -1,0 +1,16 @@
+:root {
+  /*
+  --wcag-textarea--s-hov--color: ;
+  --wcag-textarea--s-hov--background-color: ;
+  */
+  --wcag-textarea--s-hov--border-color: var(--wcag-c--neutral-600);
+}
+
+[is="wcag-textarea"]:hover {
+  /*
+  --wcag-textarea--color: var(--wcag-textarea--s-hov--color);
+  --wcag-textarea--background-color: var(--wcag-textarea--s-hov--background-color);
+  */
+
+  --wcag-textarea--border-color: var(--wcag-textarea--s-hov--border-color);
+}

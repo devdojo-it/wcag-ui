@@ -1,0 +1,5 @@
+@import "./_core.css" layer(wcag-ui.components.textarea);
+@import "./variants/variants.css" layer(wcag-ui.components.textarea);
+@import "./dimensions/dimensions.css" layer(wcag-ui.components.textarea);
+@import "./modifiers/modifiers.css" layer(wcag-ui.components.textarea);
+@import "./states/states.css" layer(wcag-ui.components.textarea);
