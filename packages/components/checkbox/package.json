@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/checkbox.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/checkbox.css -o ./checkbox.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/styles/checkbox.css --outfile=./checkbox.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
     "build": "pnpm run build:css && pnpm run build:js"
   },
@@ -32,13 +32,11 @@
   },
   "files": [
     "lib",
+    "checkbox.min.css",
+    "checkbox.min.js",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./checkbox.css": "./checkbox.min.css",
-    "./checkbox.js": "./checkbox.min.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

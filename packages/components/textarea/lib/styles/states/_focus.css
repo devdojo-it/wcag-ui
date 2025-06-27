@@ -1,0 +1,13 @@
+:root {
+  --wcag-textarea--s-foc--outline-width: var(--wcag-focus--outline-width);
+  --wcag-textarea--s-foc--outline-style: solid;
+  --wcag-textarea--s-foc--outline-color: var(--wcag-focus--outline-color);
+  --wcag-textarea--s-foc--outline-offset: var(--wcag-focus--outline-width);
+}
+
+[is="wcag-textarea"]:where(:focus, :focus-visible) {
+  --wcag-textarea--outline-width: var(--wcag-textarea--s-foc--outline-width);
+  --wcag-textarea--outline-style: var(--wcag-textarea--s-foc--outline-style);
+  --wcag-textarea--outline-color: var(--wcag-textarea--s-foc--outline-color);
+  --wcag-textarea--outline-offset: var(--wcag-textarea--s-foc--outline-offset);
+}

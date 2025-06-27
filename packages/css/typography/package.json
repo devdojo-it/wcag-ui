@@ -17,7 +17,7 @@
   "license": "MIT",
   "main": "typography.min.css",
   "scripts": {
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/typography.css -o ./typography.min.css",
+    "build:css": "esbuild --bundle --minify --external:*.svg#wcag-icons --external:*.ttf --external:*.woff --external:*.woff2 ./lib/typography.css --outfile=./typography.min.css",
     "build": "pnpm run build:css"
   },
   "directories": {
@@ -25,12 +25,10 @@
   },
   "files": [
     "lib",
+    "typography.min.css",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./typography.css": "./typography.min.css"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

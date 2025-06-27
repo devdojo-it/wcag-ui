@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/accordion.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/accordion.css -o ./accordion.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/styles/accordion.css --outfile=./accordion.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
     "build": "pnpm run build:css && pnpm run build:js"
   },
@@ -32,13 +32,11 @@
   },
   "files": [
     "lib",
+    "accordion.min.css",
+    "accordion.min.js",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./accordion.css": "./accordion.min.css",
-    "./accordion.js": "./accordion.min.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

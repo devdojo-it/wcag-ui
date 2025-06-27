@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/switch.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/switch.css -o ./switch.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/styles/switch.css --outfile=./switch.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
     "build": "pnpm run build:css && pnpm run build:js"
   },
@@ -31,13 +31,12 @@
     "lib": "lib"
   },
   "files": [
+    "lib",
+    "switch.min.css",
+    "switch.min.js",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./switch.css": "./switch.min.css",
-    "./switch.js": "./switch.min.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"
