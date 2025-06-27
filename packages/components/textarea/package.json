@@ -1,7 +1,7 @@
 {
-  "name": "@wcag-ui/select",
+  "name": "@wcag-ui/textarea",
   "version": "0.0.0",
-  "description": "Select component for the wcagUI library",
+  "description": "Textarea component for the wcagUI library",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
     "Emiliano Pisu <pixu1980@github>",
@@ -15,24 +15,25 @@
   ],
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
   "license": "MIT",
-  "main": "select.min.js",
+  "main": "textarea.min.js",
   "type": "module",
   "scripts": {
-    "test": "node ./__tests__/select.test.js",
-    "build:css": "esbuild --bundle --minify ./lib/styles/select.css --outfile=./select.min.css",
+    "test": "node ./__tests__/textarea.test.js",
+    "build:css": "esbuild --bundle --minify ./lib/styles/textarea.css --outfile=./textarea.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
     "build": "pnpm run build:css && pnpm run build:js"
   },
   "dependencies": {
-    "@wcag-ui/core": "workspace:^0.0.0"
+    "@wcag-ui/core": "workspace:^0.0.0",
+    "@wcag-ui/dom": "workspace:^0.0.0"
   },
   "directories": {
     "lib": "lib"
   },
   "files": [
     "lib",
-    "select.min.css",
-    "select.min.js",
+    "textarea.min.css",
+    "textarea.min.js",
     "package.json",
     "README.md"
   ],

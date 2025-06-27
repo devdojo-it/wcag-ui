@@ -1,0 +1,77 @@
+:root {
+  --wcag-textarea--color: var(--wcag-c--neutral-800);
+  --wcag-textarea--background-color: var(--wcag-c--light);
+
+  --wcag-textarea--label--gap: var(--wcag-s--4);
+  --wcag-textarea--label--color: var(--wcag-textarea--color);
+  --wcag-textarea--placeholder--color: var(--wcag-c--neutral-200);
+
+  /* 
+
+  --wcag-textarea--height: ;
+  --wcag-textarea--padding-inline: ;
+  --wcag-textarea--padding-block: ;
+
+  --wcag-textarea--border-width: ;
+  */
+
+  --wcag-textarea--border-style: solid;
+  --wcag-textarea--border-color: var(--wcag-c--neutral-800);
+
+  /*
+  --wcag-textarea--border-radius: ;
+  */
+
+  /* 
+  --wcag-textarea--outline-width: 0;
+  --wcag-textarea--outline-style: solid;
+  --wcag-textarea--outline-color: transparent;
+  --wcag-textarea--outline-offset: 0;
+  */
+
+  --wcag-textarea--cursor: initial;
+}
+
+label:has([is="wcag-textarea"]) {
+  display: inline-flex;
+  flex-flow: column nowrap;
+  place-content: start;
+  place-items: start;
+  gap: var(--wcag-textarea--label--gap);
+
+  &[inline] {
+    flex-flow: row nowrap;
+    place-content: start;
+    place-items: center;
+  }
+}
+
+[is="wcag-textarea"] {
+  --wcag-t--font-size: var(--wcag-textarea--font-size);
+  --wcag-t--line-height: var(--wcag-textarea--height);
+
+  display: inline-flex;
+  flex-flow: row nowrap;
+  place-content: center;
+  place-items: center;
+  gap: var(--wcag-textarea--gap);
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  color: var(--wcag-textarea--color);
+  background-color: var(--wcag-textarea--background-color);
+
+  padding-inline: var(--wcag-textarea--padding-inline);
+  padding-block: var(--wcag-textarea--padding-block);
+  border-width: var(--wcag-textarea--border-width);
+  border-style: var(--wcag-textarea--border-style);
+  border-color: var(--wcag-textarea--border-color);
+  border-radius: var(--wcag-textarea--border-radius);
+
+  outline-width: var(--wcag-textarea--outline-width);
+  outline-style: var(--wcag-textarea--outline-style);
+  outline-color: var(--wcag-textarea--outline-color);
+  outline-offset: var(--wcag-textarea--outline-offset);
+
+  cursor: var(--wcag-textarea--cursor);
+}

@@ -17,7 +17,7 @@
   "license": "MIT",
   "main": "iconography.min.css",
   "scripts": {
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/iconography.css -o ./iconography.min.css",
+    "build:css": "esbuild --bundle --minify --external:*.svg#wcag-icons --external:*.ttf --external:*.woff --external:*.woff2 ./lib/iconography.css --outfile=iconography.min.css",
     "build": "pnpm run build:css"
   },
   "directories": {
@@ -25,12 +25,10 @@
   },
   "files": [
     "lib",
+    "iconography.min.css",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./iconography.css": "./iconography.min.css"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

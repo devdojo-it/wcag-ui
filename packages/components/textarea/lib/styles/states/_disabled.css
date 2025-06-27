@@ -1,0 +1,17 @@
+:root {
+  --wcag-textarea--s-dis--color: var(--wcag-c--neutral-50);
+  --wcag-textarea--s-dis--background-color: var(--wcag-c--light);
+  --wcag-textarea--s-dis--border-color: var(--wcag-c--neutral-100);
+
+  --wcag-textarea--s-dis--cursor: not-allowed;
+}
+
+[is="wcag-textarea"]:where([disabled], :disabled, [aria-disabled="true"]) {
+  --wcag-textarea--color: var(--wcag-textarea--s-dis--color);
+  --wcag-textarea--background-color: var(--wcag-textarea--s-dis--background-color);
+  --wcag-textarea--border-color: var(--wcag-textarea--s-dis--border-color);
+
+  --wcag-textarea--text-decoration: var(--wcag-textarea--s-dis--text-decoration);
+
+  --wcag-textarea--cursor: var(--wcag-textarea--s-dis--cursor);
+}

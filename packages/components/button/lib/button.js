@@ -38,8 +38,23 @@ export class Button extends HTMLButtonElement {
   }
 }
 
+// <script type="importmap">
+//   {
+//     "imports": {
+//       "@wcag-ui/core": "https://unpkg.com/@wcag-ui/core",
+//       "@wcag-ui/button": "https://unpkg.com/@wcag-ui/button"
+//     }
+//   }
+// </script>
+// <link rel="stylesheet" href="https://unpkg.com/@wcag-ui/button/button.css" />
+
+
 // import '@wcag-ui/button';
+// import '@wcag-ui/button/button.css';
 
 // before: <button is="wcag-button">Ciao<button>
 
 // after: <button is="wcag-button" type="button">Ciao<button>
+
+
+

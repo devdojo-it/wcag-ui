@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/scroll-spy.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/scroll-spy.css -o ./scroll-spy.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/styles/scroll-spy.css --outfile=./scroll-spy.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
     "build": "pnpm run build:css && pnpm run build:js"
   },
@@ -22,13 +22,11 @@
   },
   "files": [
     "lib",
+    "scroll-spy.min.css",
+    "scroll-spy.min.js",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./scroll-spy.css": "./scroll-spy.min.css",
-    "./scroll-spy.js": "./scroll-spy.min.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

@@ -17,7 +17,7 @@
   "license": "MIT",
   "main": "grid-system.min.css",
   "scripts": {
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/grid-system.css -o ./grid-system.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/grid-system.css --outfile=./grid-system.min.css",
     "build": "pnpm run build:css"
   },
   "directories": {
@@ -25,12 +25,10 @@
   },
   "files": [
     "lib",
+    "grid-system.min.css",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./grid-system.css": "./grid-system.min.css"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"

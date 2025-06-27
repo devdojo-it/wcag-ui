@@ -1,0 +1,16 @@
+:root {
+  /*
+  --wcag-textarea--s-act--color: ;
+  --wcag-textarea--s-act--background-color: ;
+  */
+
+  --wcag-textarea--s-act--border-color: var(--wcag-c--neutral-600);
+}
+
+[is="wcag-textarea"]:where(:active, [aria-pressed="true"]) {
+  /*
+  --wcag-textarea--color: var(--wcag-textarea--s-act--color);
+  --wcag-textarea--background-color: var(--wcag-textarea--s-act--background-color);
+  */
+  --wcag-textarea--border-color: var(--wcag-textarea--s-act--border-color);
+}

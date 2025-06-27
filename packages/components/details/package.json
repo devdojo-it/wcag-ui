@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "test": "node ./__tests__/details.test.js",
-    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./lib/styles/details.css -o ./details.min.css",
+    "build:css": "esbuild --bundle --minify ./lib/styles/details.css --outfile=./details.min.css",
     "build:js": "rolldown -c ./rolldown.config.mjs",
     "build": "pnpm run build:css && pnpm run build:js"
   },
@@ -33,13 +33,11 @@
   },
   "files": [
     "lib",
+    "details.min.css",
+    "details.min.js",
     "package.json",
     "README.md"
   ],
-  "exports": {
-    "./details.css": "./details.min.css",
-    "./details.js": "./details.min.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devdojo-it/wcag-ui.git"
