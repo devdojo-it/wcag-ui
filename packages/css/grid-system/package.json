@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/grid-system",
-  "version": "0.1.5",
+  "version": "0.0.14",
   "description": "CSS Grid System for the wcagUI Design System",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
