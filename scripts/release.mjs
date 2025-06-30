@@ -155,7 +155,7 @@ const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, "utf8"));
 
 for (const localPackage of localPackages) {
   rootPkg.dependencies ??= {};
-  rootPkg.dependencies[localPackage] = `workspace^${next}`;
+  rootPkg.dependencies[localPackage] = `workspace:^${next}`;
 }
 
 fs.writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2) + "\n");
