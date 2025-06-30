@@ -50,7 +50,7 @@ let bump = commits.some((c) => /BREAKING CHANGE/.test(c))
 const isSemverRegex =
   /^(v)?([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/g;
 
-let lastTag = !!lastTagOrCommit.match(isSemverRegex) ? lastTagOrCommit : "0.0.0";
+let lastTag = !!lastTagOrCommit.match(isSemverRegex) ? lastTagOrCommit.substring(1) : "0.0.0";
 console.log("detected lastTag", lastTag);
 
 let [major, minor, patch] = lastTag.split(".").map(Number);
