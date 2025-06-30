@@ -145,7 +145,7 @@ for (const packageJson of packageJsonPathsRemap) {
   if (!pkg.dependencies) continue;
 
   for (const dep in pkg.dependencies) {
-    localPackages.includes(dep) && (pkg[field][dep] = `workspace:^${next}`);
+    localPackages.includes(dep) && (pkg.dependencies[dep] = `workspace:^${next}`);
   }
 
   fs.writeFileSync(packageJson.path, JSON.stringify(pkg, null, 2) + "\n");
