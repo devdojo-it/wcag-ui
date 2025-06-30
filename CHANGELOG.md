@@ -1,3 +1,9 @@
+#### 0.1.1 (2025-06-30)
+
+##### Bug Fixes
+
+* **textarea:**  remove unused css variables (cec4fc11)
+
 #### 0.1.0 (2025-06-30)
 
 ##### Documentation Changes
