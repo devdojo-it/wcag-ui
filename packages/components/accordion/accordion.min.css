@@ -1,1 +1,1 @@
-@layer wcag-ui.components.accordion{[is=wcag-accordion]{border-radius:.5rem}}
+@layer wcag-ui.components.accordion{:root{-wcag-accordion--border-radius:.5rem}[is=wcag-accordion]{border-radius:var(--wcag-accordion--border-radius)}}
