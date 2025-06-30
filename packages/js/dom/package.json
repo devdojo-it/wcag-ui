@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/dom",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "DOM manipulation library for the wcagUI Design System",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [

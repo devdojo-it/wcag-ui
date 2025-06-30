@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/scroll-spy",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "ScrollSpy component for the wcagUI library",
   "author": "Emiliano Pisu <75838944+pixu1980@users.noreply.github.com>",
   "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
@@ -15,8 +15,8 @@
     "publish:package": "npm publish --access public --registry http://localhost:4873/"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.1.2",
-    "@wcag-ui/dom": "^0.1.2"
+    "@wcag-ui/core": "^0.1.3",
+    "@wcag-ui/dom": "^0.1.3"
   },
   "directories": {
     "lib": "lib"

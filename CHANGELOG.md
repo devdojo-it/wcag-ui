@@ -1,3 +1,9 @@
+#### 0.1.3 (2025-06-30)
+
+##### Bug Fixes
+
+* **checkbox:**  remove empty lines from css code (98d6e49f)
+
 #### 0.1.2 (2025-06-30)
 
 ##### Bug Fixes
