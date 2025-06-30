@@ -16,15 +16,6 @@
       color: transparent;
     }
 
-    /* 
-  &:focus {
-    &::-webkit-details-marker {
-      display: none;
-
-      color: transparent;
-    }
-  } */
-
     i {
       display: inline-flex;
       transition: rotate 0.25s linear;

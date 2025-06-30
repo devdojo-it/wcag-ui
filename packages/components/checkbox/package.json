@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/checkbox",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Checkbox component for the wcagUI library",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
@@ -25,8 +25,8 @@
     "publish:package": "npm publish --access public --registry http://localhost:4873/"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.1.1",
-    "@wcag-ui/dom": "^0.1.1"
+    "@wcag-ui/core": "^0.1.2",
+    "@wcag-ui/dom": "^0.1.2"
   },
   "directories": {
     "lib": "lib"
