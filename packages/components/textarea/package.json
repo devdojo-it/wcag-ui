@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/textarea",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Textarea component for the wcagUI library",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
@@ -25,8 +25,8 @@
     "publish:package": "npm publish --access public --registry http://localhost:4873/"
   },
   "dependencies": {
-    "@wcag-ui/core": "^0.1.4",
-    "@wcag-ui/dom": "^0.1.4"
+    "@wcag-ui/core": "workspace:^0.1.5",
+    "@wcag-ui/dom": "workspace:^0.1.5"
   },
   "directories": {
     "lib": "lib"
