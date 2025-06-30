@@ -151,9 +151,11 @@ for (const packageJson of packageJsonPathsRemap) {
   fs.writeFileSync(packageJson.path, JSON.stringify(pkg, null, 2) + "\n");
 }
 
-localPackages.forEach((name) => {
+const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, "utf8"));
+
+for (const localPackage of localPackages) {
   rootPkg.dependencies ??= {};
-  rootPkg.dependencies[name] = `workspace^${next}`;
-});
+  rootPkg.dependencies[localPackage] = `workspace^${next}`;
+}
 
 fs.writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2) + "\n");
