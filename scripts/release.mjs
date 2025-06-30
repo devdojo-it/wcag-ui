@@ -159,3 +159,7 @@ for (const localPackage of localPackages) {
 }
 
 fs.writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2) + "\n");
+
+execSync("git add .", { stdio: "inherit" });
+execSync("git commit --amend --no-edit", { stdio: "inherit" });
+execSync("git push", { stdio: "inherit" });
