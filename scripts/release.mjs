@@ -119,7 +119,31 @@ for (const packageJson of packageJsonPathsRemap) {
   if (path.dirname(packageJson.path).includes("packages")) {
     execSync(`pnpm --prefix=${path.dirname(packageJson.path)} publish:package`, { stdio: "inherit" });
   }
+}
 
+/* ------------------------------------------------------------------------ */
+/* 8. Updates the changelog file from lastTagOrCommit to HEAD               */
+/* ------------------------------------------------------------------------ */
+execSync(`changelog -t ${lastTagOrCommit}..HEAD -x rel,build,chore`, { stdio: "inherit" });
+
+/* ------------------------------------------------------------------------ */
+/* 9. Pushes all the updated files in a chore(release): commit              */
+/* ------------------------------------------------------------------------ */
+execSync("git add .", { stdio: "inherit" });
+execSync(`git commit -m "chore(release): v${next}"`, { stdio: "inherit" });
+execSync("git push", { stdio: "inherit" });
+
+/* ------------------------------------------------------------------------ */
+/* 10. Generates and pushes the {next} semver tag                            */
+/* ------------------------------------------------------------------------ */
+execSync(`git tag v${next}`);
+execSync("git push --tags", { stdio: "inherit" });
+
+/* ------------------------------------------------------------------------ */
+/* 11. Resets the internal dependencies versions with `workspace:^` prefix  */
+/*     in order to make it work with pnpm                                   */
+/* ------------------------------------------------------------------------ */
+for (const packageJson of packageJsonPathsRemap) {
   const pkg = JSON.parse(fs.readFileSync(packageJson.path, "utf8"));
 
   if (!pkg.dependencies) continue;
@@ -140,22 +164,6 @@ for (const localPackage of localPackages) {
 
 fs.writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2) + "\n");
 
-/* ------------------------------------------------------------------------ */
-/* 7. Updates the changelog file from lastTagOrCommit to HEAD               */
-/* ------------------------------------------------------------------------ */
-execSync(`changelog -t ${lastTagOrCommit}..HEAD -x rel,build,chore`, { stdio: "inherit" });
-
-// /* ------------------------------------------------------------------------ */
-// /* 8. Pushes all the updated files in a chore(release): commit              */
-// /* ------------------------------------------------------------------------ */
 execSync("git add .", { stdio: "inherit" });
-execSync(`git commit -m "chore(release): v${next}"`, { stdio: "inherit" });
-execSync("git push", { stdio: "inherit" });
-
-// /* ------------------------------------------------------------------------ */
-// /* 9. Generates and pushes the {next} semver tag                            */
-// /* ------------------------------------------------------------------------ */
-execSync(`git tag v${next}`);
-execSync("git push --tags", { stdio: "inherit" });
-
-
+execSync(`git commit --ament --no-edit`, { stdio: "inherit" });
+execSync("git push -f", { stdio: "inherit" });
