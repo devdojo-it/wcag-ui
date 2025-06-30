@@ -1,0 +1,7 @@
+:root {
+  -wcag-accordion--border-radius: 0.5rem;
+}
+
+[is="wcag-accordion"] {
+  border-radius: var(--wcag-accordion--border-radius);
+}

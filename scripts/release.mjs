@@ -120,15 +120,15 @@ execSync(`changelog -t ${lastTagOrCommit}..HEAD -x rel,build,chore`, { stdio: "i
 // /* ------------------------------------------------------------------------ */
 // /* 8. Pushes all the updated files in a chore(release): commit              */
 // /* ------------------------------------------------------------------------ */
-// execSync("git add .", { stdio: "inherit" });
-// execSync(`git commit -m "chore(release): v${next}"`, { stdio: "inherit" });
-// execSync("git push", { stdio: "inherit" });
+execSync("git add .", { stdio: "inherit" });
+execSync(`git commit -m "chore(release): v${next}"`, { stdio: "inherit" });
+execSync("git push", { stdio: "inherit" });
 
 // /* ------------------------------------------------------------------------ */
 // /* 9. Generates and pushes the {next} semver tag                            */
 // /* ------------------------------------------------------------------------ */
-// execSync(`git tag v${next}`);
-// execSync("git push --tags", { stdio: "inherit" });
+execSync(`git tag v${next}`);
+execSync("git push --tags", { stdio: "inherit" });
 
 /* ------------------------------------------------------------------------ */
 /* 10. Publishes the packages into the configured registry (default: npm)   */
@@ -144,7 +144,9 @@ for (const packageJson of packageJsonPathsRemap) {
 
   if (!pkg.dependencies) continue;
 
-  localPackages.includes(dep) && (pkg[field][dep] = `workspace:^${next}`);
+  for (const dep in pkg.dependencies) {
+    localPackages.includes(dep) && (pkg[field][dep] = `workspace:^${next}`);
+  }
 
   fs.writeFileSync(packageJson.path, JSON.stringify(pkg, null, 2) + "\n");
 }
