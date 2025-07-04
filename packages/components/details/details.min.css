@@ -1,1 +1,0 @@
-@layer wcag-ui.components.details{[is=wcag-details]{summary{&::marker{content:"";display:inline-block;font-size:0}&::-webkit-details-marker{display:none;color:transparent}i{display:inline-flex;transition:rotate .25s linear}}&[open]{summary i{rotate:180deg}}}}@layer wcag-ui.components.details;

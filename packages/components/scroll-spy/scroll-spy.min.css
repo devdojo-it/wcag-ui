@@ -1,1 +1,0 @@
-@layer wcag-ui.components.scroll-spy{[is=wcag-scroll-spy]{align-self:flex-start;display:block;width:250px;nav{ul{list-style:none;padding:0;li{margin-bottom:10px;a{text-decoration:none;color:#333}&.active{a{font-weight:700;color:#007bff}}}}}}}

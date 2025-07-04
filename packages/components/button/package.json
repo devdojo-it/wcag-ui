@@ -20,9 +20,9 @@
   "scripts": {
     "test": "node ./__tests__/button.test.js",
     "build:css": "esbuild --bundle --minify ./lib/styles/button.css --outfile=./button.min.css",
-    "build:js": "rolldown -c ./rolldown.config.mjs",
+    "build:js": "esbuild --bundle --packages=external --format=esm ./lib/button.js --outfile=./button.min.js",
     "build": "pnpm run build:css && pnpm run build:js",
-    "publish:package": "npm publish --access public --registry http://localhost:4873/"
+    "publish:package": "npm publish --access public"
   },
   "dependencies": {
     "@wcag-ui/core": "workspace:^0.0.14"

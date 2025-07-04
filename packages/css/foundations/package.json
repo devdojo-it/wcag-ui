@@ -18,8 +18,8 @@
   "main": "foundations.min.css",
   "scripts": {
     "build:css": "esbuild --bundle --minify ./lib/foundations.css --outfile=./foundations.min.css",
-    "build": "npm run build:css",
-    "publish:package": "npm publish --access public --registry http://localhost:4873/"
+    "build": "pnpm run build:css",
+    "publish:package": "npm publish --access public"
   },
   "directories": {
     "lib": "lib"

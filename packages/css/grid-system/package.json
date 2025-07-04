@@ -19,7 +19,7 @@
   "scripts": {
     "build:css": "esbuild --bundle --minify ./lib/grid-system.css --outfile=./grid-system.min.css",
     "build": "pnpm run build:css",
-    "publish:package": "npm publish --access public --registry http://localhost:4873/"
+    "publish:package": "npm publish --access public"
   },
   "directories": {
     "lib": "lib"
