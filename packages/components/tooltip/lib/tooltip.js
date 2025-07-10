@@ -5,8 +5,8 @@ import attributes from './tooltip.attributes';
 import events from './tooltip.events';
 
 export class Tooltip extends HTMLElement {
-  static name = 'wcag-tooltip';
-  static extends = 'span';
+  static componentName = 'wcag-tooltip';
+  static extendsElement = 'span';
   static attributes = attributes;
   static events = events;
 

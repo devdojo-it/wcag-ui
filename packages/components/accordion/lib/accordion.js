@@ -12,8 +12,8 @@ import events from './accordion.events';
  * @extends {HTMLElement}
  */
 export class Accordion extends HTMLElement {
-  static name = 'wcag-accordion';
-  static extends = 'section';
+  static componentName = 'wcag-accordion';
+  static extendsElement = 'section';
   static attributes = attributes;
   static events = events;
 

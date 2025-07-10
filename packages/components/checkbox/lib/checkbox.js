@@ -5,8 +5,8 @@ import attributes from './checkbox.attributes';
 import events from './checkbox.events';
 
 export class Checkbox extends HTMLInputElement {
-  static name = 'wcag-checkbox';
-  static extends = 'input';
+  static componentName = 'wcag-checkbox';
+  static extendsElement = 'input';
   static attributes = attributes;
   static events = events;
 

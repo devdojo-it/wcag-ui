@@ -20,7 +20,7 @@
     "clear:cache": "rm -rf .parcel-cache dist",
     "clear": "pnpm run clear:cache && rm -rf node_modules pnpm-lock.yaml",
     "reset": "pnpm run clear && pnpm install && pnpm approve-builds",
-    "prestart": "pnpm run clear:cache",
+    "prestart": "pnpm run clear:cache && pnpm run build:packages",
     "start": "parcel ./src/index.html",
     "build:packages": "node --experimental-modules ./scripts/build.mjs",
     "prebuild": "pnpm run clear:cache",

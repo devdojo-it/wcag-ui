@@ -5,8 +5,8 @@ import attributes from './input.attributes';
 import events from './input.events';
 
 export class Input extends HTMLInputElement {
-  static name = 'wcag-input';
-  static extends = 'input';
+  static componentName = 'wcag-input';
+  static extendsElement = 'input';
   static attributes = attributes;
   static events = events;
 
@@ -21,7 +21,7 @@ export class Input extends HTMLInputElement {
   }
 
   #initialize() {
-    // <input name="NAME" type="TYPE" aria-label="..." />
+    // <input is="wcag-input" name="NAME" type="TYPE" aria-label="..." />
 
     // settings default type attribute to text, if missing
     !this.hasAttribute('type') && this.setAttribute('type', 'text');

@@ -12,8 +12,8 @@ import events from './details.events';
  * @extends {HTMLDetailsElement}
  */
 export class Details extends HTMLDetailsElement {
-  static name = 'wcag-details';
-  static extends = 'details';
+  static componentName = 'wcag-details';
+  static extendsElement = 'details';
   static attributes = attributes;
   static events = events;
 

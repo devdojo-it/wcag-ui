@@ -6,3 +6,4 @@
 @import "./_colors.css" layer(wcag-ui.foundations.colors);
 @import "./_elevations.css" layer(wcag-ui.foundations.elevations);
 @import "./_spacings.css" layer(wcag-ui.foundations.spacings);
+@import "./_radiuses.css" layer(wcag-ui.foundations.radiuses);

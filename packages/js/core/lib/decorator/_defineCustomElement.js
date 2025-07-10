@@ -1,7 +1,7 @@
-import { buildExtendOptions } from "./_buildExtendOptions";
+import { buildExtendOptions } from './_buildExtendOptions';
 
 export function defineCustomElement(component) {
   !!customElements &&
-    !customElements.get(component.name) &&
-    customElements.define(component.name, component, buildExtendOptions(component));
+    !customElements.get(component.componentName) &&
+    customElements.define(component.componentName, component, buildExtendOptions(component));
 }

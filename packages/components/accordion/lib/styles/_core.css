@@ -1,5 +1,5 @@
 :root {
-  -wcag-accordion--border-radius: 0.5rem;
+  --wcag-accordion--border-radius: var(--wcag-r--s);
 }
 
 [is="wcag-accordion"] {

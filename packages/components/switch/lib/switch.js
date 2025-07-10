@@ -5,8 +5,8 @@ import attributes from './switch.attributes';
 import events from './switch.events';
 
 export class Switch extends HTMLInputElement {
-  static name = 'wcag-switch';
-  static extends = 'input';
+  static componentName = 'wcag-switch';
+  static extendsElement = 'input';
   static attributes = attributes;
   static events = events;
 

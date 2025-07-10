@@ -11,8 +11,8 @@ import events from "./button.events";
  * @extends {HTMLButtonElement}
  */
 export class Button extends HTMLButtonElement {
-  static name = "wcag-button";
-  static extends = "button";
+  static componentName = "wcag-button";
+  static extendsElement = "button";
   static attributes = attributes;
   static events = events;
 

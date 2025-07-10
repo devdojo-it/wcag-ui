@@ -1,17 +1,14 @@
-import { buildAttributeHandlers, buildEventHandlers } from "./_buildHandlers";
-import { buildLifecycleMethods } from "./_buildLifecycleMethods";
+import { buildAttributeHandlers, buildEventHandlers } from './_buildHandlers';
+import { buildLifecycleMethods } from './_buildLifecycleMethods';
 
 export function applyMixins(component) {
   Object.assign(
     component.prototype,
-    { componentName: component.name },
+    { componentName: component.componentName },
     component.attributes && { ...buildAttributeHandlers(component.attributes) },
     component.events && { ...buildEventHandlers(component.events) },
     buildLifecycleMethods(component)
   );
 
-  component.attributes &&
-    Object.defineProperty(component, "observedAttributes", {
-      get: () => Object.keys(component.attributes),
-    });
+  component.attributes && (component.observedAttributes = Object.keys(component.attributes));
 }

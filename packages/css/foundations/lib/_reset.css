@@ -14,7 +14,7 @@
 
 /* rem reset 1rem = 10px */
 html {
-  font-size: 0.625em;
+  font-size: 0.625em; /* 10px/16px */
   overscroll-behavior: none;
 }
 

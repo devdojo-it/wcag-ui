@@ -5,8 +5,8 @@ import attributes from './select.attributes';
 import events from './select.events';
 
 export class Select extends HTMLElement {
-  static name = 'wcag-select';
-  static extends = 'span';
+  static componentName = 'wcag-select';
+  static extendsElement = 'span';
   static attributes = attributes;
   static events = events;
 

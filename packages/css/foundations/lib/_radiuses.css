@@ -1,0 +1,6 @@
+:root {
+  /* TODO: ask design for radiuses tokens */
+  --wcag-r--s: 4px;
+  --wcag-r--m: 6px;
+  --wcag-r--l: 8px;
+}

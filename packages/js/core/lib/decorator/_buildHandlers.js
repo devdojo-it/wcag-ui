@@ -16,6 +16,10 @@ export function buildAttributeHandlers(componentAttributes) {
   return buildHandlers(componentAttributes, "AttributeChanged");
 }
 
+// data-id
+// open
+// click
+
 // Dialog.prototype.handDataIdAttributeChanged();
 // Dialog.prototype.handOpenAttributeChanged();
 // Button.prototype.handClickEvent();

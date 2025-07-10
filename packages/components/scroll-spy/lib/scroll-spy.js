@@ -7,8 +7,8 @@ import events from './scroll-spy.events';
 const { stripEmojis } = helpers.strings;
 
 export class ScrollSpy extends HTMLElement {
-  static name = 'wcag-scroll-spy';
-  static extends = 'section';
+  static componentName = 'wcag-scroll-spy';
+  static extendsElement = 'section';
   static attributes = attributes;
   static events = events;
 

@@ -5,8 +5,8 @@ import attributes from './textarea.attributes';
 import events from './textarea.events';
 
 export class Textarea extends HTMLInputElement {
-  static name = 'wcag-textarea';
-  static extends = 'textarea';
+  static componentName = 'wcag-textarea';
+  static extendsElement = 'textarea';
   static attributes = attributes;
   static events = events;
 

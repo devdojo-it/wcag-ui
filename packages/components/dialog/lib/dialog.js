@@ -12,8 +12,8 @@ import events from './dialog.events';
  * @extends {HTMLDialogElement}
  */
 export class Dialog extends HTMLDialogElement {
-  static name = 'wcag-dialog';
-  static extends = 'dialog';
+  static componentName = 'wcag-dialog';
+  static extendsElement = 'dialog';
   static attributes = attributes;
   static events = events;
 

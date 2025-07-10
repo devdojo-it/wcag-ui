@@ -15,14 +15,14 @@ export function buildLifecycleMethods(component) {
         this.addEventListener(event, this);
       }
 
-      this.onConnected instanceof Function && this.onConnected();
+      this.onConnected?.();
     },
     disconnectedCallback() {
       for (const event of Object.keys(component.events)) {
         this.removeEventListener(event, this);
       }
 
-      this.onDisconnected instanceof Function && this.onDisconnected();
+      this.onDisconnected?.();
     },
   };
 }

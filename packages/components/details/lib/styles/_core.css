@@ -1,7 +1,14 @@
 :root {
+  --wcag-details--border-radius: var(--wcag-r--s);
+  
+  --wcag-details--background-color: var(--wcag-c--neutral-20);
 }
 
 [is="wcag-details"] {
+  border-radius: var(--wcag-details--border-radius);
+
+  background-color: var(--wcag-details--background-color);
+
   summary {
     &::marker {
       content: "";

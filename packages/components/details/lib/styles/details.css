@@ -1,2 +1,1 @@
 @import "./_core.css" layer(wcag-ui.components.details);
-@import "./dimensions/dimensions.css" layer(wcag-ui.components.details);
