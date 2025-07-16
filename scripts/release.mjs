@@ -31,7 +31,7 @@ try {
 /* ------------------------------------------------------------------------ */
 /* 3. Collects all the commits since lastTagOrCommit up to HEAD             */
 /* ------------------------------------------------------------------------ */
-const commitsLogCommand = `git log ${!!lastTagOrCommit ? `${lastTagOrCommit}..HEAD` : ""} --pretty=%s`;
+const commitsLogCommand = `git log ${lastTagOrCommit ? `${lastTagOrCommit}..HEAD` : ""} --pretty=%s`;
 // console.log("running: ", commitsLogCommand);
 
 const commits = execSync(commitsLogCommand).toString().split("\n").filter(String);
@@ -40,7 +40,7 @@ const commits = execSync(commitsLogCommand).toString().split("\n").filter(String
 /* ------------------------------------------------------------------------ */
 /* 4. Computes the next semver for the packages                             */
 /* ------------------------------------------------------------------------ */
-let bump = commits.some((c) => /BREAKING CHANGE/.test(c))
+const bump = commits.some((c) => /BREAKING CHANGE/.test(c))
   ? "major"
   : commits.some((c) => c.startsWith("feat"))
   ? "minor"
@@ -50,10 +50,10 @@ let bump = commits.some((c) => /BREAKING CHANGE/.test(c))
 const isSemverRegex =
   /^(v)?([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/g;
 
-let lastTag = !!lastTagOrCommit.match(isSemverRegex) ? lastTagOrCommit.substring(1) : "0.0.0";
+const lastTag = lastTagOrCommit.match(isSemverRegex) ? lastTagOrCommit.substring(1) : "0.0.0";
 console.log("detected lastTag", lastTag);
 
-let [major, minor, patch] = lastTag.split(".").map(Number);
+const [major, minor, patch] = lastTag.split(".").map(Number);
 
 const next =
   bump === "major"

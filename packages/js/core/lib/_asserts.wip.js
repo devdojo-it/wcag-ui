@@ -9,7 +9,7 @@ export class Asserts {
     if (!assert) return false;
     if (!(assert instanceof Function)) return assert;
 
-    if (!!safe) {
+    if (safe) {
       try {
         return assert();
       } catch (e) {

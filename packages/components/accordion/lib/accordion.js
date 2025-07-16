@@ -1,5 +1,4 @@
 import { componentDecorator, helpers } from "@wcag-ui/core";
-import { DOM } from "@wcag-ui/dom";
 
 import attributes from './accordion.attributes';
 import events from './accordion.events';

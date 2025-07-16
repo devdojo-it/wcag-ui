@@ -1,6 +1,6 @@
 // https://www.exeideas.com/2021/12/javascript-md5-function.html
 
-export const md5 = function (string) {
+export const md5 = (string) => {
   function RotateLeft(lValue, iShiftBits) {
     return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
   }
@@ -117,7 +117,7 @@ export const md5 = function (string) {
     return utftext;
   }
 
-  var x = Array();
+  var x = [];
   var k, AA, BB, CC, DD, a, b, c, d;
   var S11 = 7,
     S12 = 12,

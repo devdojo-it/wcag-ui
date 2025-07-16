@@ -1,7 +1,7 @@
 'use strict';
 
-const switch = require('..');
+const sw = require('..');
 const assert = require('assert').strict;
 
-assert.strictEqual(switch(), 'Hello from switch');
+assert.strictEqual(sw(), 'Hello from switch');
 console.info('switch tests passed');

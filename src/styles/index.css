@@ -24,6 +24,7 @@
 } */
 
 @view-transition {
+  /* biome-ignore lint/correctness/noUnknownProperty: Exists in the CSS spec */
   navigation: auto;
 }
 

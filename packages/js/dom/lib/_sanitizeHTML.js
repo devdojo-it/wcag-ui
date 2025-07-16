@@ -69,7 +69,7 @@ const removeScripts = (node) => {
  */
 export const sanitizeHTML = (html, returnAsElements = false) => {
   // Convert the string to HTML
-  let dom = stringToDOM(html);
+  const dom = stringToDOM(html);
 
   // Sanitize it
   cleanDOM(dom);

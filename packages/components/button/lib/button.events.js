@@ -1,8 +1,8 @@
 export default {
-  click: function (e) {
+  click: function (_e) {
     console.log('button clicked', this.textContent);
   },
-  focus: function (e) {
+  focus: function (_e) {
     console.log('button focused', this.textContent);
   },
 };

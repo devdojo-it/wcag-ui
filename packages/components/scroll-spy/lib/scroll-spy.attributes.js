@@ -1,5 +1,5 @@
 export default {
-  target: function (oldValue, newValue) {
+  target: (_oldValue, _newValue) => {
     // console.log("disabled changed", oldValue, newValue, this.textContent);
   },
 };
