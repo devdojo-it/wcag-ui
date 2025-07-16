@@ -1,4 +1,9 @@
 {
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
@@ -12,7 +17,18 @@
 		"expand": "auto",
 		"useEditorconfig": true
 	},
-	"linter": { "enabled": true, "rules": { "recommended": true } },
+	"linter": {
+		"enabled": true,
+		"includes": [
+			"**/*",
+			"!packages/css/iconography/lib/fonts/wcag-icons/demo-files/demo.js",
+			"!packages/css/iconography/lib/fonts/wcag-icons/svgxuse.js"
+		],
+		"rules": {
+			"recommended": true,
+			"suspicious": { "noRedundantUseStrict": "off" }
+		}
+	},
 	"javascript": {
 		"formatter": {
 			"jsxQuoteStyle": "double",
