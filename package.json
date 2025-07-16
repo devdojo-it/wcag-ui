@@ -22,8 +22,8 @@
     "reset": "pnpm run clear && pnpm install && pnpm approve-builds",
     "prestart": "pnpm run clear:cache && pnpm run build:packages",
     "start": "parcel ./src/index.html",
-    "build:packages": "node --experimental-modules ./scripts/build.mjs",
-    "prebuild": "pnpm run clear:cache",
+    "build:packages": "pnpm -r -parallel run build",
+    "prebuild": "pnpm run clear:cache && pnpm run build:packages",
     "build": "parcel build ./src/index.html --no-source-maps --public-url ./",
     "release:packages": "node --experimental-modules ./scripts/release.mjs"
   },
@@ -63,5 +63,9 @@
     "posthtml-markdownit": "3.1.2",
     "realfavicon": "0.4.18",
     "svgo": "3.3.2"
+  },
+  "volta": {
+    "node": "22.17.1",
+    "pnpm": "10.13.1"
   }
 }
