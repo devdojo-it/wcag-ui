@@ -12,10 +12,12 @@
     "Valeria Salis <vallss@github>",
     "Alessio Tortolini <alestormoody@github>",
     "Christian Nastasi <cnastasi@github>",
-    "Salvatore Tropea <salvotropea96@github>"
+    "Salvatore Tropea <salvotropea96@github>",
+    "Gabriele Falasca <gabrycao@github>"
   ],
   "license": "MIT",
   "scripts": {
+    "precommitlint": "pnpm run lint",
     "commitlint": "commitlint --from-last-tag",
     "clear:cache": "rm -rf .parcel-cache dist",
     "clear": "pnpm run clear:cache && rm -rf node_modules pnpm-lock.yaml",
@@ -25,7 +27,9 @@
     "build:packages": "node --experimental-modules ./scripts/build.mjs",
     "prebuild": "pnpm run clear:cache",
     "build": "parcel build ./src/index.html --no-source-maps --public-url ./",
-    "release:packages": "node --experimental-modules ./scripts/release.mjs"
+    "release:packages": "node --experimental-modules ./scripts/release.mjs",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --write"
   },
   "dependencies": {
     "@wcag-ui/accordion": "workspace:^0.0.14",
@@ -49,6 +53,7 @@
     "highlight.js": "11.11.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.1.1",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "esbuild": "0.25.5",

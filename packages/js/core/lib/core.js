@@ -1,4 +1,4 @@
-'use strict';
+
 
 import './polyfills';
 
@@ -9,7 +9,7 @@ import { helpers } from './helpers';
 
 import { extender } from './_extender';
 
-export let coreStyleSheet = new CSSStyleSheet();
+export const coreStyleSheet = new CSSStyleSheet();
 coreStyleSheet.replaceSync('@layer wcag-ui.core, wcag-ui.foundations, wcag-ui.components;');
 
 // TODO: add a check on adoptedStyleSheets for supporting older browsers

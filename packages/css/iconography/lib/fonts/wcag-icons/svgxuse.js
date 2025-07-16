@@ -6,20 +6,19 @@
  */
 /*jslint browser: true */
 /*global XDomainRequest, MutationObserver, window */
-(function () {
-    "use strict";
+((() => {
     if (typeof window !== "undefined" && window.addEventListener) {
         var cache = Object.create(null); // holds xhr objects to prevent multiple requests
         var checkUseElems;
         var tid; // timeout id
-        var debouncedCheck = function () {
+        var debouncedCheck = () => {
             clearTimeout(tid);
             tid = setTimeout(checkUseElems, 100);
         };
-        var unobserveChanges = function () {
+        var unobserveChanges = () => {
             return;
         };
-        var observeChanges = function () {
+        var observeChanges = () => {
             var observer;
             window.addEventListener("resize", debouncedCheck, false);
             window.addEventListener("orientationchange", debouncedCheck, false);
@@ -30,7 +29,7 @@
                     subtree: true,
                     attributes: true
                 });
-                unobserveChanges = function () {
+                unobserveChanges = () => {
                     try {
                         observer.disconnect();
                         window.removeEventListener("resize", debouncedCheck, false);
@@ -39,14 +38,14 @@
                 };
             } else {
                 document.documentElement.addEventListener("DOMSubtreeModified", debouncedCheck, false);
-                unobserveChanges = function () {
+                unobserveChanges = () => {
                     document.documentElement.removeEventListener("DOMSubtreeModified", debouncedCheck, false);
                     window.removeEventListener("resize", debouncedCheck, false);
                     window.removeEventListener("orientationchange", debouncedCheck, false);
                 };
             }
         };
-        var createRequest = function (url) {
+        var createRequest = (url) => {
             // In IE 9, cross origin requests can only be sent using XDomainRequest.
             // XDomainRequest would fail if CORS headers are not set.
             // Therefore, XDomainRequest should only be used with cross origin requests.
@@ -76,7 +75,7 @@
             return Request;
         };
         var xlinkNS = "http://www.w3.org/1999/xlink";
-        checkUseElems = function () {
+        checkUseElems = () => {
             var base;
             var bcr;
             var fallback = ""; // optional fallback URL in case no base path to SVG file was given and no symbol definition was found.
@@ -98,7 +97,7 @@
                 }
             }
             function attrUpdateFunc(spec) {
-                return function () {
+                return () => {
                     if (cache[spec.base] !== true) {
                         spec.useEl.setAttributeNS(xlinkNS, "xlink:href", "#" + spec.hash);
                         if (spec.useEl.hasAttribute("href")) {
@@ -108,7 +107,7 @@
                 };
             }
             function onloadFunc(xhr) {
-                return function () {
+                return () => {
                     var body = document.body;
                     var x = document.createElement("x");
                     var svg;
@@ -127,7 +126,7 @@
                 };
             }
             function onErrorTimeout(xhr) {
-                return function () {
+                return () => {
                     xhr.onerror = null;
                     xhr.ontimeout = null;
                     observeIfDone();
@@ -215,7 +214,7 @@
             observeIfDone();
         };
         var winLoad;
-        winLoad = function () {
+        winLoad = () => {
             window.removeEventListener("load", winLoad, false); // to prevent memory leaks
             tid = setTimeout(checkUseElems, 0);
         };
@@ -227,4 +226,4 @@
             winLoad();
         }
     }
-}());
+})());

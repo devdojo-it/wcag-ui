@@ -60,7 +60,7 @@ export class ScrollSpy extends HTMLElement {
     // <a href="#install-manually" id="install-manually" class="secondary" tabindex="-1">#</a>
 
     // Crea un elemento nav e una lista non ordinata
-    let template = `
+    const template = `
       <span>${stripEmojis(this.#title.textContent)}</span>
       <nav>
         <ul>

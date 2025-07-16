@@ -9,7 +9,7 @@ const path = require('node:path');
  */
 function mergeDeep(target, source) {
   for (const key in source) {
-    if (Object.prototype.hasOwnProperty.call(source, key)) {
+    if (Object.hasOwn(source, key)) {
       if (
         typeof source[key] === 'object' &&
         source[key] !== null &&
@@ -97,7 +97,7 @@ function flattenTokens(obj, prefix = '') {
   const result = {};
   
   for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+    if (Object.hasOwn(obj, key)) {
       const value = obj[key];
       // Salta le chiavi che iniziano con $ o sono extensions
       if (key.startsWith('$') || key === 'extensions') continue;

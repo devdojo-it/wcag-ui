@@ -1,7 +1,7 @@
 import { events } from '@wcag-ui/core';
 
 export default {
-  'wcag-details.toggle': function (e) {
+  'wcag-details.toggle': function (_e) {
     // NOTE: this works only with <details is="wcag-details">
     // because native element doesn't bubble the `toggle` event
 

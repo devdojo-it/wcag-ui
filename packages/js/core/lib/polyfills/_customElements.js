@@ -1,4 +1,4 @@
-"use strict";
+
 
 /* Inspired by (c) Andrea Giammarchi @webreflection ISC https://github.com/WebReflection/custom-elements-builtin */
 
@@ -6,7 +6,7 @@
   check the fix I did on line 283 changing HTMLBuiltin 
   with HTMLElement for debugging purposes
 */
-(function () {
+(() => {
   var attributesObserver = (whenDefined, MutationObserver) => {
     const attributeChanged = (records) => {
       for (const record of records) {
@@ -263,7 +263,7 @@
   const whenDefined = (name) => {
     if (!defined.has(name)) {
       let _;
-      let $ = new Promise(($) => {
+      const $ = new Promise(($) => {
         _ = $;
       });
 
@@ -310,7 +310,7 @@
       defineProperty(self, k, { value: HTMLBuiltIn });
     });
 
-  document.createElement = function (name, options) {
+  document.createElement = (name, options) => {
     const is = options && options.is;
 
     if (is) {
@@ -329,7 +329,7 @@
   customElements.get = getCE;
   customElements.whenDefined = whenDefined;
 
-  customElements.upgrade = function (element) {
+  customElements.upgrade = (element) => {
     const is = element.getAttribute("is");
 
     if (is) {
@@ -347,7 +347,7 @@
     upgrade.call(customElements, element);
   };
 
-  customElements.define = function (is, Class, options) {
+  customElements.define = (is, Class, options) => {
     if (getCE(is)) throw new Error(`'${is}' has already been defined as a custom element`);
 
     let selector;

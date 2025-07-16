@@ -72,7 +72,7 @@ label:has([is="wcag-checkbox"]) {
 
       position: absolute;
       opacity: 0;
-
+      /* biome-ignore lint/a11y/useGenericFontNames: already defined in the font-face */
       font-family: "wcag-icons";
     }
 
