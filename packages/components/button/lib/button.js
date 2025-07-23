@@ -1,7 +1,7 @@
-import { componentDecorator } from "@wcag-ui/core";
+import { componentDecorator } from '@wcag-ui/core';
 
-import attributes from "./button.attributes";
-import events from "./button.events";
+import attributes from './button.attributes';
+import events from './button.events';
 
 /**
  * wcagUI Button class
@@ -11,8 +11,8 @@ import events from "./button.events";
  * @extends {HTMLButtonElement}
  */
 export class Button extends HTMLButtonElement {
-  static componentName = "wcag-button";
-  static extendsElement = "button";
+  static componentName = 'wcag-button';
+  static extendsElement = 'button';
   static attributes = attributes;
   static events = events;
 
@@ -23,7 +23,7 @@ export class Button extends HTMLButtonElement {
    * @memberof Button
    */
   static {
-    componentDecorator("Button", Button);
+    componentDecorator('Button', Button);
   }
 
   constructor() {
@@ -33,7 +33,7 @@ export class Button extends HTMLButtonElement {
   }
 
   #initialize() {
-    !this.hasAttribute("type") && this.setAttribute("type", "button");
+    !this.hasAttribute('type') && this.setAttribute('type', 'button');
     // !this.hasAttribute("role") && this.setAttribute("role", "button");
   }
 }
@@ -48,13 +48,9 @@ export class Button extends HTMLButtonElement {
 // </script>
 // <link rel="stylesheet" href="https://unpkg.com/@wcag-ui/button/button.css" />
 
-
 // import '@wcag-ui/button';
 // import '@wcag-ui/button/button.css';
 
 // before: <button is="wcag-button">Ciao<button>
 
 // after: <button is="wcag-button" type="button">Ciao<button>
-
-
-

@@ -1,2 +1,0 @@
-- [ ] package @wcag-ui/core
-  - [ ] change js primitives extensions into helpers

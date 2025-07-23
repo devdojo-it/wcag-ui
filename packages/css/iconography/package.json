@@ -19,6 +19,7 @@
   "scripts": {
     "build:css": "esbuild --bundle --minify --external:*.svg#wcag-icons --external:*.ttf --external:*.woff --external:*.woff2 ./lib/iconography.css --outfile=iconography.min.css",
     "build": "pnpm run build:css",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/iconography.css --outfile=./iconography.min.css",
     "publish:package": "npm publish --access public"
   },
   "directories": {

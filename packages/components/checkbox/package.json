@@ -22,6 +22,8 @@
     "build:css": "esbuild --bundle --minify ./lib/styles/checkbox.css --outfile=./checkbox.min.css",
     "build:js": "esbuild --bundle --packages=external --format=esm ./lib/checkbox.js --outfile=./checkbox.min.js",
     "build": "pnpm run build:css && pnpm run build:js",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/checkbox.css --outfile=./checkbox.min.css",
+    "watch:js": "esbuild --bundle --watch --packages=external --format=esm ./lib/checkbox.js --outfile=./checkbox.min.js",
     "publish:package": "npm publish --access public"
   },
   "dependencies": {

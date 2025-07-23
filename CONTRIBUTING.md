@@ -1,4 +1,8 @@
-# Contributing
+# wcagUI
+
+Welcome to the wcagUI project! Thanks in advance for the time!
+
+## Contributing
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -6,38 +10,45 @@
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-### Prepare Your Environment
-
-If you use `volta`, the correct node version will be automatically installed when you run the first command.  
-If you don't have pnpm installed, execute the following command to install it:
-```bash
-volta install pnpm 
-```
-or follow the [pnpm installation guide](https://pnpm.io/installation).
-
-### pnpm scripts
+## Scripts
 
 ```bash
 # install dependencies
 $ pnpm install
-# Build the project
+$ yarn install
+$ npm run install
+
+# check linting and formatting
+$ pnpm lint
+$ yarn install
+$ npm run install
+
+# build the packages and documentation website
 $ pnpm build
-# Check linting and formatting
-$ pnpm run lint
+$ yarn install
+$ npm run install
+
+# run the documentation/playground website
+$ pnpm start
+$ yarn install
+$ npm run install
+
+# watch for css files changes and rebuilds the package if necessary
+$ pnpm watch:css
+$ yarn install
+$ npm run install
+
+# watch for js files changes and rebuilds the package if necessary
+$ pnpm watch:js
+$ yarn install
+$ npm run install
 ```
 
-### Commit Convention
-
-This projects uses [commitlint](https://commitlint.js.org/) with Angular configuration so be sure to use standard commit format or PR won't be accepted
-
-
-### Style
-
-Style and lint errors should be fixed with
-
-```bash
-$ pnpm run lint
-```
+> NOTE: if you use `volta`, the correct node version will be automatically installed when you run the first command. if you don't have pnpm installed, execute the following command to install it:
+> ```bash
+> volta install pnpm 
+> ```
+> or follow the [pnpm installation guide](https://pnpm.io/installation).
 
 ## Contributors
 We are grateful to the following contributors for their valuable contributions to this project:
@@ -50,3 +61,5 @@ We are grateful to the following contributors for their valuable contributions t
 - [@cnastasi](https://github.com/cnastasi)  
 - [@salvotropea96](https://github.com/salvotropea96)  
 - [@JellyBellyDev](https://github.com/JellyBellyDev)  
+- [@gabrycaos](https://github.com/gabrycaos)  
+

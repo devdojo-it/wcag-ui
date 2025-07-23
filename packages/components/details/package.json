@@ -22,6 +22,8 @@
     "build:css": "esbuild --bundle --minify ./lib/styles/details.css --outfile=./details.min.css",
     "build:js": "esbuild --bundle --packages=external --format=esm ./lib/details.js --outfile=./details.min.js",
     "build": "pnpm run build:css && pnpm run build:js",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/details.css --outfile=./details.min.css",
+    "watch:js": "esbuild --bundle --watch --packages=external --format=esm ./lib/details.js --outfile=./details.min.js",
     "publish:package": "npm publish --access public"
   },
   "dependencies": {

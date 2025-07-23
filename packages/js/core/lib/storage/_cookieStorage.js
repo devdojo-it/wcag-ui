@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/suspicious/noDocumentCookie: <this is temporary waiting for full Baseline support about the Cookie Store API> */
+/** biome-ignore-all lint/complexity/noStaticOnlyClass: <this is temporary waiting for full Baseline support about the Cookie Store API> */
 export class CookieStorage {
   // Imposta un cookie
   static setItem(key, value, days = 7) {
@@ -32,7 +34,7 @@ Object.defineProperty(self, 'cookieStorage', {
   value: CookieStorage,
   configurable: false,
   enumerable: false,
-  writable: false
+  writable: false,
 });
 
 // // Uso della classe CookieStorage

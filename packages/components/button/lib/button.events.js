@@ -6,4 +6,3 @@ export default {
     console.log('button focused', this.textContent);
   },
 };
-

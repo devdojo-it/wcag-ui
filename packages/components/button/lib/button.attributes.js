@@ -3,4 +3,3 @@ export default {
     console.log('disabled changed', oldValue, newValue, this.textContent);
   },
 };
-

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import { execSync } from "node:child_process";
-import fs from "node:fs";
-import path from "node:path";
-import { collectPackageJson, sortPackageJsonByWeights } from "./_utils.mjs";
+import { execSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import { collectPackageJson, sortPackageJsonByWeights } from './_utils.mjs';
 
 const root = process.cwd();
 
@@ -10,10 +10,10 @@ const root = process.cwd();
 /* ------------------------------------------------------------------------ */
 /* 1. Collects package.json files from packages                             */
 /* ------------------------------------------------------------------------ */
-const packageJsonPaths = collectPackageJson(path.join(root, "packages"));
+const packageJsonPaths = collectPackageJson(path.join(root, 'packages'));
 // console.log("detected packageJsonPaths: ", packageJsonPaths);
 
-const localPackages = packageJsonPaths.map((p) => JSON.parse(fs.readFileSync(p, "utf8")).name);
+const localPackages = packageJsonPaths.map((p) => JSON.parse(fs.readFileSync(p, 'utf8')).name);
 // console.log("detected localPackages: ", localPackages);
 
 /* ------------------------------------------------------------------------ */
@@ -22,7 +22,7 @@ const localPackages = packageJsonPaths.map((p) => JSON.parse(fs.readFileSync(p, 
 let lastTagOrCommit;
 
 try {
-  lastTagOrCommit = execSync("git describe --tags --abbrev=0").toString().trim();
+  lastTagOrCommit = execSync('git describe --tags --abbrev=0').toString().trim();
 } catch {
   lastTagOrCommit = execSync("git log --format='%H' | tail -1").toString().trim();
 }
@@ -31,36 +31,36 @@ try {
 /* ------------------------------------------------------------------------ */
 /* 3. Collects all the commits since lastTagOrCommit up to HEAD             */
 /* ------------------------------------------------------------------------ */
-const commitsLogCommand = `git log ${lastTagOrCommit ? `${lastTagOrCommit}..HEAD` : ""} --pretty=%s`;
+const commitsLogCommand = `git log ${lastTagOrCommit ? `${lastTagOrCommit}..HEAD` : ''} --pretty=%s`;
 // console.log("running: ", commitsLogCommand);
 
-const commits = execSync(commitsLogCommand).toString().split("\n").filter(String);
+const commits = execSync(commitsLogCommand).toString().split('\n').filter(String);
 // console.log("involved commits: ", commits);
 
 /* ------------------------------------------------------------------------ */
 /* 4. Computes the next semver for the packages                             */
 /* ------------------------------------------------------------------------ */
 const bump = commits.some((c) => /BREAKING CHANGE/.test(c))
-  ? "major"
-  : commits.some((c) => c.startsWith("feat"))
-  ? "minor"
-  : "patch";
+  ? 'major'
+  : commits.some((c) => c.startsWith('feat'))
+    ? 'minor'
+    : 'patch';
 
 // is semver or commit?
 const isSemverRegex =
   /^(v)?([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/g;
 
-const lastTag = lastTagOrCommit.match(isSemverRegex) ? lastTagOrCommit.substring(1) : "0.0.0";
-console.log("detected lastTag", lastTag);
+const lastTag = lastTagOrCommit.match(isSemverRegex) ? lastTagOrCommit.substring(1) : '0.0.0';
+console.log('detected lastTag', lastTag);
 
-const [major, minor, patch] = lastTag.split(".").map(Number);
+const [major, minor, patch] = lastTag.split('.').map(Number);
 
 const next =
-  bump === "major"
+  bump === 'major'
     ? `${major + 1}.0.0`
-    : bump === "minor"
-    ? `${major}.${minor + 1}.0`
-    : `${major}.${minor}.${patch + 1}`;
+    : bump === 'minor'
+      ? `${major}.${minor + 1}.0`
+      : `${major}.${minor}.${patch + 1}`;
 
 console.log(`Bumping version from ${lastTag} to ${next} (${bump})`);
 
@@ -74,11 +74,11 @@ const packageJsonPathsRemap = sortPackageJsonByWeights(packageJsonPaths);
 /*    semver, and run build scripts if present                              */
 /* ------------------------------------------------------------------------ */
 for (const packageJson of packageJsonPathsRemap) {
-  const pkg = JSON.parse(fs.readFileSync(packageJson.path, "utf8"));
+  const pkg = JSON.parse(fs.readFileSync(packageJson.path, 'utf8'));
 
   pkg.version = next;
 
-  for (const field of ["dependencies", "peerDependencies", "devDependencies"]) {
+  for (const field of ['dependencies', 'peerDependencies', 'devDependencies']) {
     if (!pkg[field]) continue;
 
     for (const dep in pkg[field]) {
@@ -86,19 +86,19 @@ for (const packageJson of packageJsonPathsRemap) {
     }
   }
 
-  fs.writeFileSync(packageJson.path, JSON.stringify(pkg, null, 2) + "\n");
+  fs.writeFileSync(packageJson.path, `${JSON.stringify(pkg, null, 2)}\n`);
 
-  Object.keys(pkg.scripts).includes("build") &&
-    execSync(`pnpm --prefix=${path.dirname(packageJson.path)} build`, { stdio: "inherit" });
+  Object.keys(pkg.scripts).includes('build') &&
+    execSync(`pnpm --prefix=${path.dirname(packageJson.path)} build`, { stdio: 'inherit' });
 }
 
 /* ------------------------------------------------------------------------ */
 /* 6. Updates the root package.json and runs build script if present        */
 /* ------------------------------------------------------------------------ */
-const rootPkgPath = path.join(root, "package.json");
+const rootPkgPath = path.join(root, 'package.json');
 
 if (fs.existsSync(rootPkgPath)) {
-  const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, "utf8"));
+  const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, 'utf8'));
 
   rootPkg.version = next;
 
@@ -107,44 +107,44 @@ if (fs.existsSync(rootPkgPath)) {
     rootPkg.dependencies[name] = `^${next}`;
   });
 
-  fs.writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2) + "\n");
+  fs.writeFileSync(rootPkgPath, `${JSON.stringify(rootPkg, null, 2)}\n`);
 
-  Object.keys(rootPkg.scripts).includes("build") && execSync(`pnpm build`, { stdio: "inherit" });
+  Object.keys(rootPkg.scripts).includes('build') && execSync(`pnpm build`, { stdio: 'inherit' });
 }
 
 /* ------------------------------------------------------------------------ */
 /* 7. Publishes the packages into the configured registry (default: npm)   */
 /* ------------------------------------------------------------------------ */
 for (const packageJson of packageJsonPathsRemap) {
-  if (path.dirname(packageJson.path).includes("packages")) {
-    execSync(`pnpm --prefix=${path.dirname(packageJson.path)} publish:package`, { stdio: "inherit" });
+  if (path.dirname(packageJson.path).includes('packages')) {
+    execSync(`pnpm --prefix=${path.dirname(packageJson.path)} publish:package`, { stdio: 'inherit' });
   }
 }
 
 /* ------------------------------------------------------------------------ */
 /* 8. Updates the changelog file from lastTagOrCommit to HEAD               */
 /* ------------------------------------------------------------------------ */
-execSync(`changelog -t ${lastTagOrCommit}..HEAD -x rel,build,chore`, { stdio: "inherit" });
+execSync(`changelog -t ${lastTagOrCommit}..HEAD -x rel,build,chore`, { stdio: 'inherit' });
 
 /* ------------------------------------------------------------------------ */
 /* 9. Pushes all the updated files in a chore(release): commit              */
 /* ------------------------------------------------------------------------ */
-execSync("git add .", { stdio: "inherit" });
-execSync(`git commit -m "chore(release): v${next}"`, { stdio: "inherit" });
-execSync("git push", { stdio: "inherit" });
+execSync('git add .', { stdio: 'inherit' });
+execSync(`git commit -m "chore(release): v${next}"`, { stdio: 'inherit' });
+execSync('git push', { stdio: 'inherit' });
 
 /* ------------------------------------------------------------------------ */
 /* 10. Generates and pushes the {next} semver tag                            */
 /* ------------------------------------------------------------------------ */
 execSync(`git tag v${next}`);
-execSync("git push --tags", { stdio: "inherit" });
+execSync('git push --tags', { stdio: 'inherit' });
 
 /* ------------------------------------------------------------------------ */
 /* 11. Resets the internal dependencies versions with `workspace:^` prefix  */
 /*     in order to make it work with pnpm                                   */
 /* ------------------------------------------------------------------------ */
 for (const packageJson of packageJsonPathsRemap) {
-  const pkg = JSON.parse(fs.readFileSync(packageJson.path, "utf8"));
+  const pkg = JSON.parse(fs.readFileSync(packageJson.path, 'utf8'));
 
   if (!pkg.dependencies) continue;
 
@@ -152,18 +152,18 @@ for (const packageJson of packageJsonPathsRemap) {
     localPackages.includes(dep) && (pkg.dependencies[dep] = `workspace:^${next}`);
   }
 
-  fs.writeFileSync(packageJson.path, JSON.stringify(pkg, null, 2) + "\n");
+  fs.writeFileSync(packageJson.path, `${JSON.stringify(pkg, null, 2)}\n`);
 }
 
-const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, "utf8"));
+const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, 'utf8'));
 
 for (const localPackage of localPackages) {
   rootPkg.dependencies ??= {};
   rootPkg.dependencies[localPackage] = `workspace:^${next}`;
 }
 
-fs.writeFileSync(rootPkgPath, JSON.stringify(rootPkg, null, 2) + "\n");
+fs.writeFileSync(rootPkgPath, `${JSON.stringify(rootPkg, null, 2)}\n`);
 
-execSync("git add .", { stdio: "inherit" });
-execSync(`git commit --ament --no-edit`, { stdio: "inherit" });
-execSync("git push -f", { stdio: "inherit" });
+execSync('git add .', { stdio: 'inherit' });
+execSync(`git commit --ament --no-edit`, { stdio: 'inherit' });
+execSync('git push -f', { stdio: 'inherit' });

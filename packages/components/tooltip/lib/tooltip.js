@@ -1,5 +1,4 @@
 import { componentDecorator } from '@wcag-ui/core';
-import { DOM } from '@wcag-ui/dom';
 
 import attributes from './tooltip.attributes';
 import events from './tooltip.events';

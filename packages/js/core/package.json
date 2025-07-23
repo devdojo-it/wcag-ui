@@ -21,6 +21,7 @@
     "test": "node ./__tests__/core.test.js",
     "build:js": "esbuild --bundle --packages=external --format=esm ./lib/core.js --outfile=./core.min.js",
     "build": "pnpm run build:js",
+    "watch:js": "esbuild --bundle --watch --packages=external --format=esm ./lib/core.js --outfile=./core.min.js",
     "publish:package": "npm publish --access public"
   },
   "directories": {
