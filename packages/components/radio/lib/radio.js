@@ -39,8 +39,8 @@ export class Radio extends HTMLInputElement {
     DOM.insertHTML(this.ariaLabel ?? 'aria-label N/A', label, 'prepend');
 
     // hiding the real input radio for showing the custom one
-    this.setAttribute('sr-only','');
-    
+    this.setAttribute('sr-only', '');
+
     // removing aria-label attribute from Radio because of label text
     this.removeAttribute('aria-label');
   }

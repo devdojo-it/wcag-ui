@@ -1,5 +1,3 @@
-
-
 /* Inspired by (c) Andrea Giammarchi @webreflection ISC https://github.com/WebReflection/custom-elements-builtin */
 
 /* 
@@ -53,7 +51,8 @@
 
       try {
         delete element[key[i]];
-      } catch (SafariTP) {
+      } catch {
+        // Safari TP
         ignore.add(i);
       }
     }
@@ -81,7 +80,7 @@
    * @param {string[]} [query=['*']] the selectors to use within nodes
    * @returns {MutationObserver}
    */
-  const notify = (callback, root = document, MO = MutationObserver, query = ["*"]) => {
+  const notify = (callback, root = document, MO = MutationObserver, query = ['*']) => {
     const loop = (nodes, selectors, added, removed, connected, pass) => {
       for (const node of nodes) {
         if (pass || 'querySelectorAll' in node) {
@@ -104,7 +103,7 @@
 
     const mo = new MO((records) => {
       if (query.length) {
-        const selectors = query.join(",");
+        const selectors = query.join(',');
         const added = new Set();
         const removed = new Set();
 
@@ -121,7 +120,7 @@
     return mo;
   };
 
-  const QSA = "querySelectorAll";
+  const QSA = 'querySelectorAll';
 
   const elements = (element) => QSA in element;
   const { filter } = [];
@@ -141,8 +140,7 @@
         parse(filter.call(record.addedNodes, elements), true);
       }
     };
-    const matches = (element) =>
-      element.matches || element.webkitMatchesSelector || element.msMatchesSelector;
+    const matches = (element) => element.matches || element.webkitMatchesSelector || element.msMatchesSelector;
 
     const notifier = (element, connected) => {
       let selectors;
@@ -219,6 +217,7 @@
   const handle = (element, connected, selector) => {
     const proto = prototypes.get(selector);
 
+    // biome-ignore lint/suspicious/noPrototypeBuiltins: <this is needed to make the polyfill work>
     if (connected && !proto.isPrototypeOf(element)) {
       const redefine = expando(element);
       override = setPrototypeOf(element, proto);
@@ -230,7 +229,7 @@
       }
     }
 
-    const method = `${connected ? "" : "dis"}connectedCallback`;
+    const method = `${connected ? '' : 'dis'}connectedCallback`;
 
     if (method in proto) element[method]();
   };
@@ -283,9 +282,10 @@
       const HTMLElement = self[k];
 
       function HTMLBuiltIn() {
+        // biome-ignore lint/suspicious/noShadowRestrictedNames: <this is needed to make the polyfill work>
         const { constructor } = this;
 
-        if (!classes.has(constructor)) throw new TypeError("Illegal constructor");
+        if (!classes.has(constructor)) throw new TypeError('Illegal constructor');
 
         const { is, tag } = classes.get(constructor);
 
@@ -293,7 +293,7 @@
           if (override) return augment(override, is);
 
           const element = createElement.call(document, tag);
-          element.setAttribute("is", is);
+          element.setAttribute('is', is);
 
           return augment(setPrototypeOf(element, constructor.prototype), is);
         }
@@ -303,7 +303,7 @@
 
       setPrototypeOf(HTMLBuiltIn, HTMLElement);
 
-      defineProperty((HTMLBuiltIn.prototype = HTMLElement.prototype), "constructor", {
+      defineProperty((HTMLBuiltIn.prototype = HTMLElement.prototype), 'constructor', {
         value: HTMLElement,
       });
 
@@ -311,7 +311,7 @@
     });
 
   document.createElement = (name, options) => {
-    const is = options && options.is;
+    const is = options?.is;
 
     if (is) {
       const Class = registry.get(is);
@@ -321,7 +321,7 @@
 
     const element = createElement.call(document, name);
 
-    is && element.setAttribute("is", is);
+    is && element.setAttribute('is', is);
 
     return element;
   };
@@ -330,9 +330,10 @@
   customElements.whenDefined = whenDefined;
 
   customElements.upgrade = (element) => {
-    const is = element.getAttribute("is");
+    const is = element.getAttribute('is');
 
     if (is) {
+      // biome-ignore lint/suspicious/noShadowRestrictedNames: <this is needed to make the polyfill work>
       const constructor = registry.get(is);
 
       if (constructor) {
@@ -351,9 +352,9 @@
     if (getCE(is)) throw new Error(`'${is}' has already been defined as a custom element`);
 
     let selector;
-    const tag = options && options.extends;
+    const tag = options?.extends;
 
-    classes.set(Class, tag ? { is, tag } : { is: "", tag: is });
+    classes.set(Class, tag ? { is, tag } : { is: '', tag: is });
 
     if (tag) {
       selector = `${tag}[is="${is}"]`;
@@ -361,6 +362,7 @@
       registry.set(is, Class);
       query.push(selector);
     } else {
+      // biome-ignore lint/complexity/noArguments: <this is needed to make the polyfill work>
       define.apply(customElements, arguments);
       shadowed.push((selector = is));
     }

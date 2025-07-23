@@ -97,6 +97,10 @@ body {
     --wcag-t--font-size: calc(1em * var(--wcag-t--ratio));
   }
 
+  small {
+    --wcag-t--font-size: calc(1em / var(--wcag-t--ratio));
+  }
+
   li + li {
     margin-block-start: calc(var(--wcag-t--gap) / 2);
   }

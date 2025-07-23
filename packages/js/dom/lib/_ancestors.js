@@ -50,7 +50,7 @@ export const ancestors = (el, selectorOrComparer, one = false, includeThis = fal
  * @return {Element|undefined}
  */
 export const ancestor = (el, selectorOrComparer = '', includeThis = false) => {
-  const ancestorsResult = ancestors(el, selector, true, includeThis);
+  const ancestorsResult = ancestors(el, selectorOrComparer, true, includeThis);
 
   return ancestorsResult.length > 0 ? ancestorsResult[0] : undefined;
 };

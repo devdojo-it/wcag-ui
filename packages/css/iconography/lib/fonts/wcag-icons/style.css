@@ -1,6 +1,7 @@
 @font-face {
   font-family: "wcag-icons";
-  src: url("./lib/fonts/wcag-icons/fonts/wcag-icons.ttf") format("truetype"),
+  src:
+    url("./lib/fonts/wcag-icons/fonts/wcag-icons.ttf") format("truetype"),
     url("./lib/fonts/wcag-icons/fonts/wcag-icons.woff") format("woff"),
     url("./lib/fonts/wcag-icons/fonts/wcag-icons.svg#wcag-icons") format("svg");
   font-weight: normal;
@@ -11,6 +12,7 @@
 [class^="wcag-icon-"],
 [class*=" wcag-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
+  /* biome-ignore lint/a11y/useGenericFontNames: <this has to be forced and important to make sure the icons use this font-family only> */
   font-family: "wcag-icons" !important;
   speak: never;
   font-style: normal;

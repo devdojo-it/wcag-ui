@@ -30,7 +30,9 @@ function capitalize(string) {
 function camelize(string) {
   return string
     .toLowerCase() // Convertiamo tutto in minuscolo
+    // biome-ignore lint/correctness/noUnusedFunctionParameters: <TODO>
     .replace(/[-_\s]+(.)?/g, (match, chr) => (chr ? chr.toUpperCase() : '')) // Rimuoviamo delimitatori e capitalizziamo la lettera successiva
+    // biome-ignore lint/correctness/noUnusedFunctionParameters: <TODO>
     .replace(/^(.)/, (match, chr) => chr.toLowerCase()); // Assicuriamo che la prima lettera sia minuscola
 }
 
@@ -38,6 +40,7 @@ function camelize(string) {
  * @param {string} string
  */
 function pascalize(string) {
+  // biome-ignore lint/correctness/noUnusedFunctionParameters: <TODO>
   return string.replace(/(^|-)([a-z])/g, (match, separator, letter) => letter.toUpperCase());
 }
 

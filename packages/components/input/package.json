@@ -22,6 +22,8 @@
     "build:css": "esbuild --bundle --minify ./lib/styles/input.css --outfile=./input.min.css",
     "build:js": "esbuild --bundle --packages=external --format=esm ./lib/input.js --outfile=./input.min.js",
     "build": "pnpm run build:css && pnpm run build:js",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/input.css --outfile=./input.min.css",
+    "watch:js": "esbuild --bundle --watch --packages=external --format=esm ./lib/input.js --outfile=./input.min.js",
     "publish:package": "npm publish --access public"
   },
   "dependencies": {

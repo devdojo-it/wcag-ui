@@ -1,4 +1,4 @@
-import { componentDecorator, } from '@wcag-ui/core';
+import { componentDecorator } from '@wcag-ui/core';
 import { DOM } from '@wcag-ui/dom';
 
 import attributes from './checkbox.attributes';
@@ -39,8 +39,8 @@ export class Checkbox extends HTMLInputElement {
     DOM.insertHTML(this.ariaLabel ?? 'aria-label N/A', label, 'prepend');
 
     // hiding the real input checkbox for showing the custom one
-    this.setAttribute('sr-only','');
-    
+    this.setAttribute('sr-only', '');
+
     // removing aria-label attribute from Checkbox because of label text
     this.removeAttribute('aria-label');
   }

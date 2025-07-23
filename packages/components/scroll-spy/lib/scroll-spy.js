@@ -27,9 +27,9 @@ export class ScrollSpy extends HTMLElement {
   #title;
   #headings = [];
 
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   onConnected() {
     // Legge l'attributo target per individuare il contenuto esterno
@@ -53,7 +53,7 @@ export class ScrollSpy extends HTMLElement {
   }
 
   onDisconnected() {
-    this.#observer && this.#observer.disconnect();
+    this.#observer?.disconnect();
   }
 
   buildNav() {
@@ -94,7 +94,7 @@ export class ScrollSpy extends HTMLElement {
         if (entry.isIntersecting) {
           this.clearActive();
 
-          navLink && navLink.parentElement && navLink.parentElement.classList.add('active');
+          navLink?.parentElement?.classList.add('active');
         }
       }
     }, options);

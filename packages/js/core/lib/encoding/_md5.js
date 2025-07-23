@@ -1,4 +1,5 @@
 // https://www.exeideas.com/2021/12/javascript-md5-function.html
+/** biome-ignore-all lint/correctness/noInnerDeclarations: <innerDeclarations are coming from this old file, look for a different solution> */
 
 export const md5 = (string) => {
   function RotateLeft(lValue, iShiftBits) {
@@ -89,7 +90,7 @@ export const md5 = (string) => {
       lCount;
     for (lCount = 0; lCount <= 3; lCount++) {
       lByte = (lValue >>> (lCount * 8)) & 255;
-      WordToHexValue_temp = '0' + lByte.toString(16);
+      WordToHexValue_temp = `0${lByte.toString(16)}`;
       WordToHexValue = WordToHexValue + WordToHexValue_temp.substr(WordToHexValue_temp.length - 2, 2);
     }
     return WordToHexValue;

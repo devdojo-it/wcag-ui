@@ -1,4 +1,4 @@
-import { componentDecorator, helpers } from "@wcag-ui/core";
+import { componentDecorator, helpers } from '@wcag-ui/core';
 
 import attributes from './accordion.attributes';
 import events from './accordion.events';
@@ -61,7 +61,7 @@ export class Accordion extends HTMLElement {
 
   #initialize() {
     this.#guid = helpers.strings.guid();
-    
+
     this.#mutationObserver = new MutationObserver(this.#mutationHandler.bind(this));
 
     this.#mutationObserver.observe(this, {

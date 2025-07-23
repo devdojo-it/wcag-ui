@@ -22,6 +22,8 @@
     "build:css": "esbuild --bundle --minify ./lib/styles/select.css --outfile=./select.min.css",
     "build:js": "esbuild --bundle --packages=external --format=esm ./lib/select.js --outfile=./select.min.js",
     "build": "pnpm run build:css && pnpm run build:js",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/select.css --outfile=./select.min.css",
+    "watch:js": "esbuild --bundle --watch --packages=external --format=esm ./lib/select.js --outfile=./select.min.js",
     "publish:package": "npm publish --access public"
   },
   "dependencies": {

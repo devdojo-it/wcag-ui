@@ -22,6 +22,8 @@
     "build:css": "esbuild --bundle --minify ./lib/styles/tooltip.css --outfile=./tooltip.min.css",
     "build:js": "esbuild --bundle --packages=external --format=esm ./lib/tooltip.js --outfile=./tooltip.min.js",
     "build": "pnpm run build:css && pnpm run build:js",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/tooltip.css --outfile=./tooltip.min.css",
+    "watch:js": "esbuild --bundle --watch --packages=external --format=esm ./lib/tooltip.js --outfile=./tooltip.min.js",
     "publish:package": "npm publish --access public"
   },
   "dependencies": {

@@ -89,9 +89,7 @@ label:has([is="wcag-switch"]) {
       aspect-ratio: 1;
       background-color: hsla(248, 28%, 55%, 0.8);
 
-      justify-self: end;
-      align-self: end;
-      place-self: center;
+      place-self: center end;
       translate: -1.45rem;
       border-radius: 2px;
     }

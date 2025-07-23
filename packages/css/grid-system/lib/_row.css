@@ -1,3 +1,4 @@
+/* biome-ignore lint/correctness/noUnknownTypeSelector: <in the grid system container, col and row can be used as HTMLUnknownElement too, so this selector is needed> */
 :where(row, [row]) {
   display: grid;
   grid-template-columns: repeat(var(--wcag-gs--cols), minmax(0, 1fr));

@@ -1,68 +1,92 @@
 {
-	"vcs": {
-		"enabled": true,
-		"clientKind": "git",
-		"useIgnoreFile": true
-	},
-	"formatter": {
-		"enabled": true,
-		"formatWithErrors": false,
-		"indentStyle": "space",
-		"indentWidth": 2,
-		"lineEnding": "lf",
-		"lineWidth": 120,
-		"attributePosition": "auto",
-		"bracketSameLine": false,
-		"bracketSpacing": true,
-		"expand": "auto",
-		"useEditorconfig": true
-	},
-	"linter": {
-		"enabled": true,
-		"includes": [
-			"**/*",
-			"!packages/css/iconography/lib/fonts/wcag-icons/demo-files/demo.js",
-			"!packages/css/iconography/lib/fonts/wcag-icons/svgxuse.js"
-		],
-		"rules": {
-			"recommended": true,
-			"suspicious": { "noRedundantUseStrict": "off" }
-		}
-	},
-	"javascript": {
-		"formatter": {
-			"jsxQuoteStyle": "double",
-			"quoteProperties": "asNeeded",
-			"trailingCommas": "all",
-			"semicolons": "asNeeded",
-			"arrowParentheses": "always",
-			"bracketSameLine": false,
-			"quoteStyle": "single",
-			"attributePosition": "auto",
-			"bracketSpacing": true
-		}
-	},
-	"html": { "formatter": { "selfCloseVoidElements": "always" } },
-	"overrides": [
-		{
-			"includes": ["**/*.css"],
-			"linter": {
-				"rules": {
-					"style": { "noDescendingSpecificity": "off" }
-				}
-			}
-		},
-		{
-			"includes": ["*.js"],
-			"javascript": { "formatter": { "quoteStyle": "single" } }
-		},
-		{
-			"includes": ["**/*.test.js", "**/*.test.ts", "**/*.test.jsx", "**/*.test.tsx"],
-			"linter": {
-				"rules": {
-					"suspicious": { "noRedundantUseStrict": "off" }
-				}
-			}
-		}
-	]
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 120,
+    "attributePosition": "auto",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "expand": "auto",
+    "useEditorconfig": true
+  },
+  "linter": {
+    "enabled": true,
+    "includes": [
+      "**/*",
+      "!packages/css/iconography/lib/fonts/wcag-icons/demo-files/demo.js",
+      "!packages/css/iconography/lib/fonts/wcag-icons/demo-files/demo.css",
+      "!packages/css/iconography/lib/fonts/wcag-icons/svgxuse.js"
+    ],
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUnusedVariables": "warn",
+        "noUnusedFunctionParameters": "warn"
+      },
+      "suspicious": {
+        "noRedundantUseStrict": "off",
+        "noAssignInExpressions": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "quoteStyle": "single",
+      "attributePosition": "auto",
+      "bracketSpacing": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "selfCloseVoidElements": "always"
+    }
+  },
+  "json": {
+    "formatter": {
+      "indentStyle": "space",
+      "lineWidth": 120
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.css"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDescendingSpecificity": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["*.js"],
+      "javascript": {
+        "formatter": { "quoteStyle": "single" }
+      }
+    },
+    {
+      "includes": ["**/*.test.js", "**/*.test.ts", "**/*.test.jsx", "**/*.test.tsx"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noRedundantUseStrict": "off"
+          }
+        }
+      }
+    }
+  ]
 }

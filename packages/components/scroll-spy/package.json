@@ -12,6 +12,8 @@
     "build:css": "esbuild --bundle --minify ./lib/styles/scroll-spy.css --outfile=./scroll-spy.min.css",
     "build:js": "esbuild --bundle --packages=external --format=esm ./lib/scroll-spy.js --outfile=./scroll-spy.min.js",
     "build": "pnpm run build:css && pnpm run build:js",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/scroll-spy.css --outfile=./scroll-spy.min.css",
+    "watch:js": "esbuild --bundle --watch --packages=external --format=esm ./lib/scroll-spy.js --outfile=./scroll-spy.min.js",
     "publish:package": "npm publish --access public"
   },
   "dependencies": {
