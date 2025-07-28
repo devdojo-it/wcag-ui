@@ -1,7 +1,17 @@
 :root {
+  --wcag-accordion--display: flex;
+  --wcag-accordion--flex-flow: column nowrap;
+  --wcag-accordion--place-content: center space-between;
+  --wcag-accordion--gap: var(--wcag-s--200);
+
   --wcag-accordion--border-radius: var(--wcag-r--s);
 }
 
 [is="wcag-accordion"] {
+  display: var(--wcag-accordion--display);
+  flex-flow: var(--wcag-accordion--flex-flow);
+  place-content: var(--wcag-accordion--place-content);
+  gap: var(--wcag-accordion--gap);
+
   border-radius: var(--wcag-accordion--border-radius);
 }
