@@ -37,6 +37,7 @@
   "dependencies": {
     "@wcag-ui/accordion": "workspace:^0.0.14",
     "@wcag-ui/button": "workspace:^0.0.14",
+    "@wcag-ui/calendar": "workspace:^0.0.14",
     "@wcag-ui/checkbox": "workspace:^0.0.14",
     "@wcag-ui/core": "workspace:^0.0.14",
     "@wcag-ui/details": "workspace:^0.0.14",

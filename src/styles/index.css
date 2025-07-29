@@ -4,6 +4,7 @@
 @import "npm:@wcag-ui/typography";
 @import "npm:@wcag-ui/accordion/accordion.min.css";
 @import "npm:@wcag-ui/button/button.min.css";
+@import "npm:@wcag-ui/calendar/calendar.min.css";
 @import "npm:@wcag-ui/checkbox/checkbox.min.css";
 @import "npm:@wcag-ui/details/details.min.css";
 @import "npm:@wcag-ui/dialog/dialog.min.css";

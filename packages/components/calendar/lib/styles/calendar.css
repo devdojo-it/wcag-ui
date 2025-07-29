@@ -1,0 +1,58 @@
+[is='wcag-calendar'] {
+	display: flex;
+}
+
+[is='wcag-calendar'] [data-calendar] {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wcag-s--400);
+	width: calc(var(--wcag-s--400) * 22.5);
+}
+
+[is='wcag-calendar'] form {
+	display: flex;
+	min-width: 0;
+	gap: calc(var(--wcag-s--400) / 4);
+}
+
+[is='wcag-calendar'] :is(select, button[data-date]) {
+	background: none;
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	padding: 0;
+}
+
+[is='wcag-calendar'] header {
+	display: flex;
+	gap: calc(var(--wcag-s--400) / 2);
+}
+
+[is='wcag-calendar'] svg {
+	width: 1em;
+	fill: currentColor;
+}
+
+[is='wcag-calendar'] input {
+	min-width: 0;
+	flex-shrink: 1;
+}
+
+[is='wcag-calendar'] table {
+	table-layout: fixed;
+	align-self: center;
+}
+
+[is='wcag-calendar'] :is(th, td) {
+	width: calc(var(--wcag-s--400) * 2.5);
+	height: calc(var(--wcag-s--400) * 2.5);
+}
+
+[is='wcag-calendar'] button[data-date] {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}

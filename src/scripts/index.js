@@ -1,5 +1,6 @@
 import '@wcag-ui/accordion';
 import '@wcag-ui/button';
+import '@wcag-ui/calendar';
 import '@wcag-ui/checkbox';
 import '@wcag-ui/details';
 import '@wcag-ui/input';

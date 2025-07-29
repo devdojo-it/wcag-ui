@@ -12,11 +12,11 @@ The **Button** component is a versatile control element that responds to user in
 
 ---
 
-## Chips (Checkbox Variant)
+## Calendar
 
-This variant offers a compact, tag-like selection element. Often used to represent items or choices in a condensed format, it provides an accessible alternative for selectable chips.
+The **Calendar** component is a standard calendar for selecting dates and interval of dates.
 
-[Explore Chips →](./components-chips.html)
+[Explore Calendar →](./components-calendar.html)
 
 ---
 
@@ -25,6 +25,14 @@ This variant offers a compact, tag-like selection element. Often used to represe
 The **Checkbox** component is a standard toggle control for selection tasks. It is designed with proper labeling and focus states to ensure it is accessible and easy to use in forms.
 
 [Explore Checkbox →](./components-checkbox.html)
+
+---
+
+## Chips (Checkbox Variant)
+
+This variant offers a compact, tag-like selection element. Often used to represent items or choices in a condensed format, it provides an accessible alternative for selectable chips.
+
+[Explore Chips →](./components-chips.html)
 
 ---
 
