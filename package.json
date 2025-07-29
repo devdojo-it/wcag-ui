@@ -20,7 +20,7 @@
   "scripts": {
     "precommitlint": "pnpm run lint",
     "commitlint": "commitlint --from-last-tag",
-    "clear:cache": "rm -rf .parcel-cache dist",
+    "clear:cache": "rimraf .parcel-cache dist",
     "clear": "pnpm run clear:cache && rm -rf node_modules pnpm-lock.yaml",
     "reset": "pnpm run clear && pnpm install && pnpm approve-builds",
     "prestart": "pnpm run clear:cache && pnpm run build:packages",
@@ -70,6 +70,7 @@
     "posthtml-include": "2.0.1",
     "posthtml-markdownit": "3.1.2",
     "realfavicon": "0.4.18",
+    "rimraf": "^6.0.1",
     "svgo": "3.3.2"
   },
   "volta": {
