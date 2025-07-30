@@ -1,5 +1,5 @@
 :root {
-  --wcag-focus--outline-color: light-dark(hsl(245, 94%, 38%), hsl(245, 73%, 84%));
+  --wcag-f--outline-color: light-dark(hsl(245, 94%, 38%), hsl(245, 73%, 84%));
 
   --wcag-t--variant--opsz: "Auto";
   --wcag-t--variant--weight: 400;

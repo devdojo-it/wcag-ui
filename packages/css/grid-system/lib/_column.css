@@ -4,5 +4,4 @@
   grid-column: auto / span var(--wcag-gs--cols);
 
   max-inline-size: var(--wcag-gs--container--size);
-  border: 1px solid red;
 }

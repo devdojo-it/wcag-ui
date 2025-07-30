@@ -19,7 +19,7 @@
   "scripts": {
     "build:css": "esbuild --bundle --minify --external:*.svg#wcag-icons --external:*.ttf --external:*.woff --external:*.woff2 ./lib/typography.css --outfile=./typography.min.css",
     "build": "pnpm run build:css",
-    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/typography.css --outfile=./typography.min.css",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/typography.css --outfile=./typography.min.css",
     "publish:package": "npm publish --access public"
   },
   "directories": {

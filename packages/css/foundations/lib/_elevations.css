@@ -1,0 +1,5 @@
+:root {
+  --wcag-e--sm: 0 0.2rem 2rem 0 hsla(248, 28%, 55%, 0.08);
+  --wcag-e--md: 0 0.4rem 4rem -0.2rem hsla(248, 28%, 55%, 0.1);
+  --wcag-e--lg: 0 1.8rem 6rem 0.2rem hsla(248, 28%, 55%, 0.1);
+}

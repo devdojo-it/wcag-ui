@@ -1,8 +1,8 @@
 :root {
-  --wcag-checkbox--s-foc--outline-width: var(--wcag-focus--outline-width);
+  --wcag-checkbox--s-foc--outline-width: var(--wcag-f--outline-width);
   --wcag-checkbox--s-foc--outline-style: solid;
-  --wcag-checkbox--s-foc--outline-color: var(--wcag-focus--outline-color);
-  --wcag-checkbox--s-foc--outline-offset: var(--wcag-focus--outline-width);
+  --wcag-checkbox--s-foc--outline-color: var(--wcag-f--outline-color);
+  --wcag-checkbox--s-foc--outline-offset: var(--wcag-f--outline-width);
 }
 
 [is="wcag-checkbox"]:where(:focus, :focus-visible) {

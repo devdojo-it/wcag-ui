@@ -19,7 +19,7 @@
   "scripts": {
     "build:css": "esbuild --bundle --minify ./lib/foundations.css --outfile=./foundations.min.css",
     "build": "pnpm run build:css",
-    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/foundations.css --outfile=./foundations.min.css",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/foundations.css --outfile=./foundations.min.css",
     "publish:package": "npm publish --access public"
   },
   "directories": {
