@@ -4,12 +4,12 @@
   --wcag-details--place-content: center space-between;
   --wcag-details--gap: var(--wcag-s--700);
 
-  --wcag-details--background-color: var(--wcag-c--neutral-20);
+  --wcag-details--background-color: light-dark(var(--wcag-c--neutral-20), var(--wcag-c--neutral-800));
 
   --wcag-details--padding: var(--wcag-s--500);
   --wcag-details--border-width: 0.5px;
   --wcag-details--border-style: solid;
-  --wcag-details--border-color: var(--wcag-c--blue-300);
+  --wcag-details--border-color: light-dark( var(--wcag-c--blue-300), var(--wcag-c--blue-200));
   --wcag-details--border-radius: var(--wcag-r--s);
 
 }
