@@ -19,7 +19,7 @@
   "scripts": {
     "build:css": "esbuild --bundle --minify ./lib/grid-system.css --outfile=./grid-system.min.css",
     "build": "pnpm run build:css",
-    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/grid-system.css --outfile=./grid-system.min.css",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/grid-system.css --outfile=./grid-system.min.css",
     "publish:package": "npm publish --access public"
   },
   "directories": {

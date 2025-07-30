@@ -1,8 +1,8 @@
 :root {
-  --wcag-switch--s-foc--outline-width: var(--wcag-focus--outline-width);
+  --wcag-switch--s-foc--outline-width: var(--wcag-f--outline-width);
   --wcag-switch--s-foc--outline-style: solid;
-  --wcag-switch--s-foc--outline-color: var(--wcag-focus--outline-color);
-  --wcag-switch--s-foc--outline-offset: var(--wcag-focus--outline-width);
+  --wcag-switch--s-foc--outline-color: var(--wcag-f--outline-color);
+  --wcag-switch--s-foc--outline-offset: var(--wcag-f--outline-width);
 }
 
 [is="wcag-switch"]:where(:focus, :focus-visible) {

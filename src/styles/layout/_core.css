@@ -2,7 +2,9 @@
   font-family: "InterVariable", sans-serif;
   font-optical-sizing: auto;
   font-weight: var(--wcag-t--variant--weight);
-  font-variation-settings: "opsz" var(--wcag-t--variant--opsz), "wght" var(--wcag-t--variant--weight);
+  font-variation-settings:
+    "opsz" var(--wcag-t--variant--opsz),
+    "wght" var(--wcag-t--variant--weight);
 }
 
 html {
@@ -40,7 +42,7 @@ body {
 }
 
 a {
-  --wcag-focus--outline-offset: calc(var(--wcag-focus--outline-width) * 2);
+  --wcag-f--outline-offset: calc(var(--wcag-f--outline-width) * 2);
 
   border-radius: 0.4rem;
 }

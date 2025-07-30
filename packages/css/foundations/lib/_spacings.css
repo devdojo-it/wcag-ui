@@ -18,4 +18,9 @@
   --wcag-s--1400: calc(var(--wcag-s--400) * pow(var(--wcag-s--ratio), 10));
   --wcag-s--1500: calc(var(--wcag-s--400) * pow(var(--wcag-s--ratio), 11));
   --wcag-s--1600: calc(var(--wcag-s--400) * pow(var(--wcag-s--ratio), 12));
+  --wcag-s--1700: calc(var(--wcag-s--400) * pow(var(--wcag-s--ratio), 13));
+  --wcag-s--1800: calc(var(--wcag-s--400) * pow(var(--wcag-s--ratio), 14));
+  --wcag-s--1900: calc(var(--wcag-s--400) * pow(var(--wcag-s--ratio), 15));
 }
+
+

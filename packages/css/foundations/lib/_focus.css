@@ -1,13 +1,13 @@
 :root {
-  --wcag-focus--outline-width: 2px;
-  --wcag-focus--outline-style: solid;
-  --wcag-focus--outline-color: hsl(245, 93%, 38%);
-  --wcag-focus--outline-offset: var(--wcag-focus--outline-width);
+  --wcag-f--outline-width: 2px;
+  --wcag-f--outline-style: solid;
+  --wcag-f--outline-color: hsl(245, 93%, 38%);
+  --wcag-f--outline-offset: var(--wcag-f--outline-width);
 }
 
 :where(:focus-visible, :has(> [sr-only]):focus-within) {
-  outline-width: var(--wcag-focus--outline-width);
-  outline-style: var(--wcag-focus--outline-style);
-  outline-color: var(--wcag-focus--outline-color);
-  outline-offset: var(--wcag-focus--outline-offset);
+  outline-width: var(--wcag-f--outline-width);
+  outline-style: var(--wcag-f--outline-style);
+  outline-color: var(--wcag-f--outline-color);
+  outline-offset: var(--wcag-f--outline-offset);
 }

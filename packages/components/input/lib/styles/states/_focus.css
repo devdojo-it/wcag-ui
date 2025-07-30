@@ -1,8 +1,8 @@
 :root {
-  --wcag-input--s-foc--outline-width: var(--wcag-focus--outline-width);
+  --wcag-input--s-foc--outline-width: var(--wcag-f--outline-width);
   --wcag-input--s-foc--outline-style: solid;
-  --wcag-input--s-foc--outline-color: var(--wcag-focus--outline-color);
-  --wcag-input--s-foc--outline-offset: var(--wcag-focus--outline-width);
+  --wcag-input--s-foc--outline-color: var(--wcag-f--outline-color);
+  --wcag-input--s-foc--outline-offset: var(--wcag-f--outline-width);
 }
 
 [is="wcag-input"]:where(:focus, :focus-visible) {
