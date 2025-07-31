@@ -1,6 +1,6 @@
 {
   "name": "@wcag-ui/button",
-  "version": "0.0.14",
+  "version": "0.1.0-alpha",
   "description": "Button component for the wcagUI library",
   "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
   "contributors": [
@@ -27,7 +27,7 @@
     "publish:package": "npm publish --access public"
   },
   "dependencies": {
-    "@wcag-ui/core": "workspace:^0.0.14"
+    "@wcag-ui/core": "workspace:^0.1.0-alpha"
   },
   "directories": {
     "lib": "lib"
