@@ -1,6 +1,6 @@
 # wcagUI - Making Accessibility... Accessible - Code of Conduct
 
-**Version 1.0 – 31 July 2025**
+**last updated 31 July 2025**
 
 > *Accessibility is a human right. Every contribution to **wcagUI** starts from this belief.*
 >
