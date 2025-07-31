@@ -1,12 +1,41 @@
-.DS_Store
-.parcel-cache
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
 node_modules
-package-lock.json
-yarn.lock
-.idea
-lerna-debug.log
-.obsidian
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# build
+dist
 *.min.css
 *.min.js
-dist
-pnpm-lock.yaml
+
+# misc
+*.pem
+
+# cache
+.parcel-cache
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+
+#lock files
+package-lock.json
+yarn.lock
+
+# local env files
+.env.*
+*.env
+
+# OS/IDE files 
+.DS_Store
+.idea
+.obsidian
+
