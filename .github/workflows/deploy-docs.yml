@@ -1,0 +1,67 @@
+name: Docs Website Build & Deploy
+
+# Trigger: manual only (“Run workflow” from the Actions tab)
+on:
+  workflow_dispatch:
+
+# Minimum required permissions:
+# - contents: read   → to check out the code
+# - pages: write     → to publish to GitHub Pages
+# - id-token: write  → to sign the deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent concurrent deployments
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      packages: write
+      pages: write
+      contents: read
+      pull-requests: write
+      id-token: write
+
+    steps:
+      # 1. Check out the repository
+      - uses: actions/checkout@v4
+
+      # 2. Set up Node 20 and enable pnpm cache
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      # # 3. Install pnpm globally
+      # - name: Install pnpm
+      #   run: npm install -g pnpm
+
+      # 4. Install dependencies
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile --legacy-peer-deps
+
+      # 5. Build the documentation site
+      - name: Build site
+        run: pnpm build
+
+      # 6. Configure GitHub Pages (gh-pages branch handled by the action)
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # 7. Upload the dist/ folder as a Pages artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      # 8. Final deployment to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

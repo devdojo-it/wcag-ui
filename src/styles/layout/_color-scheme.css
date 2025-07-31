@@ -29,6 +29,7 @@
 
     i {
       --wcag-t--font-size: 1.8rem;
+      --wcag-t--line-height: 1;
 
       inline-size: var(--wcag-t--font-size);
       aspect-ratio: 1;
