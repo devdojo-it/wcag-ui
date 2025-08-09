@@ -5,22 +5,23 @@ import attributes from './switch.attributes';
 import events from './switch.events';
 
 export class Switch extends HTMLInputElement {
-  static componentName = 'wcag-switch';
+  static isAttribute = 'wcag-switch';
   static extendsElement = 'input';
   static attributes = attributes;
   static events = events;
 
   static {
-    componentDecorator('Switch', Switch);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   constructor() {
     super();
 
-    this.#initialize();
+    this.#init();
   }
 
-  #initialize() {
+  #init() {
     // sets type="checkbox" and switch attributes if not present
     this.setAttribute('type', 'checkbox');
     this.setAttribute('switch', '');

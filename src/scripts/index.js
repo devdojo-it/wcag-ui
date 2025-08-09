@@ -6,6 +6,7 @@ import '@wcag-ui/input';
 import '@wcag-ui/radio';
 import '@wcag-ui/scroll-spy';
 import '@wcag-ui/switch';
+import '@wcag-ui/tree-view';
 
 import './_highlight.js';
 

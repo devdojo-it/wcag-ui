@@ -5,22 +5,23 @@ import attributes from './select.attributes';
 import events from './select.events';
 
 export class Select extends HTMLElement {
-  static componentName = 'wcag-select';
+  static isAttribute = 'wcag-select';
   static extendsElement = 'span';
   static attributes = attributes;
   static events = events;
 
   static {
-    componentDecorator('Select', Select);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   constructor() {
     super();
 
-    this.#initialize();
+    this.#init();
   }
 
-  #initialize() {
+  #init() {
     // <select name="NAME" aria-label="...">...</select>
 
     if (this.ariaLabel) {

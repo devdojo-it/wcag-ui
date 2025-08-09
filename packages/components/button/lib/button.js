@@ -11,7 +11,7 @@ import events from './button.events';
  * @extends {HTMLButtonElement}
  */
 export class Button extends HTMLButtonElement {
-  static componentName = 'wcag-button';
+  static isAttribute = 'wcag-button';
   static extendsElement = 'button';
   static attributes = attributes;
   static events = events;
@@ -23,16 +23,17 @@ export class Button extends HTMLButtonElement {
    * @memberof Button
    */
   static {
-    componentDecorator('Button', Button);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   constructor() {
     super();
 
-    this.#initialize();
+    this.#init();
   }
 
-  #initialize() {
+  #init() {
     !this.hasAttribute('type') && this.setAttribute('type', 'button');
     // !this.hasAttribute("role") && this.setAttribute("role", "button");
   }

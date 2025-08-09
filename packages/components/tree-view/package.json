@@ -1,0 +1,44 @@
+{
+  "name": "@wcag-ui/tree-view",
+  "version": "0.1.0-alpha.0",
+  "description": "TreeView component for the wcagUI library",
+  "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
+  "contributors": [
+    "Emiliano Pisu <pixu1980@github>",
+    "Massimo Artizzu <maxart2501@github>",
+    "Mirela Rosca <mirirosca@github>",
+    "Marco Pollacci <marcopollacci@github>",
+    "Valeria Salis <vallss@github>",
+    "Alessio Tortolini <alestormoody@github>",
+    "Christian Nastasi <cnastasi@github>",
+    "Salvatore Tropea <salvotropea96@github>"
+  ],
+  "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
+  "license": "MIT",
+  "main": "tree-view.min.js",
+  "type": "module",
+  "scripts": {
+    "test": "node ./__tests__/tree-view.test.js",
+    "build:css": "esbuild --bundle --minify ./lib/styles/tree-view.css --outfile=./tree-view.min.css",
+    "build:js": "esbuild --bundle --packages=external --format=esm --supported:const-and-let=true ./lib/tree-view.js --outfile=./tree-view.min.js",
+    "build": "pnpm run build:css && pnpm run build:js",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/tree-view.css --outfile=./tree-view.min.css",
+    "watch:js": "esbuild --bundle --watch --packages=external --format=esm --supported:const-and-let=true ./lib/tree-view.js --outfile=./tree-view.min.js",
+    "publish:package": "npm publish --access public"
+  },
+  "dependencies": {
+    "@wcag-ui/core": "workspace:^0.1.0-alpha.0",
+    "@wcag-ui/dom": "workspace:^0.1.0-alpha.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": ["lib", "tree-view.min.css", "tree-view.min.js", "package.json", "README.md"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devdojo-it/wcag-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devdojo-it/wcag-ui/issues"
+  }
+}

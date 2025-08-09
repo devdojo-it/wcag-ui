@@ -5,22 +5,23 @@ import attributes from './textarea.attributes';
 import events from './textarea.events';
 
 export class Textarea extends HTMLInputElement {
-  static componentName = 'wcag-textarea';
+  static isAttribute = 'wcag-textarea';
   static extendsElement = 'textarea';
   static attributes = attributes;
   static events = events;
 
   static {
-    componentDecorator('Textarea', Textarea);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   constructor() {
     super();
 
-    this.#initialize();
+    this.#init();
   }
 
-  #initialize() {
+  #init() {
     // <textarea name="NAME" aria-label="..."></textarea>
 
     // settings default type attribute to text, if missing

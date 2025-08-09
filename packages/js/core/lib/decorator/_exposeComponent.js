@@ -1,6 +1,5 @@
-export function exposeComponent(className, component) {
-  // TODO: check if possibile to extract className from component
-  Object.assign(self, { wcagUI: { ...self.wcagUI, [className]: component } });
+export function exposeComponent(component) {
+  Object.assign(self, { wcagUI: { ...self.wcagUI, [component.name]: component } });
 }
 
 // new wcagUI.Button();

@@ -1,0 +1,44 @@
+{
+  "name": "@wcag-ui/component-name",
+  "version": "0.0.0",
+  "description": "ComponentName component for the wcagUI library",
+  "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
+  "contributors": [
+    "Emiliano Pisu <pixu1980@github>",
+    "Massimo Artizzu <maxart2501@github>",
+    "Mirela Rosca <mirirosca@github>",
+    "Marco Pollacci <marcopollacci@github>",
+    "Valeria Salis <vallss@github>",
+    "Alessio Tortolini <alestormoody@github>",
+    "Christian Nastasi <cnastasi@github>",
+    "Salvatore Tropea <salvotropea96@github>"
+  ],
+  "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
+  "license": "MIT",
+  "main": "component-name.min.js",
+  "type": "module",
+  "scripts": {
+    "test": "node ./__tests__/component-name.test.js",
+    "build:css": "esbuild --bundle --minify ./lib/styles/component-name.css --outfile=./component-name.min.css",
+    "build:js": "esbuild --bundle --packages=external --format=esm ./lib/component-name.js --outfile=./component-name.min.js",
+    "build": "pnpm run build:css && pnpm run build:js",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/component-name.css --outfile=./component-name.min.css",
+    "watch:js": "esbuild --bundle --watch --packages=external --format=esm ./lib/component-name.js --outfile=./component-name.min.js",
+    "publish:package": "npm publish --access public"
+  },
+  "dependencies": {
+    "@wcag-ui/core": "workspace:^0.0.0",
+    "@wcag-ui/dom": "workspace:^0.0.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": ["lib", "component-name.min.css", "component-name.min.js", "package.json", "README.md"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devdojo-it/wcag-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devdojo-it/wcag-ui/issues"
+  }
+}

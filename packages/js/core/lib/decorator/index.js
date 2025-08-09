@@ -3,9 +3,9 @@ import { assertMetaKey } from "./_assertMetaKey";
 import { defineCustomElement } from "./_defineCustomElement";
 import { exposeComponent } from "./_exposeComponent";
 
-export function componentDecorator(className, component) {
-  assertMetaKey(component, "componentName");
+export function componentDecorator(component) {
+  assertMetaKey(component, "isAttribute");
   defineCustomElement(component);
   applyMixins(component);
-  exposeComponent(className, component);
+  exposeComponent(component);
 }
