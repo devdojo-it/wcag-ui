@@ -5,22 +5,23 @@ import attributes from './input.attributes';
 import events from './input.events';
 
 export class Input extends HTMLInputElement {
-  static componentName = 'wcag-input';
+  static isAttribute = 'wcag-input';
   static extendsElement = 'input';
   static attributes = attributes;
   static events = events;
 
   static {
-    componentDecorator('Input', Input);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   constructor() {
     super();
 
-    this.#initialize();
+    this.#init();
   }
 
-  #initialize() {
+  #init() {
     // <input is="wcag-input" name="NAME" type="TYPE" aria-label="..." />
 
     // settings default type attribute to text, if missing
