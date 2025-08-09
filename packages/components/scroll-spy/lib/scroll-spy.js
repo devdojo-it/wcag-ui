@@ -7,7 +7,7 @@ import events from './scroll-spy.events';
 const { stripEmojis } = helpers.strings;
 
 export class ScrollSpy extends HTMLElement {
-  static componentName = 'wcag-scroll-spy';
+  static isAttribute = 'wcag-scroll-spy';
   static extendsElement = 'section';
   static attributes = attributes;
   static events = events;
@@ -19,7 +19,8 @@ export class ScrollSpy extends HTMLElement {
    * @memberof ScrollSpy
    */
   static {
-    componentDecorator('ScrollSpy', ScrollSpy);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   #observer;

@@ -100,4 +100,12 @@ The **Dialog** component creates modal interfaces that focus user attention on a
 
 ---
 
+## TreeView
+
+The **TreeView** component creates a ...
+
+[Explore TreeView →](./components-tree-view.html)
+
+---
+
 Each component in wcagUI is designed with accessibility at its core, ensuring that your interfaces are not only functional but also inclusive. Choose any topic above to dive deeper into its implementation and customization.

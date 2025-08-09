@@ -11,7 +11,7 @@ import events from './accordion.events';
  * @extends {HTMLElement}
  */
 export class Accordion extends HTMLElement {
-  static componentName = 'wcag-accordion';
+  static isAttribute = 'wcag-accordion';
   static extendsElement = 'section';
   static attributes = attributes;
   static events = events;
@@ -23,7 +23,8 @@ export class Accordion extends HTMLElement {
    * @memberof Accordion
    */
   static {
-    componentDecorator('Accordion', Accordion);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   #guid;
@@ -56,10 +57,10 @@ export class Accordion extends HTMLElement {
   constructor() {
     super();
 
-    this.#initialize();
+    this.#init();
   }
 
-  #initialize() {
+  #init() {
     this.#guid = helpers.strings.guid();
 
     this.#mutationObserver = new MutationObserver(this.#mutationHandler.bind(this));

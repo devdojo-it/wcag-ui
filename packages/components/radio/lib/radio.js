@@ -5,22 +5,23 @@ import attributes from './radio.attributes';
 import events from './radio.events';
 
 export class Radio extends HTMLInputElement {
-  static componentName = 'wcag-radio';
+  static isAttribute = 'wcag-radio';
   static extendsElement = 'input';
   static attributes = attributes;
   static events = events;
 
   static {
-    componentDecorator('Radio', Radio);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   constructor() {
     super();
 
-    this.#initialize();
+    this.#init();
   }
 
-  #initialize() {
+  #init() {
     // sets type="radio" if not present
     this.setAttribute('type', 'radio');
 

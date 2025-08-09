@@ -14,6 +14,7 @@
 @import "npm:@wcag-ui/switch/switch.min.css";
 @import "npm:@wcag-ui/tooltip/tooltip.min.css";
 @import "npm:@wcag-ui/textarea/textarea.min.css";
+@import "npm:@wcag-ui/tree-view/tree-view.min.css";
 
 @import "./_code.css" layer(wcag-ui-docs.code);
 @import "./layout/layout.css" layer(wcag-ui-docs.layout);

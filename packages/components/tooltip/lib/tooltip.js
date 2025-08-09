@@ -4,20 +4,21 @@ import attributes from './tooltip.attributes';
 import events from './tooltip.events';
 
 export class Tooltip extends HTMLElement {
-  static componentName = 'wcag-tooltip';
+  static isAttribute = 'wcag-tooltip';
   static extendsElement = 'span';
   static attributes = attributes;
   static events = events;
 
   static {
-    componentDecorator('Tooltip', Tooltip);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   constructor() {
     super();
 
-    this.#initialize();
+    this.#init();
   }
 
-  #initialize() {}
+  #init() {}
 }

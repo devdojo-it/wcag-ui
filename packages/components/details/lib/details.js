@@ -12,7 +12,7 @@ import events from './details.events';
  * @extends {HTMLDetailsElement}
  */
 export class Details extends HTMLDetailsElement {
-  static componentName = 'wcag-details';
+  static isAttribute = 'wcag-details';
   static extendsElement = 'details';
   static attributes = attributes;
   static events = events;
@@ -24,7 +24,8 @@ export class Details extends HTMLDetailsElement {
    * @memberof Details
    */
   static {
-    componentDecorator('Details', Details);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   #guid;
@@ -34,10 +35,10 @@ export class Details extends HTMLDetailsElement {
   constructor() {
     super();
 
-    this.#initialize();
+    this.#init();
   }
 
-  #initialize() {
+  #init() {
     this.#guid = helpers.strings.guid();
 
     this.setAttribute('aria-expanded', `${this.open.toString()}`);

@@ -4,7 +4,7 @@ import { buildLifecycleMethods } from './_buildLifecycleMethods';
 export function applyMixins(component) {
   Object.assign(
     component.prototype,
-    { componentName: component.componentName },
+    { componentName: component.isAttribute },
     component.attributes && { ...buildAttributeHandlers(component.attributes) },
     component.events && { ...buildEventHandlers(component.events) },
     buildLifecycleMethods(component)

@@ -5,22 +5,23 @@ import attributes from './checkbox.attributes';
 import events from './checkbox.events';
 
 export class Checkbox extends HTMLInputElement {
-  static componentName = 'wcag-checkbox';
+  static isAttribute = 'wcag-checkbox';
   static extendsElement = 'input';
   static attributes = attributes;
   static events = events;
 
   static {
-    componentDecorator('Checkbox', Checkbox);
+    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
+    componentDecorator(this);
   }
 
   constructor() {
     super();
 
-    this.#initialize();
+    this.#init();
   }
 
-  #initialize() {
+  #init() {
     // sets type="checkbox" if not present
     this.setAttribute('type', 'checkbox');
 
