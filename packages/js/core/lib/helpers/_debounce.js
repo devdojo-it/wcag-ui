@@ -1,8 +1,11 @@
 /**
- * decodes a base64 string into a Json parsed object
+ * Creates a debounced version of a callback that delays invocation
+ * until after `threshold` milliseconds have elapsed since the last call.
  *
- * @param {string} s - the given string
- * @return {object}
+ * @template {(...args: any[]) => any} F
+ * @param {F} callback - Function to debounce.
+ * @param {number} [threshold=300] - Delay in milliseconds.
+ * @returns {(this: ThisType<F>, ...args: Parameters<F>) => void} Debounced function.
  */
 export function debounce(callback, threshold = 300) {
   let debounce;

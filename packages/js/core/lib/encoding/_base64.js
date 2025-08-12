@@ -2,23 +2,23 @@ import { types } from "../helpers/_types";
 
 const base64 = {
   /**
-   * encodes a string in base64
+   * Encodes a string in Base64 (URL-safe handling via encodeURIComponent before btoa).
    *
-   * @param {string} s - the given string
-   * @return {string}
+   * @param {string} s - The input string.
+   * @returns {string}
    */
   encode: (s) => {
-    if (types.isString(s)) {
+    if (!types.isString(s)) {
       throw new Error("@wcag-js/core error, encodeBase64: the provided parameter is not a valid string");
     }
 
     return btoa(encodeURIComponent(s));
   },
   /**
-   * decodes a string in base64
+   * Decodes a Base64 string back to plain text.
    *
-   * @param {string} s - the given string
-   * @return {string}
+   * @param {string} s - The Base64-encoded string.
+   * @returns {string}
    */
   decode: (s) => {
     if (!types.isString(s)) {
@@ -28,29 +28,29 @@ const base64 = {
     return decodeURIComponent(atob(s));
   },
   /**
-   * stringifies an Object in JSON and encodes it in base64
+   * Stringifies an object in JSON and encodes it in Base64.
    *
-   * @param {object} o - the given object
-   * @return {string}
+   * @param {object} o - The input object.
+   * @returns {string}
    */
   fromJSON: (o) => {
     if (!types.isObject(o)) {
       throw new Error("@wcag-js/core error, base64.fromJSON: the provided parameter is not a valid object");
     }
-    return encodeBase64(JSON.stringify(o));
+    return base64.encode(JSON.stringify(o));
   },
   /**
-   * decodes a base64 string into a Json parsed object
+   * Decodes a Base64 string and parses it as JSON.
    *
-   * @param {string} s - the given string
-   * @return {object}
+   * @param {string} s - The Base64-encoded JSON string.
+   * @returns {object}
    */
   toJSON: (s) => {
     if (!types.isString(s)) {
       throw new Error("@wcag-js/core error, base64ToJson: the provided parameter is not a valid string");
     }
 
-    return JSON.parse(decodeBase64(s));
+    return JSON.parse(base64.decode(s));
   },
 };
 

@@ -1,13 +1,21 @@
 /** biome-ignore-all lint/suspicious/noDocumentCookie: <this is temporary waiting for full Baseline support about the Cookie Store API> */
 /** biome-ignore-all lint/complexity/noStaticOnlyClass: <this is temporary waiting for full Baseline support about the Cookie Store API> */
+/**
+ * Minimal cookie-based storage with a `localStorage`-like API.
+ *
+ * Notes:
+ * - Uses document.cookie under the hood (string size limits apply).
+ * - Values are not encrypted; avoid storing sensitive data.
+ * - Time-to-live controlled via `days` argument on setItem.
+ */
 export class CookieStorage {
-  // Imposta un cookie
+  /** Sets a cookie with optional expiration in days. */
   static setItem(key, value, days = 7) {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
     document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
   }
 
-  // Ottiene il valore di un cookie
+  /** Gets a cookie value or null if not present. */
   static getItem(key) {
     return (
       document.cookie
@@ -17,12 +25,12 @@ export class CookieStorage {
     );
   }
 
-  // Rimuove un cookie
+  /** Removes a cookie by setting an expired date. */
   static removeItem(key) {
     document.cookie = `${encodeURIComponent(key)}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
   }
 
-  // Pulisce tutti i cookie
+  /** Clears all cookies for the current path/domain. */
   static clear() {
     document.cookie.split(';').forEach((cookie) => {
       document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`);
