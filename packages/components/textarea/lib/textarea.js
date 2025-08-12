@@ -5,13 +5,11 @@ import attributes from './textarea.attributes';
 import events from './textarea.events';
 
 export class Textarea extends HTMLInputElement {
-  static isAttribute = 'wcag-textarea';
   static extendsElement = 'textarea';
   static attributes = attributes;
   static events = events;
 
   static {
-    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
     componentDecorator(this);
   }
 

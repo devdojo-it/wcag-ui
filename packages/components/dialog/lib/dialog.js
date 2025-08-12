@@ -11,7 +11,6 @@ import events from './dialog.events';
  * @extends {HTMLDialogElement}
  */
 export class Dialog extends HTMLDialogElement {
-  static isAttribute = 'wcag-dialog';
   static extendsElement = 'dialog';
   static attributes = attributes;
   static events = events;
@@ -23,7 +22,6 @@ export class Dialog extends HTMLDialogElement {
    * @memberof Dialog
    */
   static {
-    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
     componentDecorator(this);
   }
 

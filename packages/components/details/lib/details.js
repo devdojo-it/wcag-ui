@@ -12,7 +12,6 @@ import events from './details.events';
  * @extends {HTMLDetailsElement}
  */
 export class Details extends HTMLDetailsElement {
-  static isAttribute = 'wcag-details';
   static extendsElement = 'details';
   static attributes = attributes;
   static events = events;
@@ -24,7 +23,6 @@ export class Details extends HTMLDetailsElement {
    * @memberof Details
    */
   static {
-    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
     componentDecorator(this);
   }
 

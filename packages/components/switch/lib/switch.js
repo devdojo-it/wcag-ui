@@ -5,13 +5,11 @@ import attributes from './switch.attributes';
 import events from './switch.events';
 
 export class Switch extends HTMLInputElement {
-  static isAttribute = 'wcag-switch';
   static extendsElement = 'input';
   static attributes = attributes;
   static events = events;
 
   static {
-    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
     componentDecorator(this);
   }
 

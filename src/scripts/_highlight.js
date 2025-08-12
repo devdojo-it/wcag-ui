@@ -1,9 +1,9 @@
 // Using ES6 import syntax
 import hljs from "highlight.js/lib/core";
-import xml from "highlight.js/lib/languages/xml";
 import css from "highlight.js/lib/languages/css";
 import javascript from "highlight.js/lib/languages/javascript";
 import typescript from "highlight.js/lib/languages/typescript";
+import xml from "highlight.js/lib/languages/xml";
 
 // Then register the languages you need
 hljs.registerLanguage("xml", xml);

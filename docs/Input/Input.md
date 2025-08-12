@@ -1,4 +1,4 @@
-# 📌 Text Field - Accessibilità
+# 📌 Input - Accessibilità
 
 ## 1. Overview del Componente
 Il componente `Text Field` permette agli utenti di inserire brevi testi su una sola riga. Deve essere chiaramente distinguibile visivamente e accessibile tramite tastiera e screen reader.

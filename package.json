@@ -32,7 +32,7 @@
     "watch:js": "pnpm -r --parallel watch:js",
     "lint": "biome lint .",
     "lint:fix": "biome lint . --write",
-    "component:add": "node --experimental-modules ./scripts/componentAdd.mjs",
+    "component:add": "node --experimental-modules ./scripts/component-add.mjs",
     "release:packages": "node --experimental-modules ./scripts/release.mjs"
   },
   "dependencies": {
@@ -71,6 +71,7 @@
     "posthtml-highlight": "3.0.0",
     "posthtml-include": "2.0.1",
     "posthtml-markdownit": "3.1.2",
+    "prettier": "3.6.2",
     "realfavicon": "0.4.18",
     "svgo": "3.3.2"
   },

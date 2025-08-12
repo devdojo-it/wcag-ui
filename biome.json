@@ -31,6 +31,9 @@
         "noUnusedVariables": "warn",
         "noUnusedFunctionParameters": "warn"
       },
+      "complexity": {
+        "noThisInStatic": "off"
+      },
       "suspicious": {
         "noRedundantUseStrict": "off",
         "noAssignInExpressions": "off"

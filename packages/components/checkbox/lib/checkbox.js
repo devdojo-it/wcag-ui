@@ -5,13 +5,11 @@ import attributes from './checkbox.attributes';
 import events from './checkbox.events';
 
 export class Checkbox extends HTMLInputElement {
-  static isAttribute = 'wcag-checkbox';
   static extendsElement = 'input';
   static attributes = attributes;
   static events = events;
 
   static {
-    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
     componentDecorator(this);
   }
 

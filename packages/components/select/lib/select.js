@@ -5,13 +5,11 @@ import attributes from './select.attributes';
 import events from './select.events';
 
 export class Select extends HTMLElement {
-  static isAttribute = 'wcag-select';
   static extendsElement = 'span';
   static attributes = attributes;
   static events = events;
 
   static {
-    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
     componentDecorator(this);
   }
 

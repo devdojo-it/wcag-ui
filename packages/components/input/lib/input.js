@@ -5,13 +5,11 @@ import attributes from './input.attributes';
 import events from './input.events';
 
 export class Input extends HTMLInputElement {
-  static isAttribute = 'wcag-input';
   static extendsElement = 'input';
   static attributes = attributes;
   static events = events;
 
   static {
-    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
     componentDecorator(this);
   }
 
