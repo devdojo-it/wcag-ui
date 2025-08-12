@@ -1,19 +1,18 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: <this is a template> */
-import { componentDecorator, helpers } from "@wcag-ui/core";
-import { DOM } from "@wcag-ui/dom";
+import { componentDecorator, helpers } from '@wcag-ui/core';
+import { DOM } from '@wcag-ui/dom';
 
 import attributes from './component-name.attributes';
 import events from './component-name.events';
 
 /**
- * wcagUI componentName class
+ * wcagUI ComponentName class
  *
  * @export
- * @class componentName
+ * @class ComponentName
  * @extends {HTMLElement}
  */
 export class ComponentName extends HTMLElement {
-  static isAttribute = 'wcag-component-name';
   static extendsElement = 'section';
   static attributes = attributes;
   static events = events;
@@ -22,10 +21,9 @@ export class ComponentName extends HTMLElement {
    * static initialization
    *
    * @static
-   * @memberof componentName
+   * @memberof ComponentName
    */
   static {
-    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
     componentDecorator(this);
   }
 
@@ -35,6 +33,5 @@ export class ComponentName extends HTMLElement {
     this.#init();
   }
 
-  #init() {
-  }
+  #init() {}
 }

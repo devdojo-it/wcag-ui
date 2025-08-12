@@ -1,11 +1,12 @@
 import { applyMixins } from "./_applyMixins";
-import { assertMetaKey } from "./_assertMetaKey";
 import { defineCustomElement } from "./_defineCustomElement";
 import { exposeComponent } from "./_exposeComponent";
+import { generateIsAttribute } from './_generateIsAttribute';
 
 export function componentDecorator(component) {
-  assertMetaKey(component, "isAttribute");
-  defineCustomElement(component);
-  applyMixins(component);
+  const isAttribute = component.isAttribute ?? generateIsAttribute(component.name);
+
+  defineCustomElement(component, isAttribute);
+  applyMixins(component, isAttribute);
   exposeComponent(component);
 }

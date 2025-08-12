@@ -11,7 +11,6 @@ import events from './accordion.events';
  * @extends {HTMLElement}
  */
 export class Accordion extends HTMLElement {
-  static isAttribute = 'wcag-accordion';
   static extendsElement = 'section';
   static attributes = attributes;
   static events = events;
@@ -23,7 +22,6 @@ export class Accordion extends HTMLElement {
    * @memberof Accordion
    */
   static {
-    // biome-ignore lint/complexity/noThisInStatic: <"this" is needed to keep names with esbuild>
     componentDecorator(this);
   }
 

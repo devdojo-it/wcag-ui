@@ -2,168 +2,143 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { collectPackageJson, sortPackageJsonByWeights } from './_utils.mjs';
+
+import { buildPackageIfNeeded, collectPackageJson, resetToWorkspaceRanges, sortPackageJsonByWeights, updatePackageForRelease, updateRootPackageForRelease } from './_package-utils.mjs';
+
+/**
+ * Release script for wcag-ui monorepo. Handles version bump, package updates, changelog, and git operations.
+ *
+ * Usage: node scripts/release.mjs
+ */
 
 const root = process.cwd();
 
-// TODO: handle the "verbose" CLI version enabling (console.log)s if needed
-/* ------------------------------------------------------------------------ */
-/* 1. Collects package.json files from packages                             */
-/* ------------------------------------------------------------------------ */
+/**
+ * Collect all package.json files from the packages directory.
+ * @type {string[]}
+ */
 const packageJsonPaths = collectPackageJson(path.join(root, 'packages'));
-// console.log("detected packageJsonPaths: ", packageJsonPaths);
 
+/**
+ * Get all local package names from package.json files.
+ * @type {string[]}
+ */
 const localPackages = packageJsonPaths.map((p) => JSON.parse(fs.readFileSync(p, 'utf8')).name);
-// console.log("detected localPackages: ", localPackages);
 
-/* ------------------------------------------------------------------------ */
-/* 2. Fetches the lastTag (or the first commit if there's not tag) from git */
-/* ------------------------------------------------------------------------ */
+/**
+ * Get the last tag or first commit from git history.
+ * @type {string}
+ */
 let lastTagOrCommit;
-
 try {
   lastTagOrCommit = execSync('git describe --tags --abbrev=0').toString().trim();
 } catch {
   lastTagOrCommit = execSync("git log --format='%H' | tail -1").toString().trim();
 }
-// console.log("detected lastTagOrCommit: ", lastTagOrCommit);
 
-/* ------------------------------------------------------------------------ */
-/* 3. Collects all the commits since lastTagOrCommit up to HEAD             */
-/* ------------------------------------------------------------------------ */
+/**
+ * Collect all commit messages since lastTagOrCommit up to HEAD.
+ * @type {string[]}
+ */
 const commitsLogCommand = `git log ${lastTagOrCommit ? `${lastTagOrCommit}..HEAD` : ''} --pretty=%s`;
-// console.log("running: ", commitsLogCommand);
+const commits = execSync(commitsLogCommand).toString().split('\n').filter(Boolean);
 
-const commits = execSync(commitsLogCommand).toString().split('\n').filter(String);
-// console.log("involved commits: ", commits);
-
-/* ------------------------------------------------------------------------ */
-/* 4. Computes the next semver for the packages                             */
-/* ------------------------------------------------------------------------ */
+/**
+ * Determine the next semver bump type (major, minor, patch) based on commit messages.
+ * @type {'major'|'minor'|'patch'}
+ */
 const bump = commits.some((c) => /BREAKING CHANGE/.test(c))
   ? 'major'
   : commits.some((c) => c.startsWith('feat'))
     ? 'minor'
     : 'patch';
 
-// is semver or commit?
+/**
+ * Regex to check if lastTagOrCommit is a semver tag.
+ * @type {RegExp}
+ */
 const isSemverRegex =
   /^(v)?([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/g;
 
+/**
+ * Last semver tag or '0.0.0' if not found.
+ * @type {string}
+ */
 const lastTag = lastTagOrCommit.match(isSemverRegex) ? lastTagOrCommit.substring(1) : '0.0.0';
 console.log('detected lastTag', lastTag);
 
+/**
+ * Next version string based on bump type.
+ * @type {string}
+ */
 const [major, minor, patch] = lastTag.split('.').map(Number);
-
 const next =
   bump === 'major'
     ? `${major + 1}.0.0`
     : bump === 'minor'
       ? `${major}.${minor + 1}.0`
       : `${major}.${minor}.${patch + 1}`;
-
 console.log(`Bumping version from ${lastTag} to ${next} (${bump})`);
 
-/* ------------------------------------------------------------------------ */
-/* 5. Sorts the packages according to: css → js → components                */
-/* ------------------------------------------------------------------------ */
+/**
+ * Sort package.json files by type: css, js, components.
+ * @type {Array<{ type: string, path: string }>}
+ */
 const packageJsonPathsRemap = sortPackageJsonByWeights(packageJsonPaths);
 
-/* ------------------------------------------------------------------------ */
-/* 6. Updates the package.json files in the packages according to the next  */
-/*    semver, and run build scripts if present                              */
-/* ------------------------------------------------------------------------ */
+/**
+ * Update each package.json file with the new version and update local dependencies.
+ * Also runs build scripts if present.
+ */
 for (const packageJson of packageJsonPathsRemap) {
-  const pkg = JSON.parse(fs.readFileSync(packageJson.path, 'utf8'));
-
-  pkg.version = next;
-
-  for (const field of ['dependencies', 'peerDependencies', 'devDependencies']) {
-    if (!pkg[field]) continue;
-
-    for (const dep in pkg[field]) {
-      localPackages.includes(dep) && (pkg[field][dep] = `^${next}`);
-    }
-  }
-
-  fs.writeFileSync(packageJson.path, `${JSON.stringify(pkg, null, 2)}\n`);
-
-  Object.keys(pkg.scripts).includes('build') &&
-    execSync(`pnpm --prefix=${path.dirname(packageJson.path)} build`, { stdio: 'inherit' });
+  await updatePackageForRelease(packageJson.path, next, localPackages);
+  buildPackageIfNeeded(packageJson.path);
 }
 
-/* ------------------------------------------------------------------------ */
-/* 6. Updates the root package.json and runs build script if present        */
-/* ------------------------------------------------------------------------ */
-const rootPkgPath = path.join(root, 'package.json');
+/**
+ * Update root package.json with new version and local dependencies, then run build script if present.
+ */
+await updateRootPackageForRelease(path.join(root, 'package.json'), next, localPackages, true, root);
 
-if (fs.existsSync(rootPkgPath)) {
-  const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, 'utf8'));
-
-  rootPkg.version = next;
-
-  localPackages.forEach((name) => {
-    rootPkg.dependencies ??= {};
-    rootPkg.dependencies[name] = `^${next}`;
-  });
-
-  fs.writeFileSync(rootPkgPath, `${JSON.stringify(rootPkg, null, 2)}\n`);
-
-  Object.keys(rootPkg.scripts).includes('build') && execSync(`pnpm build`, { stdio: 'inherit' });
-}
-
-/* ------------------------------------------------------------------------ */
-/* 7. Publishes the packages into the configured registry (default: npm)   */
-/* ------------------------------------------------------------------------ */
+/**
+ * Publish all packages in the monorepo to the configured registry (default: npm).
+ */
 for (const packageJson of packageJsonPathsRemap) {
   if (path.dirname(packageJson.path).includes('packages')) {
     execSync(`pnpm --prefix=${path.dirname(packageJson.path)} publish:package`, { stdio: 'inherit' });
   }
 }
 
-/* ------------------------------------------------------------------------ */
-/* 8. Updates the changelog file from lastTagOrCommit to HEAD               */
-/* ------------------------------------------------------------------------ */
+/**
+ * Update the changelog file from lastTagOrCommit to HEAD.
+ */
 execSync(`changelog -t ${lastTagOrCommit}..HEAD -x rel,build,chore`, { stdio: 'inherit' });
 
-/* ------------------------------------------------------------------------ */
-/* 9. Pushes all the updated files in a chore(release): commit              */
-/* ------------------------------------------------------------------------ */
+/**
+ * Commit and push all updated files as a release commit.
+ */
 execSync('git add .', { stdio: 'inherit' });
 execSync(`git commit -m "chore(release): v${next}"`, { stdio: 'inherit' });
 execSync('git push', { stdio: 'inherit' });
 
-/* ------------------------------------------------------------------------ */
-/* 10. Generates and pushes the {next} semver tag                            */
-/* ------------------------------------------------------------------------ */
+/**
+ * Generate and push the new semver tag for this release.
+ */
 execSync(`git tag v${next}`);
 execSync('git push --tags', { stdio: 'inherit' });
 
-/* ------------------------------------------------------------------------ */
-/* 11. Resets the internal dependencies versions with `workspace:^` prefix  */
-/*     in order to make it work with pnpm                                   */
-/* ------------------------------------------------------------------------ */
+/**
+ * Reset internal dependencies to use workspace:^ prefix for pnpm compatibility.
+ */
 for (const packageJson of packageJsonPathsRemap) {
-  const pkg = JSON.parse(fs.readFileSync(packageJson.path, 'utf8'));
-
-  if (!pkg.dependencies) continue;
-
-  for (const dep in pkg.dependencies) {
-    localPackages.includes(dep) && (pkg.dependencies[dep] = `workspace:^${next}`);
-  }
-
-  fs.writeFileSync(packageJson.path, `${JSON.stringify(pkg, null, 2)}\n`);
+  await resetToWorkspaceRanges(packageJson.path, next, localPackages);
 }
 
-const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath, 'utf8'));
-
-for (const localPackage of localPackages) {
-  rootPkg.dependencies ??= {};
-  rootPkg.dependencies[localPackage] = `workspace:^${next}`;
-}
-
-fs.writeFileSync(rootPkgPath, `${JSON.stringify(rootPkg, null, 2)}\n`);
+const rootPkgPath = path.join(root, 'package.json');
+await resetToWorkspaceRanges(rootPkgPath, next, localPackages);
 
 execSync('git add .', { stdio: 'inherit' });
-execSync(`git commit --ament --no-edit`, { stdio: 'inherit' });
+
+// Amend the previous release commit to include workspace range resets
+execSync(`git commit --amend --no-edit`, { stdio: 'inherit' });
 execSync('git push -f', { stdio: 'inherit' });
