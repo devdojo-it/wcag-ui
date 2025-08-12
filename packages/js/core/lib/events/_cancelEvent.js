@@ -1,11 +1,15 @@
 /**
- * returns true if the provided string contains HTML tags
+ * Cancels a DOM event by optionally calling preventDefault, stopPropagation,
+ * and stopImmediatePropagation.
  *
- * @param {Event} e - the event
- * @param {boolean} [preventDefault=true] - enable/disable preventDefault
- * @param {boolean} [stopPropagation=true] - enable/disable stopPropagation
- * @param {boolean} [stopImmediatePropagation=true] - enable/disable stopImmediatePropagation
- * @return {boolean|undefined}
+ * Returns `false` for ergonomic usage inside handlers (e.g., `return cancelEvent(e)`).
+ * If no event is provided, returns `undefined`.
+ *
+ * @param {Event} e - The DOM event to cancel.
+ * @param {boolean} [preventDefault=true] - Whether to call `e.preventDefault()`.
+ * @param {boolean} [stopPropagation=true] - Whether to call `e.stopPropagation()`.
+ * @param {boolean} [stopImmediatePropagation=true] - Whether to call `e.stopImmediatePropagation()`.
+ * @returns {false|undefined}
  */
 export const cancelEvent = (
   e,

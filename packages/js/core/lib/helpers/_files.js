@@ -1,5 +1,9 @@
-// fileArrayOrList: File[] | FileList
-// returns a FileList instance
+/**
+ * Normalizes an array of File or a FileList into a FileList instance.
+ *
+ * @param {File[] | FileList} fileArrayOrList
+ * @returns {FileList}
+ */
 const buildFileList = (fileArrayOrList) => {
   if (fileArrayOrList instanceof FileList) {
     return fileArrayOrList;
@@ -14,8 +18,12 @@ const buildFileList = (fileArrayOrList) => {
   return dataTransfer.files;
 };
 
-// fileArrayOrList: File[] | FileList
-// returns a File[]
+/**
+ * Normalizes an array of File or a FileList into a File[] array.
+ *
+ * @param {File[] | FileList} fileArrayOrList
+ * @returns {File[]}
+ */
 const buildFileArray = (fileArrayOrList) => {
   if (Array.isArray(fileArrayOrList)) {
     return fileArrayOrList;

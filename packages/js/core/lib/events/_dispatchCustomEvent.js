@@ -1,11 +1,14 @@
 /**
- * dispatches a CustomEvent according to the params
+ * Dispatches a namespaced CustomEvent.
  *
- * @param {string} eventNamespace - the namespace of the event
- * @param {string} eventName - the event name
- * @param {object} [detail={}] - the data to be passed as CustomEvent detail
- * @param {Event} [originalEvent=undefined] - the original DOM event to be added to the CustomEvent detail
- * @param {EventTarget} [dispatcher=undefined] - pass an EventTarget (Node, Elements, ...) in order to override the dispatcher
+ * Event name format: `${eventNamespace}.${eventName}` (bubbling, cancelable).
+ *
+ * @param {string} eventNamespace - Namespace (e.g., component name/tag).
+ * @param {string} eventName - Event name (e.g., "open", "close").
+ * @param {object} [detail={}] - Data to pass in `event.detail`.
+ * @param {Event} [originalEvent=undefined] - Original DOM event to include in detail.
+ * @param {EventTarget} [dispatcher=undefined] - Optional custom dispatcher (defaults to `this` or `self`).
+ * @returns {void}
  */
 export const dispatchCustomEvent = function (
   eventNamespace,
@@ -25,7 +28,7 @@ export const dispatchCustomEvent = function (
     },
   });
 
-  console.log(`CustomEvent emitted: ${eventNamespace}.${eventName}`);
+  // Optional: instrument here if you need debug logs for emitted events.
 
   dispatcher.dispatchEvent(event);
 };

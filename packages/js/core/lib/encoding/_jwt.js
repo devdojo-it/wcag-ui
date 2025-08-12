@@ -1,4 +1,15 @@
+/**
+ * Minimal JWT helpers.
+ */
 const jwt = {
+  /**
+   * Parses a JWT token string and returns the payload as an object.
+   *
+   * Note: This does not verify the signature. Intended for non-sensitive cases.
+   *
+   * @param {string} token - JWT in the form header.payload.signature
+   * @returns {object}
+   */
   parse: (token) => {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
