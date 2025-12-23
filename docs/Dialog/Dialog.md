@@ -1,15 +1,11 @@
-# 📌 Dialog - Accessibilità
+# 📌 Dialog
 
 ## 1. Overview del Componente
 Il componente `Dialog` è utilizzato per mostrare finestre modali o avvisi importanti che richiedono l’attenzione dell’utente. Deve essere accessibile tramite tastiera, screen reader e garantire una chiara gerarchia visiva.
 
 ---
-## 2. Come utilizzare il componente
 
-*// Quì va il codice come su button //*
-
----
-## 3. Requisiti di Accessibilità (WCAG)
+## 2. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
 - Il `dialog` deve essere contenuto all’interno di un `<dialog>` HTML5 o di un `div` con `role="dialog"`.
@@ -70,7 +66,7 @@ button:focus-visible {
 
 ---
 
-## 4. Linee Guida per gli Sviluppatori
+## 3. Linee Guida per gli Sviluppatori
 
 ✅ **Markup HTML Corretto**
 ```html
@@ -104,7 +100,7 @@ dialog.addEventListener("keydown", (e) => {
 
 ---
 
-## 5. Test e Validazione
+## 4. Test e Validazione
 
 🛠 **Tecnologie Assistive Testate**
 - NVDA
@@ -125,7 +121,7 @@ dialog.addEventListener("keydown", (e) => {
 
 ---
 
-## 6. Considerazioni Avanzate
+## 5. Considerazioni Avanzate
 
 🌍 **Internazionalizzazione**
 - Testare con testi più lunghi per lingue diverse.
@@ -146,7 +142,7 @@ dialog.addEventListener("keydown", (e) => {
 
 ---
 
-## 7. Esempi e Best Practices
+## 6. Esempi e Best Practices
 ✅ **Utilizzare `<dialog>` o `role="dialog"` per una semantica corretta.**
 ✅ **Garantire un chiaro focus visibile per la navigazione da tastiera.**
 ✅ **Intrappolare il focus all’interno del dialog finché non viene chiuso.**

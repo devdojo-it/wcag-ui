@@ -1,125 +1,219 @@
-# 📌 Switch - Accessibilità
+# **📌 Switch 
 
-## 1. Overview del Componente
-Il componente `Switch` consente agli utenti di attivare o disattivare rapidamente un'opzione o una funzionalità. Deve essere chiaramente distinguibile visivamente e accessibile tramite tastiera e screen reader.
+  
 
----
-## 2. Come utilizzare il componente
+## **1. Overview del Componente**
 
-```html
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider"></span>
-  Ricevi notifiche
-</label>
-```
+  
+
+Il componente Switch permette di attivare o disattivare un’impostazione (on/off) con un controllo a due stati. È concettualmente simile a una checkbox, ma con una rappresentazione visiva diversa. Deve comunicare chiaramente stato, etichetta e interattività, ed essere completamente utilizzabile da tastiera e con screen reader.
 
 ---
-## 3. Requisiti di Accessibilità (WCAG)
 
-### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
-- Ogni switch deve avere un'etichetta associata usando `<label>`.
+## **2. Requisiti di Accessibilità (WCAG)**
 
-```html
-<label for="notifications">Attiva notifiche</label>
-<input type="checkbox" id="notifications">
+  
+
+### **🔹 WCAG 1.1.1 - Testo Alternativo**
+
+- Se lo switch non ha un testo visibile associato, deve avere un nome accessibile tramite aria-label o aria-labelledby.
+    
+- Icone decorative (es. sole/luna) devono essere aria-hidden="true".
+    
+
+```
+<button role="switch" aria-checked="false" aria-label="Attiva modalità scura"></button>
 ```
 
-### 🔹 WCAG 1.4.3 - Contrasto Minimo
-- Lo stato attivo dello switch deve avere un contrasto minimo di **3:1** rispetto allo sfondo.
-- Il testo dell’etichetta deve avere un contrasto minimo di **4.5:1** rispetto allo sfondo.
+---
 
-### 🔹 WCAG 2.1.1 - Tastiera
-- Gli switch devono essere navigabili con `Tab` e attivabili con `Space`.
+### **🔹 WCAG 1.3.1 - Informazioni e Relazioni**
 
-```html
-<input type="checkbox" id="dark-mode">
-<label for="dark-mode">Dark Mode</label>
+- Lo switch deve avere un’etichetta testuale associata, preferibilmente visibile.
+    
+- Se è presente un testo di supporto o una descrizione, collegarlo con aria-describedby.
+    
+- Se lo switch è parte di un gruppo di opzioni, utilizzare una struttura semantica (es. fieldset + legend).
+    
+
+```
+<label id="notif-label">Notifiche</label>
+<button role="switch" aria-checked="true" aria-labelledby="notif-label"></button>
 ```
 
-### 🔹 WCAG 2.4.7 - Focus Visibile
-- Il focus dello switch deve essere chiaramente visibile.
-- Deve essere implementato `outline: 2px solid #005fcc; outline-offset: 4px;`.
+---
 
-```css
-input[type="checkbox"]:focus-visible + .slider {
+### **🔹 WCAG 1.4.3 - Contrasto Minimo**
+
+- Etichetta e testo associato: contrasto minimo **4.5:1**.
+    
+- Indicatori visivi dello stato (thumb, track, icone): contrasto minimo **3:1**.
+    
+- Lo stato on/off non deve essere comunicato solo tramite colore.
+    
+
+---
+
+### **🔹 WCAG 2.1.1 - Tastiera**
+
+- Lo switch deve essere raggiungibile con Tab.
+    
+- Deve essere attivabile con Space e (se implementato) con Enter.
+    
+- L’ordine di tabulazione deve essere coerente con il layout.
+    
+
+```
+<button role="switch" aria-checked="false">Modalità scura</button>
+```
+
+---
+
+### **🔹 WCAG 2.4.7 - Focus Visibile**
+
+- Il focus deve essere sempre visibile sul controllo.
+    
+- Il focus indicator deve avere un contrasto minimo di **3:1**.
+    
+
+```
+.switch:focus-visible {
   outline: 2px solid #005fcc;
   outline-offset: 4px;
 }
 ```
 
-### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
-- Gli screen reader devono percepire correttamente il ruolo `switch` e lo stato attuale (`checked` o `unchecked`).
+---
 
-```html
-<input type="checkbox" role="switch" aria-checked="false">
-<label>Modalità Silenziosa</label>
+### **🔹 WCAG 3.2.2 - Coerenza nelle Interazioni**
+
+- L’attivazione deve essere prevedibile: un click o Space cambia solo lo stato dello switch.
+    
+- Evitare che la modifica attivi immediatamente azioni distruttive senza conferma.
+    
+- Se il cambio di stato aggiorna contenuti altrove, evitare spostamenti improvvisi del focus.
+    
+
+---
+
+### **🔹 WCAG 4.1.2 - Nome, Ruolo, Valore**
+
+- Il controllo deve esporre correttamente il ruolo di switch e lo stato on/off.
+    
+- Utilizzare role="switch" con aria-checked="true|false" oppure una checkbox nativa con stile switch.
+    
+- Lo stato deve essere aggiornato dinamicamente.
+    
+
+```
+<button role="switch" aria-checked="true">Attivo</button>
 ```
 
 ---
 
-## 4. Linee Guida per gli Sviluppatori
+## **3. Linee Guida per gli Sviluppatori**
 
-✅ **Markup HTML Corretto**
-```html
-<label>
-  <input type="checkbox" role="switch"> Abilita notifiche
-</label>
+  
+
+✅ **Markup HTML Corretto (consigliato: checkbox nativa)**
+
 ```
-
-🚫 **Esempio Errato (mancanza di label associata)**
-```html
-<input type="checkbox"> Abilita notifiche <!-- Non associato correttamente -->
-```
-
-✅ **Switch personalizzato**
-```html
-<div role="switch" tabindex="0" aria-checked="false">
-  Attiva modalità notte
+<div>
+  <input type="checkbox" id="dark" />
+  <label for="dark">Modalità scura</label>
 </div>
 ```
 
-🚫 **Errore comune: non fornire uno stato chiaro di selezione**
-```html
-<div class="custom-switch">Modalità notte</div> <!-- Senza aria-checked -->
+✅ **Markup HTML Corretto (role switch)**
+
+```
+<label id="dark-label">Modalità scura</label>
+<button class="switch" role="switch" aria-checked="false" aria-labelledby="dark-label"></button>
+```
+
+🚫 **Esempio Errato (mancanza di semantica)**
+
+```
+<div class="switch" onclick="toggle()"></div>
+```
+
+✅ **Gestione del Focus**
+
+```
+.switch:focus-visible {
+  outline: 2px solid #005fcc;
+  outline-offset: 4px;
+}
 ```
 
 ---
 
-## 5. Test e Validazione
+## **4. Test e Validazione**
+
+  
 
 🛠 **Tecnologie Assistive Testate**
+
 - NVDA
+    
 - VoiceOver
+    
 - JAWS
+    
+
+  
 
 🛠 **Strumenti di Verifica**
-- [axe DevTools](https://www.deque.com/axe/)
-- [WAVE](https://wave.webaim.org/)
-- [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
+
+- [axe DevTools](https://www.deque.com/axe/)![Attachment.tiff](file:///Attachment.tiff)
+    
+- [WAVE](https://wave.webaim.org/)![Attachment.tiff](file:///Attachment.tiff)
+    
+- [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)![Attachment.tiff](file:///Attachment.tiff)
+    
+
+  
 
 🎯 **Casi d’Uso da Testare**
-- Lo switch è navigabile e attivabile da tastiera?
-- Il focus è visibile e ben distinto?
-- Lo stato `aria-checked` è correttamente aggiornato?
-- Il contrasto tra testo, indicatore e sfondo è sufficiente?
+
+- Lo switch è raggiungibile e attivabile da tastiera?
+    
+- Lo screen reader annuncia correttamente label e stato?
+    
+- Il focus è sempre visibile?
+    
+- Lo stato on/off è comprensibile anche senza colore?
+    
 
 ---
 
-## 6. Considerazioni Avanzate
+## **5. Considerazioni Avanzate**
+
+  
 
 🌍 **Internazionalizzazione**
-- Testare con testi lunghi o traduzioni differenti.
-- Evitare testi solo in maiuscolo che possano compromettere la leggibilità.
+
+- Etichette localizzabili.
+    
+- Evitare testi troncati senza alternativa.
+    
+
+  
 
 📱 **Reattività**
-- Deve essere facilmente attivabile anche su touchscreen.
-- Garantire che lo switch sia cliccabile su tutta l’area associata.
+
+- Target interattivo minimo **44×44 px**.
+    
+- Utilizzabile su touchscreen e con zoom al 200%.
+    
+
+  
 
 🎞 **Motion e Animazioni**
-```css
+
+```
 @media (prefers-reduced-motion: reduce) {
-  .switch-slider {
+  .switch {
     transition: none;
   }
 }
@@ -127,19 +221,33 @@ input[type="checkbox"]:focus-visible + .slider {
 
 ---
 
-## 7. Esempi e Best Practices
-✅ **Utilizzare sempre `<label>` associato correttamente.**
-✅ **Assicurare un chiaro focus visibile con `outline`.**
-✅ **Per switch personalizzati, fornire `aria-checked`.**
-✅ **Non rimuovere mai l’indicazione visiva del focus.**
+## **6. Esempi e Best Practices**
+
+- Preferire una checkbox nativa stilizzata quando possibile.
+    
+- Rendere sempre evidente lo stato (testo o aria-checked) oltre al colore.
+    
+- Evitare switch senza etichetta.
+    
+- Testare con screen reader reali.
+    
 
 ---
 
 📌 **Riferimenti**
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
 
-
+- [WCAG 2.1 - Success Criterion 1.1.1 Testo Alternativo](https://www.w3.org/TR/WCAG21/#text-alternatives)![Attachment.tiff](file:///Attachment.tiff)
+    
+- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
+    
+- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
+    
+- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
+    
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
+    
+- [WCAG 2.1 - Success Criterion 3.2.2 Coerenza nelle Interazioni](https://www.w3.org/TR/WCAG21/#on-input)![Attachment.tiff](file:///Attachment.tiff)
+    
+- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
+    
+- [ARIA Authoring Practices - Switch Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/switch/)![Attachment.tiff](file:///Attachment.tiff)

@@ -1,16 +1,11 @@
-# 📌 Radio Button Checked - Accessibilità
+# 📌 Radio Button Checked 
 
 ## 1. Overview del Componente
 Il componente `Radio Button` nello stato **unchecked** (non selezionato) consente agli utenti di scegliere un'opzione all'interno di un gruppo. Deve essere chiaramente distinguibile visivamente e accessibile tramite tastiera e screen reader.
 
 ---
-## 2. Come utilizzare il componente
 
-*// Quì va il codice come su button //*
-
----
-
-## 3. Requisiti di Accessibilità (WCAG)
+## 2. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
 - I radio button devono essere contenuti in un `fieldset` con un `legend` descrittivo.
@@ -57,7 +52,7 @@ input[type="radio"]:focus-visible {
 
 ---
 
-## 4. Linee Guida per gli Sviluppatori
+## 3. Linee Guida per gli Sviluppatori
 
 ✅ **Markup HTML Corretto**
 ```html
@@ -85,7 +80,7 @@ input[type="radio"]:focus-visible {
 
 ---
 
-## 5. Test e Validazione
+## 4. Test e Validazione
 
 🛠 **Tecnologie Assistive Testate**
 - NVDA
@@ -105,7 +100,7 @@ input[type="radio"]:focus-visible {
 
 ---
 
-## 6. Considerazioni Avanzate
+## 5. Considerazioni Avanzate
 
 🌍 **Internazionalizzazione**
 - Testare con testi più lunghi per lingue diverse.
@@ -126,7 +121,7 @@ input[type="radio"]:focus-visible {
 
 ---
 
-## 7. Esempi e Best Practices
+## 6. Esempi e Best Practices
 ✅ **Utilizzare `<label>` per garantire la corretta associazione tra radio button e testo.**
 ✅ **Assicurare un chiaro focus visibile con `outline: 2px solid #005fcc; outline-offset: 4px;`.**
 ✅ **Se il radio button è personalizzato, fornire `aria-checked="false"` per comunicare lo stato agli screen reader.**

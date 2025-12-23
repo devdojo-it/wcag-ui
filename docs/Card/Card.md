@@ -1,16 +1,11 @@
-# 📌 Card - Accessibilità
+# 📌 Card
 
 ## 1. Overview del Componente
 Il componente `Card` è un contenitore che raggruppa contenuti correlati, presenta informazioni e può includere azioni eseguibili dall'utente. Deve essere strutturato in modo accessibile per garantire una buona esperienza a tutti gli utenti, inclusi quelli che utilizzano tecnologie assistive.
 
 ---
-## 2. Come utilizzare il componente
 
-*// Quì va il codice come su button //*
-
----
-
-## 3. Requisiti di Accessibilità (WCAG)
+## 2. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
 - Il contenuto della card deve essere strutturato semanticamente con elementi corretti (`<section>`, `<article>`, `<div>` con ruolo appropriato, `aria-labelledby` per associare titolo e contenuto).
@@ -55,7 +50,7 @@ Il componente `Card` è un contenitore che raggruppa contenuti correlati, presen
 
 ---
 
-## 4. Linee Guida per gli Sviluppatori
+## 3. Linee Guida per gli Sviluppatori
 
 ✅ **Markup HTML Corretto**
 ```html
@@ -92,7 +87,7 @@ Il componente `Card` è un contenitore che raggruppa contenuti correlati, presen
 
 ---
 
-## 5. Test e Validazione
+## 4. Test e Validazione
 
 🛠 **Tecnologie Assistive Testate**
 - NVDA
@@ -112,7 +107,7 @@ Il componente `Card` è un contenitore che raggruppa contenuti correlati, presen
 
 ---
 
-## 6. Considerazioni Avanzate
+## 5. Considerazioni Avanzate
 
 🌍 **Internazionalizzazione**
 - Testare con testi più lunghi per lingue diverse.
@@ -133,7 +128,7 @@ Il componente `Card` è un contenitore che raggruppa contenuti correlati, presen
 
 ---
 
-## 7. Esempi e Best Practices
+## 6. Esempi e Best Practices
 ✅ **Usare tag semantici (`<section>`, `<article>`) per migliorare la comprensione del contenuto.**
 ✅ **Garantire un chiaro focus visibile per gli elementi interattivi.**
 ✅ **Se la card è cliccabile, assicurarsi che sia navigabile correttamente da tastiera e leggibile dagli screen reader.**

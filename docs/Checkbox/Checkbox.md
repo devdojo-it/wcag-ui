@@ -1,18 +1,11 @@
-# 📌 Checkbox  - Accessibilità
+# 📌 Checkbox 
 
 ## 1. Overview del Componente
-
-Le checkbox di controllo consentono agli utenti di selezionare zero, uno o più elementi da un elenco.
-
----
-## 2. Come utilizzare il componente
-
-*// Quì va il codice come su button //*
+Il componente `Checkbox` nello stato **checked** (selezionato) consente agli utenti di confermare una scelta attiva. Deve essere chiaramente distinguibile visivamente e accessibile tramite tastiera e screen reader.
 
 ---
 
-
-## 3. Requisiti di Accessibilità (WCAG)
+## 2. Requisiti di Accessibilità (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
 - Le checkbox devono essere associate a un'etichetta chiara utilizzando `<label>` per garantire che siano leggibili dagli screen reader.
@@ -60,7 +53,7 @@ input[type="checkbox"]:focus-visible {
 
 ---
 
-## 4. Linee Guida per gli Sviluppatori
+## 3. Linee Guida per gli Sviluppatori
 
 ✅ **Markup HTML Corretto**
 ```html
@@ -88,7 +81,7 @@ input[type="checkbox"]:focus-visible {
 
 ---
 
-## 5. Test e Validazione
+## 4. Test e Validazione
 
 🛠 **Tecnologie Assistive Testate**
 - NVDA
@@ -108,7 +101,7 @@ input[type="checkbox"]:focus-visible {
 
 ---
 
-## 6. Considerazioni Avanzate
+## 5. Considerazioni Avanzate
 
 🌍 **Internazionalizzazione**
 - Testare con testi più lunghi per lingue diverse.
@@ -129,7 +122,7 @@ input[type="checkbox"]:focus-visible {
 
 ---
 
-## 7. Esempi e Best Practices
+## 6. Esempi e Best Practices
 ✅ **Utilizzare `<label>` per garantire la corretta associazione tra checkbox e testo.**
 ✅ **Assicurare un chiaro focus visibile per la navigazione da tastiera.**
 ✅ **Se la checkbox è personalizzata, fornire `aria-checked="true"` per comunicare lo stato agli screen reader.**
