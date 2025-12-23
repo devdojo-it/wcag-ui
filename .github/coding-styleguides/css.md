@@ -1,7 +1,5 @@
 <!-- https://blog.openreplay.com/elevate-your-coding-efficiency-with-css-naming-conventions/ -->
 
-## FE Team
-
 # CSS Standards & Conventions
 
 The place for all the CSS standards, naming conventions and other amenities.

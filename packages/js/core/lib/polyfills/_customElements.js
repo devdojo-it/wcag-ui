@@ -96,7 +96,8 @@
             callback(node, connected);
           }
 
-          if (!pass) loop(node.querySelectorAll(selectors), selectors, added, removed, connected, true);
+          !pass &&
+            loop(node.querySelectorAll(selectors), selectors, added, removed, connected, true);
         }
       }
     };
@@ -140,7 +141,9 @@
         parse(filter.call(record.addedNodes, elements), true);
       }
     };
-    const matches = (element) => element.matches || element.webkitMatchesSelector || element.msMatchesSelector;
+    
+    const matches = (element) =>
+      element.matches || element.webkitMatchesSelector || element.msMatchesSelector;
 
     const notifier = (element, connected) => {
       let selectors;
@@ -362,8 +365,7 @@
       registry.set(is, Class);
       query.push(selector);
     } else {
-      // biome-ignore lint/complexity/noArguments: <this is needed to make the polyfill work>
-      define.apply(customElements, arguments);
+      define.apply(customElements, [is, Class, options]);
       shadowed.push((selector = is));
     }
 

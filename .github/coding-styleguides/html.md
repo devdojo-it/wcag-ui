@@ -1,5 +1,3 @@
-## FE Team
-
 # HTML Standards & Conventions
 
 The place for all the HTML standards, naming conventions and other amenities.

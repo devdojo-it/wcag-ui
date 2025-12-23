@@ -1,5 +1,3 @@
-## FE Team
-
 # JS Standards & Conventions
 
 The place for all the JS standards, naming conventions and other amenities.
