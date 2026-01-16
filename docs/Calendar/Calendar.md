@@ -1,11 +1,11 @@
 
-## 1. Overview del Componente
+## 1. Component Overview
 
-Il componente `Calendar` consente la selezione di una data o di un intervallo di date tramite un’interfaccia visiva organizzata per giorni, settimane e mesi. È comunemente utilizzato all’interno di form, filtri e flussi di prenotazione. Deve essere utilizzabile senza mouse e comprensibile anche senza percezione visiva.
+The component `Calendar` consente la selezione di una data o di un intervallo di date tramite un’interfaccia visiva organizzata per giorni, settimane e mesi. È comunemente utilizzato all’interno di form, filtri e flussi di prenotazione. Deve essere utilizzabile senza mouse e comprensibile anche senza percezione visiva.
 
 ---
 
-## 2. Requisiti di Accessibilità
+## 2. Accessibility Requirements
 
 ### 🔹 Ruolo e Semantica
 
@@ -15,7 +15,7 @@ Il componente `Calendar` consente la selezione di una data o di un intervallo 
     
 - Il contenitore del calendario deve esporre una relazione chiara tra mese/anno e giorni.
     
-- Ogni giorno deve avere un nome accessibile che includa giorno, mese e anno completi.
+- Ogni giorno it must have un nome accessibile che includa giorno, mese e anno completi.
     
 - Utilizzare `aria-selected` per indicare la data selezionata.
     
@@ -41,12 +41,12 @@ Il componente `Calendar` consente la selezione di una data o di un intervallo 
     
 - Il focus non deve andare perso durante il cambio di mese.
     
-- Il focus indicator deve avere un contrasto minimo di **3:1**.
+- Il focus indicator it must have un contrasto minimo di **3:1**.
     
 
 ### 🔹 Contrasto e Visibilità
 
-- Il testo dei giorni deve avere un contrasto minimo **4.5:1**.
+- Il testo dei giorni it must have un contrasto minimo **4.5:1**.
     
 - Gli stati (selezionato, oggi, disabilitato) devono avere un contrasto minimo **3:1**.
     
@@ -62,9 +62,9 @@ Il componente `Calendar` consente la selezione di una data o di un intervallo 
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 
 ```
 <div role="grid" aria-labelledby="calendar-label">
@@ -76,7 +76,7 @@ Il componente `Calendar` consente la selezione di una data o di un intervallo 
 </div>
 ```
 
-🚫 **Esempio Errato**
+🚫 **Wrong Example**
 
 ```
 <div class="day" onclick="selectDate()">2</div>
@@ -101,9 +101,9 @@ Il componente `Calendar` consente la selezione di una data o di un intervallo 
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -112,7 +112,7 @@ Il componente `Calendar` consente la selezione di una data o di un intervallo 
 - JAWS
     
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)
     
@@ -134,9 +134,9 @@ Il componente `Calendar` consente la selezione di una data o di un intervallo 
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
 - Supporto a formati data locali.
     
@@ -145,7 +145,7 @@ Il componente `Calendar` consente la selezione di una data o di un intervallo 
 - Localizzazione di mesi e giorni.
     
 
-📱 **Reattività**
+📱 **Responsiveness**
 
 - Target interattivi minimi **44×44 px**.
     
@@ -166,7 +166,7 @@ Il componente `Calendar` consente la selezione di una data o di un intervallo 
 
 ---
 
-## 6. Esempi e Best Practices
+## 6. Examples and Best Practices
 
 - Esporre sempre la data completa agli screen reader.
     
@@ -179,15 +179,15 @@ Il componente `Calendar` consente la selezione di una data o di un intervallo 
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
     
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
     
 - [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
     

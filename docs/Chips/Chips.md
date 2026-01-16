@@ -1,21 +1,21 @@
 # 📌 Chips
 
-## 1. Overview del Componente
+## 1. Component Overview
 
-Il componente `Chips` rappresenta informazioni compatte come tag, categorie, filtri selezionati o input già inseriti. Le chips possono essere utilizzate in due modalità distinte, che hanno implicazioni dirette sull’accessibilità:
+The component `Chips` rappresenta informazioni compatte come tag, categorie, filtri selezionati o input già inseriti. Le chips possono essere utilizzate in due modalità distinte, che hanno implicazioni dirette sull’accessibilità:
 
 - **Informative Chips**: hanno solo funzione descrittiva. Servono a mostrare informazioni o stati, ma **non sono interattive**.
     
 - **Actionable Chips**: consentono un’interazione da parte dell’utente, ad esempio selezione, attivazione di un filtro o rimozione di un elemento.
     
 
-La distinzione tra queste due tipologie è fondamentale: **solo le Actionable Chips devono essere navigabili e attivabili tramite tastiera**, mentre le Informative Chips non devono entrare nel tab order.
+La distinzione tra queste due tipologie è fondamentale: **solo le Actionable Chips devono essere navigabili e attivabili via keyboard**, mentre le Informative Chips non devono entrare nel tab order.
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+## 2. Accessibility Requirements (WCAG)
 
-### 🔹 WCAG 1.1.1 - Testo Alternativo
+### 🔹 WCAG 1.1.1 - Alternative Text
 
 - Se una chip contiene solo un’icona (es. una "X" per la rimozione), deve essere fornito un `aria-label` o un `aria-labelledby` descrittivo.
     
@@ -30,7 +30,7 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ---
 
-### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
+### 🔹 WCAG 1.3.1 - Information and Relationships
 
 - Le chips devono essere strutturate semanticamente in base alla loro funzione.
     
@@ -52,9 +52,9 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ---
 
-### 🔹 WCAG 1.4.3 - Contrasto Minimo
+### 🔹 WCAG 1.4.3 - Minimum Contrast
 
-- Il testo delle chips deve avere un contrasto minimo di **4.5:1** rispetto allo sfondo.
+- Il testo delle chips it must have un contrasto minimo di **4.5:1** compared to the background.
     
 - Icone e indicatori di stato devono avere un contrasto minimo di **3:1**.
     
@@ -63,7 +63,7 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ---
 
-### 🔹 WCAG 2.1.1 - Tastiera
+### 🔹 WCAG 2.1.1 - Keyboard
 
 - Solo le Actionable Chips devono essere raggiungibili tramite `Tab`.
     
@@ -81,11 +81,11 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ---
 
-### 🔹 WCAG 2.4.7 - Focus Visibile
+### 🔹 WCAG 2.4.7 - Focus Visible
 
 - Le Actionable Chips devono avere un focus visibile e ben distinguibile.
     
-- Il focus indicator deve avere un contrasto minimo di **3:1**.
+- Il focus indicator it must have un contrasto minimo di **3:1**.
     
 - Il focus non deve andare perso dopo la rimozione di una chip.
     
@@ -93,13 +93,13 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 ```css
 .chip:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;
+  outline-offset: 4px;x;
 }
 ```
 
 ---
 
-### 🔹 WCAG 3.2.2 - Coerenza nelle Interazioni
+### 🔹 WCAG 3.2.2 - Consistency in Interactions
 
 - Il comportamento delle Actionable Chips deve essere prevedibile e coerente.
     
@@ -110,9 +110,9 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 
 ```html
 <ul>
@@ -125,7 +125,7 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 </ul>
 ```
 
-🚫 **Esempio Errato**
+🚫 **Wrong Example**
 
 ```html
 <div class="chip" tabindex="0">Categoria</div>
@@ -150,9 +150,9 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -161,7 +161,7 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 - JAWS
     
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)
     
@@ -183,16 +183,16 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
 - Supportare testi di lunghezza variabile.
     
 - Evitare troncamenti senza alternativa accessibile.
     
 
-📱 **Reattività**
+📱 **Responsiveness**
 
 - Area interattiva minima **44×44 px** per le Actionable Chips.
     
@@ -211,7 +211,7 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ---
 
-## 6. Esempi e Best Practices
+## 6. Examples and Best Practices
 
 - Distinguere chiaramente Informative e Actionable Chips già in fase di design.
     
@@ -224,18 +224,18 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.1.1 Testo Alternativo](https://www.w3.org/TR/WCAG21/#text-alternatives)
+- [WCAG 2.1 - Success Criterion 1.1.1 Alternative Text](https://www.w3.org/TR/WCAG21/#text-alternatives)
     
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
     
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
     
-- [WCAG 2.1 - Success Criterion 3.2.2 Coerenza nelle Interazioni](https://www.w3.org/TR/WCAG21/#on-input)
+- [WCAG 2.1 - Success Criterion 3.2.2 Consistency in Interactions](https://www.w3.org/TR/WCAG21/#on-input)
     
 - [ARIA Authoring Practices - Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/)

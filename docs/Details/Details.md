@@ -1,13 +1,13 @@
 # 📌 Details 
 
-## 1. Overview del Componente
-Il componente `Details` viene utilizzato per mostrare o nascondere informazioni aggiuntive su richiesta dell'utente. Deve essere accessibile sia per utenti che navigano con la tastiera che per chi utilizza screen reader.
+## 1. Component Overview
+The component `Details` viene utilizzato per mostrare o nascondere informazioni aggiuntive su richiesta dell'utente. Deve essere accessibile sia per utenti che navigano con la tastiera che per chi utilizza screen reader.
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+## 2. Accessibility Requirements (WCAG)
 
-### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
+### 🔹 WCAG 1.3.1 - Information and Relationships
 - Il tag `<details>` è semanticamente corretto per nascondere e mostrare contenuti progressivi.
 - L'elemento `<summary>` deve essere chiaro e descrittivo, in modo che gli utenti sappiano cosa aspettarsi quando espandono il dettaglio.
 
@@ -18,12 +18,12 @@ Il componente `Details` viene utilizzato per mostrare o nascondere informazioni 
 </details>
 ```
 
-### 🔹 WCAG 1.4.3 - Contrasto Minimo
-- Il testo del `summary` deve avere un contrasto minimo di **4.5:1** rispetto allo sfondo.
+### 🔹 WCAG 1.4.3 - Minimum Contrast
+- Il testo del `summary` it must have un contrasto minimo di **4.5:1** compared to the background.
 - Lo stato espanso deve essere chiaramente distinguibile dallo stato collassato.
 
-### 🔹 WCAG 2.1.1 - Tastiera
-- Il componente `details` deve essere navigabile con `Tab`.
+### 🔹 WCAG 2.1.1 - Keyboard
+- The component `details` deve essere navigabile con `Tab`.
 - Il `summary` deve essere attivabile con `Enter` e `Space`.
 
 ```html
@@ -33,13 +33,13 @@ Il componente `Details` viene utilizzato per mostrare o nascondere informazioni 
 </details>
 ```
 
-### 🔹 WCAG 2.4.7 - Focus Visibile
-- Il `summary` deve avere uno stile di `focus-visible` chiaro e ben distinguibile.
+### 🔹 WCAG 2.4.7 - Focus Visible
+- Il `summary` it must have uno stile di `focus-visible` clear and distinctive.
 
 ```css
 summary:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px
+  outline-offset: 4px;x
   
 }
 ```
@@ -57,9 +57,9 @@ summary:focus-visible {
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 ```html
 <details>
   <summary>Espandi per vedere più informazioni</summary>
@@ -67,19 +67,19 @@ summary:focus-visible {
 </details>
 ```
 
-🚫 **Esempio Errato (mancanza di semantica)**
+🚫 **Wrong Example (mancanza di semantica)**
 ```html
 <div onclick="toggleDetails()">Mostra dettagli</div>
 <div class="details-content" hidden>
   <p>Contenuto nascosto.</p>
-</div> <!-- Non accessibile, manca semantica corretta -->
+</div> <!-- Not accessible, manca semantica corretta -->
 ```
 
 ✅ **Gestione del Focus**
 ```css
 summary:focus-visible {
   outline: 2px solid #ff9900;
-  outline-offset: 4px
+  outline-offset: 4px;x
 }
 ```
 
@@ -90,14 +90,14 @@ summary:focus-visible {
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 - NVDA
 - VoiceOver
 - JAWS
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 - [axe DevTools](https://www.deque.com/axe/)
 - [WAVE](https://wave.webaim.org/)
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
@@ -110,13 +110,13 @@ summary:focus-visible {
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
-- Testare con testi più lunghi per lingue diverse.
-- Evitare testi solo in maiuscolo che possono creare problemi di leggibilità.
+🌍 **Internationalization**
+- Test with longer text for different languages.
+- Avoid all-uppercase text that can impair readability.
 
-📱 **Reattività**
+📱 **Responsiveness**
 - Deve essere facilmente utilizzabile su touchscreen.
 - Garantire che il contenuto sia visibile e leggibile anche con zoom fino al 200%.
 
@@ -131,7 +131,7 @@ summary:focus-visible {
 
 ---
 
-## 6. Esempi e Best Practices
+## 6. Examples and Best Practices
 ✅ **Usare il tag `<details>` per migliorare l'accessibilità senza bisogno di ARIA extra.**
 ✅ **Garantire un chiaro focus visibile per la navigazione da tastiera.**
 ✅ **Non basarsi solo sul colore per indicare lo stato aperto/chiuso.**
@@ -139,9 +139,9 @@ summary:focus-visible {
 
 ---
 
-📌 **Riferimenti**
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)
+📌 **References**
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
 - [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)

@@ -1,92 +1,92 @@
 
-# 📌 [Nome del Componente] - Accessibilità
+# 📌 [Component Name] - Accessibility
 
-## 1. Overview del Componente
-Breve descrizione del componente e del suo scopo.
+## 1. Component Overview
+Brief description of the component and its purpose.
 
 ---
 
-## 2. Requisiti di Accessibilità
+## 2. Accessibility Requirements
 
-### 🔹 Ruolo e Semantica
-- Descrizione del ruolo corretto del componente (es. `button`, `heading`, `list`).
-- Necessità di `aria-*` attributes, se applicabile.
+### 🔹 Role and Semantics
+- Description of the correct role of the component (e.g., `button`, `heading`, `list`).
+- Need for `aria-*` attributes, if applicable.
 
-### 🔹 Navigabilità
-- Come il componente deve essere gestito con la tastiera (`Tab`, `Enter`, `Esc`, frecce, ecc.).
+### 🔹 Navigability
+- How the component should be handled with the keyboard (`Tab`, `Enter`, `Esc`, arrows, etc.).
 
 ### 🔹 Focus Management
-- Specificare se e come il focus viene gestito.
-- Requisiti di visibilità del focus (`:focus-visible`, contrasto minimo 3:1).
+- Specify if and how focus is handled.
+- Focus visibility requirements (`:focus-visible`, minimum 3:1 contrast).
 
-### 🔹 Contrasto e Visibilità
-- Livelli di contrasto richiesti (es. 4.5:1 per testo, 3:1 per elementi grafici).
+### 🔹 Contrast and Visibility
+- Required contrast levels (e.g., 4.5:1 for text, 3:1 for graphic elements).
 
-### 🔹 Alternativa Testuale
-- Indicazioni su `alt`, `aria-label`, `aria-labelledby` per elementi non testuali.
+### 🔹 Alternative Text
+- Guidelines on `alt`, `aria-label`, `aria-labelledby` for non-text elements.
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 ```html
 <!-- Esempio di codice accessibile -->
 ```
 
-🚫 **Esempio Errato**
+🚫 **Wrong Example**
 ```html
 <!-- Esempio di codice non accessibile -->
 ```
 
-✅ **Gestione delle icone**
+✅ **Icon Management**
 ```html
-<!-- Esempio con aria-label per bottoni con sole icone -->
+<!-- Example with aria-label for icon-only buttons -->
 ```
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 - NVDA
 - VoiceOver
 - JAWS
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 - [axe DevTools](https://www.deque.com/axe/)
 - [WAVE](https://wave.webaim.org/)
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
 
-🎯 **Casi d’Uso da Testare**
-- Il componente è navigabile da tastiera?
-- Ha un contrasto sufficiente?
-- Funziona con screen reader?
+🎯 **Use Cases to Test**
+- Is the component navigable from the keyboard?
+- Does it have sufficient contrast?
+- Does it work with screen readers?
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
-- Supporto per lingue diverse.
+🌍 **Internationalization**
+- Support for different languages.
 
-📱 **Reattività**
-- Deve funzionare bene su touchscreen (minimo 44x44px).
+📱 **Responsiveness**
+- Must work well on touchscreen (minimum 44x44px).
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 ```css
 @media (prefers-reduced-motion: reduce) {
-  /* Ridurre o eliminare animazioni */
+  /* Reduce or eliminate animations */
 }
 ```
 
 ---
 
-## 6. Esempi e Best Practices
-✅ **Best practice e snippet di codice**
+## 6. Examples and Best Practices
+✅ **Best practices and code snippets**
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 - [WCAG 2.1 - Success Criterion ...](https://www.w3.org/TR/WCAG21/#...)
 - [ARIA Authoring Practices - ...](https://www.w3.org/WAI/ARIA/apg/patterns/...)

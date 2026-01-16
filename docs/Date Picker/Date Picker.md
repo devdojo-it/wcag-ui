@@ -1,16 +1,16 @@
 # 📌 Date Picker 
 
-## 1. Overview del Componente
+## 1. Component Overview
 
-Il componente `Date Picker` permette di inserire o selezionare una data tramite un campo di input e un calendario (popup o inline). Deve supportare sia l’inserimento manuale (quando previsto) sia la selezione dal calendario, garantendo la piena fruibilità da tastiera e con screen reader.
+The component `Date Picker` permette di inserire o selezionare una data tramite un campo di input e un calendario (popup o inline). Deve supportare sia l’inserimento manuale (quando previsto) sia la selezione dal calendario, garantendo la piena fruibilità da tastiera e con screen reader.
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+## 2. Accessibility Requirements (WCAG)
 
-### 🔹 WCAG 1.1.1 - Testo Alternativo
+### 🔹 WCAG 1.1.1 - Alternative Text
 
-- Se il controllo di apertura calendario è rappresentato solo da un’icona, deve avere un’etichetta accessibile (`aria-label` o `aria-labelledby`).
+- Se il controllo di apertura calendario è rappresentato solo da un’icona, it must have un’etichetta accessibile (`aria-label` o `aria-labelledby`).
     
 - Le icone decorative all’interno del componente devono essere `aria-hidden="true"`.
     
@@ -23,7 +23,7 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 
 ---
 
-### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
+### 🔹 WCAG 1.3.1 - Information and Relationships
 
 - L’input deve essere associato a una `label` visibile o a un nome accessibile equivalente.
     
@@ -42,7 +42,7 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 
 ---
 
-### 🔹 WCAG 1.4.3 - Contrasto Minimo
+### 🔹 WCAG 1.4.3 - Minimum Contrast
 
 - Testo in input, placeholder (se usato) e contenuti del calendario devono rispettare **4.5:1**.
     
@@ -53,7 +53,7 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 
 ---
 
-### 🔹 WCAG 2.1.1 - Tastiera
+### 🔹 WCAG 2.1.1 - Keyboard
 
 - L’input deve essere raggiungibile con `Tab`.
     
@@ -82,11 +82,11 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 
 ---
 
-### 🔹 WCAG 2.4.7 - Focus Visibile
+### 🔹 WCAG 2.4.7 - Focus Visible
 
 - Il focus deve essere sempre visibile su input, bottone e giorni del calendario.
     
-- Aprendo il calendario, il focus deve spostarsi in modo prevedibile:
+- Aprendo il calendario, il focus deve spostarsi in a predictable manner:
     
     - sul giorno selezionato, oppure
         
@@ -137,9 +137,9 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 
 ```html
 <label for="dp">Data</label>
@@ -159,7 +159,7 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 </div>
 ```
 
-🚫 **Esempio Errato (mancanza di semantica)**
+🚫 **Wrong Example (mancanza di semantica)**
 
 ```html
 <div class="date" onclick="openCalendar()">15/04/2025</div>
@@ -176,9 +176,9 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -187,7 +187,7 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 - JAWS
     
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)
     
@@ -209,9 +209,9 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
 - Supporto a formati data locali.
     
@@ -220,7 +220,7 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 - Gestione del primo giorno della settimana.
     
 
-📱 **Reattività**
+📱 **Responsiveness**
 
 - Target interattivi minimi **44×44 px** per bottone e giorni.
     
@@ -239,7 +239,7 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 
 ---
 
-## 6. Esempi e Best Practices
+## 6. Examples and Best Practices
 
 - Consentire sempre un’alternativa di input manuale, quando prevista.
     
@@ -252,17 +252,17 @@ Il componente `Date Picker` permette di inserire o selezionare una data tramit
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.1.1 Testo Alternativo](https://www.w3.org/TR/WCAG21/#text-alternatives)
+- [WCAG 2.1 - Success Criterion 1.1.1 Alternative Text](https://www.w3.org/TR/WCAG21/#text-alternatives)
     
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
     
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
     
 - [WCAG 2.1 - Success Criterion 3.3.1 Identificazione degli Errori](https://www.w3.org/TR/WCAG21/#error-identification)
     

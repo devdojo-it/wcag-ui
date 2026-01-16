@@ -6,7 +6,7 @@
 
   
 
-Il componente Scrollspy evidenzia automaticamente, all’interno di una navigazione (di solito laterale o in-page), la sezione attualmente visibile nella pagina. È tipico per pagine lunghe (documentazione, articoli, schede prodotto) e si basa su link ad ancore (es. #sezione-1).
+The component Scrollspy evidenzia automaticamente, all’interno di una navigazione (di solito laterale o in-page), la sezione attualmente visibile nella pagina. È tipico per pagine lunghe (documentazione, articoli, schede prodotto) e si basa su link ad ancore (es. #sezione-1).
 
   
 
@@ -27,13 +27,13 @@ Uno scrollspy accessibile deve:
 
   
 
-### **🔹 WCAG 1.3.1 - Informazioni e Relazioni**
+### **🔹 WCAG 1.3.1 - Information and Relationships**
 
 - La navigazione dello scrollspy deve essere un elemento semantico (nav) con nome accessibile.
     
 - L’elenco dei link deve essere strutturato come lista (ul/li) quando applicabile.
     
-- Ogni sezione target deve avere un id unico e un heading coerente.
+- Ogni sezione target it must have un id unico e un heading coerente.
     
 
 ```
@@ -60,7 +60,7 @@ Uno scrollspy accessibile deve:
 
 ---
 
-### **🔹 WCAG 1.4.3 - Contrasto Minimo**
+### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
 - Testo dei link: contrasto minimo **4.5:1**.
     
@@ -96,11 +96,11 @@ Uno scrollspy accessibile deve:
 
 ---
 
-### **🔹 WCAG 2.4.7 - Focus Visibile**
+### **🔹 WCAG 2.4.7 - Focus Visible**
 
 - I link dello scrollspy devono avere focus visibile.
     
-- Il focus indicator deve avere un contrasto minimo di **3:1**.
+- Il focus indicator it must have un contrasto minimo di **3:1**.
     
 
 ```
@@ -114,7 +114,7 @@ Uno scrollspy accessibile deve:
 
 ### **🔹 WCAG 3.2.1 - Al Focus**
 
-- Mettere focus su un link non deve causare cambiamenti inattesi (es. scroll automatico).
+- Mettere focus su un link non deve cause cambiamenti inattesi (es. scroll automatico).
     
 - Lo scroll deve avvenire solo quando l’utente **attiva** il link (Enter/click), non quando lo focalizza.
     
@@ -138,7 +138,7 @@ Uno scrollspy accessibile deve:
 
   
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 
 ```
 <nav class="scrollspy" aria-label="In questa pagina">
@@ -156,7 +156,7 @@ Uno scrollspy accessibile deve:
 </main>
 ```
 
-🚫 **Esempio Errato (solo highlight visivo, niente semantica)**
+🚫 **Wrong Example (solo highlight visivo, niente semantica)**
 
 ```
 <div class="scrollspy">
@@ -191,7 +191,7 @@ html:focus-within {
 
   
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -202,7 +202,7 @@ html:focus-within {
 
   
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)![Attachment.tiff](file:///Attachment.tiff)
     
@@ -232,7 +232,7 @@ html:focus-within {
 
   
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
 - Assicurare che i titoli di sezione e i link siano localizzati e consistenti.
     
@@ -241,7 +241,7 @@ html:focus-within {
 
   
 
-📱 **Reattività**
+📱 **Responsiveness**
 
 - In mobile, la navigazione può diventare sticky o trasformarsi in dropdown, mantenendo:
     
@@ -282,13 +282,13 @@ html:focus-within {
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
     
 - [WCAG 2.1 - Success Criterion 1.4.1 Uso del Colore](https://www.w3.org/TR/WCAG21/#use-of-color)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
     
 - [WCAG 2.1 - Success Criterion 2.4.1 Salto di Blocchi](https://www.w3.org/TR/WCAG21/#bypass-blocks)![Attachment.tiff](file:///Attachment.tiff)
     
@@ -296,7 +296,7 @@ html:focus-within {
     
 - [WCAG 2.1 - Success Criterion 2.4.4 Scopo del Link](https://www.w3.org/TR/WCAG21/#link-purpose-in-context)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
     
 - [WCAG 2.1 - Success Criterion 3.2.1 Al Focus](https://www.w3.org/TR/WCAG21/#on-focus)![Attachment.tiff](file:///Attachment.tiff)
     

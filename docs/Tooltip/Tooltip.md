@@ -1,20 +1,20 @@
 # 📌 Tooltip 
 
-## 1. Overview del Componente
+## 1. Component Overview
 
-Il componente `Tooltip` mostra un’informazione di supporto contestuale, di solito breve, associata a un elemento trigger (icona, testo, bottone). Il tooltip non deve essere indispensabile per comprendere o usare l’interfaccia: se contiene informazioni essenziali, va valutato un pattern diverso (es. testo persistente o help inline).
+The component `Tooltip` mostra un’informazione di supporto contestuale, di solito breve, associata a un elemento trigger (icona, testo, bottone). Il tooltip non deve essere indispensabile per comprendere o use l’interfaccia: se contiene informazioni essenziali, va valutato un pattern diverso (es. testo persistente o help inline).
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+## 2. Accessibility Requirements (WCAG)
 
-### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
+### 🔹 WCAG 1.3.1 - Information and Relationships
 
 - Il tooltip deve essere associato al trigger tramite `aria-describedby`.
     
 - Il contenuto del tooltip deve essere in un elemento separato con `role="tooltip"`.
     
-- Il tooltip deve avere un `id` stabile referenziato dal trigger.
+- Il tooltip it must have un `id` stabile referenziato dal trigger.
     
 
 ```html
@@ -26,7 +26,7 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ---
 
-### 🔹 WCAG 1.4.3 - Contrasto Minimo
+### 🔹 WCAG 1.4.3 - Minimum Contrast
 
 - Il testo del tooltip deve rispettare un contrasto minimo **4.5:1**.
     
@@ -48,7 +48,7 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ---
 
-### 🔹 WCAG 2.1.1 - Tastiera
+### 🔹 WCAG 2.1.1 - Keyboard
 
 - Il trigger deve essere raggiungibile con `Tab`.
     
@@ -61,9 +61,9 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ---
 
-### 🔹 WCAG 2.4.7 - Focus Visibile
+### 🔹 WCAG 2.4.7 - Focus Visible
 
-- Il trigger deve avere focus visibile.
+- Il trigger it must have focus visibile.
     
 - Il tooltip non deve rubare focus.
     
@@ -71,7 +71,7 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 ```css
 .tooltip-trigger:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;
+  outline-offset: 4px;x;
 }
 ```
 
@@ -79,7 +79,7 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
 
-- Il trigger deve avere nome accessibile.
+- Il trigger it must have nome accessibile.
     
 - Il tooltip deve esporre `role="tooltip"`.
     
@@ -88,9 +88,9 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 
 ```html
 <button class="tooltip-trigger" aria-describedby="help-tip">
@@ -103,7 +103,7 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 </div>
 ```
 
-🚫 **Esempio Errato (solo hover)**
+🚫 **Wrong Example (solo hover)**
 
 ```html
 <span class="info" onmouseenter="showTip()">i</span>
@@ -122,9 +122,9 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -133,7 +133,7 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 - JAWS
     
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)
     
@@ -155,16 +155,16 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
 - Testare con testi più lunghi.
     
 - Evitare tooltip troppo verbosi.
     
 
-📱 **Reattività**
+📱 **Responsiveness**
 
 - Su touchscreen, prevedere un comportamento coerente (tap per mostrare/nascondere).
     
@@ -183,30 +183,30 @@ Il componente `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ---
 
-## 6. Esempi e Best Practices
+## 6. Examples and Best Practices
 
-- Non usare tooltip per informazioni essenziali.
+- Non use tooltip per informazioni essenziali.
     
 - Mostrare su focus, non solo su hover.
     
 - Chiudere con `Esc` e non rubare il focus.
     
-- Se serve interazione dentro, usare un popover/dialog.
+- Se serve interazione dentro, use un popover/dialog.
     
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
     
 - [WCAG 2.1 - Success Criterion 1.4.13 Contenuto su Hover o Focus](https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus)
     
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
     
 - [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
     

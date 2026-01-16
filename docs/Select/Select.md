@@ -2,80 +2,80 @@
 
   
 
-## **1. Overview del Componente**
+## **1. Component Overview**
 
   
 
-Il componente Select consente di scegliere un’opzione da una lista di valori. Può essere un select nativo (<select>) oppure un componente custom (combobox) con lista in overlay. Deve essere utilizzabile con tastiera, comprensibile con screen reader e prevedibile nei comportamenti di apertura, navigazione e selezione.
+The component Select allows you to choose an option from a list of values. It can be a native select (`<select>`) or a custom component (combobox) with a dropdown list. It must be usable with the keyboard, understandable with screen readers, and predictable in its open, navigation, and selection behaviors.
 
 ---
 
-## **2. Requisiti di Accessibilità (WCAG)**
+## **2. Accessibility Requirements (WCAG)**
 
   
 
-### **🔹 WCAG 1.1.1 - Testo Alternativo**
+### **🔹 WCAG 1.1.1 - Alternative Text**
 
-- Se il controllo di apertura (chevron, icona) è separato dal campo ed è solo iconico, deve avere un’etichetta accessibile (aria-label o aria-labelledby).
+- If the open control (chevron, icon) is separate from the field and is only iconic, it must have an accessible label (aria-label or aria-labelledby).
     
-- Icone decorative devono essere aria-hidden="true".
+- Decorative icons must be aria-hidden="true".
     
 
 ```
-<button type="button" aria-label="Apri elenco opzioni">
+<button type="button" aria-label="Open options list">
   <svg aria-hidden="true" focusable="false"></svg>
 </button>
 ```
 
 ---
 
-### **🔹 WCAG 1.3.1 - Informazioni e Relazioni**
+### **🔹 WCAG 1.3.1 - Information and Relationships**
 
-- Il campo deve avere una label visibile associata (o un nome accessibile equivalente).
+- The field must have an associated visible label (or an equivalent accessible name).
     
-- Il messaggio di aiuto, placeholder “seleziona…” (se presente) e l’errore devono essere collegati tramite aria-describedby.
+- The help message, placeholder "select…" (if present), and error must be linked via aria-describedby.
     
-- **Select nativo**: preferire <label> + <select>.
+- **Native Select**: prefer `<label>` + `<select>`.
     
-- **Select custom**: esporre correttamente il pattern di combobox con lista associata.
+- **Custom Select**: correctly expose the combobox pattern with associated list.
     
 
 ```
-<label for="city">Città</label>
+<label for="city">City</label>
 <select id="city">
-  <option value="">Seleziona…</option>
-  <option>Milano</option>
+  <option value="">Select…</option>
+  <option>Milan</option>
 </select>
 ```
 
 ---
 
-### **🔹 WCAG 1.4.3 - Contrasto Minimo**
+### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
-- Testo del valore selezionato e delle opzioni: contrasto minimo **4.5:1**.
+- Text of the selected value and options: minimum contrast **4.5:1**.
     
-- Stati (focus, hover, selected, disabled) devono essere distinguibili con contrasto minimo **3:1**.
+- States (focus, hover, selected, disabled) must be distinguishable with minimum contrast **3:1**.
     
-- Lo stato di errore non deve basarsi solo sul colore.
+- Error state must not be based on color alone.
     
 
 ---
 
-### **🔹 WCAG 2.1.1 - Tastiera**
+### **🔹 WCAG 2.1.1 - Keyboard**
 
-- Tab: focus sul campo.
+- Tab: focus on the field.
     
-- Enter / Space: (per custom select) apre/chiude la lista.
+- Enter / Space: (for custom select) opens/closes the list.
     
-- Arrow Up / Arrow Down: naviga tra le opzioni.
+- Arrow Up / Arrow Down: navigate between options.
     
-- Home / End: prima/ultima opzione.
+- Home / End: first/last option.
     
-- Esc: chiude la lista senza cambiare selezione.
+- Esc: closes the list without changing selection.
     
-- Digitando lettere: sposta il focus su opzioni corrispondenti (typeahead), se implementato.
+- Typing letters: moves focus to matching options (typeahead), if implemented.
     
-- Quando la lista è aperta, la navigazione deve rimanere consistente e non intrappolare l’utente.
+- When the list is open, navigation must remain consistent and not trap the user.
     
 
 ```
@@ -86,18 +86,18 @@ Il componente Select consente di scegliere un’opzione da una lista di valori. 
 
 ---
 
-### **🔹 WCAG 2.4.7 - Focus Visibile**
+### **🔹 WCAG 2.4.7 - Focus Visible**
 
-- Il focus deve essere sempre visibile sul campo e sulle opzioni (quando navigate da tastiera).
+- Focus must always be visible on the field and on options (when navigated via keyboard).
     
-- Aprendo la lista, il focus deve spostarsi in modo prevedibile:
+- Opening the list, focus must move in a predictable manner:
     
-    - sull’opzione selezionata, oppure
+    - to the selected option, or
         
-    - sulla prima opzione disponibile.
+    - to the first available option.
         
     
-- Chiudendo con Esc, il focus deve tornare al campo.
+- Closing with Esc, focus must return to the field.
     
 
 ```
@@ -109,62 +109,62 @@ Il componente Select consente di scegliere un’opzione da una lista di valori. 
 
 ---
 
-### **🔹 WCAG 3.3.1 - Identificazione degli Errori**
+### **🔹 WCAG 3.3.1 - Error Identification**
 
-- Se il campo è obbligatorio e non selezionato, l’errore deve essere espresso come testo.
+- If the field is required and not selected, the error must be expressed as text.
     
-- Collegare l’errore al campo con aria-describedby.
+- Link the error to the field with aria-describedby.
     
-- Usare aria-invalid="true" solo quando lo stato è realmente invalido.
+- Use aria-invalid="true" only when the state is truly invalid.
     
 
 ```
 <select id="city" aria-invalid="true" aria-describedby="city-error">
-  <option value="">Seleziona…</option>
-  <option>Milano</option>
+  <option value="">Select…</option>
+  <option>Milan</option>
 </select>
-<p id="city-error">Seleziona una città.</p>
+<p id="city-error">Select a city.</p>
 ```
 
 ---
 
-### **🔹 WCAG 4.1.2 - Nome, Ruolo, Valore**
+### **🔹 WCAG 4.1.2 - Name, Role, Value**
 
-- Il controllo deve esporre correttamente nome e ruolo.
+- The control must correctly expose name and role.
     
-- Per componenti custom, utilizzare role="combobox" e una lista con role="listbox" e role="option".
+- For custom components, use role="combobox" and a list with role="listbox" and role="option".
     
-- L’opzione selezionata deve essere comunicata con aria-selected="true".
+- The selected option must be communicated with aria-selected="true".
     
 
 ```
-<div role="listbox" id="listbox-1" aria-label="Città">
-  <div role="option" aria-selected="true">Milano</div>
-  <div role="option">Roma</div>
+<div role="listbox" id="listbox-1" aria-label="Cities">
+  <div role="option" aria-selected="true">Milan</div>
+  <div role="option">Rome</div>
 </div>
 ```
 
 ---
 
-## **3. Linee Guida per gli Sviluppatori**
+## **3. Developer Guidelines**
 
   
 
-✅ **Markup HTML Corretto (preferibile: nativo)**
+✅ **Correct HTML Markup (preferred: native)**
 
 ```
-<label for="country">Paese</label>
+<label for="country">Country</label>
 <select id="country">
-  <option value="">Seleziona…</option>
-  <option value="it">Italia</option>
-  <option value="fr">Francia</option>
+  <option value="">Select…</option>
+  <option value="it">Italy</option>
+  <option value="fr">France</option>
 </select>
 ```
 
-✅ **Markup HTML Corretto (custom combobox + listbox)**
+✅ **Correct HTML Markup (custom combobox + listbox)**
 
 ```
-<label id="lang-label" for="lang">Lingua</label>
+<label id="lang-label" for="lang">Language</label>
 <div
   role="combobox"
   aria-labelledby="lang-label"
@@ -176,18 +176,18 @@ Il componente Select consente di scegliere un’opzione da una lista di valori. 
 </div>
 
 <div id="lang-list" role="listbox" hidden>
-  <div role="option" aria-selected="true">Italiano</div>
+  <div role="option" aria-selected="true">Italian</div>
   <div role="option">English</div>
 </div>
 ```
 
-🚫 **Esempio Errato (mancanza di semantica)**
+🚫 **Wrong Example (lack of semantics)**
 
 ```
-<div class="select" onclick="open()">Seleziona…</div>
+<div class="select" onclick="open()">Select…</div>
 ```
 
-✅ **Gestione del Focus**
+✅ **Focus Management**
 
 ```
 .select :focus-visible {
@@ -198,11 +198,11 @@ Il componente Select consente di scegliere un’opzione da una lista di valori. 
 
 ---
 
-## **4. Test e Validazione**
+## **4. Testing and Validation**
 
   
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -213,7 +213,7 @@ Il componente Select consente di scegliere un’opzione da una lista di valori. 
 
   
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)![Attachment.tiff](file:///Attachment.tiff)
     
@@ -224,42 +224,42 @@ Il componente Select consente di scegliere un’opzione da una lista di valori. 
 
   
 
-🎯 **Casi d’Uso da Testare**
+🎯 **Use Cases to Test**
 
-- Il select è utilizzabile da tastiera in tutte le fasi (focus, open, navigate, select, close)?
+- Is the select usable via keyboard in all phases (focus, open, navigate, select, close)?
     
-- Lo screen reader annuncia correttamente label, valore e stato (aperto/chiuso)?
+- Does the screen reader correctly announce label, value, and state (open/closed)?
     
-- L’opzione selezionata è annunciata correttamente?
+- Is the selected option announced correctly?
     
-- Errori e descrizioni sono collegati al campo?
+- Are errors and descriptions linked to the field?
     
 
 ---
 
-## **5. Considerazioni Avanzate**
+## **5. Advanced Considerations**
 
   
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
-- Gestire correttamente lingue con testi più lunghi.
+- Correctly handle languages with longer text.
     
-- Supportare alfabeti diversi e input typeahead (se previsto).
-    
-
-  
-
-📱 **Reattività**
-
-- Target interattivi minimi **44×44 px**.
-    
-- Opzioni facilmente selezionabili su touchscreen.
+- Support different alphabets and typeahead input (if provided).
     
 
   
 
-🎞 **Motion e Animazioni**
+📱 **Responsiveness**
+
+- Minimum interactive targets **44×44 px**.
+    
+- Options easily selectable on touchscreen.
+    
+
+  
+
+🎞 **Motion and Animations**
 
 ```
 @media (prefers-reduced-motion: reduce) {
@@ -271,33 +271,33 @@ Il componente Select consente di scegliere un’opzione da una lista di valori. 
 
 ---
 
-## **6. Esempi e Best Practices**
+## **6. Examples and Best Practices**
 
-- Preferire il select nativo quando possibile.
+- Prefer the native select when possible.
     
-- Se custom, seguire il pattern ARIA di combobox + listbox.
+- If custom, follow the ARIA combobox + listbox pattern.
     
-- Evitare overlay che rubano focus o chiudono in modo inatteso.
+- Avoid overlays that steal focus or close unexpectedly.
     
-- Rendere chiari gli stati (selected, disabled, error) anche senza colore.
+- Make states clear (selected, disabled, error) even without color.
     
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.1.1 Testo Alternativo](https://www.w3.org/TR/WCAG21/#text-alternatives)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.1.1 Alternative Text](https://www.w3.org/TR/WCAG21/#text-alternatives)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 3.3.1 Identificazione degli Errori](https://www.w3.org/TR/WCAG21/#error-identification)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 3.3.1 Error Identification](https://www.w3.org/TR/WCAG21/#error-identification)
     
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
     
 - [ARIA Authoring Practices - Combobox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)![Attachment.tiff](file:///Attachment.tiff)

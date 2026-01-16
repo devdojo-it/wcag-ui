@@ -1,8 +1,8 @@
 # 📌 Popover 
 
-## 1. Overview del Componente
+## 1. Component Overview
 
-Il componente `Popover` apre un contenuto in overlay ancorato a un trigger (es. bottone “Azioni”, icona help, campo form). A differenza del tooltip:
+The component `Popover` apre un contenuto in overlay ancorato a un trigger (es. bottone “Azioni”, icona help, campo form). A differenza del tooltip:
 
 - può contenere contenuti **più lunghi**;
     
@@ -15,11 +15,11 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+## 2. Accessibility Requirements (WCAG)
 
-### 🔹 WCAG 1.1.1 - Testo Alternativo
+### 🔹 WCAG 1.1.1 - Alternative Text
 
-- Se il trigger è solo un’icona, deve avere un nome accessibile (`aria-label` o `aria-labelledby`).
+- Se il trigger è solo un’icona, it must have un nome accessibile (`aria-label` o `aria-labelledby`).
     
 - Le icone decorative (trigger o contenuto) devono essere `aria-hidden="true"`.
     
@@ -32,13 +32,13 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ---
 
-### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
+### 🔹 WCAG 1.3.1 - Information and Relationships
 
 - Il trigger deve dichiarare la relazione con il contenuto tramite `aria-controls`.
     
 - Il trigger deve esporre lo stato tramite `aria-expanded`.
     
-- Il contenuto del popover deve avere un nome (con `aria-label` o `aria-labelledby`).
+- Il contenuto del popover it must have un nome (con `aria-label` o `aria-labelledby`).
     
 - Usare un ruolo coerente con il contenuto:
     
@@ -65,7 +65,7 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ---
 
-### 🔹 WCAG 1.4.3 - Contrasto Minimo
+### 🔹 WCAG 1.4.3 - Minimum Contrast
 
 - Testo del popover e dei controlli: contrasto minimo **4.5:1**.
     
@@ -76,7 +76,7 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ---
 
-### 🔹 WCAG 2.1.1 - Tastiera
+### 🔹 WCAG 2.1.1 - Keyboard
 
 - Il trigger deve essere raggiungibile con `Tab`.
     
@@ -91,7 +91,7 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ### 🔹 WCAG 2.4.3 - Ordine del Focus
 
-- All’apertura, il focus deve spostarsi in modo prevedibile:
+- All’apertura, il focus deve spostarsi in a predictable manner:
     
     - sul **primo elemento interattivo** del popover, oppure
         
@@ -106,23 +106,23 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ---
 
-### 🔹 WCAG 2.4.7 - Focus Visibile
+### 🔹 WCAG 2.4.7 - Focus Visible
 
 - Il focus deve essere visibile sul trigger e sugli elementi del popover.
     
-- Il focus indicator deve avere un contrasto minimo di **3:1**.
+- Il focus indicator it must have un contrasto minimo di **3:1**.
     
 
 ```css
 .popover :focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;
+  outline-offset: 4px;x;
 }
 ```
 
 ---
 
-### 🔹 WCAG 3.2.2 - Coerenza nelle Interazioni
+### 🔹 WCAG 3.2.2 - Consistency in Interactions
 
 - L’apertura/chiusura deve essere prevedibile e coerente.
     
@@ -139,14 +139,14 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
     
 - Il contenuto deve esporre correttamente ruolo e nome (`role="dialog"` + `aria-labelledby` o `aria-label`).
     
-- Se è un menu, usare `role="menu"` con item `role="menuitem"` (e pattern coerente).
+- Se è un menu, use `role="menu"` con item `role="menuitem"` (e pattern coerente).
     
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto (popover come dialog non-modale)**
+✅ **Correct HTML Markup (popover come dialog non-modale)**
 
 ```html
 <button
@@ -172,7 +172,7 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 </div>
 ```
 
-🚫 **Esempio Errato**
+🚫 **Wrong Example**
 
 ```html
 <div class="popover-trigger" onclick="openPopover()">Azioni</div>
@@ -208,9 +208,9 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -219,7 +219,7 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 - JAWS
     
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)
     
@@ -236,23 +236,23 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
     
 - `aria-expanded` si aggiorna correttamente?
     
-- Il focus entra nel popover in modo prevedibile?
+- Il focus entra nel popover in a predictable manner?
     
 - È possibile navigare tutti i controlli interni da tastiera?
     
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
 - Testare testi lunghi e contenuti multilinea.
     
 - Evitare layout che tagliano contenuto o nascondono il tasto “Chiudi”.
     
 
-📱 **Reattività**
+📱 **Responsiveness**
 
 - Target interattivi minimi **44×44 px** per trigger e controlli.
     

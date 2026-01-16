@@ -7,7 +7,7 @@
 
   
 
-Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostrando un pannello alla volta. Le tab devono essere navigabili da tastiera con un comportamento prevedibile e devono esporre correttamente ruoli, stati e relazioni tra tab e pannelli per le tecnologie assistive.
+The component Tabs consente di organizzare contenuti correlati in sezioni, mostrando un pannello alla volta. Le tab devono essere navigabili da tastiera con un comportamento prevedibile e devono esporre correttamente ruoli, stati e relazioni tra tab e pannelli per le tecnologie assistive.
 
 ---
 
@@ -15,13 +15,13 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
   
 
-### **🔹 WCAG 1.3.1 - Informazioni e Relazioni**
+### **🔹 WCAG 1.3.1 - Information and Relationships**
 
-- Il contenitore delle tab deve avere role="tablist".
+- Il contenitore delle tab it must have role="tablist".
     
-- Ogni tab deve avere role="tab".
+- Ogni tab it must have role="tab".
     
-- Ogni pannello deve avere role="tabpanel".
+- Ogni pannello it must have role="tabpanel".
     
 - Ogni tab deve essere associata al proprio pannello tramite aria-controls.
     
@@ -44,9 +44,9 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
 ---
 
-### **🔹 WCAG 1.4.3 - Contrasto Minimo**
+### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
-- Il testo delle tab deve avere un contrasto minimo **4.5:1**.
+- Il testo delle tab it must have un contrasto minimo **4.5:1**.
     
 - L’indicatore di tab attiva (underline, bordo, background) deve rispettare **3:1**.
     
@@ -55,7 +55,7 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
 ---
 
-### **🔹 WCAG 2.1.1 - Tastiera**
+### **🔹 WCAG 2.1.1 - Keyboard**
 
 - Tab: entra nella tablist e poi passa dal focus alle tab/pannello secondo il flusso previsto.
     
@@ -85,17 +85,17 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
 ---
 
-### **🔹 WCAG 2.4.7 - Focus Visibile**
+### **🔹 WCAG 2.4.7 - Focus Visible**
 
 - Il focus deve essere sempre visibile sulle tab.
     
-- Il focus indicator deve avere un contrasto minimo di **3:1**.
+- Il focus indicator it must have un contrasto minimo di **3:1**.
     
 
 ```
 [role="tab"]:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;
+  outline-offset: 4px;x;
 }
 ```
 
@@ -121,7 +121,7 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
   
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 
 ```
 <div role="tablist" aria-label="Profilo">
@@ -138,7 +138,7 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 </div>
 ```
 
-🚫 **Esempio Errato (mancanza di semantica)**
+🚫 **Wrong Example (mancanza di semantica)**
 
 ```
 <div class="tabs">
@@ -151,7 +151,7 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 ```
 [role="tab"]:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;
+  outline-offset: 4px;x;
 }
 ```
 
@@ -161,7 +161,7 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
   
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -172,7 +172,7 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
   
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)![Attachment.tiff](file:///Attachment.tiff)
     
@@ -200,7 +200,7 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
   
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
 - Supportare testi più lunghi senza troncare informazioni.
     
@@ -209,7 +209,7 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
   
 
-📱 **Reattività**
+📱 **Responsiveness**
 
 - Target interattivi minimi **44×44 px**.
     
@@ -243,17 +243,17 @@ Il componente Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
     
 - [WCAG 2.1 - Success Criterion 2.4.3 Ordine del Focus](https://www.w3.org/TR/WCAG21/#focus-order)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
     
 - [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
     

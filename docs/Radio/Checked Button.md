@@ -1,116 +1,116 @@
 # 📌 Radio Button Checked 
 
-## 1. Overview del Componente
-Il componente `Radio Button` nello stato **unchecked** (non selezionato) consente agli utenti di scegliere un'opzione all'interno di un gruppo. Deve essere chiaramente distinguibile visivamente e accessibile tramite tastiera e screen reader.
+## 1. Component Overview
+The `Radio Button` component in **checked** state allows users to choose an option within a group. It must be clearly distinguishable visually and accessible via keyboard and screen reader.
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+## 2. Accessibility Requirements (WCAG)
 
-### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
-- I radio button devono essere contenuti in un `fieldset` con un `legend` descrittivo.
-- Ogni radio button deve avere un’etichetta associata con `<label>`.
+### 🔹 WCAG 1.3.1 - Information and Relationships
+- Radio buttons must be contained in a `fieldset` with a descriptive `legend`.
+- Each radio button must have an associated label with `<label>`.
 
 ```html
 <fieldset>
-  <legend>Seleziona un'opzione</legend>
-  <label><input type="radio" name="opzione" value="A"> Opzione A</label>
-  <label><input type="radio" name="opzione" value="B"> Opzione B</label>
+  <legend>Select an option</legend>
+  <label><input type="radio" name="opzione" value="A"> Option A</label>
+  <label><input type="radio" name="opzione" value="B"> Option B</label>
 </fieldset>
 ```
 
-### 🔹 WCAG 1.4.3 - Contrasto Minimo
-- Il bordo del radio button deve avere un contrasto minimo di **3:1** rispetto allo sfondo.
-- Il testo dell’etichetta deve avere un contrasto minimo di **4.5:1** rispetto allo sfondo.
+### 🔹 WCAG 1.4.3 - Minimum Contrast
+- The radio button border must have a minimum contrast of **3:1** compared to the background.
+- The label text must have a minimum contrast of **4.5:1** compared to the background.
 
-### 🔹 WCAG 2.1.1 - Tastiera
-- I radio button devono essere navigabili con `Tab` e selezionabili con `Space`.
+### 🔹 WCAG 2.1.1 - Keyboard
+- Radio buttons must be navigable with `Tab` and selectable with `Space`.
 
 ```html
 <input type="radio" id="option1" name="choice" value="1">
-<label for="option1">Scelta 1</label>
+<label for="option1">Choice 1</label>
 ```
 
-### 🔹 WCAG 2.4.7 - Focus Visibile
-- Il focus del radio button deve essere chiaramente visibile.
-- Deve essere implementato `outline: 2px solid #005fcc; outline-offset: 4px;` per migliorare la visibilità del focus.
+### 🔹 WCAG 2.4.7 - Focus Visible
+- The focus of the radio button must be clearly visible.
+- `outline: 2px solid #005fcc; outline-offset: 4px;x;` should be implemented to improve focus visibility.
 
 ```css
 input[type="radio"]:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;
+  outline-offset: 4px;x;
 }
 ```
 
-### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
-- Gli screen reader devono percepire correttamente il ruolo `radio` e lo stato `unchecked`.
+### 🔹 WCAG 4.1.2 - Name, Role, Value
+- Screen readers must correctly perceive the `radio` role and `checked` state.
 
 ```html
-<input type="radio" id="option2" name="choice" value="2" role="radio" aria-checked="false">
-<label for="option2">Scelta 2</label>
+<input type="radio" id="option2" name="choice" value="2" role="radio" aria-checked="true">
+<label for="option2">Choice 2</label>
 ```
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 ```html
 <label>
-  <input type="radio" name="preferenza" value="email"> Ricevi aggiornamenti via email
+  <input type="radio" name="preferenza" value="email"> Receive updates via email
 </label>
 ```
 
-🚫 **Esempio Errato (mancanza di label associata)**
+🚫 **Wrong Example (missing associated label)**
 ```html
-<input type="radio" name="preferenza"> Ricevi aggiornamenti <!-- Non associato correttamente -->
+<input type="radio" name="preferenza"> Receive updates <!-- Not correctly associated -->
 ```
 
-✅ **Se il radio button è personalizzato**
+✅ **If the radio button is custom**
 ```html
-<div role="radio" tabindex="0" aria-checked="false">
-  Seleziona questa opzione
+<div role="radio" tabindex="0" aria-checked="true">
+  Select this option
 </div>
 ```
 
-🚫 **Errore comune: non fornire uno stato chiaro di selezione**
+🚫 **Common mistake: not providing a clear selection state**
 ```html
-<div class="custom-radio">Opzione selezionabile</div> <!-- Senza aria-checked -->
+<div class="custom-radio">Selectable option</div> <!-- Without aria-checked -->
 ```
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 - NVDA
 - VoiceOver
 - JAWS
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 - [axe DevTools](https://www.deque.com/axe/)
 - [WAVE](https://wave.webaim.org/)
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
 
-🎯 **Casi d’Uso da Testare**
-- Il radio button è navigabile e selezionabile da tastiera?
-- Il focus è visibile e ben distinto?
-- Lo stato `aria-checked="false"` è correttamente aggiornato nei componenti custom?
-- Il contrasto tra testo e sfondo è sufficiente?
+🎯 **Use Cases to Test**
+- Is the radio button navigable and selectable via keyboard?
+- Is the focus visible and clearly distinct?
+- Is the `aria-checked="true"` state correctly updated in custom components?
+- Is the contrast between text and background sufficient?
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
-- Testare con testi più lunghi per lingue diverse.
-- Evitare testi solo in maiuscolo che possono creare problemi di leggibilità.
+🌍 **Internationalization**
+- Test with longer text for different languages.
+- Avoid all-uppercase text that can impair readability.
 
-📱 **Reattività**
-- Deve essere facilmente selezionabile anche su touchscreen.
-- Garantire che il radio button sia cliccabile su tutta l’area del label associato.
+📱 **Responsiveness**
+- Must be easily selectable even on touchscreen.
+- Ensure that the radio button is clickable across the entire associated label area.
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 ```css
 @media (prefers-reduced-motion: reduce) {
   .custom-radio {
@@ -121,17 +121,17 @@ input[type="radio"]:focus-visible {
 
 ---
 
-## 6. Esempi e Best Practices
-✅ **Utilizzare `<label>` per garantire la corretta associazione tra radio button e testo.**
-✅ **Assicurare un chiaro focus visibile con `outline: 2px solid #005fcc; outline-offset: 4px;`.**
-✅ **Se il radio button è personalizzato, fornire `aria-checked="false"` per comunicare lo stato agli screen reader.**
-✅ **Non rimuovere il focus senza fornire un’alternativa visiva.**
+## 6. Examples and Best Practices
+✅ **Use `<label>` to ensure correct association between radio button and text.**
+✅ **Ensure clear focus visibility with `outline: 2px solid #005fcc; outline-offset: 4px;x;`.**
+✅ **If the radio button is custom, provide `aria-checked="true"` to communicate the state to screen readers.**
+✅ **Do not remove focus without providing a visual alternative.**
 
 ---
 
-📌 **Riferimenti**
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
+📌 **References**
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)

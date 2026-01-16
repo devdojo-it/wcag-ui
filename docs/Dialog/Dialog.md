@@ -1,32 +1,32 @@
 # 📌 Dialog
 
-## 1. Overview del Componente
-Il componente `Dialog` è utilizzato per mostrare finestre modali o avvisi importanti che richiedono l’attenzione dell’utente. Deve essere accessibile tramite tastiera, screen reader e garantire una chiara gerarchia visiva.
+## 1. Component Overview
+The `Dialog` component is used to display modal windows or important alerts that require user attention. It must be accessible via keyboard, screen reader, and ensure clear visual hierarchy.
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+## 2. Accessibility Requirements (WCAG)
 
-### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
-- Il `dialog` deve essere contenuto all’interno di un `<dialog>` HTML5 o di un `div` con `role="dialog"`.
-- Deve avere un `aria-labelledby` per identificare il titolo e un `aria-describedby` per il contenuto.
+### 🔹 WCAG 1.3.1 - Information and Relationships
+- The `dialog` must be contained within an HTML5 `<dialog>` or a `div` with `role="dialog"`.
+- It must have an `aria-labelledby` to identify the title and an `aria-describedby` for the content.
 
 ```html
 <dialog id="modal" aria-labelledby="modal-title" aria-describedby="modal-content">
-  <h2 id="modal-title">Titolo della finestra</h2>
-  <p id="modal-content">Questo è il contenuto della finestra di dialogo.</p>
-  <button onclick="closeDialog()">Chiudi</button>
+  <h2 id="modal-title">Window Title</h2>
+  <p id="modal-content">This is the content of the dialog window.</p>
+  <button onclick="closeDialog()">Close</button>
 </dialog>
 ```
 
-### 🔹 WCAG 1.4.3 - Contrasto Minimo
-- Il contenuto del dialog deve avere un contrasto minimo di **4.5:1** rispetto allo sfondo.
-- L’overlay dello sfondo deve avere un’opacità sufficiente per garantire leggibilità e separazione visiva dal contenuto principale.
+### 🔹 WCAG 1.4.3 - Minimum Contrast
+- The dialog content must have a minimum contrast of **4.5:1** compared to the background.
+- The background overlay must have sufficient opacity to ensure readability and visual separation from the main content.
 
-### 🔹 WCAG 2.1.1 - Tastiera
-- Il dialog deve essere attivabile e chiudibile con `Esc`.
-- Il focus deve essere intrappolato all’interno del dialog finché non viene chiuso.
-- Il primo elemento interattivo deve ricevere il focus automaticamente all’apertura.
+### 🔹 WCAG 2.1.1 - Keyboard
+- The dialog must be activatable and closeable with `Esc`.
+- Focus must be trapped within the dialog until it is closed.
+- The first interactive element must receive focus automatically when opened.
 
 ```js
 const dialog = document.getElementById("modal");
@@ -42,48 +42,48 @@ dialog.addEventListener("keydown", (e) => {
 });
 ```
 
-### 🔹 WCAG 2.4.7 - Focus Visibile
-- Il focus deve essere chiaramente visibile e gestito correttamente nel ciclo di interazione all’interno del dialog.
+### 🔹 WCAG 2.4.7 - Focus Visible
+- Focus must be clearly visible and correctly managed in the interaction cycle within the dialog.
 
 ```css
 button:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;
+  outline-offset: 4px;x;
   
 }
 ```
 
-### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
-- Gli screen reader devono percepire correttamente il ruolo `dialog` e i relativi elementi associati.
+### 🔹 WCAG 4.1.2 - Name, Role, Value
+- Screen readers must correctly perceive the `dialog` role and related associated elements.
 
 ```html
 <div role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-content">
-  <h2 id="dialog-title">Avviso</h2>
-  <p id="dialog-content">Il tuo account sta per scadere.</p>
+  <h2 id="dialog-title">Warning</h2>
+  <p id="dialog-content">Your account is about to expire.</p>
   <button>OK</button>
 </div>
 ```
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 ```html
 <dialog id="example-dialog">
-  <h2>Conferma azione</h2>
-  <p>Sei sicuro di voler continuare?</p>
-  <button onclick="closeDialog()">Annulla</button>
-  <button>Conferma</button>
+  <h2>Confirm Action</h2>
+  <p>Are you sure you want to continue?</p>
+  <button onclick="closeDialog()">Cancel</button>
+  <button>Confirm</button>
 </dialog>
 ```
 
-🚫 **Esempio Errato (mancanza di gestione focus)**
+🚫 **Wrong Example (lack of focus management)**
 ```html
-<div class="dialog">Messaggio</div> <!-- Non gestisce focus né semantica corretta -->
+<div class="dialog">Message</div> <!-- Does not manage focus nor correct semantics -->
 ```
 
-✅ **Gestione del Focus**
+✅ **Focus Management**
 ```js
 const dialog = document.getElementById("example-dialog");
 dialog.addEventListener("keydown", (e) => {
@@ -93,45 +93,45 @@ dialog.addEventListener("keydown", (e) => {
 });
 ```
 
-🚫 **Errore comune: non fornire un meccanismo di chiusura**
+🚫 **Common mistake: not providing a close mechanism**
 ```html
-<dialog open>Attenzione! Non puoi chiudere questa finestra.</dialog>
+<dialog open>Warning! You cannot close this window.</dialog>
 ```
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 - NVDA
 - VoiceOver
 - JAWS
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 - [axe DevTools](https://www.deque.com/axe/)
 - [WAVE](https://wave.webaim.org/)
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
 
-🎯 **Casi d’Uso da Testare**
-- Il dialog è navigabile e attivabile da tastiera?
-- Il focus è visibile e ben distinto?
-- Il contrasto tra testo e sfondo è sufficiente?
-- Gli screen reader annunciano correttamente il titolo e il contenuto del dialog?
-- Il focus rimane intrappolato all’interno del dialog fino alla chiusura?
+🎯 **Use Cases to Test**
+- Is the dialog navigable and activatable via keyboard?
+- Is the focus visible and clearly distinct?
+- Is the contrast between text and background sufficient?
+- Do screen readers correctly announce the title and content of the dialog?
+- Does focus remain trapped within the dialog until closure?
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
-- Testare con testi più lunghi per lingue diverse.
-- Evitare testi solo in maiuscolo che possono creare problemi di leggibilità.
+🌍 **Internationalization**
+- Test with longer text for different languages.
+- Avoid all-uppercase text that can impair readability.
 
-📱 **Reattività**
-- Deve essere facilmente utilizzabile su touchscreen.
-- Garantire che i pulsanti siano chiaramente selezionabili e visibili su schermi piccoli.
+📱 **Responsiveness**
+- Must be easily usable on touchscreen.
+- Ensure that buttons are clearly selectable and visible on small screens.
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 ```css
 @media (prefers-reduced-motion: reduce) {
   .dialog {
@@ -142,18 +142,18 @@ dialog.addEventListener("keydown", (e) => {
 
 ---
 
-## 6. Esempi e Best Practices
-✅ **Utilizzare `<dialog>` o `role="dialog"` per una semantica corretta.**
-✅ **Garantire un chiaro focus visibile per la navigazione da tastiera.**
-✅ **Intrappolare il focus all’interno del dialog finché non viene chiuso.**
-✅ **Testare con screen reader per verificare l’annuncio corretto del contenuto.**
-✅ **Fornire sempre un meccanismo di chiusura chiaro ed efficace.**
+## 6. Examples and Best Practices
+✅ **Use `<dialog>` or `role="dialog"` for correct semantics.**
+✅ **Ensure clear focus visibility for keyboard navigation.**
+✅ **Trap focus within the dialog until it is closed.**
+✅ **Test with screen reader to verify correct announcement of content.**
+✅ **Always provide a clear and effective close mechanism.**
 
 ---
 
-📌 **Riferimenti**
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
+📌 **References**
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)

@@ -6,7 +6,7 @@
 
   
 
-Il componente Treeview (o Tree) consente di navigare e gestire una struttura gerarchica di elementi (nodi) con livelli annidati. I nodi possono essere espandibili/collassabili e, a seconda del caso d’uso, selezionabili (singola o multipla selezione). Deve essere completamente utilizzabile da tastiera e comunicare correttamente gerarchia, stato (espanso/collassato, selezionato) e posizione (livello) alle tecnologie assistive.
+The component Treeview (o Tree) consente di navigare and handle una struttura gerarchica di elementi (nodi) con livelli annidati. I nodi possono essere espandibili/collassabili e, a seconda del caso d’uso, selezionabili (singola o multipla selezione). Deve essere fully usable da tastiera e comunicare correttamente gerarchia, stato (espanso/collassato, selezionato) e posizione (livello) alle tecnologie assistive.
 
 ---
 
@@ -14,19 +14,19 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
   
 
-### **🔹 WCAG 1.3.1 - Informazioni e Relazioni**
+### **🔹 WCAG 1.3.1 - Information and Relationships**
 
 - Il tree deve esporre una struttura semantica coerente con una gerarchia.
     
-- Il contenitore principale deve avere role="tree".
+- Il contenitore principale it must have role="tree".
     
-- Ogni nodo deve avere role="treeitem".
+- Ogni nodo it must have role="treeitem".
     
 - I gruppi di figli devono essere contenuti in role="group".
     
 - I nodi espandibili devono esporre aria-expanded="true|false".
     
-- Se i nodi sono selezionabili, usare aria-selected="true|false".
+- Se i nodi sono selezionabili, use aria-selected="true|false".
     
 
 ```
@@ -42,7 +42,7 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
 ---
 
-### **🔹 WCAG 1.4.3 - Contrasto Minimo**
+### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
 - Testo dei nodi: contrasto minimo **4.5:1**.
     
@@ -53,7 +53,7 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
 ---
 
-### **🔹 WCAG 2.1.1 - Tastiera**
+### **🔹 WCAG 2.1.1 - Keyboard**
 
 - Il tree deve supportare la navigazione da tastiera secondo pattern consolidati:
     
@@ -89,11 +89,11 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
 ---
 
-### **🔹 WCAG 2.4.7 - Focus Visibile**
+### **🔹 WCAG 2.4.7 - Focus Visible**
 
 - Il focus deve essere sempre visibile sul nodo attivo.
     
-- Il focus indicator deve avere contrasto minimo **3:1**.
+- Il focus indicator it must have contrasto minimo **3:1**.
     
 
 ```
@@ -107,7 +107,7 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
 ### **🔹 WCAG 4.1.2 - Nome, Ruolo, Valore**
 
-- Ogni nodo deve avere un nome accessibile (testo visibile o aria-label).
+- Ogni nodo it must have un nome accessibile (testo visibile o aria-label).
     
 - I nodi espandibili devono aggiornare aria-expanded dinamicamente.
     
@@ -122,7 +122,7 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
   
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 
 ```
 <ul role="tree" aria-label="Struttura">
@@ -136,7 +136,7 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 </ul>
 ```
 
-🚫 **Esempio Errato (mancanza di semantica)**
+🚫 **Wrong Example (mancanza di semantica)**
 
 ```
 <div class="tree-node" onclick="toggle()">Progetti</div>
@@ -158,7 +158,7 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
   
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -169,7 +169,7 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
   
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)![Attachment.tiff](file:///Attachment.tiff)
     
@@ -199,7 +199,7 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
   
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
 - Supportare testi lunghi senza perdere leggibilità.
     
@@ -208,7 +208,7 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
   
 
-📱 **Reattività**
+📱 **Responsiveness**
 
 - Target interattivi minimi **44×44 px** per i nodi.
     
@@ -233,7 +233,7 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
 - Usare roving tabindex per un’esperienza tastiera pulita.
     
-- Non usare checkbox “fake”: preferire controlli nativi o pattern testati.
+- Non use checkbox “fake”: preferire controlli nativi o pattern testati.
     
 - Annunciare chiaramente stato e selezione.
     
@@ -242,17 +242,17 @@ Il componente Treeview (o Tree) consente di navigare e gestire una struttura ger
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
     
 - [WCAG 2.1 - Success Criterion 2.4.3 Ordine del Focus](https://www.w3.org/TR/WCAG21/#focus-order)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
     
 - [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
     

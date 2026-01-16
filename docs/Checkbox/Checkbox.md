@@ -1,117 +1,117 @@
 # 📌 Checkbox 
 
-## 1. Overview del Componente
-Il componente `Checkbox` nello stato **checked** (selezionato) consente agli utenti di confermare una scelta attiva. Deve essere chiaramente distinguibile visivamente e accessibile tramite tastiera e screen reader.
+## 1. Component Overview
+The `Checkbox` component in **checked** state allows users to confirm an active choice. It must be clearly distinguishable visually and accessible via keyboard and screen reader.
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+## 2. Accessibility Requirements (WCAG)
 
-### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
-- Le checkbox devono essere associate a un'etichetta chiara utilizzando `<label>` per garantire che siano leggibili dagli screen reader.
-- Se le checkbox sono raggruppate, devono essere contenute in un `fieldset` con un `legend` descrittivo.
+### 🔹 WCAG 1.3.1 - Information and Relationships
+- Checkboxes must be associated with a clear label using `<label>` to ensure they are readable by screen readers.
+- If checkboxes are grouped, they must be contained in a `fieldset` with a descriptive `legend`.
 
 ```html
 <fieldset>
-  <legend>Seleziona i tuoi interessi</legend>
-  <label><input type="checkbox" name="hobby" value="sport" checked> Sport</label>
-  <label><input type="checkbox" name="hobby" value="musica" checked> Musica</label>
+  <legend>Select your interests</legend>
+  <label><input type="checkbox" name="hobby" value="sport" checked> Sports</label>
+  <label><input type="checkbox" name="hobby" value="musica" checked> Music</label>
 </fieldset>
 ```
 
-### 🔹 WCAG 1.4.3 - Contrasto Minimo
-- Il bordo della checkbox e il testo dell'etichetta devono avere un contrasto minimo di **3:1** rispetto allo sfondo.
-- Il testo dell’etichetta deve avere un contrasto minimo di **4.5:1** rispetto allo sfondo per garantire la leggibilità.
+### 🔹 WCAG 1.4.3 - Minimum Contrast
+- The checkbox border and label text must have a minimum contrast of **3:1** compared to the background.
+- The label text must have a minimum contrast of **4.5:1** compared to the background to ensure readability.
 
-### 🔹 WCAG 2.1.1 - Tastiera
-- Tutte le checkbox devono essere navigabili con `Tab` e selezionabili/deselezionabili con `Space`.
-- Se viene fornita una checkbox personalizzata, deve mantenere lo stesso comportamento della checkbox nativa.
+### 🔹 WCAG 2.1.1 - Keyboard
+- All checkboxes must be navigable with `Tab` and selectable/deselectable with `Space`.
+- If a custom checkbox is provided, it must maintain the same behavior as the native checkbox.
 
 ```html
 <input type="checkbox" id="accept" name="accept" checked>
-<label for="accept">Accetto i termini e condizioni</label>
+<label for="accept">I accept the terms and conditions</label>
 ```
 
-### 🔹 WCAG 2.4.7 - Focus Visibile
-- La checkbox deve avere un chiaro stato `focus-visible` per indicare quando è attiva.
+### 🔹 WCAG 2.4.7 - Focus Visible
+- The checkbox must have a clear `focus-visible` state to indicate when it is active.
 
 ```css
 input[type="checkbox"]:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;
+  outline-offset: 4px;x;
 }
 ```
 
-### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
-- Gli screen reader devono percepire correttamente lo stato `checked` della checkbox tramite `aria-checked="true"` se viene utilizzato `role="checkbox"` in un componente custom.
+### 🔹 WCAG 4.1.2 - Name, Role, Value
+- Screen readers must correctly perceive the `checked` state of the checkbox via `aria-checked="true"` if `role="checkbox"` is used in a custom component.
 
 ```html
 <div role="checkbox" tabindex="0" aria-checked="true" id="custom-checkbox">
-  Accetto i termini e condizioni
+  I accept the terms and conditions
 </div>
 ```
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 ```html
 <label>
-  <input type="checkbox" name="notifiche" value="email" checked> Ricevi notifiche via email
+  <input type="checkbox" name="notifiche" value="email" checked> Receive email notifications
 </label>
 ```
 
-🚫 **Esempio Errato (mancanza di label associata)**
+🚫 **Wrong Example (missing associated label)**
 ```html
-<input type="checkbox" name="notifiche" checked> Ricevi notifiche via email <!-- Non associato correttamente -->
+<input type="checkbox" name="notifiche" checked> Receive email notifications <!-- Not correctly associated -->
 ```
 
-✅ **Se la checkbox è personalizzata**
+✅ **If the checkbox is custom**
 ```html
 <div role="checkbox" tabindex="0" aria-checked="true">
-  Accetto le promozioni
+  I accept promotions
 </div>
 ```
 
-🚫 **Errore comune: non fornire uno stato chiaro di selezione**
+🚫 **Common mistake: not providing a clear selection state**
 ```html
-<div class="custom-checkbox">Accetto i termini</div> <!-- Senza aria-checked -->
+<div class="custom-checkbox">I accept the terms</div> <!-- Without aria-checked -->
 ```
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 - NVDA
 - VoiceOver
 - JAWS
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 - [axe DevTools](https://www.deque.com/axe/)
 - [WAVE](https://wave.webaim.org/)
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
 
-🎯 **Casi d’Uso da Testare**
-- La checkbox è navigabile e selezionabile/deselezionabile da tastiera?
-- Il focus è visibile e ben distinto?
-- Lo stato `aria-checked="true"` è correttamente aggiornato nei componenti custom?
-- Il contrasto tra testo e sfondo è sufficiente?
+🎯 **Use Cases to Test**
+- Is the checkbox navigable and selectable/deselectable via keyboard?
+- Is the focus visible and clearly distinct?
+- Is the `aria-checked="true"` state correctly updated in custom components?
+- Is the contrast between text and background sufficient?
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
-- Testare con testi più lunghi per lingue diverse.
-- Evitare testi solo in maiuscolo che possono creare problemi di leggibilità.
+🌍 **Internationalization**
+- Test with longer text for different languages.
+- Avoid all-uppercase text that can impair readability.
 
-📱 **Reattività**
-- Deve essere facilmente selezionabile anche su touchscreen.
-- Garantire che la checkbox sia cliccabile su tutta l’area del label associato.
+📱 **Responsiveness**
+- Must be easily selectable even on touchscreen.
+- Ensure that the checkbox is clickable across the entire associated label area.
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 ```css
 @media (prefers-reduced-motion: reduce) {
   .custom-checkbox {
@@ -122,17 +122,17 @@ input[type="checkbox"]:focus-visible {
 
 ---
 
-## 6. Esempi e Best Practices
-✅ **Utilizzare `<label>` per garantire la corretta associazione tra checkbox e testo.**
-✅ **Assicurare un chiaro focus visibile per la navigazione da tastiera.**
-✅ **Se la checkbox è personalizzata, fornire `aria-checked="true"` per comunicare lo stato agli screen reader.**
-✅ **Non rimuovere il focus senza fornire un’alternativa visiva.**
+## 6. Examples and Best Practices
+✅ **Use `<label>` to ensure correct association between checkbox and text.**
+✅ **Ensure clear focus visibility for keyboard navigation.**
+✅ **If the checkbox is custom, provide `aria-checked="true"` to communicate the state to screen readers.**
+✅ **Do not remove focus without providing a visual alternative.**
 
 ---
 
-📌 **Riferimenti**
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
+📌 **References**
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)

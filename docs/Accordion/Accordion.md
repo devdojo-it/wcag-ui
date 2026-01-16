@@ -1,123 +1,123 @@
 
 # 📌 Accordion 
 
-## 1. Overview del Componente
-Il componente `Accordion` permette di mostrare e nascondere sezioni di contenuto in modo dinamico. È particolarmente utile per organizzare informazioni in spazi ristretti e migliorare la leggibilità. Deve essere accessibile sia per utenti che navigano con la tastiera che per chi utilizza screen reader.
+## 1. Component Overview
+The `Accordion` component allows you to show and hide content sections dynamically. It is particularly useful for organizing information in restricted spaces and improving readability. It must be accessible for users who navigate with the keyboard and those who use screen readers.
 
 ---
 
-## 2. Requisiti di Accessibilità (WCAG)
+## 2. Accessibility Requirements (WCAG)
 
-### 🔹 WCAG 1.3.1 - Informazioni e Relazioni
-- Ogni sezione dell'accordion deve essere strutturata semanticamente utilizzando `<button>` per il titolo e `<div>` per il contenuto.
-- Il titolo deve avere un `aria-controls` che punti all’`id` del pannello corrispondente.
-- Il pannello deve avere `role="region"` e `aria-labelledby` per essere associato al titolo.
+### 🔹 WCAG 1.3.1 - Information and Relationships
+- Each accordion section must be semantically structured using `<button>` for the title and `<div>` for the content.
+- The title must have an `aria-controls` that points to the `id` of the corresponding panel.
+- The panel must have `role="region"` and `aria-labelledby` to be associated with the title.
 
 ```html
-<button aria-controls="panel1" aria-expanded="false" id="accordion1">Sezione 1</button>
+<button aria-controls="panel1" aria-expanded="false" id="accordion1">Section 1</button>
 <div id="panel1" role="region" aria-labelledby="accordion1" hidden>
-  <p>Contenuto della sezione 1</p>
+  <p>Content of section 1</p>
 </div>
 ```
 
-### 🔹 WCAG 1.4.3 - Contrasto Minimo
-- Il testo e gli indicatori visivi devono avere un contrasto minimo di **4.5:1** rispetto allo sfondo.
-- Lo stato attivo (focus) deve essere chiaramente visibile con un contrasto minimo di **3:1**.
+### 🔹 WCAG 1.4.3 - Minimum Contrast
+- Text and visual indicators must have a minimum contrast of **4.5:1** against the background.
+- The active state (focus) must be clearly visible with a minimum contrast of **3:1**.
 
-### 🔹 WCAG 2.1.1 - Tastiera
-- L'accordion deve essere navigabile con `Tab`.
-- I pulsanti di espansione devono essere attivabili con `Enter` e `Space`.
-- Le frecce su/giù possono essere implementate per una navigazione più fluida tra le voci dell’accordion.
+### 🔹 WCAG 2.1.1 - Keyboard
+- The accordion must be navigable with `Tab`.
+- Expansion buttons must be activatable with `Enter` and `Space`.
+- Up/down arrow keys can be implemented for smoother navigation between accordion items.
 
 ```html
-<button aria-controls="panel2" aria-expanded="false">Sezione 2</button>
+<button aria-controls="panel2" aria-expanded="false">Section 2</button>
 <div id="panel2" role="region" aria-labelledby="accordion2" hidden>
-  <p>Contenuto della sezione 2</p>
+  <p>Content of section 2</p>
 </div>
 ```
 
-### 🔹 WCAG 2.4.7 - Focus Visibile
-- Deve essere chiaro quando un elemento dell’accordion è attivo o ha il focus.
+### 🔹 WCAG 2.4.7 - Focus Visible
+- It must be clear when an accordion element is active or has focus.
 
 ```css
 button:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px 
+  outline-offset: 4px;x 
 }
 ```
 
-### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
-- Gli screen reader devono percepire correttamente lo stato di apertura e chiusura dell’accordion tramite `aria-expanded`.
+### 🔹 WCAG 4.1.2 - Name, Role, Value
+- Screen readers must correctly perceive the open and closed state of the accordion via `aria-expanded`.
 
 ```html
-<button aria-expanded="true" aria-controls="panel3">Sezione 3</button>
+<button aria-expanded="true" aria-controls="panel3">Section 3</button>
 ```
 
 ---
 
-## 3. Linee Guida per gli Sviluppatori
+## 3. Developer Guidelines
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 ```html
-<button aria-controls="panel4" aria-expanded="false" id="accordion4">Sezione 4</button>
+<button aria-controls="panel4" aria-expanded="false" id="accordion4">Section 4</button>
 <div id="panel4" role="region" aria-labelledby="accordion4" hidden>
-  <p>Contenuto della sezione 4</p>
+  <p>Content of section 4</p>
 </div>
 ```
 
-🚫 **Esempio Errato (mancanza di semantica)**
+🚫 **Wrong Example (lack of semantics)**
 ```html
-<div class="accordion-title" onclick="toggleAccordion()">Sezione 5</div>
+<div class="accordion-title" onclick="toggleAccordion()">Section 5</div>
 <div class="accordion-content" hidden>
-  <p>Contenuto della sezione 5</p>
-</div> <!-- Non accessibile, manca semantica corretta -->
+  <p>Content of section 5</p>
+</div> <!-- Not accessible, lacks proper semantics -->
 ```
 
-✅ **Gestione del Focus**
+✅ **Focus Management**
 ```css
 button:focus-visible {
   outline: 3px solid #ff9900;
 }
 ```
 
-🚫 **Errore comune: non fornire uno stato chiaro di espansione**
+🚫 **Common mistake: not providing a clear expansion state**
 ```html
-<button>Sezione 6</button> <!-- Manca aria-controls e aria-expanded -->
+<button>Section 6</button> <!-- Missing aria-controls and aria-expanded -->
 ```
 
 ---
 
-## 4. Test e Validazione
+## 4. Testing and Validation
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 - NVDA
 - VoiceOver
 - JAWS
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 - [axe DevTools](https://www.deque.com/axe/)
 - [WAVE](https://wave.webaim.org/)
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
 
-🎯 **Casi d’Uso da Testare**
-- L'accordion è navigabile e attivabile da tastiera?
-- Il focus è visibile e ben distinto?
-- Lo stato `aria-expanded` è correttamente aggiornato?
-- Il contrasto tra testo e sfondo è sufficiente?
+🎯 **Use Cases to Test**
+- Is the accordion navigable and activatable via keyboard?
+- Is the focus visible and clearly distinct?
+- Is the `aria-expanded` state correctly updated?
+- Is the contrast between text and background sufficient?
 
 ---
 
-## 5. Considerazioni Avanzate
+## 5. Advanced Considerations
 
-🌍 **Internazionalizzazione**
-- Testare con testi più lunghi per lingue diverse.
-- Evitare testi solo in maiuscolo che possono creare problemi di leggibilità.
+🌍 **Internationalization**
+- Test with longer text for different languages.
+- Avoid all-uppercase text that can impair readability.
 
-📱 **Reattività**
-- Deve essere facilmente utilizzabile su touchscreen.
-- Garantire che le sezioni dell’accordion siano visibili e leggibili anche con zoom fino al 200%.
+📱 **Responsiveness**
+- Must be easily usable on touchscreen.
+- Ensure that accordion sections are visible and readable even with zoom up to 200%.
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 ```css
 @media (prefers-reduced-motion: reduce) {
   .accordion-content {
@@ -128,17 +128,17 @@ button:focus-visible {
 
 ---
 
-## 6. Esempi e Best Practices
-✅ **Usare `aria-controls` e `aria-expanded` per migliorare l'accessibilità.**
-✅ **Garantire un chiaro focus visibile per la navigazione da tastiera.**
-✅ **Non basarsi solo sul colore per indicare lo stato aperto/chiuso.**
-✅ **Testare con screen reader per verificare la corretta lettura delle sezioni.**
+## 6. Examples and Best Practices
+✅ **Use `aria-controls` and `aria-expanded` to improve accessibility.**
+✅ **Ensure clear focus visibility for keyboard navigation.**
+✅ **Do not rely solely on color to indicate open/closed state.**
+✅ **Test with screen reader to verify correct reading of sections.**
 
 ---
 
-📌 **Riferimenti**
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
+📌 **References**
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)

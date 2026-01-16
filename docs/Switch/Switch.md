@@ -2,78 +2,76 @@
 
   
 
-## **1. Overview del Componente**
+## **1. Component Overview**
 
-  
-
-Il componente Switch permette di attivare o disattivare un’impostazione (on/off) con un controllo a due stati. È concettualmente simile a una checkbox, ma con una rappresentazione visiva diversa. Deve comunicare chiaramente stato, etichetta e interattività, ed essere completamente utilizzabile da tastiera e con screen reader.
+The `Switch` component allows you to activate or deactivate a setting (on/off) with a two-state control. It is conceptually similar to a checkbox, but with a different visual representation. It must clearly communicate state, label, and interactivity, and be fully usable with keyboard and screen reader.
 
 ---
 
-## **2. Requisiti di Accessibilità (WCAG)**
+## **2. Accessibility Requirements (WCAG)**
 
   
 
-### **🔹 WCAG 1.1.1 - Testo Alternativo**
+### **🔹 WCAG 1.1.1 - Alternative Text**
 
-- Se lo switch non ha un testo visibile associato, deve avere un nome accessibile tramite aria-label o aria-labelledby.
+- If the switch does not have associated visible text, it must have an accessible name via aria-label or aria-labelledby.
     
-- Icone decorative (es. sole/luna) devono essere aria-hidden="true".
+- Decorative icons (e.g., sun/moon) must be aria-hidden="true".
     
 
 ```
-<button role="switch" aria-checked="false" aria-label="Attiva modalità scura"></button>
+<button role="switch" aria-checked="false" aria-label="Enable dark mode"></button>
 ```
 
 ---
 
-### **🔹 WCAG 1.3.1 - Informazioni e Relazioni**
+### **🔹 WCAG 1.3.1 - Information and Relationships**
 
-- Lo switch deve avere un’etichetta testuale associata, preferibilmente visibile.
+- The switch must have an associated text label, preferably visible.
     
-- Se è presente un testo di supporto o una descrizione, collegarlo con aria-describedby.
+- If there is supporting text or a description, connect it with aria-describedby.
     
-- Se lo switch è parte di un gruppo di opzioni, utilizzare una struttura semantica (es. fieldset + legend).
+- If the switch is part of a group of options, use a semantic structure (e.g., fieldset + legend).
     
 
 ```
-<label id="notif-label">Notifiche</label>
+<label id="notif-label">Notifications</label>
 <button role="switch" aria-checked="true" aria-labelledby="notif-label"></button>
 ```
 
 ---
 
-### **🔹 WCAG 1.4.3 - Contrasto Minimo**
+### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
-- Etichetta e testo associato: contrasto minimo **4.5:1**.
+- Label and associated text: minimum contrast **4.5:1**.
     
-- Indicatori visivi dello stato (thumb, track, icone): contrasto minimo **3:1**.
+- Status indicators (thumb, track, icons): minimum contrast **3:1**.
     
-- Lo stato on/off non deve essere comunicato solo tramite colore.
+- The on/off state must not be communicated only through color.
     
 
 ---
 
-### **🔹 WCAG 2.1.1 - Tastiera**
+### **🔹 WCAG 2.1.1 - Keyboard**
 
-- Lo switch deve essere raggiungibile con Tab.
+- The switch must be reachable with Tab.
     
-- Deve essere attivabile con Space e (se implementato) con Enter.
+- It must be activatable with Space and (if implemented) with Enter.
     
-- L’ordine di tabulazione deve essere coerente con il layout.
+- The tab order must be consistent with the layout.
     
 
 ```
-<button role="switch" aria-checked="false">Modalità scura</button>
+<button role="switch" aria-checked="false">Dark mode</button>
 ```
 
 ---
 
-### **🔹 WCAG 2.4.7 - Focus Visibile**
+### **🔹 WCAG 2.4.7 - Focus Visible**
 
-- Il focus deve essere sempre visibile sul controllo.
+- Focus must always be visible on the control.
     
-- Il focus indicator deve avere un contrasto minimo di **3:1**.
+- The focus indicator must have a minimum contrast of **3:1**.
     
 
 ```
@@ -85,59 +83,59 @@ Il componente Switch permette di attivare o disattivare un’impostazione (on/of
 
 ---
 
-### **🔹 WCAG 3.2.2 - Coerenza nelle Interazioni**
+### **🔹 WCAG 3.2.2 - Consistency in Interactions**
 
-- L’attivazione deve essere prevedibile: un click o Space cambia solo lo stato dello switch.
+- Activation must be predictable: a click or Space changes only the switch state.
     
-- Evitare che la modifica attivi immediatamente azioni distruttive senza conferma.
+- Avoid having the change immediately trigger destructive actions without confirmation.
     
-- Se il cambio di stato aggiorna contenuti altrove, evitare spostamenti improvvisi del focus.
+- If the state change updates content elsewhere, avoid sudden focus movements.
     
 
 ---
 
-### **🔹 WCAG 4.1.2 - Nome, Ruolo, Valore**
+### **🔹 WCAG 4.1.2 - Name, Role, Value**
 
-- Il controllo deve esporre correttamente il ruolo di switch e lo stato on/off.
+- The control must correctly expose the switch role and on/off state.
     
-- Utilizzare role="switch" con aria-checked="true|false" oppure una checkbox nativa con stile switch.
+- Use role="switch" with aria-checked="true|false" or a native checkbox with switch styling.
     
-- Lo stato deve essere aggiornato dinamicamente.
+- The state must be updated dynamically.
     
 
 ```
-<button role="switch" aria-checked="true">Attivo</button>
+<button role="switch" aria-checked="true">Active</button>
 ```
 
 ---
 
-## **3. Linee Guida per gli Sviluppatori**
+## **3. Developer Guidelines**
 
   
 
-✅ **Markup HTML Corretto (consigliato: checkbox nativa)**
+✅ **Correct HTML Markup (recommended: native checkbox)**
 
 ```
 <div>
   <input type="checkbox" id="dark" />
-  <label for="dark">Modalità scura</label>
+  <label for="dark">Dark mode</label>
 </div>
 ```
 
-✅ **Markup HTML Corretto (role switch)**
+✅ **Correct HTML Markup (switch role)**
 
 ```
-<label id="dark-label">Modalità scura</label>
+<label id="dark-label">Dark mode</label>
 <button class="switch" role="switch" aria-checked="false" aria-labelledby="dark-label"></button>
 ```
 
-🚫 **Esempio Errato (mancanza di semantica)**
+🚫 **Wrong Example (lack of semantics)**
 
 ```
 <div class="switch" onclick="toggle()"></div>
 ```
 
-✅ **Gestione del Focus**
+✅ **Focus Management**
 
 ```
 .switch:focus-visible {
@@ -148,11 +146,11 @@ Il componente Switch permette di attivare o disattivare un’impostazione (on/of
 
 ---
 
-## **4. Test e Validazione**
+## **4. Testing and Validation**
 
   
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -163,7 +161,7 @@ Il componente Switch permette di attivare o disattivare un’impostazione (on/of
 
   
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)![Attachment.tiff](file:///Attachment.tiff)
     
@@ -174,42 +172,42 @@ Il componente Switch permette di attivare o disattivare un’impostazione (on/of
 
   
 
-🎯 **Casi d’Uso da Testare**
+🎯 **Use Cases to Test**
 
-- Lo switch è raggiungibile e attivabile da tastiera?
+- Is the switch reachable and activatable via keyboard?
     
-- Lo screen reader annuncia correttamente label e stato?
+- Does the screen reader correctly announce the label and state?
     
-- Il focus è sempre visibile?
+- Is focus always visible?
     
-- Lo stato on/off è comprensibile anche senza colore?
+- Is the on/off state understandable even without color?
     
 
 ---
 
-## **5. Considerazioni Avanzate**
+## **5. Advanced Considerations**
 
   
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
-- Etichette localizzabili.
+- Localizable labels.
     
-- Evitare testi troncati senza alternativa.
-    
-
-  
-
-📱 **Reattività**
-
-- Target interattivo minimo **44×44 px**.
-    
-- Utilizzabile su touchscreen e con zoom al 200%.
+- Avoid truncated text without an alternative.
     
 
   
 
-🎞 **Motion e Animazioni**
+📱 **Responsiveness**
+
+- Minimum interactive target **44×44 px**.
+    
+- Usable on touchscreen and with 200% zoom.
+    
+
+  
+
+🎞 **Motion and Animations**
 
 ```
 @media (prefers-reduced-motion: reduce) {
@@ -221,33 +219,33 @@ Il componente Switch permette di attivare o disattivare un’impostazione (on/of
 
 ---
 
-## **6. Esempi e Best Practices**
+## **6. Examples and Best Practices**
 
-- Preferire una checkbox nativa stilizzata quando possibile.
+- Prefer a native styled checkbox when possible.
     
-- Rendere sempre evidente lo stato (testo o aria-checked) oltre al colore.
+- Always make the state evident (text or aria-checked) beyond color.
     
-- Evitare switch senza etichetta.
+- Avoid switches without a label.
     
-- Testare con screen reader reali.
+- Test with real screen readers.
     
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.1.1 Testo Alternativo](https://www.w3.org/TR/WCAG21/#text-alternatives)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.1.1 Alternative Text](https://www.w3.org/TR/WCAG21/#text-alternatives)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 3.2.2 Coerenza nelle Interazioni](https://www.w3.org/TR/WCAG21/#on-input)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 3.2.2 Consistency in Interactions](https://www.w3.org/TR/WCAG21/#on-input)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
     
 - [ARIA Authoring Practices - Switch Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/switch/)![Attachment.tiff](file:///Attachment.tiff)

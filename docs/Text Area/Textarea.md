@@ -6,7 +6,7 @@
 
   
 
-Il componente Textarea consente l’inserimento di testo libero su più righe (es. note, descrizioni, messaggi). Deve essere utilizzabile da tastiera, correttamente etichettato, compatibile con screen reader e supportare stati come errore, disabilitato e conteggio caratteri (se presente).
+The component Textarea consente l’inserimento di testo libero su più righe (es. note, descrizioni, messaggi). Deve essere utilizzabile da tastiera, correttamente etichettato, compatibile con screen reader e supportare stati come errore, disabilitato e conteggio caratteri (se presente).
 
 ---
 
@@ -14,9 +14,9 @@ Il componente Textarea consente l’inserimento di testo libero su più righe (e
 
   
 
-### **🔹 WCAG 1.3.1 - Informazioni e Relazioni**
+### **🔹 WCAG 1.3.1 - Information and Relationships**
 
-- La textarea deve avere una label associata tramite for e id.
+- La textarea it must have una label associata tramite for e id.
     
 - Testi di aiuto (placeholder, hint, esempi) devono essere collegati tramite aria-describedby.
     
@@ -31,7 +31,7 @@ Il componente Textarea consente l’inserimento di testo libero su più righe (e
 
 ---
 
-### **🔹 WCAG 1.4.3 - Contrasto Minimo**
+### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
 - Testo inserito e label: contrasto minimo **4.5:1**.
     
@@ -42,9 +42,9 @@ Il componente Textarea consente l’inserimento di testo libero su più righe (e
 
 ---
 
-### **🔹 WCAG 2.1.1 - Tastiera**
+### **🔹 WCAG 2.1.1 - Keyboard**
 
-- Il componente deve essere raggiungibile con Tab.
+- The component deve essere raggiungibile con Tab.
     
 - Deve supportare input standard (scrittura, selezione testo, copia/incolla).
     
@@ -53,11 +53,11 @@ Il componente Textarea consente l’inserimento di testo libero su più righe (e
 
 ---
 
-### **🔹 WCAG 2.4.7 - Focus Visibile**
+### **🔹 WCAG 2.4.7 - Focus Visible**
 
 - Il focus deve essere sempre visibile sulla textarea.
     
-- Il focus indicator deve avere un contrasto minimo di **3:1**.
+- Il focus indicator it must have un contrasto minimo di **3:1**.
     
 
 ```
@@ -105,7 +105,7 @@ textarea:focus-visible {
 
   
 
-✅ **Markup HTML Corretto**
+✅ **Correct HTML Markup**
 
 ```
 <label for="notes">Note</label>
@@ -114,7 +114,7 @@ textarea:focus-visible {
 <p id="notes-counter">0/500</p>
 ```
 
-🚫 **Esempio Errato (mancanza di label)**
+🚫 **Wrong Example (mancanza di label)**
 
 ```
 <textarea placeholder="Note"></textarea>
@@ -135,7 +135,7 @@ textarea:focus-visible {
 
   
 
-🛠 **Tecnologie Assistive Testate**
+🛠 **Assistive Technologies Tested**
 
 - NVDA
     
@@ -146,7 +146,7 @@ textarea:focus-visible {
 
   
 
-🛠 **Strumenti di Verifica**
+🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)![Attachment.tiff](file:///Attachment.tiff)
     
@@ -174,7 +174,7 @@ textarea:focus-visible {
 
   
 
-🌍 **Internazionalizzazione**
+🌍 **Internationalization**
 
 - Supportare testi lunghi e lingue diverse.
     
@@ -183,7 +183,7 @@ textarea:focus-visible {
 
   
 
-📱 **Reattività**
+📱 **Responsiveness**
 
 - Area di input adeguata su mobile.
     
@@ -206,7 +206,7 @@ textarea:focus-visible {
 
 ## **6. Esempi e Best Practices**
 
-- Non usare il placeholder come unica label.
+- Non use il placeholder come unica label.
     
 - Collegare hint, errori e contatore con aria-describedby.
     
@@ -217,15 +217,15 @@ textarea:focus-visible {
 
 ---
 
-📌 **Riferimenti**
+📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.3.1 Informazioni e Relazioni](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Contrasto Minimo](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.1.1 Tastiera](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visibile](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
     
 - [WCAG 2.1 - Success Criterion 3.3.1 Identificazione degli Errori](https://www.w3.org/TR/WCAG21/#error-identification)![Attachment.tiff](file:///Attachment.tiff)
     
