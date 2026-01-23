@@ -15,7 +15,7 @@ The `Checkbox` component in **checked** state allows users to confirm an active 
 <fieldset>
   <legend>Select your interests</legend>
   <label><input type="checkbox" name="hobby" value="sport" checked> Sports</label>
-  <label><input type="checkbox" name="hobby" value="musica" checked> Music</label>
+  <label><input type="checkbox" name="hobby" value="music" checked> Music</label>
 </fieldset>
 ```
 
@@ -58,13 +58,13 @@ input[type="checkbox"]:focus-visible {
 ✅ **Correct HTML Markup**
 ```html
 <label>
-  <input type="checkbox" name="notifiche" value="email" checked> Receive email notifications
+  <input type="checkbox" name="notifications" value="email" checked> Receive email notifications
 </label>
 ```
 
 🚫 **Wrong Example (missing associated label)**
 ```html
-<input type="checkbox" name="notifiche" checked> Receive email notifications <!-- Not correctly associated -->
+<input type="checkbox" name="notifications" checked> Receive email notifications <!-- Not correctly associated -->
 ```
 
 ✅ **If the checkbox is custom**

@@ -2,16 +2,13 @@
 
 ## 1. Component Overview
 
-The component `Popover` apre un contenuto in overlay ancorato a un trigger (es. bottone “Azioni”, icona help, campo form). A differenza del tooltip:
+The `Popover` component opens content in an overlay anchored to a trigger (e.g., "Actions" button, help icon, form field). Unlike the tooltip:
 
-- può contenere contenuti **più lunghi**;
-    
-- può contenere **elementi interattivi** (link, bottoni, campi);
-    
-- richiede gestione esplicita di **apertura/chiusura** e **focus**.
-    
+- it can contain **longer content**;
+- it can contain **interactive elements** (links, buttons, fields);
+- it requires explicit management of **opening/closing** and **focus**.
 
-Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude con `Esc` e/o click fuori.
+A typical popover opens with click or `Enter/Space` on the trigger and closes with `Esc` and/or click outside.
 
 ---
 
@@ -19,13 +16,11 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ### 🔹 WCAG 1.1.1 - Alternative Text
 
-- Se il trigger è solo un’icona, it must have un nome accessibile (`aria-label` o `aria-labelledby`).
-    
-- Le icone decorative (trigger o contenuto) devono essere `aria-hidden="true"`.
-    
+- If the trigger is only an icon, it must have an accessible name (`aria-label` or `aria-labelledby`).
+- Decorative icons (trigger or content) must be `aria-hidden="true"`.
 
 ```html
-<button type="button" aria-label="Apri azioni">
+<button type="button" aria-label="Open actions">
   <svg aria-hidden="true" focusable="false"></svg>
 </button>
 ```
@@ -34,17 +29,17 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ### 🔹 WCAG 1.3.1 - Information and Relationships
 
-- Il trigger deve dichiarare la relazione con il contenuto tramite `aria-controls`.
+- The trigger must declare the relationship with the content via `aria-controls`.
     
-- Il trigger deve esporre lo stato tramite `aria-expanded`.
+- The trigger must expose the state via `aria-expanded`.
     
-- Il contenuto del popover it must have un nome (con `aria-label` o `aria-labelledby`).
+- The popover content must have a name (with `aria-label` or `aria-labelledby`).
     
-- Usare un ruolo coerente con il contenuto:
+- Use a role consistent with the content:
     
-    - `role="dialog"` se contiene contenuti strutturati o controlli.
+    - `role="dialog"` if it contains structured content or controls.
         
-    - `role="menu"` **solo** se è un vero menu di azioni (pattern menu button).
+    - `role="menu"` **only** if it is a true action menu (menu button pattern).
         
 
 ```html
@@ -54,12 +49,12 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
   aria-expanded="false"
   aria-controls="pop-1"
 >
-  Dettagli
+  Details
 </button>
 
 <div id="pop-1" role="dialog" aria-labelledby="pop-1-title" hidden>
-  <h2 id="pop-1-title">Dettagli</h2>
-  <p>Contenuto del popover.</p>
+  <h2 id="pop-1-title">Details</h2>
+  <p>Popover content.</p>
 </div>
 ```
 
@@ -67,56 +62,44 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ### 🔹 WCAG 1.4.3 - Minimum Contrast
 
-- Testo del popover e dei controlli: contrasto minimo **4.5:1**.
-    
-- Bordi/indicatori (freccia, outline, separator): contrasto minimo **3:1**.
-    
-- Stati (focus, selected, disabled) non devono basarsi solo sul colore.
+- Popover text and controls: minimum contrast **4.5:1**.
+- Borders/indicators (arrow, outline, separator): minimum contrast **3:1**.
+- States (focus, selected, disabled) must not be based solely on color.
     
 
 ---
 
 ### 🔹 WCAG 2.1.1 - Keyboard
 
-- Il trigger deve essere raggiungibile con `Tab`.
-    
-- `Enter` / `Space` sul trigger aprono/chiudono il popover.
-    
-- `Esc` chiude il popover.
-    
-- Se il popover contiene elementi interattivi, devono essere raggiungibili con `Tab`.
+- The trigger must be reachable with `Tab`.
+- `Enter` / `Space` on the trigger open/close the popover.
+- `Esc` closes the popover.
+- If the popover contains interactive elements, they must be reachable with `Tab`.
     
 
 ---
 
-### 🔹 WCAG 2.4.3 - Ordine del Focus
+### 🔹 WCAG 2.4.3 - Focus Order
 
-- All’apertura, il focus deve spostarsi in a predictable manner:
-    
-    - sul **primo elemento interattivo** del popover, oppure
-        
-    - su un elemento “header” focusabile (se non ci sono controlli).
-        
-- Alla chiusura, il focus deve tornare al trigger.
-    
-- Se il popover è **non modale** (caso più comune), il focus può uscire dal popover, ma la chiusura deve restare controllabile (es. `Esc` e click fuori).
-    
-- Se il popover è **modale** (caso raro), va trattato come dialog modale con focus trap.
+- On opening, focus should move in a predictable manner:
+  - to the **first interactive element** of the popover, or
+  - to a focusable "header" element (if there are no controls).
+- On closing, focus must return to the trigger.
+- If the popover is **non-modal** (most common case), focus can leave the popover, but closing must remain controllable (e.g., `Esc` and click outside).
+- If the popover is **modal** (rare case), it should be treated as a modal dialog with focus trap.
     
 
 ---
 
 ### 🔹 WCAG 2.4.7 - Focus Visible
 
-- Il focus deve essere visibile sul trigger e sugli elementi del popover.
-    
-- Il focus indicator it must have un contrasto minimo di **3:1**.
-    
+- Focus must be visible on the trigger and on popover elements.
+- The focus indicator must have a minimum contrast of **3:1**.
 
 ```css
 .popover :focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;x;
+  outline-offset: 4px;
 }
 ```
 
@@ -124,29 +107,25 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 ### 🔹 WCAG 3.2.2 - Consistency in Interactions
 
-- L’apertura/chiusura deve essere prevedibile e coerente.
-    
-- Evitare chiusure “a sorpresa” mentre l’utente sta interagendo dentro il popover.
-    
-- Se il popover si chiude al click fuori, non deve chiudersi quando l’utente clicca **dentro**.
+- Opening/closing must be predictable and consistent.
+- Avoid "surprise" closures while the user is interacting inside the popover.
+- If the popover closes on click outside, it must not close when the user clicks **inside**.
     
 
 ---
 
-### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
+### 🔹 WCAG 4.1.2 - Name, Role, Value
 
-- Il trigger deve aggiornare `aria-expanded` in modo coerente con lo stato.
-    
-- Il contenuto deve esporre correttamente ruolo e nome (`role="dialog"` + `aria-labelledby` o `aria-label`).
-    
-- Se è un menu, use `role="menu"` con item `role="menuitem"` (e pattern coerente).
+- The trigger must update `aria-expanded` consistently with the state.
+- The content must correctly expose role and name (`role="dialog"` + `aria-labelledby` or `aria-label`).
+- If it is a menu, use `role="menu"` with items `role="menuitem"` (and consistent pattern).
     
 
 ---
 
 ## 3. Developer Guidelines
 
-✅ **Correct HTML Markup (popover come dialog non-modale)**
+✅ **Correct HTML Markup (popover as non-modal dialog)**
 
 ```html
 <button
@@ -156,7 +135,7 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
   aria-expanded="false"
   aria-controls="pop-panel"
 >
-  Azioni
+  Actions
 </button>
 
 <div
@@ -165,30 +144,28 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
   aria-labelledby="pop-title"
   hidden
 >
-  <h2 id="pop-title">Azioni</h2>
-  <button type="button">Modifica</button>
-  <button type="button">Duplica</button>
-  <button type="button" aria-label="Chiudi popover">Chiudi</button>
+  <h2 id="pop-title">Actions</h2>
+  <button type="button">Edit</button>
+  <button type="button">Duplicate</button>
+  <button type="button" aria-label="Close popover">Close</button>
 </div>
 ```
 
 🚫 **Wrong Example**
 
 ```html
-<div class="popover-trigger" onclick="openPopover()">Azioni</div>
+<div class="popover-trigger" onclick="openPopover()">Actions</div>
 <div class="popover">...</div>
 ```
 
-❌ Problemi:
+❌ Issues:
 
-- Trigger non semantico
-    
-- Mancano `aria-expanded` e `aria-controls`
-    
-- Nessuna gestione del focus
+- Non-semantic trigger
+- Missing `aria-expanded` and `aria-controls`
+- No focus management
     
 
-✅ **Se il contenuto è un vero menu azioni (menu button pattern)**
+✅ **If the content is a true action menu (menu button pattern)**
 
 ```html
 <button
@@ -197,14 +174,14 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
   aria-expanded="false"
   aria-controls="menu-1"
 >
-  Azioni
+  Actions
+</button>
+ctions
 </button>
 
 <ul id="menu-1" role="menu" hidden>
-  <li role="menuitem"><button type="button">Modifica</button></li>
-  <li role="menuitem"><button type="button">Elimina</button></li>
-</ul>
-```
+  <li role="menuitem"><button type="button">Edit</button></li>
+  <li role="menuitem"><button type="button">Delete
 
 ---
 
@@ -228,17 +205,13 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
     
 
-🎯 **Casi d’Uso da Testare**
+🎯 **Test Cases**
 
-- Il popover si apre/chiude con `Enter/Space`?
-    
-- `Esc` chiude sempre e riporta il focus al trigger?
-    
-- `aria-expanded` si aggiorna correttamente?
-    
-- Il focus entra nel popover in a predictable manner?
-    
-- È possibile navigare tutti i controlli interni da tastiera?
+- Does the popover open/close with `Enter/Space`?
+- Does `Esc` always close and return focus to the trigger?
+- Does `aria-expanded` update correctly?
+- Does focus enter the popover in a predictable manner?
+- Can you navigate all internal controls from the keyboard?
     
 
 ---
@@ -247,20 +220,41 @@ Un popover tipico si apre con click o `Enter/Space` sul trigger e si chiude co
 
 🌍 **Internationalization**
 
-- Testare testi lunghi e contenuti multilinea.
-    
-- Evitare layout che tagliano contenuto o nascondono il tasto “Chiudi”.
+- Test long texts and multi-line content.
+- Avoid layouts that cut off content or hide the "Close" button.
+
+📱 **Responsiveness**
+
+- Minimum interactive targets **44×44 px** for trigger and controls.
+- On mobile, consider transforming into a dialog/bottom sheet for stability.
     
 
-📱 **Responsiveness**
-
-- Target interattivi minimi **44×44 px** per trigger e controlli.
-    
-- Su mobile, valutare la trasformazione in dialog/bottom sheet per stabilità.
-    
-
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 
 ```css
-@media (prefers-reduced-moti
+@media (prefers-reduced-motion: reduce) {
+  .popover {
+    transition: none;
+  }
+}
+```
+
+---
+
+## 6. Examples and Best Practices
+
+✅ Always use semantic triggers (`<button>`, not `<div>`).
+✅ Update `aria-expanded` consistently with popover state.
+✅ Manage focus on open/close.
+✅ Allow closing via `Esc` and click outside.
+✅ Test with screen readers and keyboard navigation.
+
+---
+
+📌 **References**
+
+- [ARIA: dialog role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
+- [ARIA: menu role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menu_role)
+- [WCAG 2.1 - Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
 ```

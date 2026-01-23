@@ -2,7 +2,7 @@
 
 ## 1. Component Overview
 
-The component `Tooltip` mostra un’informazione di supporto contestuale, di solito breve, associata a un elemento trigger (icona, testo, bottone). Il tooltip non deve essere indispensabile per comprendere o use l’interfaccia: se contiene informazioni essenziali, va valutato un pattern diverso (es. testo persistente o help inline).
+The `Tooltip` component shows contextual support information, usually brief, associated with a trigger element (icon, text, button). The tooltip should not be essential to understanding or using the interface: if it contains essential information, a different pattern should be considered (e.g., persistent text or inline help).
 
 ---
 
@@ -10,17 +10,17 @@ The component `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ### 🔹 WCAG 1.3.1 - Information and Relationships
 
-- Il tooltip deve essere associato al trigger tramite `aria-describedby`.
+- The tooltip must be associated with the trigger via `aria-describedby`.
     
-- Il contenuto del tooltip deve essere in un elemento separato con `role="tooltip"`.
+- The tooltip content must be in a separate element with `role="tooltip"`.
     
-- Il tooltip it must have un `id` stabile referenziato dal trigger.
+- The tooltip must have a stable `id` referenced by the trigger.
     
 
 ```html
 <button aria-describedby="tip-1">Info</button>
 <div id="tip-1" role="tooltip" hidden>
-  Testo di aiuto.
+  Help text.
 </div>
 ```
 
@@ -28,44 +28,44 @@ The component `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ### 🔹 WCAG 1.4.3 - Minimum Contrast
 
-- Il testo del tooltip deve rispettare un contrasto minimo **4.5:1**.
+- The tooltip text must respect a minimum contrast of **4.5:1**.
     
-- Il tooltip (background/border) e l’indicatore visivo (freccia) devono rispettare almeno **3:1**.
+- The tooltip (background/border) and visual indicator (arrow) must respect at least **3:1**.
     
 
 ---
 
-### 🔹 WCAG 1.4.13 - Contenuto su Hover o Focus
+### 🔹 WCAG 1.4.13 - Content on Hover or Focus
 
-- Il tooltip deve comparire sia su **hover** che su **focus** del trigger.
+- The tooltip must appear on both **hover** and **focus** of the trigger.
     
-- Deve essere possibile **dismiss** (chiudere) il tooltip senza spostare il focus, tipicamente con `Esc`.
+- It must be possible to **dismiss** (close) the tooltip without moving focus, typically with `Esc`.
     
-- Il tooltip non deve scomparire immediatamente quando il puntatore si sposta sul tooltip (se interattivo) e deve permettere all’utente di raggiungerlo se contiene elementi interattivi.
+- The tooltip must not disappear immediately when the pointer moves over the tooltip (if interactive) and must allow the user to reach it if it contains interactive elements.
     
-- Il tooltip non deve coprire contenuti importanti e non deve impedire l’interazione col trigger.
+- The tooltip must not cover important content and must not prevent interaction with the trigger.
     
 
 ---
 
 ### 🔹 WCAG 2.1.1 - Keyboard
 
-- Il trigger deve essere raggiungibile con `Tab`.
+- The trigger must be reachable with `Tab`.
     
-- In focus, il tooltip deve essere visibile.
+- On focus, the tooltip must be visible.
     
-- `Esc`: chiude il tooltip.
+- `Esc`: closes the tooltip.
     
-- Se il tooltip contiene contenuto interattivo, non è più un tooltip: va trattato come popover/dialog (pattern diverso).
+- If the tooltip contains interactive content, it is no longer a tooltip: it should be treated as a popover/dialog (different pattern).
     
 
 ---
 
 ### 🔹 WCAG 2.4.7 - Focus Visible
 
-- Il trigger it must have focus visibile.
+- The trigger must have visible focus.
     
-- Il tooltip non deve rubare focus.
+- The tooltip must not steal focus.
     
 
 ```css
@@ -77,13 +77,13 @@ The component `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ---
 
-### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
+### 🔹 WCAG 4.1.2 - Name, Role, Value
 
-- Il trigger it must have nome accessibile.
+- The trigger must have an accessible name.
     
-- Il tooltip deve esporre `role="tooltip"`.
+- The tooltip must expose `role="tooltip"`.
     
-- L’associazione deve avvenire tramite `aria-describedby`.
+- The association must occur via `aria-describedby`.
     
 
 ---
@@ -95,11 +95,11 @@ The component `Tooltip` mostra un’informazione di supporto contestuale, di s
 ```html
 <button class="tooltip-trigger" aria-describedby="help-tip">
   <span aria-hidden="true">i</span>
-  <span class="sr-only">Informazioni</span>
+  <span class="sr-only">Information</span>
 </button>
 
 <div id="help-tip" role="tooltip" hidden>
-  Il codice è riportato nella sezione “Dettagli”.
+  The code is reported in the "Details" section.
 </div>
 ```
 
@@ -109,14 +109,14 @@ The component `Tooltip` mostra un’informazione di supporto contestuale, di s
 <span class="info" onmouseenter="showTip()">i</span>
 ```
 
-✅ **Gestione delle icone**
+✅ **Icon Management**
 
 ```html
-<button aria-label="Mostra informazioni" aria-describedby="tip-2">
+<button aria-label="Show information" aria-describedby="tip-2">
   <svg aria-hidden="true" focusable="false"></svg>
 </button>
 <div id="tip-2" role="tooltip" hidden>
-  Informazione di supporto.
+  Supporting information.
 </div>
 ```
 
@@ -142,15 +142,15 @@ The component `Tooltip` mostra un’informazione di supporto contestuale, di s
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
     
 
-🎯 **Casi d’Uso da Testare**
+🎯 **Test Cases**
 
-- Il tooltip appare sia su hover che su focus?
+- Does the tooltip appear on both hover and focus?
     
-- Il tooltip è dismissable con `Esc`?
+- Is the tooltip dismissable with `Esc`?
     
-- Il tooltip resta visibile abbastanza a lungo da essere letto?
+- Does the tooltip remain visible long enough to be read?
     
-- Il contenuto è annunciato correttamente tramite `aria-describedby`?
+- Is the content correctly announced via `aria-describedby`?
     
 
 ---
@@ -159,19 +159,19 @@ The component `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 🌍 **Internationalization**
 
-- Testare con testi più lunghi.
+- Test with longer texts.
     
-- Evitare tooltip troppo verbosi.
+- Avoid overly verbose tooltips.
     
 
 📱 **Responsiveness**
 
-- Su touchscreen, prevedere un comportamento coerente (tap per mostrare/nascondere).
+- On touchscreen, provide consistent behavior (tap to show/hide).
     
-- Target interattivo minimo **44×44 px** per il trigger.
+- Minimum interactive target **44×44 px** for the trigger.
     
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -185,13 +185,13 @@ The component `Tooltip` mostra un’informazione di supporto contestuale, di s
 
 ## 6. Examples and Best Practices
 
-- Non use tooltip per informazioni essenziali.
+- Do not use tooltips for essential information.
     
-- Mostrare su focus, non solo su hover.
+- Show on focus, not just on hover.
     
-- Chiudere con `Esc` e non rubare il focus.
+- Close with `Esc` and do not steal focus.
     
-- Se serve interazione dentro, use un popover/dialog.
+- If interaction is needed inside, use a popover/dialog.
     
 
 ---
@@ -202,12 +202,12 @@ The component `Tooltip` mostra un’informazione di supporto contestuale, di s
     
 - [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
     
-- [WCAG 2.1 - Success Criterion 1.4.13 Contenuto su Hover o Focus](https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus)
+- [WCAG 2.1 - Success Criterion 1.4.13 Content on Hover or Focus](https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus)
     
 - [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
     
 - [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
     
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
     
 - [ARIA Authoring Practices - Tooltip Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)

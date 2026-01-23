@@ -1,42 +1,42 @@
-# 📌 Textarea - Accessibilità
+# 📌 Textarea - Accessibility
 
 ## 1. Component Overview
-The component `Textarea` permette agli utenti di inserire testo libero su più righe. Deve essere chiaramente distinguibile visivamente e accessibile via keyboard e screen reader.
+The `Textarea` component allows users to enter free text across multiple lines. It must be clearly distinguishable visually and accessible via keyboard and screen reader.
 
 ---
 ## 2. How to Use the Component
 
 ```html
-<label for="comment">Inserisci il tuo commento:</label>
+<label for="comment">Enter your comment:</label>
 <textarea id="comment" name="comment"></textarea>
 ```
 
 ---
-## 3. Requisiti di Accessibilità (WCAG)
+## 3. Accessibility Requirements (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Information and Relationships
-- Ogni textarea it must have un'etichetta associata tramite l'attributo `for` del `<label>`.
+- Every textarea must have an associated label via the `for` attribute of the `<label>`.
 
 ```html
-<label for="feedback">Il tuo feedback</label>
+<label for="feedback">Your feedback</label>
 <textarea id="feedback"></textarea>
 ```
 
 ### 🔹 WCAG 1.4.3 - Minimum Contrast
-- Il bordo della textarea it must have un contrasto minimo di **3:1** compared to the background.
-- Il testo dell’etichetta e il testo inserito devono avere un contrasto minimo di **4.5:1** compared to the background.
+- The textarea border must have a minimum contrast of **3:1** compared to the background.
+- The label text and the entered text must have a minimum contrast of **4.5:1** compared to the background.
 
 ### 🔹 WCAG 2.1.1 - Keyboard
-- La textarea deve essere navigabile con `Tab` e il testo deve essere inseribile con la tastiera senza alcun problema.
+- The textarea must be navigable with `Tab` and text must be insertable via keyboard without any issues.
 
 ```html
 <textarea id="bio" name="bio"></textarea>
-<label for="bio">Scrivi una breve biografia</label>
+<label for="bio">Write a brief biography</label>
 ```
 
 ### 🔹 WCAG 2.4.7 - Focus Visible
-- Il focus della textarea deve essere chiaramente visibile.
-- Deve essere implementato `outline: 2px solid #005fcc; outline-offset: 4px;x;`.
+- The focus of the textarea must be clearly visible.
+- Must implement `outline: 2px solid #005fcc; outline-offset: 4px;`.
 
 ```css
 textarea:focus-visible {
@@ -45,44 +45,44 @@ textarea:focus-visible {
 }
 ```
 
-### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
-- Gli screen reader devono percepire correttamente il ruolo `textbox` e il contenuto attualmente inserito nella textarea.
+### 🔹 WCAG 4.1.2 - Name, Role, Value
+- Screen readers must correctly perceive the `textbox` role and the content currently entered in the textarea.
 
 ```html
-<label for="description">Descrizione del problema</label>
+<label for="description">Problem description</label>
 <textarea id="description" role="textbox"></textarea>
 ```
 
 ---
 
-## 4. Linee Guida per gli Sviluppatori
+## 4. Developer Guidelines
 
 ✅ **Correct HTML Markup**
 ```html
-<label for="notes">Note aggiuntive</label>
+<label for="notes">Additional notes</label>
 <textarea id="notes"></textarea>
 ```
 
-🚫 **Wrong Example (mancanza di label associata)**
+🚫 **Wrong Example (missing associated label)**
 ```html
-<textarea></textarea> Inserisci note <!-- Non associato correttamente -->
+<textarea></textarea> Enter notes <!-- Not correctly associated -->
 ```
 
-✅ **Textarea con limiti di caratteri**
+✅ **Textarea with character limits**
 ```html
-<label for="summary">Sintesi (max 500 caratteri)</label>
+<label for="summary">Summary (max 500 characters)</label>
 <textarea id="summary" aria-describedby="char-limit"></textarea>
-<div id="char-limit">Massimo 500 caratteri</div>
+<div id="char-limit">Maximum 500 characters</div>
 ```
 
-🚫 **Errore comune: placeholder usato come unica etichetta**
+🚫 **Common mistake: placeholder used as only label**
 ```html
-<textarea placeholder="Inserisci il testo qui"></textarea> <!-- Senza label associata -->
+<textarea placeholder="Enter text here"></textarea> <!-- No associated label -->
 ```
 
 ---
 
-## 5. Test e Validazione
+## 5. Testing and Validation
 
 🛠 **Assistive Technologies Tested**
 - NVDA
@@ -94,25 +94,25 @@ textarea:focus-visible {
 - [WAVE](https://wave.webaim.org/)
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
 
-🎯 **Casi d’Uso da Testare**
-- La textarea è fully usable via keyboard?
-- Il focus è ben visibile?
-- Il contenuto inserito è correttamente comunicato agli screen reader?
-- Il contrasto tra testo, bordi e sfondo è sufficiente?
+🎯 **Test Cases**
+- Is the textarea fully usable via keyboard?
+- Is focus clearly visible?
+- Is entered content correctly communicated to screen readers?
+- Is the contrast between text, borders, and background sufficient?
 
 ---
 
-## 6. Considerazioni Avanzate
+## 6. Advanced Considerations
 
 🌍 **Internationalization**
-- Testare con testi lunghi e lingue diverse.
-- Evitare placeholder o testi descrittivi solo in maiuscolo che possano compromettere la leggibilità.
+- Test with long texts and different languages.
+- Avoid placeholder or descriptive text in all caps that may compromise readability.
 
 📱 **Responsiveness**
-- Deve essere facilmente utilizzabile su dispositivi mobili.
-- Assicurare una dimensione sufficiente per facilitare l'inserimento del testo su touchscreen.
+- Must be easily usable on mobile devices.
+- Ensure sufficient size to facilitate text entry on touchscreen devices.
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 ```css
 @media (prefers-reduced-motion: reduce) {
   textarea {
@@ -123,11 +123,11 @@ textarea:focus-visible {
 
 ---
 
-## 7. Esempi e Best Practices
-✅ **Associare sempre una `<label>` alla textarea.**
-✅ **Garantire che il focus sia chiaramente visibile usando `outline`.**
-✅ **Usare `aria-describedby` per informazioni aggiuntive come limiti di caratteri.**
-✅ **Non use solo il placeholder come etichetta.**
+## 7. Examples and Best Practices
+✅ **Always associate a `<label>` with the textarea.**
+✅ **Ensure that focus is clearly visible using `outline`.**
+✅ **Use `aria-describedby` for additional information like character limits.**
+✅ **Do not use only the placeholder as a label.**
 
 ---
 
@@ -136,5 +136,5 @@ textarea:focus-visible {
 - [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 - [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
 - [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
 

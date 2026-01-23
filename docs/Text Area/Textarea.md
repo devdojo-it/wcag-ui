@@ -1,66 +1,49 @@
-# **📌 Textarea 
+# **📌 Textarea**
 
-  
+## **1. Component Overview**
 
-## **1. Overview del Componente**
-
-  
-
-The component Textarea consente l’inserimento di testo libero su più righe (es. note, descrizioni, messaggi). Deve essere utilizzabile da tastiera, correttamente etichettato, compatibile con screen reader e supportare stati come errore, disabilitato e conteggio caratteri (se presente).
+The Textarea component allows free text input across multiple lines (e.g., notes, descriptions, messages). It must be usable by keyboard, correctly labeled, compatible with screen readers, and support states such as error, disabled, and character count (if present).
 
 ---
 
-## **2. Requisiti di Accessibilità (WCAG)**
-
-  
+## **2. Accessibility Requirements (WCAG)**
 
 ### **🔹 WCAG 1.3.1 - Information and Relationships**
 
-- La textarea it must have una label associata tramite for e id.
-    
-- Testi di aiuto (placeholder, hint, esempi) devono essere collegati tramite aria-describedby.
-    
-- Se il campo è obbligatorio, comunicarlo in modo testuale e/o con attributi appropriati.
-    
+- The textarea must have an associated label via `for` and `id` attributes.
+- Help text (placeholder, hint, examples) must be linked via `aria-describedby`.
+- If the field is required, communicate it textually and/or with appropriate attributes.
 
-```
-<label for="message">Messaggio</label>
+```html
+<label for="message">Message</label>
 <textarea id="message" aria-describedby="message-hint"></textarea>
-<p id="message-hint">Scrivi un messaggio breve (max 500 caratteri).</p>
+<p id="message-hint">Write a short message (max 500 characters).</p>
 ```
 
 ---
 
 ### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
-- Testo inserito e label: contrasto minimo **4.5:1**.
-    
-- Bordi, icone e indicatori di stato (errore/focus): contrasto minimo **3:1**.
-    
-- Lo stato di errore non deve essere comunicato solo tramite colore.
-    
+- Entered text and label: minimum contrast **4.5:1**.
+- Borders, icons, and status indicators (error/focus): minimum contrast **3:1**.
+- Error state must not be communicated by color alone.
 
 ---
 
 ### **🔹 WCAG 2.1.1 - Keyboard**
 
-- The component deve essere raggiungibile con Tab.
-    
-- Deve supportare input standard (scrittura, selezione testo, copia/incolla).
-    
-- Evitare scorciatoie personalizzate che interferiscono con le shortcut del browser o delle tecnologie assistive.
-    
+- The component must be reachable with Tab.
+- Must support standard input (writing, text selection, copy/paste).
+- Avoid custom shortcuts that interfere with browser or assistive technology shortcuts.
 
 ---
 
 ### **🔹 WCAG 2.4.7 - Focus Visible**
 
-- Il focus deve essere sempre visibile sulla textarea.
-    
-- Il focus indicator it must have un contrasto minimo di **3:1**.
-    
+- Focus must always be visible on the textarea.
+- The focus indicator must have a minimum contrast of **3:1**.
 
-```
+```css
 textarea:focus-visible {
   outline: 2px solid #005fcc;
   outline-offset: 3px;
@@ -69,132 +52,89 @@ textarea:focus-visible {
 
 ---
 
-### **🔹 WCAG 3.3.1 - Identificazione degli Errori**
+### **🔹 WCAG 3.3.1 - Error Identification**
 
-- In caso di errore, mostrare un messaggio testuale vicino al campo.
-    
-- Collegare il messaggio alla textarea tramite aria-describedby.
-    
-- Usare aria-invalid="true" quando il contenuto è invalido.
-    
+- In case of error, show an error message near the field.
+- Link the message to the textarea via `aria-describedby`.
+- Use `aria-invalid="true"` when the content is invalid.
 
-```
-<label for="desc">Descrizione</label>
+```html
+<label for="desc">Description</label>
 <textarea id="desc" aria-invalid="true" aria-describedby="desc-error"></textarea>
-<p id="desc-error">La descrizione è obbligatoria.</p>
+<p id="desc-error">Description is required.</p>
 ```
 
 ---
 
-### **🔹 WCAG 4.1.2 - Nome, Ruolo, Valore**
+### **🔹 WCAG 4.1.2 - Name, Role, Value**
 
-- Il nome accessibile deve essere determinato dalla label.
-    
-- Il ruolo deve essere quello nativo del controllo (textarea).
-    
-- Lo stato disabilitato deve essere espresso con disabled.
-    
+- The accessible name must be determined by the label.
+- The role must be that of the native control (textarea).
+- The disabled state must be expressed with the `disabled` attribute.
 
-```
+```html
 <textarea id="notes" disabled></textarea>
 ```
 
 ---
 
-## **3. Linee Guida per gli Sviluppatori**
-
-  
+## **3. Developer Guidelines**
 
 ✅ **Correct HTML Markup**
 
-```
-<label for="notes">Note</label>
+```html
+<label for="notes">Notes</label>
 <textarea id="notes" aria-describedby="notes-hint notes-counter"></textarea>
-<p id="notes-hint">Inserisci eventuali dettagli utili.</p>
+<p id="notes-hint">Enter any helpful details.</p>
 <p id="notes-counter">0/500</p>
 ```
 
-🚫 **Wrong Example (mancanza di label)**
+🚫 **Wrong Example (missing label)**
 
-```
-<textarea placeholder="Note"></textarea>
-```
-
-✅ **Gestione del Focus**
-
-```
-textarea:focus-visible {
-  outline: 2px solid #005fcc;
-  outline-offset: 3px;
-}
+```html
+<textarea placeholder="Notes"></textarea>
 ```
 
 ---
 
-## **4. Test e Validazione**
-
-  
+## **4. Testing and Validation**
 
 🛠 **Assistive Technologies Tested**
 
 - NVDA
-    
 - VoiceOver
-    
 - JAWS
-    
-
-  
 
 🛠 **Verification Tools**
 
-- [axe DevTools](https://www.deque.com/axe/)![Attachment.tiff](file:///Attachment.tiff)
-    
-- [WAVE](https://wave.webaim.org/)![Attachment.tiff](file:///Attachment.tiff)
-    
-- [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)![Attachment.tiff](file:///Attachment.tiff)
-    
+- [axe DevTools](https://www.deque.com/axe/)
+- [WAVE](https://wave.webaim.org/)
+- [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
 
-  
+🎯 **Test Cases**
 
-🎯 **Casi d’Uso da Testare**
-
-- La textarea ha una label associata e annunciata correttamente?
-    
-- Il focus è visibile?
-    
-- Gli errori sono annunciati e collegati al campo?
-    
-- Conteggio caratteri (se presente) è aggiornato e comprensibile?
-    
+- Does the textarea have an associated and correctly announced label?
+- Is focus visible?
+- Are errors announced and linked to the field?
+- Is character count (if present) updated and comprehensible?
 
 ---
 
-## **5. Considerazioni Avanzate**
-
-  
+## **5. Advanced Considerations**
 
 🌍 **Internationalization**
 
-- Supportare testi lunghi e lingue diverse.
-    
-- Evitare testi troncati nei messaggi di errore o hint.
-    
+- Support long texts and different languages.
+- Avoid truncated text in error messages or hints.
 
-  
+�� **Responsiveness**
 
-📱 **Responsiveness**
+- Adequate input area on mobile.
+- Target and scroll correctly managed with 200% zoom.
 
-- Area di input adeguata su mobile.
-    
-- Target e scroll gestiti correttamente con zoom al 200%.
-    
+🎞 **Motion and Animations**
 
-  
-
-🎞 **Motion e Animazioni**
-
-```
+```css
 @media (prefers-reduced-motion: reduce) {
   .textarea {
     transition: none;
@@ -204,29 +144,20 @@ textarea:focus-visible {
 
 ---
 
-## **6. Esempi e Best Practices**
+## **6. Examples and Best Practices**
 
-- Non use il placeholder come unica label.
-    
-- Collegare hint, errori e contatore con aria-describedby.
-    
-- Se c’è un limite caratteri, comunicarlo in modo testuale.
-    
-- Testare con screen reader reali.
-    
+- Do not use placeholder as the only label.
+- Link hints, errors, and counter with `aria-describedby`.
+- If there's a character limit, communicate it textually.
+- Test with real screen readers.
 
 ---
 
 📌 **References**
 
-- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
-    
-- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
-    
-- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
-    
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
-    
-- [WCAG 2.1 - Success Criterion 3.3.1 Identificazione degli Errori](https://www.w3.org/TR/WCAG21/#error-identification)![Attachment.tiff](file:///Attachment.tiff)
-    
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
+- [WCAG 2.1 - Success Criterion 3.3.1 Error Identification](https://www.w3.org/TR/WCAG21/#error-identification)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)

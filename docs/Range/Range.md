@@ -10,17 +10,17 @@ The Range component allows you to set a value (or range of values) by dragging o
 
 ---
 
-## **2. Requisiti di Accessibilità (WCAG)**
+## **2. Accessibility Requirements (WCAG)**
 
   
 
 ### **🔹 WCAG 1.3.1 - Information and Relationships**
 
-- Il range it must have un’etichetta testuale associata.
+- The range must have an associated text label.
     
-- Se è presente un valore visualizzato (es. “€ 10 – € 80”), deve essere collegato al controllo tramite aria-describedby.
+- If a displayed value is present (e.g., "€ 10 – € 80"), it must be connected to the control via `aria-describedby`.
     
-- Per slider custom, esporre il ruolo corretto (role="slider") e i valori min/max/now.
+- For custom sliders, expose the correct role (`role="slider"`) and min/max/now values.
     
 
 ```
@@ -80,14 +80,12 @@ The Range component allows you to set a value (or range of values) by dragging o
 ### **🔹 WCAG 2.4.7 - Focus Visible**
 
 - Focus must always be visible on the thumb (or on the focusable element that controls the value).
-    
 - Focus indicator with minimum contrast **3:1**.
-    
 
-```
+```css
 [role="slider"]:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;x;
+  outline-offset: 4px;
 }
 ```
 
@@ -105,29 +103,21 @@ The Range component allows you to set a value (or range of values) by dragging o
 ### **🔹 WCAG 3.3.2 - Labels or Instructions**
 
 - If the slider has particular steps, limits, or units of measure (€, km, %), they must be communicated.
-    
 - If the range is constrained (min < max), explain the behavior when the thumbs approach or "swap".
     
 
 ---
 
-### **🔹 WCAG 4.1.2 - Nome, Ruolo, Valore**
+### **🔹 WCAG 4.1.2 - Name, Role, Value**
 
-- Per slider custom, aggiornare dinamicamente:
-    
-    - aria-valuenow
-        
-    - aria-valuemin
-        
-    - aria-valuemax
-        
-    - aria-valuetext (recommended for units/formatting)
-        
-    
+- For custom sliders, dynamically update:
+  - `aria-valuenow`
+  - `aria-valuemin`
+  - `aria-valuemax`
+  - `aria-valuetext` (recommended for units/formatting)
 - If it is a two-thumb range, each thumb must have a distinct name (e.g., "Minimum price" / "Maximum price").
-    
 
-```
+```html
 <label id="min-label">Minimum price</label>
 <div role="slider" aria-labelledby="min-label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10" aria-valuetext="10 euros" tabindex="0"></div>
 
@@ -139,11 +129,9 @@ The Range component allows you to set a value (or range of values) by dragging o
 
 ## **3. Developer Guidelines**
 
-  
-
 ✅ **Correct HTML Markup (preferred: native range input)**
 
-```
+```html
 <label for="volume">Volume</label>
 <input id="volume" type="range" min="0" max="100" value="50" />
 ```

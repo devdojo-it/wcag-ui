@@ -2,7 +2,7 @@
 
 ## 1. Component Overview
 
-The component `Date Picker` permette di inserire o selezionare una data tramite un campo di input e un calendario (popup o inline). Deve supportare sia l’inserimento manuale (quando previsto) sia la selezione dal calendario, garantendo la piena fruibilità da tastiera e con screen reader.
+The component `Date Picker` allows users to enter or select a date via an input field and a calendar (popup or inline). It must support both manual entry (when provided) and calendar selection, ensuring full usability via keyboard and screen readers.
 
 ---
 
@@ -10,13 +10,13 @@ The component `Date Picker` permette di inserire o selezionare una data tramit
 
 ### 🔹 WCAG 1.1.1 - Alternative Text
 
-- Se il controllo di apertura calendario è rappresentato solo da un’icona, it must have un’etichetta accessibile (`aria-label` o `aria-labelledby`).
+- If the calendar opening control is represented only by an icon, it must have an accessible label (`aria-label` or `aria-labelledby`).
     
-- Le icone decorative all’interno del componente devono essere `aria-hidden="true"`.
+- Decorative icons inside the component must be `aria-hidden="true"`.
     
 
 ```html
-<button type="button" aria-label="Apri selettore data">
+<button type="button" aria-label="Open date picker">
   <svg aria-hidden="true" focusable="false"></svg>
 </button>
 ```
@@ -25,58 +25,58 @@ The component `Date Picker` permette di inserire o selezionare una data tramit
 
 ### 🔹 WCAG 1.3.1 - Information and Relationships
 
-- L’input deve essere associato a una `label` visibile o a un nome accessibile equivalente.
+- The input must be associated with a visible `label` or an equivalent accessible name.
     
-- Se è presente un messaggio di formato o istruzioni, deve essere associato all’input tramite `aria-describedby`.
+- If a format message or instructions are present, they must be associated with the input via `aria-describedby`.
     
-- Il popup calendario deve essere collegato logicamente all’input (es. tramite `aria-controls`).
+- The calendar popup must be logically linked to the input (e.g., via `aria-controls`).
     
-- I giorni del calendario devono essere strutturati come griglia logica e annunciabili.
+- Calendar days must be structured as a logical grid and be announceable.
     
 
 ```html
-<label for="date">Data</label>
+<label for="date">Date</label>
 <input id="date" type="text" aria-describedby="date-hint" />
-<p id="date-hint">Formato: GG/MM/AAAA</p>
+<p id="date-hint">Format: DD/MM/YYYY</p>
 ```
 
 ---
 
 ### 🔹 WCAG 1.4.3 - Minimum Contrast
 
-- Testo in input, placeholder (se usato) e contenuti del calendario devono rispettare **4.5:1**.
+- Text in input, placeholder (if used), and calendar contents must respect **4.5:1**.
     
-- Stati (focus, selezionato, oggi, disabilitato) devono essere distinguibili con contrasto minimo **3:1**.
+- States (focus, selected, today, disabled) must be distinguishable with a minimum contrast of **3:1**.
     
-- Se l’errore è indicato con colore, deve esserci anche un’indicazione testuale o iconica con nome accessibile.
+- If an error is indicated by color, there must also be a textual or iconic indication with an accessible name.
     
 
 ---
 
 ### 🔹 WCAG 2.1.1 - Keyboard
 
-- L’input deve essere raggiungibile con `Tab`.
+- The input must be reachable with `Tab`.
     
-- Il bottone “apri calendario” deve essere raggiungibile con `Tab` e attivabile con `Enter`/`Space`.
+- The "open calendar" button must be reachable with `Tab` and activatable with `Enter`/`Space`.
     
-- Nel calendario:
+- In the calendar:
     
-    - `Frecce`: navigano tra i giorni.
+    - `Arrow keys`: navigate between days.
         
-    - `Enter`/`Space`: selezionano la data.
+    - `Enter`/`Space`: select the date.
         
-    - `Esc`: chiude il popup e riporta il focus all’input (o al bottone di apertura).
+    - `Esc`: closes the popup and returns focus to the input (or opening button).
         
-    - `Page Up`/`Page Down`: cambiano mese.
+    - `Page Up`/`Page Down`: change month.
         
-    - `Home`/`End`: spostano all’inizio/fine settimana.
+    - `Home`/`End`: move to the start/end of the week.
         
-- Se è previsto input manuale, non deve essere bloccato da maschere non accessibili.
+- If manual input is provided, it must not be blocked by inaccessible masks.
     
 
 ```html
 <button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="calendar-popup">
-  Apri calendario
+  Open calendar
 </button>
 ```
 
@@ -84,15 +84,15 @@ The component `Date Picker` permette di inserire o selezionare una data tramit
 
 ### 🔹 WCAG 2.4.7 - Focus Visible
 
-- Il focus deve essere sempre visibile su input, bottone e giorni del calendario.
+- Focus must always be visible on input, button, and calendar days.
     
-- Aprendo il calendario, il focus deve spostarsi in a predictable manner:
+- When opening the calendar, focus must move in a predictable manner:
     
-    - sul giorno selezionato, oppure
+    - to the selected day, or
         
-    - sul giorno corrente, se non è selezionata alcuna data.
+    - to the current day, if no date is selected.
         
-- Chiudendo il calendario con `Esc`, il focus deve tornare al controllo che lo ha aperto.
+- When closing the calendar with `Esc`, focus must return to the control that opened it.
     
 
 ```css
@@ -104,34 +104,31 @@ The component `Date Picker` permette di inserire o selezionare una data tramit
 
 ---
 
-### 🔹 WCAG 3.3.1 - Identificazione degli Errori
+### 🔹 WCAG 3.3.1 - Error Identification
 
-- In caso di data non valida o fuori range, il messaggio di errore deve essere testuale.
-    
-- L’errore deve essere associato all’input tramite `aria-describedby`.
-    
-- Se si usa `aria-invalid="true"`, deve essere coerente con lo stato reale del campo.
-    
+- In case of invalid or out-of-range date, the error message must be textual.
+- The error must be associated with the input via `aria-describedby`.
+- If you use `aria-invalid="true"`, it must be consistent with the actual field state.
 
 ```html
 <input id="date" aria-invalid="true" aria-describedby="date-error" />
-<p id="date-error">Inserisci una data valida nel formato GG/MM/AAAA.</p>
+<p id="date-error">Enter a valid date in DD/MM/YYYY format.</p>
 ```
 
 ---
 
-### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
+### 🔹 WCAG 4.1.2 - Name, Role, Value
 
-- Input, bottone e giorni devono esporre ruolo e nome corretti.
+- Input, button, and days must expose correct role and name.
     
-- Il popup deve dichiarare correttamente la propria natura (es. `role="dialog"` o pattern equivalente).
+- The popup must correctly declare its nature (e.g., `role="dialog"` or equivalent pattern).
     
-- La data selezionata deve essere annunciata (es. tramite `aria-selected="true"` sui giorni).
+- The selected date must be announced (e.g., via `aria-selected="true"` on days).
     
 
 ```html
-<div id="calendar-popup" role="dialog" aria-label="Selettore data">
-  <button role="gridcell" aria-selected="true" aria-label="15 aprile 2025">15</button>
+<div id="calendar-popup" role="dialog" aria-label="Date picker">
+  <button role="gridcell" aria-selected="true" aria-label="April 15, 2025">15</button>
 </div>
 ```
 
@@ -142,30 +139,30 @@ The component `Date Picker` permette di inserire o selezionare una data tramit
 ✅ **Correct HTML Markup**
 
 ```html
-<label for="dp">Data</label>
+<label for="dp">Date</label>
 <div class="date-picker">
   <input id="dp" type="text" aria-describedby="dp-hint" />
-  <button type="button" aria-label="Apri selettore data" aria-haspopup="dialog" aria-expanded="false" aria-controls="dp-dialog">
+  <button type="button" aria-label="Open date picker" aria-haspopup="dialog" aria-expanded="false" aria-controls="dp-dialog">
     <svg aria-hidden="true" focusable="false"></svg>
   </button>
 </div>
 
-<p id="dp-hint">Formato: GG/MM/AAAA</p>
+<p id="dp-hint">Format: DD/MM/YYYY</p>
 
-<div id="dp-dialog" role="dialog" aria-label="Selettore data" hidden>
-  <div role="grid" aria-label="Aprile 2025">
-    <button role="gridcell" aria-label="15 aprile 2025" aria-selected="true">15</button>
+<div id="dp-dialog" role="dialog" aria-label="Date picker" hidden>
+  <div role="grid" aria-label="April 2025">
+    <button role="gridcell" aria-label="April 15, 2025" aria-selected="true">15</button>
   </div>
 </div>
 ```
 
-🚫 **Wrong Example (mancanza di semantica)**
+🚫 **Wrong Example (missing semantics)**
 
 ```html
 <div class="date" onclick="openCalendar()">15/04/2025</div>
 ```
 
-✅ **Gestione del Focus**
+✅ **Focus Management**
 
 ```css
 .date-picker :focus-visible {
@@ -196,15 +193,15 @@ The component `Date Picker` permette di inserire o selezionare una data tramit
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
     
 
-🎯 **Casi d’Uso da Testare**
+🎯 **Test Cases**
 
-- È possibile aprire e chiudere il calendario solo da tastiera?
+- Can the calendar be opened and closed with keyboard only?
     
-- Il focus si sposta correttamente tra input e calendario?
+- Does focus move correctly between input and calendar?
     
-- Lo screen reader annuncia data completa e stato selezionato?
+- Does the screen reader announce the complete date and selected state?
     
-- Gli errori di formato o range sono annunciati correttamente?
+- Are format or range errors announced correctly?
     
 
 ---
@@ -213,21 +210,21 @@ The component `Date Picker` permette di inserire o selezionare una data tramit
 
 🌍 **Internationalization**
 
-- Supporto a formati data locali.
+- Support for local date formats.
     
-- Localizzazione di mesi e giorni.
+- Localization of months and days.
     
-- Gestione del primo giorno della settimana.
+- Handling of the first day of the week.
     
 
 📱 **Responsiveness**
 
-- Target interattivi minimi **44×44 px** per bottone e giorni.
+- Minimum interactive targets **44×44 px** for button and days.
     
-- Utilizzabile su touchscreen e con zoom al 200%.
+- Usable on touchscreen and with 200% zoom.
     
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -241,13 +238,13 @@ The component `Date Picker` permette di inserire o selezionare una data tramit
 
 ## 6. Examples and Best Practices
 
-- Consentire sempre un’alternativa di input manuale, quando prevista.
+- Always allow an alternative manual input option, when provided.
     
-- Non affidarsi solo al placeholder per comunicare il formato.
+- Do not rely solely on the placeholder to communicate the format.
     
-- Rendere prevedibile il focus all’apertura/chiusura del calendario.
+- Make focus predictable when opening/closing the calendar.
     
-- Gestire correttamente range e date disabilitate.
+- Correctly handle ranges and disabled dates.
     
 
 ---
@@ -264,8 +261,8 @@ The component `Date Picker` permette di inserire o selezionare una data tramit
     
 - [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
     
-- [WCAG 2.1 - Success Criterion 3.3.1 Identificazione degli Errori](https://www.w3.org/TR/WCAG21/#error-identification)
+- [WCAG 2.1 - Success Criterion 3.3.1 Error Identification](https://www.w3.org/TR/WCAG21/#error-identification)
     
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
     
 - [ARIA Authoring Practices - Date Picker Dialog](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/)

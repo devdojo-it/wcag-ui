@@ -1,58 +1,56 @@
 # 📌 Details 
 
 ## 1. Component Overview
-The component `Details` viene utilizzato per mostrare o nascondere informazioni aggiuntive su richiesta dell'utente. Deve essere accessibile sia per utenti che navigano con la tastiera che per chi utilizza screen reader.
+The `Details` component is used to show or hide additional information on user request. It must be accessible for keyboard-navigating users and those using screen readers.
 
 ---
 
 ## 2. Accessibility Requirements (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Information and Relationships
-- Il tag `<details>` è semanticamente corretto per nascondere e mostrare contenuti progressivi.
-- L'elemento `<summary>` deve essere chiaro e descrittivo, in modo che gli utenti sappiano cosa aspettarsi quando espandono il dettaglio.
+- The `<details>` tag is semantically correct for hiding and showing progressive content.
+- The `<summary>` element must be clear and descriptive so users know what to expect when expanding the detail.
 
 ```html
 <details>
-  <summary>Mostra dettagli</summary>
-  <p>Questo è il contenuto nascosto che verrà mostrato al clic.</p>
+  <summary>Show details</summary>
+  <p>This is the hidden content that will be shown on click.</p>
 </details>
 ```
 
 ### 🔹 WCAG 1.4.3 - Minimum Contrast
-- Il testo del `summary` it must have un contrasto minimo di **4.5:1** compared to the background.
-- Lo stato espanso deve essere chiaramente distinguibile dallo stato collassato.
+- The `summary` text must have a minimum contrast of **4.5:1** compared to the background.
+- The expanded state must be clearly distinguishable from the collapsed state.
 
 ### 🔹 WCAG 2.1.1 - Keyboard
-- The component `details` deve essere navigabile con `Tab`.
-- Il `summary` deve essere attivabile con `Enter` e `Space`.
+- The `details` component must be navigable with `Tab`.
+- The `summary` must be activatable with `Enter` and `Space`.
 
 ```html
 <details>
-  <summary tabindex="0">Informazioni aggiuntive</summary>
-  <p>Dettagli mostrati dopo l'attivazione.</p>
+  <summary tabindex="0">Additional information</summary>
+  <p>Details shown after activation.</p>
 </details>
 ```
 
 ### 🔹 WCAG 2.4.7 - Focus Visible
-- Il `summary` it must have uno stile di `focus-visible` clear and distinctive.
+- The `summary` must have a clear and distinctive `focus-visible` style.
 
 ```css
 summary:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;x
-  
+  outline-offset: 4px;
 }
 ```
 
-### 🔹 WCAG 4.1.2 - Nome, Ruolo, Valore
-- Gli screen reader devono percepire correttamente lo stato di apertura e chiusura.
-- Se si utilizza un componente custom, è necessario aggiornare `aria-expanded`.
+### 🔹 WCAG 4.1.2 - Name, Role, Value
+- Screen readers must correctly perceive the open and closed state.
+- If using a custom component, you must update `aria-expanded`.
 
 ```html
-<button aria-expanded="false" aria-controls="details-content">Mostra dettagli</button>
+<button aria-expanded="false" aria-controls="details-content">Show details</button>
 <div id="details-content" hidden>
-  <p>Contenuto nascosto.</p>
-</div>
+  <p>Hidden content
 ```
 
 ---
@@ -62,31 +60,30 @@ summary:focus-visible {
 ✅ **Correct HTML Markup**
 ```html
 <details>
-  <summary>Espandi per vedere più informazioni</summary>
-  <p>Contenuto aggiuntivo mostrato su richiesta.</p>
+  <summary>Expand to see more information</summary>
+  <p>Additional content shown on request.</p>
 </details>
 ```
 
-🚫 **Wrong Example (mancanza di semantica)**
+🚫 **Wrong Example (missing semantics)**
 ```html
-<div onclick="toggleDetails()">Mostra dettagli</div>
+<div onclick="toggleDetails()">Show details</div>
 <div class="details-content" hidden>
-  <p>Contenuto nascosto.</p>
-</div> <!-- Not accessible, manca semantica corretta -->
+  <p>Hidden content.</p>
+</div> <!-- Not accessible, lacks proper semantics -->
 ```
 
-✅ **Gestione del Focus**
+✅ **Focus Management**
 ```css
 summary:focus-visible {
   outline: 2px solid #ff9900;
-  outline-offset: 4px;x
+  outline-offset: 4px;
 }
 ```
 
-🚫 **Errore comune: non fornire uno stato chiaro di espansione**
+🚫 **Common mistake: not providing a clear expansion state**
 ```html
-<button>Mostra dettagli</button> <!-- Manca aria-expanded e aria-controls -->
-```
+<button>Show details</button> <!-- Missing aria-expanded and
 
 ---
 
@@ -103,11 +100,11 @@ summary:focus-visible {
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
 
 🎯 **Casi d’Uso da Testare**
-- Il `details` è navigabile e attivabile da tastiera?
-- Il focus è visibile e ben distinto?
-- Lo stato `aria-expanded` è correttamente aggiornato nei componenti custom?
-- Il contrasto tra testo e sfondo è sufficiente?
 
+- Is the `details` navigable and activatable via keyboard?
+- Is focus visible and well-distinguished?
+- Is the `aria-expanded` state correctly updated in custom components?
+- Is the contrast between text and background sufficient?
 ---
 
 ## 5. Advanced Considerations
@@ -118,9 +115,9 @@ summary:focus-visible {
 
 📱 **Responsiveness**
 - Deve essere facilmente utilizzabile su touchscreen.
-- Garantire che il contenuto sia visibile e leggibile anche con zoom fino al 200%.
-
-🎞 **Motion e Animazioni**
+- Must be easily usable on touchscreen.
+- Ensure that the content is visible and readable even with zoom up to
+🎞 **Motion and Animations**
 ```css
 @media (prefers-reduced-motion: reduce) {
   .details-content {
@@ -132,10 +129,10 @@ summary:focus-visible {
 ---
 
 ## 6. Examples and Best Practices
-✅ **Usare il tag `<details>` per migliorare l'accessibilità senza bisogno di ARIA extra.**
-✅ **Garantire un chiaro focus visibile per la navigazione da tastiera.**
-✅ **Non basarsi solo sul colore per indicare lo stato aperto/chiuso.**
-✅ **Testare con screen reader per verificare la corretta lettura delle sezioni.**
+✅ **Use the `<details>` tag to improve accessibility without needing extra ARIA.**
+✅ **Ensure clear focus visibility for keyboard navigation.**
+✅ **Do not rely solely on color to indicate open/closed state.**
+✅ **Test with screen readers to verify correct section reading.**
 
 ---
 
@@ -144,4 +141,4 @@ summary:focus-visible {
 - [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 - [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
 - [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Valu

@@ -2,14 +2,12 @@
 
 ## 1. Component Overview
 
-The component `Chips` rappresenta informazioni compatte come tag, categorie, filtri selezionati o input già inseriti. Le chips possono essere utilizzate in due modalità distinte, che hanno implicazioni dirette sull’accessibilità:
+The `Chips` component represents compact information such as tags, categories, selected filters, or already-entered input. Chips can be used in two distinct modes, which have direct accessibility implications:
 
-- **Informative Chips**: hanno solo funzione descrittiva. Servono a mostrare informazioni o stati, ma **non sono interattive**.
-    
-- **Actionable Chips**: consentono un’interazione da parte dell’utente, ad esempio selezione, attivazione di un filtro o rimozione di un elemento.
-    
+- **Informative Chips**: serve only a descriptive function. They show information or states, but are **not interactive**.
+- **Actionable Chips**: allow user interaction, such as selection, filter activation, or element removal.
 
-La distinzione tra queste due tipologie è fondamentale: **solo le Actionable Chips devono essere navigabili e attivabili via keyboard**, mentre le Informative Chips non devono entrare nel tab order.
+The distinction between these two types is fundamental: **only Actionable Chips must be navigable and activatable via keyboard**, while Informative Chips must not enter the tab order.
 
 ---
 
@@ -17,13 +15,11 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ### 🔹 WCAG 1.1.1 - Alternative Text
 
-- Se una chip contiene solo un’icona (es. una "X" per la rimozione), deve essere fornito un `aria-label` o un `aria-labelledby` descrittivo.
-    
-- Il testo accessibile deve descrivere chiaramente l’azione o il contenuto della chip.
-    
+- If a chip contains only an icon (e.g., an "X" for removal), a descriptive `aria-label` or `aria-labelledby` must be provided.
+- The accessible text must clearly describe the action or content of the chip.
 
 ```html
-<button aria-label="Rimuovi filtro Categoria">
+<button aria-label="Remove Category filter">
   <span aria-hidden="true">✕</span>
 </button>
 ```
@@ -32,20 +28,15 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ### 🔹 WCAG 1.3.1 - Information and Relationships
 
-- Le chips devono essere strutturate semanticamente in base alla loro funzione.
-    
-- Le Informative Chips devono essere elementi non interattivi (`span`, `li`).
-    
-- Le Actionable Chips devono essere elementi `button`.
-    
-- Se le chips rappresentano un insieme di selezioni o filtri, devono essere contenute in una struttura semantica (`ul`, `ol`o `fieldset` con `legend`).
-    
-- Se una Actionable Chip rappresenta una selezione attiva, deve essere indicata tramite `aria-pressed`.
-    
+- Chips must be structured semantically based on their function.
+- Informative Chips must be non-interactive elements (`span`, `li`).
+- Actionable Chips must be `button` elements.
+- If chips represent a set of selections or filters, they must be contained in a semantic structure (`ul`, `ol`, or `fieldset` with `legend`).
+- If an Actionable Chip represents an active selection, it must be indicated via `aria-pressed`.
 
 ```html
 <ul>
-  <li><span>Accessibilità</span></li>
+  <li><span>Accessibility</span></li>
   <li><button aria-pressed="true">UX</button></li>
 </ul>
 ```
@@ -54,40 +45,38 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ### 🔹 WCAG 1.4.3 - Minimum Contrast
 
-- Il testo delle chips it must have un contrasto minimo di **4.5:1** compared to the background.
-    
-- Icone e indicatori di stato devono avere un contrasto minimo di **3:1**.
-    
-- Gli stati (selezionata, disabilitata) non devono essere comunicati esclusivamente tramite colore.
+- Chip text must have a minimum contrast of **4.5:1** compared to the background.
+- Icons and status indicators must have a minimum contrast of **3:1**.
+- States (selected, disabled) must not be communicated exclusively through color.
     
 
 ---
 
 ### 🔹 WCAG 2.1.1 - Keyboard
 
-- Solo le Actionable Chips devono essere raggiungibili tramite `Tab`.
+- Only Actionable Chips must be reachable via `Tab`.
     
-- Le Actionable Chips devono essere attivabili con `Enter` e `Space`.
+- Actionable Chips must be activatable with `Enter` and `Space`.
     
-- Se è prevista la rimozione, l’azione deve essere esposta tramite un bottone separato e navigabile.
+- If removal is provided, the action must be exposed through a separate, navigable button.
     
-- Le Informative Chips non devono essere focusabili.
+- Informative Chips must not be focusable.
     
 
 ```html
-<button class="chip" aria-pressed="true">Categoria</button>
-<button class="chip" aria-label="Rimuovi Categoria">✕</button>
+<button class="chip" aria-pressed="true">Category</button>
+<button class="chip" aria-label="Remove Category">✕</button>
 ```
 
 ---
 
 ### 🔹 WCAG 2.4.7 - Focus Visible
 
-- Le Actionable Chips devono avere un focus visibile e ben distinguibile.
+- Actionable Chips must have a visible and well-distinguished focus.
     
-- Il focus indicator it must have un contrasto minimo di **3:1**.
+- The focus indicator must have a minimum contrast of **3:1**.
     
-- Il focus non deve andare perso dopo la rimozione di una chip.
+- Focus must not be lost after a chip is removed.
     
 
 ```css
@@ -101,11 +90,11 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ### 🔹 WCAG 3.2.2 - Consistency in Interactions
 
-- Il comportamento delle Actionable Chips deve essere prevedibile e coerente.
+- The behavior of Actionable Chips must be predictable and consistent.
     
-- Evitare rimozioni o cambi di stato inattesi.
+- Avoid unexpected removals or state changes.
     
-- Se una chip cambia stato (es. selezionata/non selezionata), il cambiamento deve essere chiaramente percepibile.
+- If a chip changes state (e.g., selected/unselected), the change must be clearly perceptible.
     
 
 ---
@@ -116,11 +105,11 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ```html
 <ul>
-  <li><span class="chip">Informativa</span></li>
-  <li><button class="chip" aria-pressed="true">Filtro attivo</button></li>
+  <li><span class="chip">Informative</span></li>
+  <li><button class="chip" aria-pressed="true">Active Filter</button></li>
   <li>
-    <span class="chip">Categoria</span>
-    <button aria-label="Rimuovi Categoria">✕</button>
+    <span class="chip">Category</span>
+    <button aria-label="Remove Category">✕</button>
   </li>
 </ul>
 ```
@@ -131,19 +120,19 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 <div class="chip" tabindex="0">Categoria</div>
 ```
 
-❌ Problemi:
+❌ Problems:
 
-- Elemento non semantico
+- Non-semantic element
     
-- Chip informativa resa interattiva
+- Informative chip made interactive
     
-- Ruolo non chiaro per le tecnologie assistive
+- Unclear role for assistive technologies
     
 
-✅ **Gestione delle icone**
+✅ **Icon Management**
 
 ```html
-<button aria-label="Rimuovi chip UX">
+<button aria-label="Remove UX chip">
   <svg aria-hidden="true" focusable="false"></svg>
 </button>
 ```
@@ -170,36 +159,32 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
     
 
-🎯 **Casi d’Uso da Testare**
+🎯 **Test Cases**
 
-- Le Actionable Chips sono navigabili e attivabili da tastiera?
-    
-- Le Informative Chips sono escluse dal tab order?
-    
-- Il focus è sempre visibile?
-    
-- Gli stati sono annunciati correttamente dagli screen reader?
-    
+- Are Actionable Chips navigable and activatable via keyboard?
+- Are Informative Chips excluded from tab order?
+- Is focus always visible?
+- Are states correctly announced by screen readers?
 
 ---
 
 ## 5. Advanced Considerations
 
-🌍 **Internationalization**
+🌍 **Internationalization**
 
-- Supportare testi di lunghezza variabile.
+- Support variable-length text.
     
-- Evitare troncamenti senza alternativa accessibile.
+- Avoid truncation without accessible alternative.
     
 
 📱 **Responsiveness**
 
-- Area interattiva minima **44×44 px** per le Actionable Chips.
+- Minimum interactive area **44×44 px** for Actionable Chips.
     
-- Utilizzabile su touchscreen e con zoom al 200%.
+- Usable on touchscreen and with 200% zoom.
     
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -213,13 +198,13 @@ La distinzione tra queste due tipologie è fondamentale: **solo le Actionable C
 
 ## 6. Examples and Best Practices
 
-- Distinguere chiaramente Informative e Actionable Chips già in fase di design.
+- Clearly distinguish Informative and Actionable Chips from the design phase.
     
-- Non rendere interattiva una chip solo per motivi visivi.
+- Do not make a chip interactive solely for visual reasons.
     
-- Esporre sempre azioni e stati tramite semantica corretta.
+- Always expose actions and states through correct semantics.
     
-- Testare selezione e rimozione con screen reader.
+- Test selection and removal with screen reader.
     
 
 ---

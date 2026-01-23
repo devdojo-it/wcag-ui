@@ -14,8 +14,8 @@ The `Radio Button` component in **checked** state allows users to choose an opti
 ```html
 <fieldset>
   <legend>Select an option</legend>
-  <label><input type="radio" name="opzione" value="A"> Option A</label>
-  <label><input type="radio" name="opzione" value="B"> Option B</label>
+  <label><input type="radio" name="option" value="A"> Option A</label>
+  <label><input type="radio" name="option" value="B"> Option B</label>
 </fieldset>
 ```
 

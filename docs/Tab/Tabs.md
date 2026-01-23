@@ -3,42 +3,42 @@
 
   
 
-## **1. Overview del Componente**
+## **1. Component Overview**
 
   
 
-The component Tabs consente di organizzare contenuti correlati in sezioni, mostrando un pannello alla volta. Le tab devono essere navigabili da tastiera con un comportamento prevedibile e devono esporre correttamente ruoli, stati e relazioni tra tab e pannelli per le tecnologie assistive.
+The component Tabs allows organizing related content into sections, displaying one panel at a time. Tabs must be keyboard navigable with predictable behavior and must correctly expose roles, states, and relationships between tabs and panels for assistive technologies.
 
 ---
 
-## **2. Requisiti di Accessibilità (WCAG)**
+## **2. Accessibility Requirements (WCAG)**
 
   
 
 ### **🔹 WCAG 1.3.1 - Information and Relationships**
 
-- Il contenitore delle tab it must have role="tablist".
+- The tab container must have role="tablist".
     
-- Ogni tab it must have role="tab".
+- Each tab must have role="tab".
     
-- Ogni pannello it must have role="tabpanel".
+- Each panel must have role="tabpanel".
     
-- Ogni tab deve essere associata al proprio pannello tramite aria-controls.
+- Each tab must be associated with its own panel via aria-controls.
     
-- Ogni pannello deve essere associato alla propria tab tramite aria-labelledby.
+- Each panel must be associated with its own tab via aria-labelledby.
     
 
 ```
-<div role="tablist" aria-label="Sezioni">
+<div role="tablist" aria-label="Sections">
   <button role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">Tab 1</button>
   <button role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false">Tab 2</button>
 </div>
 
 <div role="tabpanel" id="panel-1" aria-labelledby="tab-1">
-  Contenuto Tab 1
+  Tab 1 content
 </div>
 <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
-  Contenuto Tab 2
+  Tab 2 content
 </div>
 ```
 
@@ -46,26 +46,24 @@ The component Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
 ### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
-- Il testo delle tab it must have un contrasto minimo **4.5:1**.
-    
-- L’indicatore di tab attiva (underline, bordo, background) deve rispettare **3:1**.
-    
-- Lo stato attivo/non attivo non deve essere comunicato solo con colore.
+- Tab text must have a minimum contrast of **4.5:1**.
+- The active tab indicator (underline, border, background) must respect **3:1**.
+- Active/inactive state must not be communicated by color alone.
     
 
 ---
 
 ### **🔹 WCAG 2.1.1 - Keyboard**
 
-- Tab: entra nella tablist e poi passa dal focus alle tab/pannello secondo il flusso previsto.
+- Tab: enters the tablist and then moves focus between tab/panel according to the expected flow.
     
-- Arrow Left / Arrow Right: spostano il focus tra le tab.
+- Arrow Left / Arrow Right: move focus between tabs.
     
-- Home / End: prima/ultima tab.
+- Home / End: first/last tab.
     
-- Enter / Space: attivano la tab focalizzata.
+- Enter / Space: activate the focused tab.
     
-- Se le tab cambiano contenuto automaticamente al focus (auto-activation), il comportamento deve essere coerente e testato.
+- If tabs change content automatically on focus (auto-activation), the behavior must be consistent and tested.
     
 
 ```
@@ -74,79 +72,73 @@ The component Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
 ---
 
-### **🔹 WCAG 2.4.3 - Ordine del Focus**
+### **🔹 WCAG 2.4.3 - Focus Order**
 
-- La tab attiva deve essere l’unica con tabindex="0".
+- The active tab must be the only one with tabindex="0".
     
-- Le tab non attive devono avere tabindex="-1" (roving tabindex).
+- Inactive tabs must have tabindex="-1" (roving tabindex).
     
-- Il focus non deve finire su elementi nascosti.
+- Focus must not end up on hidden elements.
     
 
 ---
 
 ### **🔹 WCAG 2.4.7 - Focus Visible**
 
-- Il focus deve essere sempre visibile sulle tab.
-    
-- Il focus indicator it must have un contrasto minimo di **3:1**.
-    
+- Focus must always be visible on tabs.
+- The focus indicator must have a minimum contrast of **3:1**.
 
-```
+```css
 [role="tab"]:focus-visible {
   outline: 2px solid #005fcc;
-  outline-offset: 4px;x;
+  outline-offset: 4px;
 }
 ```
 
 ---
 
-### **🔹 WCAG 4.1.2 - Nome, Ruolo, Valore**
+### **🔹 WCAG 4.1.2 - Name, Role, Value**
 
-- Lo screen reader deve annunciare correttamente:
+- The screen reader must correctly announce:
     
-    - nome della tab
+    - tab name
         
-    - stato selezionato/non selezionato (aria-selected)
+    - selected/unselected state (aria-selected)
         
-    - relazione con il pannello (aria-controls, aria-labelledby)
+    - relationship with panel (aria-controls, aria-labelledby)
         
-    
-- Il pannello non attivo deve essere nascosto (es. hidden) e non deve essere leggibile in navigazione.
-    
+- Inactive panel must be hidden (e.g., hidden) and must not be readable in navigation.
 
 ---
 
-## **3. Linee Guida per gli Sviluppatori**
-
-  
+## **3. Developer Guidelines**
 
 ✅ **Correct HTML Markup**
 
-```
-<div role="tablist" aria-label="Profilo">
-  <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="true" tabindex="0">Dettagli</button>
-  <button role="tab" id="tab-b" aria-controls="panel-b" aria-selected="false" tabindex="-1">Preferenze</button>
+```html
+<div role="tablist" aria-label="Profile">
+  <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="true" tabindex="0">Details</button>
+  <button role="tab" id="tab-b" aria-controls="panel-b" aria-selected="false" tabindex="-1">Preferences</button>
 </div>
 
 <div role="tabpanel" id="panel-a" aria-labelledby="tab-a">
-  Contenuto Dettagli
+  Details content
 </div>
 
 <div role="tabpanel" id="panel-b" aria-labelledby="tab-b" hidden>
-  Contenuto Preferenze
+  Preferences content
 </div>
 ```
 
-🚫 **Wrong Example (mancanza di semantica)**
+🚫 **Wrong Example (missing semantics)**
 
-```
+```html
 <div class="tabs">
   <div class="tab" onclick="openTab(1)">Tab 1</div>
 </div>
 ```
 
-✅ **Gestione del Focus**
+✅ **Focus Management**
 
 ```
 [role="tab"]:focus-visible {
@@ -157,7 +149,7 @@ The component Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
 ---
 
-## **4. Test e Validazione**
+## **4. Testing and Validation**
 
   
 
@@ -185,40 +177,33 @@ The component Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
 🎯 **Casi d’Uso da Testare**
 
-- È possibile navigare tra le tab con le frecce?
-    
-- Enter/Space attivano la tab corretta?
-    
-- Solo la tab attiva è in tab order?
-    
-- Il pannello inattivo è davvero nascosto a focus e screen reader?
-    
+- Can you navigate between tabs with arrow keys?
+- Do Enter/Space activate the correct tab?
+- Is only the active tab in tab order?
+- Is the inactive panel truly hidden from focus and screen readers?
 
 ---
 
-## **5. Considerazioni Avanzate**
-
-  
+## **5. Advanced Considerations**
 
 🌍 **Internationalization**
 
-- Supportare testi più lunghi senza troncare informazioni.
-    
-- Localizzare nomi tab e contenuti.
+- Support longer text without truncating information.
+- Localize tab names and content.
     
 
   
 
 📱 **Responsiveness**
 
-- Target interattivi minimi **44×44 px**.
+- Minimum interactive targets **44×44 px**.
     
-- In overflow, gestire scrolling o menu alternativo senza perdere navigazione da tastiera.
+- On overflow, manage scrolling or alternative menu without losing keyboard navigation.
     
 
   
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 
 ```
 @media (prefers-reduced-motion: reduce) {
@@ -230,15 +215,15 @@ The component Tabs consente di organizzare contenuti correlati in sezioni, mostr
 
 ---
 
-## **6. Esempi e Best Practices**
+## **6. Examples and Best Practices**
 
-- Usare roving tabindex per gestire correttamente il focus.
+- Use roving tabindex to manage focus correctly.
     
-- Preferire attivazione con Enter/Space (manual activation) quando il cambio contenuto è pesante.
+- Prefer activation with Enter/Space (manual activation) when content change is heavy.
     
-- Nascondere i pannelli non attivi con hidden.
+- Hide inactive panels with hidden.
     
-- Testare con screen reader e tastiera reale.
+- Test with real screen reader and keyboard.
     
 
 ---
@@ -251,10 +236,10 @@ The component Tabs consente di organizzare contenuti correlati in sezioni, mostr
     
 - [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.4.3 Ordine del Focus](https://www.w3.org/TR/WCAG21/#focus-order)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.3 Focus Order](https://www.w3.org/TR/WCAG21/#focus-order)
     
-- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
     
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
     
 - [ARIA Authoring Practices - Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)![Attachment.tiff](file:///Attachment.tiff)

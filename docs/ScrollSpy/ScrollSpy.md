@@ -1,106 +1,106 @@
-# **📌 Scrollspy - Accessibilità**
+# **📌 Scrollspy - Accessibility**
 
   
 
-## **1. Overview del Componente**
+## **1. Component Overview**
 
   
 
-The component Scrollspy evidenzia automaticamente, all’interno di una navigazione (di solito laterale o in-page), la sezione attualmente visibile nella pagina. È tipico per pagine lunghe (documentazione, articoli, schede prodotto) e si basa su link ad ancore (es. #sezione-1).
+The Scrollspy component automatically highlights the currently visible section within a navigation (usually sidebar or in-page). It is typical for long pages (documentation, articles, product pages) and is based on anchor links (e.g., #section-1).
 
   
 
-Uno scrollspy accessibile deve:
+An accessible scrollspy must:
 
-- funzionare come **normale navigazione ad ancore**;
+- function as **normal anchor navigation**;
     
-- non dipendere solo dal colore per indicare la sezione attiva;
+- not depend on color alone to indicate the active section;
     
-- non spostare il focus “a sorpresa” mentre l’utente scorre;
+- not move focus "unexpectedly" while the user scrolls;
     
-- comunicare correttamente lo stato attivo (es. aria-current).
+- correctly communicate the active state (e.g., aria-current).
     
 
 ---
 
-## **2. Requisiti di Accessibilità (WCAG)**
+## **2. Accessibility Requirements (WCAG)**
 
   
 
 ### **🔹 WCAG 1.3.1 - Information and Relationships**
 
-- La navigazione dello scrollspy deve essere un elemento semantico (nav) con nome accessibile.
+- The scrollspy navigation must be a semantic element (nav) with an accessible name.
     
-- L’elenco dei link deve essere strutturato come lista (ul/li) quando applicabile.
+- The list of links must be structured as a list (ul/li) when applicable.
     
-- Ogni sezione target it must have un id unico e un heading coerente.
+- Each target section must have a unique id and a coherent heading.
     
 
 ```
-<nav aria-label="In questa pagina">
+<nav aria-label="On this page">
   <ul>
-    <li><a href="#intro">Introduzione</a></li>
-    <li><a href="#dettagli">Dettagli</a></li>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#details">Details</a></li>
   </ul>
 </nav>
 
 <section id="intro">
-  <h2>Introduzione</h2>
+  <h2>Introduction</h2>
 </section>
 ```
 
 ---
 
-### **🔹 WCAG 1.4.1 - Uso del Colore**
+### **🔹 WCAG 1.4.1 - Use of Color**
 
-- La sezione attiva non deve essere indicata solo dal colore.
+- The active section must not be indicated by color alone.
     
-- Affiancare al colore un indicatore aggiuntivo (es. underline, icona, bordo, font-weight) con contrasto adeguato.
+- Accompany the color with an additional indicator (e.g., underline, icon, border, font-weight) with adequate contrast.
     
 
 ---
 
 ### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
-- Testo dei link: contrasto minimo **4.5:1**.
+- Link text: minimum contrast **4.5:1**.
     
-- Indicatori di stato (border/underline/marker): contrasto minimo **3:1**.
-    
-
----
-
-### **🔹 WCAG 2.4.1 - Salto di Blocchi**
-
-- Se la pagina è lunga o ha navigazioni ripetute, prevedere un link “Salta al contenuto” e/o una struttura che consenta di bypassare menu e sidebar.
+- State indicators (border/underline/marker): minimum contrast **3:1**.
     
 
 ---
 
-### **🔹 WCAG 2.4.3 - Ordine del Focus**
+### **🔹 WCAG 2.4.1 - Skip Blocks**
 
-- La navigazione deve seguire un ordine logico.
-    
-- La gestione “automatica” dello stato attivo non deve alterare l’ordine di tabulazione.
-    
-- Evitare che lo scrollspy cambi focus mentre l’utente scorre.
+- If the page is long or has repeated navigation, provide a "Skip to content" link and/or a structure that allows bypassing menu and sidebar.
     
 
 ---
 
-### **🔹 WCAG 2.4.4 - Scopo del Link**
+### **🔹 WCAG 2.4.3 - Focus Order**
 
-- Il testo di ogni link deve descrivere chiaramente la destinazione (titolo della sezione).
+- Navigation must follow a logical order.
     
-- Evitare link generici come “Vai” o “Sezione”.
+- "Automatic" management of the active state must not alter the tab order.
+    
+- Prevent scrollspy from changing focus while the user scrolls.
+    
+
+---
+
+### **🔹 WCAG 2.4.4 - Link Purpose**
+
+- The text of each link must clearly describe the destination (section title).
+    
+- Avoid generic links like "Go" or "Section".
     
 
 ---
 
 ### **🔹 WCAG 2.4.7 - Focus Visible**
 
-- I link dello scrollspy devono avere focus visibile.
+- The scrollspy links must have visible focus.
     
-- Il focus indicator it must have un contrasto minimo di **3:1**.
+- The focus indicator must have a minimum contrast of **3:1**.
     
 
 ```
@@ -112,66 +112,66 @@ Uno scrollspy accessibile deve:
 
 ---
 
-### **🔹 WCAG 3.2.1 - Al Focus**
+### **🔹 WCAG 3.2.1 - On Focus**
 
-- Mettere focus su un link non deve cause cambiamenti inattesi (es. scroll automatico).
+- Focusing a link must not cause unexpected changes (e.g., automatic scroll).
     
-- Lo scroll deve avvenire solo quando l’utente **attiva** il link (Enter/click), non quando lo focalizza.
+- Scrolling should only occur when the user **activates** the link (Enter/click), not when focusing it.
     
 
 ---
 
-### **🔹 WCAG 4.1.2 - Nome, Ruolo, Valore**
+### **🔹 WCAG 4.1.2 - Name, Role, Value**
 
-- La sezione attiva deve essere comunicata con aria-current="location" sul link corrispondente.
+- The active section must be communicated with aria-current="location" on the corresponding link.
     
-- aria-current deve essere aggiornato quando cambia la sezione visibile.
+- aria-current must be updated when the visible section changes.
     
 
 ```
-<a href="#dettagli" aria-current="location">Dettagli</a>
+<a href="#details" aria-current="location">Details</a>
 ```
 
 ---
 
-## **3. Linee Guida per gli Sviluppatori**
+## **3. Developer Guidelines**
 
   
 
 ✅ **Correct HTML Markup**
 
 ```
-<nav class="scrollspy" aria-label="In questa pagina">
+<nav class="scrollspy" aria-label="On this page">
   <ul>
-    <li><a href="#intro" aria-current="location">Introduzione</a></li>
-    <li><a href="#dettagli">Dettagli</a></li>
+    <li><a href="#intro" aria-current="location">Introduction</a></li>
+    <li><a href="#details">Details</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
 </nav>
 
 <main>
-  <section id="intro"><h2>Introduzione</h2></section>
-  <section id="dettagli"><h2>Dettagli</h2></section>
+  <section id="intro"><h2>Introduction</h2></section>
+  <section id="details"><h2>Details</h2></section>
   <section id="faq"><h2>FAQ</h2></section>
 </main>
 ```
 
-🚫 **Wrong Example (solo highlight visivo, niente semantica)**
+🚫 **Wrong Example (visual highlight only, no semantics)**
 
 ```
 <div class="scrollspy">
-  <div onclick="goTo('intro')">Introduzione</div>
+  <div onclick="goTo('intro')">Introduction</div>
 </div>
 ```
 
-✅ **Gestione dello stato attivo (aria-current)**
+✅ **Managing active state (aria-current)**
 
 ```
-// Quando la sezione cambia (es. IntersectionObserver), aggiornare aria-current.
-// Importante: non spostare il focus automaticamente.
+// When the section changes (e.g., IntersectionObserver), update aria-current.
+// Important: do not move focus automatically.
 ```
 
-✅ **Scrolling e preferenze utente**
+✅ **Scrolling and user preferences**
 
 ```
 html:focus-within {
@@ -187,7 +187,7 @@ html:focus-within {
 
 ---
 
-## **4. Test e Validazione**
+## **4. Testing and Validation**
 
   
 
@@ -213,17 +213,17 @@ html:focus-within {
 
   
 
-🎯 **Casi d’Uso da Testare**
+🎯 **Test Cases**
 
-- I link funzionano come ancore standard e portano alla sezione corretta?
+- Do the links work as standard anchors and go to the correct section?
     
-- Il focus sui link è visibile e non viene rubato durante lo scroll?
+- Is focus on links visible and not stolen during scroll?
     
-- Lo stato attivo è comunicato anche senza colore?
+- Is the active state communicated even without color?
     
-- aria-current viene aggiornato correttamente?
+- Is aria-current updated correctly?
     
-- Con prefers-reduced-motion lo scroll non è “smooth” forzato?
+- With prefers-reduced-motion, is scroll not forced to be "smooth"?
     
 
 ---
@@ -243,11 +243,11 @@ html:focus-within {
 
 📱 **Responsiveness**
 
-- In mobile, la navigazione può diventare sticky o trasformarsi in dropdown, mantenendo:
+- On mobile, navigation can become sticky or transform into a dropdown, while maintaining:
     
-    - ordine logico,
+    - logical order,
         
-    - focus visibile,
+    - visible focus,
         
     - stato attivo non basato solo sul colore.
         
@@ -257,7 +257,7 @@ html:focus-within {
 
   
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 
 ```
 @media (prefers-reduced-motion: reduce) {
@@ -269,15 +269,15 @@ html:focus-within {
 
 ---
 
-## **6. Esempi e Best Practices**
+## **6. Examples and Best Practices**
 
-- Lo scrollspy deve essere una normale navigazione ad ancore, non un “teletrasporto” gestito solo via JS.
+- Scrollspy must be normal anchor navigation, not a "teleport" managed only via JS.
     
-- Non cambiare focus automaticamente quando l’utente scorre.
+- Do not change focus automatically when the user scrolls.
     
-- Usare aria-current="location" per indicare la sezione attiva.
+- Use aria-current="location" to indicate the active section.
     
-- Non basarsi solo sul colore: aggiungere indicatori visivi coerenti.
+- Do not rely solely on color: add consistent visual indicators.
     
 
 ---
@@ -286,21 +286,21 @@ html:focus-within {
 
 - [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 1.4.1 Uso del Colore](https://www.w3.org/TR/WCAG21/#use-of-color)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.4.1 Use of Color](https://www.w3.org/TR/WCAG21/#use-of-color)
     
-- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
     
-- [WCAG 2.1 - Success Criterion 2.4.1 Salto di Blocchi](https://www.w3.org/TR/WCAG21/#bypass-blocks)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.1 Skip Blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks)
     
-- [WCAG 2.1 - Success Criterion 2.4.3 Ordine del Focus](https://www.w3.org/TR/WCAG21/#focus-order)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.3 Focus Order](https://www.w3.org/TR/WCAG21/#focus-order)
     
-- [WCAG 2.1 - Success Criterion 2.4.4 Scopo del Link](https://www.w3.org/TR/WCAG21/#link-purpose-in-context)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.4 Link Purpose](https://www.w3.org/TR/WCAG21/#link-purpose-in-context)
     
 - [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 3.2.1 Al Focus](https://www.w3.org/TR/WCAG21/#on-focus)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 3.2.1 On Focus](https://www.w3.org/TR/WCAG21/#on-focus)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
     
 - [ARIA Authoring Practices - Landmark Regions (nav)](https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/)![Attachment.tiff](file:///Attachment.tiff)
     

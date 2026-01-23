@@ -31,12 +31,12 @@ Brief description of the component and its purpose.
 
 ✅ **Correct HTML Markup**
 ```html
-<!-- Esempio di codice accessibile -->
+<!-- Example of accessible code -->
 ```
 
 🚫 **Wrong Example**
 ```html
-<!-- Esempio di codice non accessibile -->
+<!-- Example of non-accessible code -->
 ```
 
 ✅ **Icon Management**

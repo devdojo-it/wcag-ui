@@ -1,7 +1,7 @@
 # 📌 Radio Button Unchecked 
 
 ## 1. Component Overview
-The component `Radio Button` nello stato **unchecked** (non selezionato) consente agli utenti di scegliere un'opzione all'interno di un gruppo. Deve essere chiaramente distinguibile visivamente e accessibile via keyboard e screen reader.
+The `Radio Button` component in **unchecked** state allows users to choose an option within a group. It must be clearly distinguishable visually and accessible via keyboard and screen reader.
 
 ---
 
@@ -14,8 +14,8 @@ The component `Radio Button` nello stato **unchecked** (non selezionato) consent
 ```html
 <fieldset>
   <legend>Select an option</legend>
-  <label><input type="radio" name="opzione" value="A"> Option A</label>
-  <label><input type="radio" name="opzione" value="B"> Option B</label>
+  <label><input type="radio" name="option" value="A"> Option A</label>
+  <label><input type="radio" name="option" value="B"> Option B</label>
 </fieldset>
 ```
 

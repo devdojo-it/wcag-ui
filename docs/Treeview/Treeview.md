@@ -2,37 +2,37 @@
 
   
 
-## **1. Overview del Componente**
+## **1. Component Overview**
 
   
 
-The component Treeview (o Tree) consente di navigare and handle una struttura gerarchica di elementi (nodi) con livelli annidati. I nodi possono essere espandibili/collassabili e, a seconda del caso d’uso, selezionabili (singola o multipla selezione). Deve essere fully usable da tastiera e comunicare correttamente gerarchia, stato (espanso/collassato, selezionato) e posizione (livello) alle tecnologie assistive.
+The component Treeview (or Tree) allows users to navigate and handle a hierarchical structure of elements (nodes) with nested levels. Nodes can be expandable/collapsible and, depending on the use case, selectable (single or multiple selection). It must be fully usable from the keyboard and correctly communicate hierarchy, state (expanded/collapsed, selected), and position (level) to assistive technologies.
 
 ---
 
-## **2. Requisiti di Accessibilità (WCAG)**
+## **2. Accessibility Requirements (WCAG)**
 
   
 
 ### **🔹 WCAG 1.3.1 - Information and Relationships**
 
-- Il tree deve esporre una struttura semantica coerente con una gerarchia.
+- The tree must expose a semantic structure consistent with a hierarchy.
     
-- Il contenitore principale it must have role="tree".
+- The main container must have role="tree".
     
-- Ogni nodo it must have role="treeitem".
+- Each node must have role="treeitem".
     
-- I gruppi di figli devono essere contenuti in role="group".
+- Groups of children must be contained in role="group".
     
-- I nodi espandibili devono esporre aria-expanded="true|false".
+- Expandable nodes must expose aria-expanded="true|false".
     
-- Se i nodi sono selezionabili, use aria-selected="true|false".
+- If nodes are selectable, use aria-selected="true|false".
     
 
 ```
-<ul role="tree" aria-label="Categorie">
+<ul role="tree" aria-label="Categories">
   <li role="treeitem" aria-expanded="false" aria-selected="false" tabindex="0">
-    Documenti
+    Documents
     <ul role="group" hidden>
       <li role="treeitem" aria-selected="false" tabindex="-1">Report</li>
     </ul>
@@ -44,56 +44,56 @@ The component Treeview (o Tree) consente di navigare and handle una struttura ge
 
 ### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
-- Testo dei nodi: contrasto minimo **4.5:1**.
+- Node text: minimum contrast **4.5:1**.
     
-- Indicatori (chevron, linee, icone) e stati (focus, selected): contrasto minimo **3:1**.
+- Indicators (chevron, lines, icons) and states (focus, selected): minimum contrast **3:1**.
     
-- Selezione e stato espanso/collassato non devono basarsi solo sul colore.
+- Selection and expanded/collapsed state must not rely on color alone.
     
 
 ---
 
 ### **🔹 WCAG 2.1.1 - Keyboard**
 
-- Il tree deve supportare la navigazione da tastiera secondo pattern consolidati:
+- The tree must support keyboard navigation according to established patterns:
     
-    - Arrow Up / Arrow Down: spostano il focus al nodo precedente/successivo visibile.
+    - Arrow Up / Arrow Down: move focus to the previous/next visible node.
         
-    - Arrow Right: se nodo collassato → espande; se già espanso → focus al primo figlio.
+    - Arrow Right: if node is collapsed → expands; if already expanded → focus first child.
         
-    - Arrow Left: se nodo espanso → collassa; se collassato → focus al padre.
+    - Arrow Left: if node is expanded → collapses; if collapsed → focus parent.
         
-    - Home / End: primo/ultimo nodo visibile.
+    - Home / End: first/last visible node.
         
-    - Enter / Space: attiva l’azione primaria (es. selezione).
+    - Enter / Space: activate the primary action (e.g., selection).
         
-    - * (opzionale): espande tutti i fratelli allo stesso livello (se implementato).
+    - * (optional): expands all siblings at the same level (if implemented).
         
     
-- Tab deve entrare/uscire dal tree (un solo elemento in tab order: roving tabindex).
+- Tab must enter/exit the tree (only one element in tab order: roving tabindex).
     
 
 ---
 
-### **🔹 WCAG 2.4.3 - Ordine del Focus**
+### **🔹 WCAG 2.4.3 - Focus Order**
 
-- Applicare **roving tabindex**:
+- Apply **roving tabindex**:
     
-    - un solo treeitem con tabindex="0" (quello attualmente focalizzato),
+    - only one treeitem with tabindex="0" (the currently focused one),
         
-    - gli altri tabindex="-1".
+    - the others tabindex="-1".
         
     
-- Il focus non deve finire su nodi nascosti (collassati).
+- Focus must not end up on hidden (collapsed) nodes.
     
 
 ---
 
 ### **🔹 WCAG 2.4.7 - Focus Visible**
 
-- Il focus deve essere sempre visibile sul nodo attivo.
+- Focus must always be visible on the active node.
     
-- Il focus indicator it must have contrasto minimo **3:1**.
+- The focus indicator must have a minimum contrast of **3:1**.
     
 
 ```
@@ -105,29 +105,25 @@ The component Treeview (o Tree) consente di navigare and handle una struttura ge
 
 ---
 
-### **🔹 WCAG 4.1.2 - Nome, Ruolo, Valore**
+### **🔹 WCAG 4.1.2 - Name, Role, Value**
 
-- Ogni nodo it must have un nome accessibile (testo visibile o aria-label).
+- Each node must have an accessible name (visible text or aria-label).
     
-- I nodi espandibili devono aggiornare aria-expanded dinamicamente.
+- Expandable nodes must update aria-expanded dynamically.
     
-- Selezione/deselezione deve aggiornare aria-selected.
-    
-- Se i nodi hanno checkbox (multi-selezione), considerare pattern con checkbox native e relazione chiara con il treeitem.
-    
+- Selection/deselection must update aria-selected.
+- If nodes have checkboxes (multi-selection), consider patterns with native checkboxes and clear relationship with treeitem.
 
 ---
 
-## **3. Linee Guida per gli Sviluppatori**
-
-  
+## **3. Developer Guidelines**
 
 ✅ **Correct HTML Markup**
 
-```
-<ul role="tree" aria-label="Struttura">
+```html
+<ul role="tree" aria-label="Structure">
   <li role="treeitem" aria-expanded="true" tabindex="0">
-    Progetti
+    Projects
     <ul role="group">
       <li role="treeitem" tabindex="-1">2024</li>
       <li role="treeitem" tabindex="-1">2025</li>
@@ -136,25 +132,23 @@ The component Treeview (o Tree) consente di navigare and handle una struttura ge
 </ul>
 ```
 
-🚫 **Wrong Example (mancanza di semantica)**
+🚫 **Wrong Example (missing semantics)**
 
-```
-<div class="tree-node" onclick="toggle()">Progetti</div>
+```html
+<div class="tree-node" onclick="toggle()">Projects</div>
 <div class="children">2024</div>
 ```
 
-✅ **Gestione del Focus**
+✅ **Focus Management**
 
-```
+```css
 [role="treeitem"]:focus-visible {
   outline: 2px solid #005fcc;
   outline-offset: 3px;
 }
 ```
 
----
-
-## **4. Test e Validazione**
+## **4. Testing and Validation**
 
   
 
@@ -180,44 +174,32 @@ The component Treeview (o Tree) consente di navigare and handle una struttura ge
 
   
 
-🎯 **Casi d’Uso da Testare**
+🎯 **Test Cases**
 
-- È possibile navigare tutti i nodi con le frecce?
-    
-- Arrow Right/Left espande/collassa come previsto?
-    
-- Solo un nodo è in tab order (roving tabindex)?
-    
-- Screen reader annuncia livello, stato espanso/collassato e selezione?
-    
-- I nodi collassati non sono raggiungibili né annunciati?
-    
+- Is it possible to navigate all nodes with arrow keys?
+- Do Arrow Right/Left expand/collapse as expected?
+- Is only one node in tab order (roving tabindex)?
+- Does screen reader announce level, expanded/collapsed state, and selection?
+- Are collapsed nodes not reachable or announced?
 
 ---
 
-## **5. Considerazioni Avanzate**
-
-  
+## **5. Advanced Considerations**
 
 🌍 **Internationalization**
 
-- Supportare testi lunghi senza perdere leggibilità.
-    
-- Evitare troncamenti senza alternativa accessibile.
-    
-
-  
+- Support long text without losing readability.
+- Avoid truncation without an accessible alternative.
 
 📱 **Responsiveness**
 
-- Target interattivi minimi **44×44 px** per i nodi.
-    
-- In mobile, valutare un layout alternativo (lista drill-down) se lo spazio è limitato.
+- Minimum interactive targets **44×44 px** for nodes.
+- On mobile, consider an alternative layout (drill-down list) if space is limited.
     
 
   
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 
 ```
 @media (prefers-reduced-motion: reduce) {
@@ -229,15 +211,15 @@ The component Treeview (o Tree) consente di navigare and handle una struttura ge
 
 ---
 
-## **6. Esempi e Best Practices**
+## **6. Examples and Best Practices**
 
-- Usare roving tabindex per un’esperienza tastiera pulita.
+- Use roving tabindex for a clean keyboard experience.
     
-- Non use checkbox “fake”: preferire controlli nativi o pattern testati.
+- Do not use "fake" checkboxes: prefer native controls or tested patterns.
     
-- Annunciare chiaramente stato e selezione.
+- Clearly announce state and selection.
     
-- Testare con screen reader reali su gerarchie profonde.
+- Test with real screen readers on deep hierarchies.
     
 
 ---
@@ -250,10 +232,10 @@ The component Treeview (o Tree) consente di navigare and handle una struttura ge
     
 - [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 2.4.3 Ordine del Focus](https://www.w3.org/TR/WCAG21/#focus-order)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 2.4.3 Focus Order](https://www.w3.org/TR/WCAG21/#focus-order)![Attachment.tiff](file:///Attachment.tiff)
     
 - [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)![Attachment.tiff](file:///Attachment.tiff)
     
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)![Attachment.tiff](file:///Attachment.tiff)
     
 - [ARIA Authoring Practices - Tree View Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/)![Attachment.tiff](file:///Attachment.tiff)

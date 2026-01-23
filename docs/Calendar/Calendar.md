@@ -1,63 +1,63 @@
 
 ## 1. Component Overview
 
-The component `Calendar` consente la selezione di una data o di un intervallo di date tramite un’interfaccia visiva organizzata per giorni, settimane e mesi. È comunemente utilizzato all’interno di form, filtri e flussi di prenotazione. Deve essere utilizzabile senza mouse e comprensibile anche senza percezione visiva.
+The component `Calendar` allows users to select a single date or date range through a visual interface organized by days, weeks, and months. It is commonly used within forms, filters, and booking flows. It must be usable without a mouse and understandable without visual perception.
 
 ---
 
 ## 2. Accessibility Requirements
 
-### 🔹 Ruolo e Semantica
+### 🔹 Role and Semantics
 
-- Il calendario deve essere strutturato come una griglia logica di date.
+- The calendar must be structured as a logical grid of dates.
     
-- Ogni giorno selezionabile deve essere un elemento `button`.
+- Each selectable day must be a `button` element.
     
-- Il contenitore del calendario deve esporre una relazione chiara tra mese/anno e giorni.
+- The calendar container must expose a clear relationship between month/year and days.
     
-- Ogni giorno it must have un nome accessibile che includa giorno, mese e anno completi.
+- Each day must have an accessible name that includes the complete day, month, and year.
     
-- Utilizzare `aria-selected` per indicare la data selezionata.
+- Use `aria-selected` to indicate the selected date.
     
-- Utilizzare `aria-disabled` per le date non disponibili.
+- Use `aria-disabled` for unavailable dates.
     
 
-### 🔹 Navigabilità
+### 🔹 Navigation
 
-- `Tab`: consente di entrare e uscire dal calendario.
+- `Tab`: allows entering and exiting the calendar.
     
-- `Frecce`: consentono di spostarsi tra i giorni.
+- `Arrow keys`: allow moving between days.
     
-- `Enter` / `Space`: selezionano la data.
+- `Enter` / `Space`: select the date.
     
-- `Page Up` / `Page Down`: cambiano il mese visualizzato.
+- `Page Up` / `Page Down`: change the displayed month.
     
-- `Home` / `End`: spostano il focus all’inizio o alla fine della settimana.
+- `Home` / `End`: move focus to the start or end of the week.
     
 
 ### 🔹 Focus Management
 
-- Il focus deve essere sempre visibile sul giorno attivo.
+- Focus must always be visible on the active day.
     
-- Il focus non deve andare perso durante il cambio di mese.
+- Focus must not be lost during month changes.
     
-- Il focus indicator it must have un contrasto minimo di **3:1**.
-    
-
-### 🔹 Contrasto e Visibilità
-
-- Il testo dei giorni it must have un contrasto minimo **4.5:1**.
-    
-- Gli stati (selezionato, oggi, disabilitato) devono avere un contrasto minimo **3:1**.
-    
-- Gli stati non devono essere comunicati esclusivamente tramite colore.
+- The focus indicator must have a minimum contrast of **3:1**.
     
 
-### 🔹 Alternativa Testuale
+### 🔹 Contrast and Visibility
 
-- Ogni giorno deve esporre un nome accessibile completo tramite `aria-label`.
+- Day text must have a minimum contrast of **4.5:1**.
     
-- Evitare che lo screen reader annunci solo il numero del giorno.
+- States (selected, today, disabled) must have a minimum contrast of **3:1**.
+    
+- States must not be communicated exclusively through color.
+    
+
+### 🔹 Alternative Text
+
+- Each day must expose a complete accessible name via `aria-label`.
+    
+- Avoid having the screen reader announce only the day number.
     
 
 ---
@@ -68,11 +68,11 @@ The component `Calendar` consente la selezione di una data o di un intervallo 
 
 ```
 <div role="grid" aria-labelledby="calendar-label">
-  <div id="calendar-label">Aprile 2025</div>
+  <div id="calendar-label">April 2025</div>
 
-  <button role="gridcell" aria-label="1 aprile 2025">1</button>
-  <button role="gridcell" aria-selected="true" aria-label="2 aprile 2025">2</button>
-  <button role="gridcell" aria-disabled="true" aria-label="3 aprile 2025 non disponibile">3</button>
+  <button role="gridcell" aria-label="April 1, 2025">1</button>
+  <button role="gridcell" aria-selected="true" aria-label="April 2, 2025">2</button>
+  <button role="gridcell" aria-disabled="true" aria-label="April 3, 2025 unavailable">3</button>
 </div>
 ```
 
@@ -82,19 +82,19 @@ The component `Calendar` consente la selezione di una data o di un intervallo 
 <div class="day" onclick="selectDate()">2</div>
 ```
 
-❌ Problemi:
+❌ Problems:
 
-- Elemento non semantico
+- Non-semantic element
     
-- Non navigabile da tastiera
+- Not keyboard navigable
     
-- Data non annunciata correttamente
+- Date not announced correctly
     
 
-✅ **Gestione delle icone**
+✅ **Icon Management**
 
 ```
-<button aria-label="Apri selettore data">
+<button aria-label="Open date picker">
   <svg aria-hidden="true" focusable="false"></svg>
 </button>
 ```
@@ -121,15 +121,15 @@ The component `Calendar` consente la selezione di una data o di un intervallo 
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
     
 
-🎯 **Casi d’Uso da Testare**
+🎟 **Test Cases**
 
-- Il calendario è completamente navigabile da tastiera?
+- Is the calendar fully keyboard navigable?
     
-- Il focus rimane visibile durante la navigazione?
+- Does focus remain visible during navigation?
     
-- La data selezionata viene annunciata correttamente?
+- Is the selected date announced correctly?
     
-- Le date disabilitate sono percepibili?
+- Are disabled dates perceivable?
     
 
 ---
@@ -138,23 +138,23 @@ The component `Calendar` consente la selezione di una data o di un intervallo 
 
 🌍 **Internationalization**
 
-- Supporto a formati data locali.
+- Support for local date formats.
     
-- Gestione del primo giorno della settimana.
+- Handling of the first day of the week.
     
-- Localizzazione di mesi e giorni.
+- Localization of months and days.
     
 
 📱 **Responsiveness**
 
-- Target interattivi minimi **44×44 px**.
+- Minimum interactive targets **44×44 px**.
     
-- Utilizzabile su touchscreen.
+- Usable on touchscreen.
     
-- Supporto allo zoom fino al **200%**.
+- Support for zoom up to **200%**.
     
 
-🎞 **Motion e Animazioni**
+🎞 **Motion and Animations**
 
 ```
 @media (prefers-reduced-motion: reduce) {
@@ -168,13 +168,13 @@ The component `Calendar` consente la selezione di una data o di un intervallo 
 
 ## 6. Examples and Best Practices
 
-- Esporre sempre la data completa agli screen reader.
+- Always expose the complete date to screen readers.
     
-- Non basarsi solo sul colore per indicare lo stato.
+- Do not rely solely on color to indicate state.
     
-- Gestire correttamente focus e navigazione tra mesi.
+- Correctly manage focus and navigation between months.
     
-- Testare con screen reader reali.
+- Test with real screen readers.
     
 
 ---
@@ -189,6 +189,6 @@ The component `Calendar` consente la selezione di una data o di un intervallo 
     
 - [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
     
-- [WCAG 2.1 - Success Criterion 4.1.2 Nome, Ruolo, Valore](https://www.w3.org/TR/WCAG21/#name-role-value)
+- [WCAG 2.1 - Success Criterion 4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
     
 - [ARIA Authoring Practices - Date Picker](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/)
