@@ -2,6 +2,39 @@
 
 Concise, project-specific instructions to help AI coding agents be productive immediately.
 
+---
+
+## ⚡ Quick Reference: `.ai/` Knowledge Base
+
+Before working on any task, **always consult these reference folders**:
+
+### 📋 **Instructions** (`.github/instructions` → `.ai/instructions`)
+- **general.md** — Project identity, naming conventions, module system, formatting rules
+- **testing.md** — Node test runner setup, happy-dom, axe-core, test file conventions
+
+### 💡 **Context** (`.github/context` → `.ai/context`)
+- **component-anatomy.md** — 3-file structure template, class layout, package.json template
+- **design-tokens.md** — Colors, spacing modular scale, radius, elevations, typography
+- **architecture.md** — Monorepo structure, dependency flow, CSS cascade layers
+- **build-and-release.md** — esbuild/Parcel config, release workflow
+- **cli-scripts.md** — component-add.mjs, release.mjs, CLI utility APIs
+
+### 🎨 **Styleguides** (`.github/styleguides` → `.ai/styleguides`)
+- **css.md** — Project-specific layers + general best practices
+- **html.md** — PostHTML + semantic HTML + accessibility conventions
+- **javascript.md** — Component structure, naming, arrays, promises, declarations
+- **accessibility.md** — WCAG 2.2 founding principles, implemented patterns, anti-patterns
+
+### 🛠️ **Skills** (`.github/skills` → `.ai/skills`)
+- **custom-element-building/** — Extend native elements, componentDecorator, lifecycle, DOM patterns, CSS Cascade Layers, ARIA-driven styling
+- **custom-element-testing/** — Node test runner pattern, happy-dom setup, testing registration/rendering/attributes/events
+- **accessibility-testing/** — axe-core integration, WCAG 2.2 AA ruleset, testing SC patterns
+
+### 🎯 **Prompts** (`.github/prompts` → `.ai/prompts`)
+- Template prompts for common tasks (create-component, add-css-variant, add-design-token, create-docs-page, etc.)
+
+---
+
 ## 1. Project Overview
 - Monorepo design system focused on accessible Web Components + CSS foundations.
 - Tech stack: Plain HTML/CSS/JS + small modular JS packages under `packages/js` and Web Component-like enhancers (no frameworks). Build via Parcel (root entry: `src/index.html`).
@@ -71,8 +104,21 @@ Before committing edits:
 - Mixing direct fs sync writes with async helpers (prefer async except where release script intentionally uses sync for simplicity).
 - Not updating root dependency sorting after adding a component.
 
-## 11. Extension Ideas (Note Only If Implemented)
-Add tests harness later (none present now). Do not assume a test framework.
+## 11. Testing
+
+- Test runner: **Node.js built-in test runner** (`node:test`) with `node:assert/strict`.
+- DOM environment: **happy-dom** for Custom Element support.
+- Accessibility testing: **axe-core** for automated WCAG 2.2 AA audits.
+- Unit test files: `__tests__/<kebab>.test.js` (ESM format).
+- A11y test files: `__tests__/<kebab>.a11y.test.js`.
+- Run tests: `node --test ./__tests__/*.test.js`.
+- See `.ai/skills/custom-element-testing/` and `.ai/skills/accessibility-testing/` for detailed patterns.
+
+## 12. Accessibility Standard
+
+- Target: **WCAG 2.2 Level AA** compliance.
+- Key WCAG 2.2 criteria to verify: Target Size (2.5.8), Focus Not Obscured (2.4.11), Dragging Movements (2.5.7), Accessible Authentication (3.3.8), Redundant Entry (3.3.7), Consistent Help (3.2.6).
+- See `.ai/context/accessibility.md` for full pattern reference.
 
 ---
 Refine this file if workflows (scaffold/release) change or new automation scripts are added.

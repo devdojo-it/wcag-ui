@@ -15,8 +15,8 @@ The distinction between these two types is fundamental: **only Actionable Chips 
 
 ### 🔹 WCAG 1.1.1 - Alternative Text
 
-- If a chip contains only an icon (e.g., an "X" for removal), a descriptive `aria-label` or `aria-labelledby` must be provided.
-- The accessible text must clearly describe the action or content of the chip.
+- If a tag contains only an icon (e.g., an "X" for removal), a descriptive `aria-label` or `aria-labelledby` must be provided.
+- The accessible text must clearly describe the action or content of the tag.
 
 ```html
 <button aria-label="Remove Category filter">
@@ -32,7 +32,7 @@ The distinction between these two types is fundamental: **only Actionable Chips 
 - Informative Chips must be non-interactive elements (`span`, `li`).
 - Actionable Chips must be `button` elements.
 - If chips represent a set of selections or filters, they must be contained in a semantic structure (`ul`, `ol`, or `fieldset` with `legend`).
-- If an Actionable Chip represents an active selection, it must be indicated via `aria-pressed`.
+- If an Actionable Tag represents an active selection, it must be indicated via `aria-pressed`.
 
 ```html
 <ul>
@@ -45,27 +45,22 @@ The distinction between these two types is fundamental: **only Actionable Chips 
 
 ### 🔹 WCAG 1.4.3 - Minimum Contrast
 
-- Chip text must have a minimum contrast of **4.5:1** compared to the background.
+- Tag text must have a minimum contrast of **4.5:1** compared to the background.
 - Icons and status indicators must have a minimum contrast of **3:1**.
 - States (selected, disabled) must not be communicated exclusively through color.
-    
 
 ---
 
 ### 🔹 WCAG 2.1.1 - Keyboard
 
 - Only Actionable Chips must be reachable via `Tab`.
-    
 - Actionable Chips must be activatable with `Enter` and `Space`.
-    
 - If removal is provided, the action must be exposed through a separate, navigable button.
-    
 - Informative Chips must not be focusable.
-    
 
 ```html
-<button class="chip" aria-pressed="true">Category</button>
-<button class="chip" aria-label="Remove Category">✕</button>
+<button class="tag" aria-pressed="true">Category</button>
+<button class="tag" aria-label="Remove Category">✕</button>
 ```
 
 ---
@@ -73,14 +68,11 @@ The distinction between these two types is fundamental: **only Actionable Chips 
 ### 🔹 WCAG 2.4.7 - Focus Visible
 
 - Actionable Chips must have a visible and well-distinguished focus.
-    
 - The focus indicator must have a minimum contrast of **3:1**.
-    
-- Focus must not be lost after a chip is removed.
-    
+- Focus must not be lost after a tag is removed.
 
 ```css
-.chip:focus-visible {
+.tag:focus-visible {
   outline: 2px solid #005fcc;
   outline-offset: 4px;x;
 }
@@ -91,11 +83,8 @@ The distinction between these two types is fundamental: **only Actionable Chips 
 ### 🔹 WCAG 3.2.2 - Consistency in Interactions
 
 - The behavior of Actionable Chips must be predictable and consistent.
-    
 - Avoid unexpected removals or state changes.
-    
-- If a chip changes state (e.g., selected/unselected), the change must be clearly perceptible.
-    
+- If a tag changes state (e.g., selected/unselected), the change must be clearly perceptible.
 
 ---
 
@@ -105,10 +94,10 @@ The distinction between these two types is fundamental: **only Actionable Chips 
 
 ```html
 <ul>
-  <li><span class="chip">Informative</span></li>
-  <li><button class="chip" aria-pressed="true">Active Filter</button></li>
+  <li><span class="tag">Informative</span></li>
+  <li><button class="tag" aria-pressed="true">Active Filter</button></li>
   <li>
-    <span class="chip">Category</span>
+    <span class="tag">Category</span>
     <button aria-label="Remove Category">✕</button>
   </li>
 </ul>
@@ -117,22 +106,19 @@ The distinction between these two types is fundamental: **only Actionable Chips 
 🚫 **Wrong Example**
 
 ```html
-<div class="chip" tabindex="0">Categoria</div>
+<div class="tag" tabindex="0">Categoria</div>
 ```
 
 ❌ Problems:
 
 - Non-semantic element
-    
-- Informative chip made interactive
-    
+- Informative tag made interactive
 - Unclear role for assistive technologies
-    
 
 ✅ **Icon Management**
 
 ```html
-<button aria-label="Remove UX chip">
+<button aria-label="Remove UX tag">
   <svg aria-hidden="true" focusable="false"></svg>
 </button>
 ```
@@ -144,20 +130,14 @@ The distinction between these two types is fundamental: **only Actionable Chips 
 🛠 **Assistive Technologies Tested**
 
 - NVDA
-    
 - VoiceOver
-    
 - JAWS
-    
 
 🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)
-    
 - [WAVE](https://wave.webaim.org/)
-    
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
-    
 
 🎯 **Test Cases**
 
@@ -173,22 +153,18 @@ The distinction between these two types is fundamental: **only Actionable Chips 
 🌍 **Internationalization**
 
 - Support variable-length text.
-    
 - Avoid truncation without accessible alternative.
-    
 
 📱 **Responsiveness**
 
 - Minimum interactive area **44×44 px** for Actionable Chips.
-    
 - Usable on touchscreen and with 200% zoom.
-    
 
 🎞 **Motion and Animations**
 
 ```css
 @media (prefers-reduced-motion: reduce) {
-  .chip {
+  .tag {
     transition: none;
   }
 }
@@ -199,28 +175,18 @@ The distinction between these two types is fundamental: **only Actionable Chips 
 ## 6. Examples and Best Practices
 
 - Clearly distinguish Informative and Actionable Chips from the design phase.
-    
-- Do not make a chip interactive solely for visual reasons.
-    
+- Do not make a tag interactive solely for visual reasons.
 - Always expose actions and states through correct semantics.
-    
 - Test selection and removal with screen reader.
-    
 
 ---
 
 📌 **References**
 
 - [WCAG 2.1 - Success Criterion 1.1.1 Alternative Text](https://www.w3.org/TR/WCAG21/#text-alternatives)
-    
 - [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
-    
 - [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
-    
 - [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
-    
 - [WCAG 2.1 - Success Criterion 2.4.7 Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
-    
 - [WCAG 2.1 - Success Criterion 3.2.2 Consistency in Interactions](https://www.w3.org/TR/WCAG21/#on-input)
-    
 - [ARIA Authoring Practices - Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/)

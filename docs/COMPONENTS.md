@@ -4,6 +4,14 @@ This section showcases a collection of reusable UI components designed to help b
 
 ---
 
+## Accordion
+
+The **Accordion** component organizes content into expandable sections. This design allows users to navigate complex information easily, ensuring that the content is accessible and well-structured.
+
+[Explore Accordion →](./components-accordion.html)
+
+---
+
 ## Button
 
 The **Button** component is a versatile control element that responds to user interactions with clear visual feedback. It supports various states such as hover, active, and disabled, making it ideal for forms and interactive tasks.
@@ -12,11 +20,19 @@ The **Button** component is a versatile control element that responds to user in
 
 ---
 
-## Chips (Checkbox Variant)
+## Calendar
 
-This variant offers a compact, tag-like selection element. Often used to represent items or choices in a condensed format, it provides an accessible alternative for selectable chips.
+The **Calendar** component provides an interactive date selection interface with accessibility features. It supports multiple date selection modes, keyboard navigation, and screen reader compatibility for intuitive date picking.
 
-[Explore Chips →](./components-chips.html)
+[Explore Calendar →](./components-calendar.html)
+
+---
+
+## Card
+
+The **Card** component is a versatile content container with consistent styling and spacing. Perfect for organizing information into distinct, visually separated sections with built-in accessibility support.
+
+[Explore Card →](./components-card.html)
 
 ---
 
@@ -28,6 +44,30 @@ The **Checkbox** component is a standard toggle control for selection tasks. It 
 
 ---
 
+## DatePicker
+
+The **DatePicker** component offers specialized date input with an integrated calendar interface. It combines keyboard-friendly shortcuts with visual calendar navigation for flexible date selection.
+
+[Explore DatePicker →](./components-date-picker.html)
+
+---
+
+## Details
+
+The **Details** component provides a collapsible section that users can expand or collapse. It is perfect for presenting additional information in a way that is accessible and unobtrusive.
+
+[Explore Details →](./components-details.html)
+
+---
+
+## Dialog
+
+The **Dialog** component creates modal interfaces that focus user attention on a specific task or message. With proper focus management and ARIA roles, it ensures that modal interactions are both accessible and effective.
+
+[Explore Dialog →](./components-dialog.html)
+
+---
+
 ## Input
 
 The **Input** component provides a versatile text field for user data entry. It includes built-in accessibility features such as clear labeling and focus management, making it ideal for both simple and complex data collection.
@@ -36,11 +76,35 @@ The **Input** component provides a versatile text field for user data entry. It 
 
 ---
 
-## Textarea
+## Popover
 
-For multi-line text input, the **Textarea** component offers an accessible, easy-to-use solution. It supports various states and ensures that user-entered content remains legible and well-formatted.
+The **Popover** component displays floating content panels with flexible positioning control. Useful for tooltips, dropdowns, and contextual menus, it maintains proper accessible focus management.
 
-[Explore Textarea →](./components-textarea.html)
+[Explore Popover →](./components-popover.html)
+
+---
+
+## Radio
+
+The **Radio** component groups multiple options where only one can be selected at a time. It is designed with accessible grouping and selection management to support clear and intuitive interactions.
+
+[Explore Radio →](./components-radio.html)
+
+---
+
+## Range
+
+The **Range** component provides a slider input for numeric value selection. It supports keyboard navigation and displays current values accessibly for inclusive user interactions.
+
+[Explore Range →](./components-range.html)
+
+---
+
+## ScrollSpy
+
+The **ScrollSpy** component automatically highlights navigation items based on scroll position. It is ideal for long-form content with navigation anchors, ensuring users always know their position within the document.
+
+[Explore ScrollSpy →](./components-scroll-spy.html)
 
 ---
 
@@ -60,11 +124,27 @@ The **Switch** component is an accessible toggle control that mimics a physical 
 
 ---
 
-## Radio
+## Tabs
 
-The **Radio** component groups multiple options where only one can be selected at a time. It is designed with accessible grouping and selection management to support clear and intuitive interactions.
+The **Tabs** component organizes related content into separate panels with tab navigation. It follows accessibility best practices with proper ARIA roles and keyboard support.
 
-[Explore Radio →](./components-radio.html)
+[Explore Tabs →](./components-tabs.html)
+
+---
+
+## Tags
+
+The **Tags** component displays visual labels and tag collections with optional selection and removal capabilities. It maintains semantic markup for screen readers and keyboard users.
+
+[Explore Tags →](./components-tags.html)
+
+---
+
+## Textarea
+
+For multi-line text input, the **Textarea** component offers an accessible, easy-to-use solution. It supports various states and ensures that user-entered content remains legible and well-formatted.
+
+[Explore Textarea →](./components-textarea.html)
 
 ---
 
@@ -76,33 +156,9 @@ Enhance user interactions with the **Tooltip** component, which displays context
 
 ---
 
-## Details
-
-The **Details** component provides a collapsible section that users can expand or collapse. It is perfect for presenting additional information in a way that is accessible and unobtrusive.
-
-[Explore Details →](./components-details.html)
-
----
-
-## Accordion
-
-The **Accordion** component organizes content into expandable sections. This design allows users to navigate complex information easily, ensuring that the content is accessible and well-structured.
-
-[Explore Accordion →](./components-accordion.html)
-
----
-
-## Dialog
-
-The **Dialog** component creates modal interfaces that focus user attention on a specific task or message. With proper focus management and ARIA roles, it ensures that modal interactions are both accessible and effective.
-
-[Explore Dialog →](./components-dialog.html)
-
----
-
 ## TreeView
 
-The **TreeView** component creates a ...
+The **TreeView** component creates a hierarchical data structure navigation interface. It supports keyboard navigation, expand/collapse states, and proper ARIA labeling for accessible tree interactions.
 
 [Explore TreeView →](./components-tree-view.html)
 

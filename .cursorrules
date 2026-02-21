@@ -1,0 +1,132 @@
+# Cursor Rules for wcag-ui
+
+You are an AI coding assistant working within the `wcag-ui` design system project. Before performing any task, consult the knowledge base in `.ai/`.
+
+---
+
+## 📚 Knowledge Base Locations
+
+### Instructions (`.ai/instructions`)
+
+- `general.md` — Project identity, naming conventions, module system
+- `testing.md` — Node test runner, happy-dom, axe-core setup
+
+### Context Reference (`.ai/context`)
+
+- `component-anatomy.md` — 3-file structure, class layout
+- `design-tokens.md` — Colors, spacing, typography, radius
+- `architecture.md` — Monorepo structure, CSS cascade
+- `build-and-release.md` — Parcel, esbuild config, release flow
+- `cli-scripts.md` — component-add.mjs, release.mjs utilities
+
+### Code Styleguides (`.ai/styleguides`)
+
+- `css.md` — Cascade Layers, specificity, custom properties
+- `html.md` — PostHTML templating, semantic markup
+- `javascript.md` — ESM, component structure, utilities
+- `accessibility.md` — WCAG 2.2 patterns, anti-patterns
+
+### Skills (`.ai/skills`)
+
+- `custom-element-building/` — Building accessible Customized Built-in Elements
+- `custom-element-testing/` — Testing with Node, happy-dom, axe-core
+- `accessibility-testing/` — WCAG 2.2 AA automated audits
+
+### Prompts (`.ai/prompts`)
+
+- `create-component.prompt.md` — Template for new components
+- `add-css-variant.prompt.md` — Add component variants
+- `add-design-token.prompt.md` — Add design tokens
+- `create-docs-page.prompt.md` — Create documentation pages
+
+---
+
+## Project Quick Facts
+
+**Tech Stack:** Plain HTML/CSS/JS + modular ESM packages. No frameworks. Build: Parcel.
+
+**Structure:**
+
+- `packages/components/` — Individual accessible UI components
+- `packages/css/` — Design tokens, grid, typography
+- `packages/js/` — Utilities (`core`, `dom`)
+- `scripts/` — Automation (scaffold, release)
+- `src/` — Parcel entrypoint with component demos
+- `docs/` — Documentation pages (component + foundations)
+
+**Key Conventions:**
+
+- Component name: `@wcag-ui/<kebab-name>` (tag: `wcag-<kebab-name>`)
+- Docs folder: PascalCase (e.g., `docs/TreeView/TreeView.md`)
+- Naming: Derive all variants (`camel`, `pascal`, `kebab`, `snake`, `UPPER_SNAKE`)
+- CSS: Cascade Layers system (`wcag-ui.core`, `wcag-ui.foundations`, `wcag-ui.components`)
+- ESM only — no CommonJS
+- Linting: Biome (no alternate style tools)
+
+**Deployment:**
+
+- Scaffold: `pnpm component:add --component-name="Name" [options]`
+- Release: `scripts/release.mjs` (detects bump, publishes, tags, updates changelog)
+- Tests: `node --test ./__tests__/*.test.js`
+
+---
+
+## When Reviewing Code
+
+1. **Always check:** `.ai/instructions/general.md` for naming, `.ai/styleguides/` (css.md, html.md, javascript.md) for style
+2. **For a11y:** `.ai/context/accessibility.md` and `.ai/styleguides/accessibility.md` (WCAG 2.2)
+3. **For testing:** `.ai/skills/custom-element-testing/` and `.ai/skills/accessibility-testing/`
+4. **For new components:** Follow `.ai/context/component-anatomy.md` template
+
+---
+
+## Common Tasks
+
+- **New Component:** Check `.ai/prompts/create-component.prompt.md` before scaffolding
+- **Add CSS Variant:** See `.ai/prompts/add-css-variant.prompt.md`
+- **Add Token:** See `.ai/prompts/add-design-token.prompt.md`
+- **Write Tests:** Follow `.ai/skills/custom-element-testing/` pattern
+- **A11y Audit:** Use `.ai/skills/accessibility-testing/` pattern (axe-core + WCAG 2.2 AA)
+
+---
+
+## Accessibility Target
+
+**WCAG 2.2 Level AA** ← all components must meet this standard.
+
+Key criteria to verify in PRs:
+
+- SC 2.4.11 (Focus Not Obscured)
+- SC 2.5.8 (Target Size / 24×24 pixels)
+- SC 2.5.7 (Dragging Movements / keyboard alternative)
+- SC 3.3.8 (Accessible Authentication / no paste-block)
+- SC 3.3.7 (Redundant Entry / autocomplete support)
+- SC 3.2.6 (Consistent Help / layout constancy)
+
+---
+
+## Do's and Don'ts
+
+✅ **Do:**
+
+- Consult `.ai/` knowledge base before any major work
+- Use async fs from `_fs-utils.mjs`
+- Keep error messages terse with prefix symbols (✔, ⚠, ❌, ▶, ℹ, ⏭)
+- Verify native semantics (extend, don't replace)
+- Test with real screen readers
+- Design for keyboard-first access
+
+❌ **Don't:**
+
+- Use `tabindex > 0` (breaks tab order)
+- Remove focus outline without replacement
+- Communicate state by color alone
+- Use role when native element exists
+- Block paste on auth inputs
+- Use `aria-hidden` on interactive elements
+- Create targets smaller than 24×24 CSS pixels (SC 2.5.8)
+
+---
+
+**Last Updated:** 2026-02-21  
+For updates, edit root `CLAUDE.md` or `.github/copilot-instructions.md`

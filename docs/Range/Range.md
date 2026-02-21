@@ -1,10 +1,6 @@
 # **📌 Range **
 
-  
-
 ## **1. Component Overview**
-
-  
 
 The Range component allows you to set a value (or range of values) by dragging one or two thumbs along a track. It is often used for filters (price, distance) or settings (volume). It must be usable without drag & drop, so with keyboard, and must correctly communicate current value, minimum/maximum, and, if present, selected range.
 
@@ -12,16 +8,11 @@ The Range component allows you to set a value (or range of values) by dragging o
 
 ## **2. Accessibility Requirements (WCAG)**
 
-  
-
 ### **🔹 WCAG 1.3.1 - Information and Relationships**
 
 - The range must have an associated text label.
-    
 - If a displayed value is present (e.g., "€ 10 – € 80"), it must be connected to the control via `aria-describedby`.
-    
 - For custom sliders, expose the correct role (`role="slider"`) and min/max/now values.
-    
 
 ```
 <label id="price-label">Price</label>
@@ -40,40 +31,27 @@ The Range component allows you to set a value (or range of values) by dragging o
 ### **🔹 WCAG 1.4.1 - Use of Color**
 
 - The selected range must not be indicated only by the color of the track.
-    
 - Add an additional indicator (e.g., pattern, border, text with range) or always available text feedback.
-    
 
 ---
 
 ### **🔹 WCAG 1.4.3 - Minimum Contrast**
 
 - Labels and values: minimum contrast **4.5:1**.
-    
 - Track, thumb, tick, and status indicators: minimum contrast **3:1**.
-    
 - The thumb must be distinguishable from the track even without color.
-    
 
 ---
 
 ### **🔹 WCAG 2.1.1 - Keyboard**
 
 - The thumb must be reachable with Tab.
-    
 - Adjustment must be possible via keyboard:
-    
-    - Arrow Left/Down: decreases the value.
-        
+  - Arrow Left/Down: decreases the value.
     - Arrow Right/Up: increases the value.
-        
     - Page Up / Page Down: larger increments.
-        
     - Home / End: minimum/maximum.
-        
-    
-- If there are **two thumbs** (range), both must be reachable and adjustable individually.
-    
+  - If there are **two thumbs** (range), both must be reachable and adjustable individually.
 
 ---
 
@@ -94,9 +72,7 @@ The Range component allows you to set a value (or range of values) by dragging o
 ### **🔹 WCAG 2.5.1 - Pointer Gestures**
 
 - If the slider requires dragging, an alternative must be available that does not require complex gestures.
-    
 - Always provide keyboard control and, if possible, an alternative numeric input.
-    
 
 ---
 
@@ -104,7 +80,6 @@ The Range component allows you to set a value (or range of values) by dragging o
 
 - If the slider has particular steps, limits, or units of measure (€, km, %), they must be communicated.
 - If the range is constrained (min < max), explain the behavior when the thumbs approach or "swap".
-    
 
 ---
 
@@ -119,10 +94,24 @@ The Range component allows you to set a value (or range of values) by dragging o
 
 ```html
 <label id="min-label">Minimum price</label>
-<div role="slider" aria-labelledby="min-label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10" aria-valuetext="10 euros" tabindex="0"></div>
+<div
+  role="slider"
+  aria-labelledby="min-label"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="10"
+  aria-valuetext="10 euros"
+  tabindex="0"></div>
 
 <label id="max-label">Maximum price</label>
-<div role="slider" aria-labelledby="max-label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-valuetext="80 euros" tabindex="0"></div>
+<div
+  role="slider"
+  aria-labelledby="max-label"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="80"
+  aria-valuetext="80 euros"
+  tabindex="0"></div>
 ```
 
 ---
@@ -170,66 +159,39 @@ The Range component allows you to set a value (or range of values) by dragging o
 
 ## **4. Testing and Validation**
 
-  
-
 🛠 **Assistive Technologies Tested**
 
 - NVDA
-    
 - VoiceOver
-    
 - JAWS
-    
-
-  
 
 🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)![Attachment.tiff](file:///Attachment.tiff)
-    
 - [WAVE](https://wave.webaim.org/)![Attachment.tiff](file:///Attachment.tiff)
-    
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)![Attachment.tiff](file:///Attachment.tiff)
-    
-
-  
 
 🎯 **Use Cases to Test**
 
 - Is it possible to change the value using only keyboard (arrows, Page Up/Down, Home/End)?
-    
 - Does the screen reader announce current value, min, and max?
-    
 - If it is a two-thumb range, does each thumb have a distinct name?
-    
 - Is focus always visible?
-    
 - Is there text feedback for the value/range (not just color)?
-    
 
 ---
 
 ## **5. Advanced Considerations**
 
-  
-
 🌍 **Internationalization**
 
 - Consistent formatting of units (currency, percentages).
-    
 - Local decimal separator.
-    
-
-  
 
 📱 **Responsiveness**
 
 - Minimum interactive target **44×44 px** for the thumb.
-    
 - Avoid sliders that are too small on mobile.
-    
-
-  
 
 🎞 **Motion and Animations**
 
@@ -246,22 +208,15 @@ The Range component allows you to set a value (or range of values) by dragging o
 ## **6. Examples and Best Practices**
 
 - Prefer input[type=range] when possible.
-    
 - If custom, expose role="slider" and update aria-valuenow and aria-valuetext.
-    
 - Always provide keyboard control and text feedback of the value.
-    
 - For two-thumb range, clearly name min/max.
-    
 
 ---
 
 📌 **References**
 
 - [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
-    
 - [WCAG 2.1 - Success Criterion 1.4.1 Use of Color](https://www.w3.org/TR/WCAG21/#use-of-color)
-    
 - [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
-    
 - [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)

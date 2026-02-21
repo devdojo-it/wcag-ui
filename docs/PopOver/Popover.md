@@ -1,4 +1,4 @@
-# 📌 Popover 
+# 📌 Popover
 
 ## 1. Component Overview
 
@@ -30,25 +30,14 @@ A typical popover opens with click or `Enter/Space` on the trigger and closes wi
 ### 🔹 WCAG 1.3.1 - Information and Relationships
 
 - The trigger must declare the relationship with the content via `aria-controls`.
-    
 - The trigger must expose the state via `aria-expanded`.
-    
 - The popover content must have a name (with `aria-label` or `aria-labelledby`).
-    
 - Use a role consistent with the content:
-    
-    - `role="dialog"` if it contains structured content or controls.
-        
+  - `role="dialog"` if it contains structured content or controls.
     - `role="menu"` **only** if it is a true action menu (menu button pattern).
-        
 
 ```html
-<button
-  type="button"
-  aria-haspopup="dialog"
-  aria-expanded="false"
-  aria-controls="pop-1"
->
+<button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="pop-1">
   Details
 </button>
 
@@ -65,7 +54,6 @@ A typical popover opens with click or `Enter/Space` on the trigger and closes wi
 - Popover text and controls: minimum contrast **4.5:1**.
 - Borders/indicators (arrow, outline, separator): minimum contrast **3:1**.
 - States (focus, selected, disabled) must not be based solely on color.
-    
 
 ---
 
@@ -75,7 +63,6 @@ A typical popover opens with click or `Enter/Space` on the trigger and closes wi
 - `Enter` / `Space` on the trigger open/close the popover.
 - `Esc` closes the popover.
 - If the popover contains interactive elements, they must be reachable with `Tab`.
-    
 
 ---
 
@@ -87,7 +74,6 @@ A typical popover opens with click or `Enter/Space` on the trigger and closes wi
 - On closing, focus must return to the trigger.
 - If the popover is **non-modal** (most common case), focus can leave the popover, but closing must remain controllable (e.g., `Esc` and click outside).
 - If the popover is **modal** (rare case), it should be treated as a modal dialog with focus trap.
-    
 
 ---
 
@@ -110,7 +96,6 @@ A typical popover opens with click or `Enter/Space` on the trigger and closes wi
 - Opening/closing must be predictable and consistent.
 - Avoid "surprise" closures while the user is interacting inside the popover.
 - If the popover closes on click outside, it must not close when the user clicks **inside**.
-    
 
 ---
 
@@ -119,7 +104,6 @@ A typical popover opens with click or `Enter/Space` on the trigger and closes wi
 - The trigger must update `aria-expanded` consistently with the state.
 - The content must correctly expose role and name (`role="dialog"` + `aria-labelledby` or `aria-label`).
 - If it is a menu, use `role="menu"` with items `role="menuitem"` (and consistent pattern).
-    
 
 ---
 
@@ -133,17 +117,11 @@ A typical popover opens with click or `Enter/Space` on the trigger and closes wi
   type="button"
   aria-haspopup="dialog"
   aria-expanded="false"
-  aria-controls="pop-panel"
->
+  aria-controls="pop-panel">
   Actions
 </button>
 
-<div
-  id="pop-panel"
-  role="dialog"
-  aria-labelledby="pop-title"
-  hidden
->
+<div id="pop-panel" role="dialog" aria-labelledby="pop-title" hidden>
   <h2 id="pop-title">Actions</h2>
   <button type="button">Edit</button>
   <button type="button">Duplicate</button>
@@ -163,11 +141,10 @@ A typical popover opens with click or `Enter/Space` on the trigger and closes wi
 - Non-semantic trigger
 - Missing `aria-expanded` and `aria-controls`
 - No focus management
-    
 
 ✅ **If the content is a true action menu (menu button pattern)**
 
-```html
+````html
 <button
   type="button"
   aria-haspopup="menu"
@@ -190,20 +167,14 @@ ctions
 🛠 **Assistive Technologies Tested**
 
 - NVDA
-    
 - VoiceOver
-    
 - JAWS
-    
 
 🛠 **Verification Tools**
 
 - [axe DevTools](https://www.deque.com/axe/)
-    
 - [WAVE](https://wave.webaim.org/)
-    
 - [Lighthouse Accessibility Audit](https://developers.google.com/web/tools/lighthouse/)
-    
 
 🎯 **Test Cases**
 
@@ -212,7 +183,6 @@ ctions
 - Does `aria-expanded` update correctly?
 - Does focus enter the popover in a predictable manner?
 - Can you navigate all internal controls from the keyboard?
-    
 
 ---
 
@@ -227,7 +197,6 @@ ctions
 
 - Minimum interactive targets **44×44 px** for trigger and controls.
 - On mobile, consider transforming into a dialog/bottom sheet for stability.
-    
 
 🎞 **Motion and Animations**
 
@@ -237,17 +206,13 @@ ctions
     transition: none;
   }
 }
-```
+````
 
 ---
 
 ## 6. Examples and Best Practices
 
-✅ Always use semantic triggers (`<button>`, not `<div>`).
-✅ Update `aria-expanded` consistently with popover state.
-✅ Manage focus on open/close.
-✅ Allow closing via `Esc` and click outside.
-✅ Test with screen readers and keyboard navigation.
+✅ Always use semantic triggers (`<button>`, not `<div>`). ✅ Update `aria-expanded` consistently with popover state. ✅ Manage focus on open/close. ✅ Allow closing via `Esc` and click outside. ✅ Test with screen readers and keyboard navigation.
 
 ---
 
@@ -257,4 +222,7 @@ ctions
 - [ARIA: menu role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menu_role)
 - [WCAG 2.1 - Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
 - [WCAG 2.1 - Focus Visible](https://www.w3.org/TR/WCAG21/#focus-visible)
+
+```
+
 ```

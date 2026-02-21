@@ -1,6 +1,7 @@
-# 📌 Details 
+# 📌 Details
 
 ## 1. Component Overview
+
 The `Details` component is used to show or hide additional information on user request. It must be accessible for keyboard-navigating users and those using screen readers.
 
 ---
@@ -8,6 +9,7 @@ The `Details` component is used to show or hide additional information on user r
 ## 2. Accessibility Requirements (WCAG)
 
 ### 🔹 WCAG 1.3.1 - Information and Relationships
+
 - The `<details>` tag is semantically correct for hiding and showing progressive content.
 - The `<summary>` element must be clear and descriptive so users know what to expect when expanding the detail.
 
@@ -19,10 +21,12 @@ The `Details` component is used to show or hide additional information on user r
 ```
 
 ### 🔹 WCAG 1.4.3 - Minimum Contrast
+
 - The `summary` text must have a minimum contrast of **4.5:1** compared to the background.
 - The expanded state must be clearly distinguishable from the collapsed state.
 
 ### 🔹 WCAG 2.1.1 - Keyboard
+
 - The `details` component must be navigable with `Tab`.
 - The `summary` must be activatable with `Enter` and `Space`.
 
@@ -34,6 +38,7 @@ The `Details` component is used to show or hide additional information on user r
 ```
 
 ### 🔹 WCAG 2.4.7 - Focus Visible
+
 - The `summary` must have a clear and distinctive `focus-visible` style.
 
 ```css
@@ -44,13 +49,15 @@ summary:focus-visible {
 ```
 
 ### 🔹 WCAG 4.1.2 - Name, Role, Value
+
 - Screen readers must correctly perceive the open and closed state.
 - If using a custom component, you must update `aria-expanded`.
 
 ```html
 <button aria-expanded="false" aria-controls="details-content">Show details</button>
 <div id="details-content" hidden>
-  <p>Hidden content
+  <p>Hidden content</p>
+</div>
 ```
 
 ---
@@ -58,6 +65,7 @@ summary:focus-visible {
 ## 3. Developer Guidelines
 
 ✅ **Correct HTML Markup**
+
 ```html
 <details>
   <summary>Expand to see more information</summary>
@@ -66,14 +74,17 @@ summary:focus-visible {
 ```
 
 🚫 **Wrong Example (missing semantics)**
+
 ```html
 <div onclick="toggleDetails()">Show details</div>
 <div class="details-content" hidden>
   <p>Hidden content.</p>
-</div> <!-- Not accessible, lacks proper semantics -->
+</div>
+<!-- Not accessible, lacks proper semantics -->
 ```
 
 ✅ **Focus Management**
+
 ```css
 summary:focus-visible {
   outline: 2px solid #ff9900;
@@ -82,7 +93,8 @@ summary:focus-visible {
 ```
 
 🚫 **Common mistake: not providing a clear expansion state**
-```html
+
+````html
 <button>Show details</button> <!-- Missing aria-expanded and
 
 ---
@@ -124,19 +136,18 @@ summary:focus-visible {
     transition: none;
   }
 }
-```
+````
 
 ---
 
 ## 6. Examples and Best Practices
-✅ **Use the `<details>` tag to improve accessibility without needing extra ARIA.**
-✅ **Ensure clear focus visibility for keyboard navigation.**
-✅ **Do not rely solely on color to indicate open/closed state.**
-✅ **Test with screen readers to verify correct section reading.**
+
+✅ **Use the `<details>` tag to improve accessibility without needing extra ARIA.** ✅ **Ensure clear focus visibility for keyboard navigation.** ✅ **Do not rely solely on color to indicate open/closed state.** ✅ **Test with screen readers to verify correct section reading.**
 
 ---
 
 📌 **References**
+
 - [WCAG 2.1 - Success Criterion 1.3.1 Information and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)
 - [WCAG 2.1 - Success Criterion 1.4.3 Minimum Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 - [WCAG 2.1 - Success Criterion 2.1.1 Keyboard](https://www.w3.org/TR/WCAG21/#keyboard)
