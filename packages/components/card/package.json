@@ -1,0 +1,49 @@
+{
+  "name": "@wcag-ui/card",
+  "version": "0.1.0-alpha.0",
+  "description": "Card component for the wcagUI library",
+  "author": "DevDojo IT (https://devdojo.it), Exeen (https://exeen.it)",
+  "contributors": [
+    "Emiliano Pisu <pixu1980@github>",
+    "Massimo Artizzu <maxart2501@github>",
+    "Mirela Rosca <mirirosca@github>",
+    "Marco Pollacci <marcopollacci@github>",
+    "Valeria Salis <vallss@github>",
+    "Alessio Tortolini <alestormoody@github>",
+    "Christian Nastasi <cnastasi@github>",
+    "Salvatore Tropea <salvotropea96@github>"
+  ],
+  "homepage": "https://github.com/devdojo-it/wcag-ui#readme",
+  "license": "MIT",
+  "main": "card.min.js",
+  "type": "module",
+  "scripts": {
+    "test": "node ./__tests__/card.test.js",
+    "build:css": "esbuild --bundle --minify ./lib/styles/card.css --outfile=./card.min.css",
+    "build:js": "esbuild --bundle --packages=external --format=esm ./lib/card.js --outfile=./card.min.js",
+    "build": "pnpm run build:css && pnpm run build:js",
+    "watch:css": "esbuild --bundle --watch --minify ./lib/styles/card.css --outfile=./card.min.css",
+    "watch:js": "esbuild --bundle --watch --packages=external --format=esm ./lib/card.js --outfile=./card.min.js",
+    "publish:package": "npm publish --access public"
+  },
+  "dependencies": {
+    "@wcag-ui/core": "workspace:^0.1.0-alpha.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "card.min.css",
+    "card.min.js",
+    "package.json",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devdojo-it/wcag-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devdojo-it/wcag-ui/issues"
+  }
+}

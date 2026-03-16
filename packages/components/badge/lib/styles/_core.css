@@ -1,0 +1,63 @@
+:root {
+  --wcag-badge--color: var(--wcag-c--neutral-00);
+  --wcag-badge--background-color: var(--wcag-c--blue-400);
+  --wcag-badge--border-radius: 10rem;
+
+  --wcag-badge--min-inline-size: 2rem;
+  --wcag-badge--padding-inline: var(--wcag-s--100);
+  --wcag-badge--padding-block: 0;
+
+  --wcag-badge--font-size: 1.2rem;
+  --wcag-badge--font-weight: 700;
+  --wcag-badge--line-height: 2rem;
+}
+
+[is="wcag-badge"] {
+  --wcag-t--font-size: var(--wcag-badge--font-size);
+  --wcag-t--line-height: var(--wcag-badge--line-height);
+  --wcag-t--font-weight: var(--wcag-badge--font-weight);
+
+  display: inline-flex;
+  place-content: center;
+  place-items: center;
+
+  min-inline-size: var(--wcag-badge--min-inline-size);
+  padding-inline: var(--wcag-badge--padding-inline);
+  padding-block: var(--wcag-badge--padding-block);
+
+  color: var(--wcag-badge--color);
+  background-color: var(--wcag-badge--background-color);
+  border-radius: var(--wcag-badge--border-radius);
+}
+
+/* Dot variant: no text, just a colored circle */
+[is="wcag-badge"][dot] {
+  --wcag-badge--min-inline-size: 0.8rem;
+  --wcag-badge--padding-inline: 0;
+  --wcag-badge--padding-block: 0;
+  --wcag-badge--line-height: 0;
+
+  inline-size: 0.8rem;
+  block-size: 0.8rem;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+
+/* Color variants */
+[is="wcag-badge"][secondary] {
+  --wcag-badge--color: var(--wcag-c--blue-500);
+  --wcag-badge--background-color: var(--wcag-c--neutral-50);
+}
+
+[is="wcag-badge"][success] {
+  --wcag-badge--background-color: var(--wcag-c--green-300);
+}
+
+[is="wcag-badge"][warning] {
+  --wcag-badge--background-color: var(--wcag-c--yellow-300);
+  --wcag-badge--color: var(--wcag-c--neutral-800);
+}
+
+[is="wcag-badge"][danger] {
+  --wcag-badge--background-color: var(--wcag-c--red-500);
+}

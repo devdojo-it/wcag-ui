@@ -3,9 +3,57 @@
     <include src="common/docs-nav.html"></include>
   </block>
   <block name="main">
-    <h1>ScrollSpy Docs</h1>
+
+    <div class="component-hero">
+      <div class="component-hero__info">
+        <h1>ScrollSpy</h1>
+        <p>Il componente ScrollSpy evidenzia automaticamente la sezione correntemente visibile nella navigazione. È ideale per pagine lunghe con sommari laterali, basandosi sugli anchor link per aggiornare lo stato attivo durante lo scroll.</p>
+      </div>
+      <div class="component-hero__guidelines">
+        <div class="component-hero__do">
+          <strong>Come si usa:</strong>
+          <ul>
+            <li>Usa ScrollSpy per pagine di documentazione o articoli lunghi con un sommario di navigazione laterale</li>
+            <li>Abbina lo stato attivo a un indicatore visivo non basato solo sul colore (bordo, grassetto, icona)</li>
+          </ul>
+        </div>
+        <div class="component-hero__dont">
+          <strong>Come non si usa:</strong>
+          <ul>
+            <li>Non spostare il focus automaticamente durante lo scroll, lascia sempre il controllo all'utente</li>
+            <li>Evita di usarlo per strutture di navigazione brevi dove l'utente può già vedere tutti i contenuti</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-preview component-preview--dark">
+      <div class="component-preview__scrollspy-demo" data-theme="dark">
+        <section is="wcag-scroll-spy" target="#scrollspy-content"></section>
+        <div id="scrollspy-content" class="scrollspy-content">
+          <h1>Getting started</h1>
+          <section>
+            <h2>Quick Start</h2>
+            <p>Installa il pacchetto tramite pnpm e importa il componente nel tuo progetto per iniziare subito a costruire interfacce accessibili.</p>
+            <p>Una volta importato, puoi utilizzare il tag <code>section[is="wcag-scroll-spy"]</code> puntando al contenitore target tramite l'attributo <code>target</code>.</p>
+          </section>
+          <section>
+            <h2>Install manually</h2>
+            <p>Scarica i file compilati (<code>.min.js</code> e <code>.min.css</code>) e includili direttamente nel tuo HTML senza dipendenze aggiuntive.</p>
+            <p>Questo approccio è ideale per prototipi rapidi o ambienti senza un bundler configurato.</p>
+          </section>
+          <section>
+            <h2>Usage from CDN</h2>
+            <p>Puoi includere wcagUI direttamente da CDN usando un tag <code>&lt;script type="module"&gt;</code> per caricare i componenti senza nessuna configurazione locale.</p>
+            <p>Consulta la sezione Integrations per tutti i metodi di installazione supportati e le varianti di importazione disponibili.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+
     <section>
       <md src="./docs/ScrollSpy/ScrollSpy.md"></md>
     </section>
+
   </block>
 </extends>

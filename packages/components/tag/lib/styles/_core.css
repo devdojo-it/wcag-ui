@@ -1,0 +1,78 @@
+:root {
+  --wcag-tag--color: var(--wcag-c--blue-500);
+  --wcag-tag--background-color: var(--wcag-c--neutral-50);
+  --wcag-tag--border-radius: var(--wcag-r--s);
+  --wcag-tag--border-width: 1px;
+  --wcag-tag--border-style: solid;
+  --wcag-tag--border-color: var(--wcag-c--neutral-200);
+
+  --wcag-tag--gap: var(--wcag-s--100);
+  --wcag-tag--padding-inline: var(--wcag-s--200);
+  --wcag-tag--padding-block: var(--wcag-s--50);
+
+  --wcag-tag--font-size: 1.4rem;
+  --wcag-tag--font-weight: 500;
+  --wcag-tag--line-height: 2rem;
+}
+
+[is="wcag-tag"] {
+  --wcag-t--font-size: var(--wcag-tag--font-size);
+  --wcag-t--line-height: var(--wcag-tag--line-height);
+  --wcag-t--font-weight: var(--wcag-tag--font-weight);
+
+  display: inline-flex;
+  flex-flow: row nowrap;
+  place-content: center;
+  place-items: center;
+  gap: var(--wcag-tag--gap);
+
+  padding-inline: var(--wcag-tag--padding-inline);
+  padding-block: var(--wcag-tag--padding-block);
+
+  color: var(--wcag-tag--color);
+  background-color: var(--wcag-tag--background-color);
+  border-width: var(--wcag-tag--border-width);
+  border-style: var(--wcag-tag--border-style);
+  border-color: var(--wcag-tag--border-color);
+  border-radius: var(--wcag-tag--border-radius);
+
+  > button {
+    all: unset;
+    display: inline-flex;
+    place-content: center;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+    inline-size: 1.6rem;
+    block-size: 1.6rem;
+    font-size: 1.4rem;
+    line-height: 1;
+
+    &:hover {
+      background-color: var(--wcag-c--neutral-200);
+    }
+
+    &:focus-visible {
+      outline: var(--wcag-f--outline-width) solid var(--wcag-f--outline-color);
+      outline-offset: var(--wcag-f--outline-width);
+    }
+  }
+}
+
+[is="wcag-tag"][success] {
+  --wcag-tag--color: var(--wcag-c--green-700);
+  --wcag-tag--background-color: var(--wcag-c--green-100);
+  --wcag-tag--border-color: var(--wcag-c--green-300);
+}
+
+[is="wcag-tag"][warning] {
+  --wcag-tag--color: var(--wcag-c--yellow-700);
+  --wcag-tag--background-color: var(--wcag-c--yellow-100);
+  --wcag-tag--border-color: var(--wcag-c--yellow-300);
+}
+
+[is="wcag-tag"][danger] {
+  --wcag-tag--color: var(--wcag-c--red-700);
+  --wcag-tag--background-color: var(--wcag-c--red-100);
+  --wcag-tag--border-color: var(--wcag-c--red-300);
+}

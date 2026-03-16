@@ -1,0 +1,128 @@
+:root {
+  --wcag-stepper--gap: 0;
+
+  --wcag-stepper--indicator-size: 3.2rem;
+  --wcag-stepper--indicator-color: var(--wcag-c--neutral-00);
+  --wcag-stepper--indicator-background: var(--wcag-c--neutral-200);
+  --wcag-stepper--indicator-active-background: var(--wcag-c--blue-400);
+  --wcag-stepper--indicator-complete-background: var(--wcag-c--green-400);
+  --wcag-stepper--indicator-border-radius: 50%;
+  --wcag-stepper--indicator-font-size: 1.4rem;
+
+  --wcag-stepper--connector-height: 2px;
+  --wcag-stepper--connector-color: var(--wcag-c--neutral-200);
+  --wcag-stepper--connector-active-color: var(--wcag-c--blue-400);
+
+  --wcag-stepper--label-font-size: 1.4rem;
+  --wcag-stepper--label-color: var(--wcag-c--neutral-600);
+  --wcag-stepper--label-active-color: var(--wcag-c--neutral-800);
+}
+
+[is="wcag-stepper"] {
+  > ol {
+    display: flex;
+    flex-flow: row nowrap;
+    place-items: flex-start;
+    gap: var(--wcag-stepper--gap);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step;
+
+    > li {
+      display: flex;
+      flex: 1;
+      flex-flow: column nowrap;
+      place-items: center;
+      gap: var(--wcag-s--100);
+      position: relative;
+      counter-increment: step;
+      margin: 0;
+
+      /* Connector line */
+      + li::before {
+        content: "";
+        position: absolute;
+        top: calc(var(--wcag-stepper--indicator-size) / 2);
+        inset-inline-end: 50%;
+        inline-size: 100%;
+        block-size: var(--wcag-stepper--connector-height);
+        background-color: var(--wcag-stepper--connector-color);
+        transform: translateX(-50%);
+        z-index: 0;
+      }
+
+      /* Step indicator circle */
+      &::after {
+        content: counter(step);
+        display: flex;
+        place-content: center;
+        place-items: center;
+        order: -1;
+
+        inline-size: var(--wcag-stepper--indicator-size);
+        block-size: var(--wcag-stepper--indicator-size);
+        border-radius: var(--wcag-stepper--indicator-border-radius);
+
+        color: var(--wcag-stepper--indicator-color);
+        background-color: var(--wcag-stepper--indicator-background);
+        font-size: var(--wcag-stepper--indicator-font-size);
+        font-weight: 700;
+
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Label */
+      > span {
+        font-size: var(--wcag-stepper--label-font-size);
+        color: var(--wcag-stepper--label-color);
+        text-align: center;
+      }
+
+      /* Active step */
+      &[aria-current="step"] {
+        &::after {
+          background-color: var(--wcag-stepper--indicator-active-background);
+        }
+
+        > span {
+          color: var(--wcag-stepper--label-active-color);
+          font-weight: 600;
+        }
+      }
+
+      /* Completed step */
+      &[complete] {
+        &::after {
+          background-color: var(--wcag-stepper--indicator-complete-background);
+          content: "\2713";
+        }
+
+        + li::before {
+          background-color: var(--wcag-stepper--connector-active-color);
+        }
+      }
+    }
+  }
+}
+
+/* Vertical variant */
+[is="wcag-stepper"][vertical] > ol {
+  flex-flow: column nowrap;
+
+  > li {
+    flex-flow: row nowrap;
+    place-items: center;
+
+    + li::before {
+      top: auto;
+      inset-inline-end: auto;
+      inset-inline-start: calc(var(--wcag-stepper--indicator-size) / 2);
+      inset-block-end: 100%;
+      inline-size: var(--wcag-stepper--connector-height);
+      block-size: 100%;
+      transform: translateY(0);
+    }
+  }
+}

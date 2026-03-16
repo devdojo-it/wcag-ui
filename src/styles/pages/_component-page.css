@@ -1,0 +1,176 @@
+/* ─── Component Hero ─────────────────────────────────────────────────────── */
+
+.component-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 4rem;
+  background-color: light-dark(hsl(248, 28%, 96%), hsl(248, 70%, 8%));
+  border-radius: 1.6rem;
+  margin-block-end: 4rem;
+
+  @media screen and (width < 768px) {
+    grid-template-columns: 1fr;
+    padding: 2.4rem;
+  }
+}
+
+.component-hero__info h1 {
+  font-size: clamp(3.2rem, 5vw, 5.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-block-end: 1.6rem;
+  color: inherit;
+}
+
+.component-hero__info p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: light-dark(hsl(248, 30%, 35%), hsl(248, 20%, 72%));
+}
+
+.component-hero__guidelines {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.component-hero__do strong,
+.component-hero__dont strong {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-block-end: 1.2rem;
+}
+
+.component-hero__do ul,
+.component-hero__dont ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.component-hero__do li,
+.component-hero__dont li {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  padding-inline-start: 2.4rem;
+  position: relative;
+}
+
+.component-hero__do li::before {
+  content: "✓";
+  position: absolute;
+  inset-inline-start: 0;
+  color: hsl(140, 60%, 38%);
+  font-weight: 700;
+}
+
+.component-hero__dont li::before {
+  content: "✗";
+  position: absolute;
+  inset-inline-start: 0;
+  color: hsl(0, 70%, 50%);
+  font-weight: 700;
+}
+
+/* ─── Component Preview ──────────────────────────────────────────────────── */
+
+.component-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  margin-block-end: 4rem;
+
+  @media screen and (width < 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.component-preview__light,
+.component-preview__dark {
+  padding: 4rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.component-preview__light {
+  background-color: hsl(248, 28%, 94%);
+  color-scheme: light;
+}
+
+.component-preview__dark {
+  background-color: hsl(248, 70%, 8%);
+  color-scheme: dark;
+}
+
+/* ─── ScrollSpy Demo Layout ──────────────────────────────────────────────── */
+
+.component-preview--dark {
+  grid-template-columns: 1fr;
+}
+
+.component-preview__scrollspy-demo {
+  display: grid;
+  grid-template-columns: 28rem 1fr;
+  gap: 4rem;
+  padding: 6rem 4rem;
+  background-color: hsl(248, 70%, 8%);
+  color-scheme: dark;
+  min-height: 60rem;
+  border-radius: 1.6rem;
+  overflow: hidden;
+
+  @media screen and (width < 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.component-preview__scrollspy-demo [is="wcag-scroll-spy"] {
+  position: sticky;
+  top: 2rem;
+  align-self: flex-start;
+  color-scheme: dark;
+}
+
+.scrollspy-content {
+  max-height: 50rem;
+  overflow-y: auto;
+  padding-inline-end: 2rem;
+  scroll-behavior: smooth;
+}
+
+.scrollspy-content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-block-end: 4rem;
+  color: hsl(0, 0%, 100%);
+}
+
+.scrollspy-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-block-start: 4rem;
+  margin-block-end: 1.6rem;
+  color: hsl(0, 0%, 95%);
+}
+
+.scrollspy-content p {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  color: hsl(248, 20%, 72%);
+  margin-block-end: 1.2rem;
+}
+
+.scrollspy-content code {
+  background-color: hsl(248, 40%, 16%);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  font-size: 1.3rem;
+  color: hsl(245, 73%, 84%);
+}

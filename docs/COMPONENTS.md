@@ -12,6 +12,22 @@ The **Accordion** component organizes content into expandable sections. This des
 
 ---
 
+## Badge
+
+The **Badge** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore Badge →](./components-badge.html)
+
+---
+
+## Breadcrumbs
+
+The **Breadcrumbs** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore Breadcrumbs →](./components-breadcrumbs.html)
+
+---
+
 ## Button
 
 The **Button** component is a versatile control element that responds to user interactions with clear visual feedback. It supports various states such as hover, active, and disabled, making it ideal for forms and interactive tasks.
@@ -68,6 +84,14 @@ The **Dialog** component creates modal interfaces that focus user attention on a
 
 ---
 
+## Editor
+
+The **Editor** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore Editor →](./components-editor.html)
+
+------
+
 ## Input
 
 The **Input** component provides a versatile text field for user data entry. It includes built-in accessibility features such as clear labeling and focus management, making it ideal for both simple and complex data collection.
@@ -76,11 +100,35 @@ The **Input** component provides a versatile text field for user data entry. It 
 
 ---
 
+## List
+
+The **List** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore List →](./components-list.html)
+
+---
+
+## Pagination
+
+The **Pagination** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore Pagination →](./components-pagination.html)
+
+---
+
 ## Popover
 
 The **Popover** component displays floating content panels with flexible positioning control. Useful for tooltips, dropdowns, and contextual menus, it maintains proper accessible focus management.
 
 [Explore Popover →](./components-popover.html)
+
+---
+
+## ProgressBar
+
+The **ProgressBar** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore ProgressBar →](./components-progress-bar.html)
 
 ---
 
@@ -116,6 +164,22 @@ The **Select** component offers a customizable dropdown list for choosing option
 
 ---
 
+## Slider
+
+The **Slider** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore Slider →](./components-slider.html)
+
+---
+
+## Stepper
+
+The **Stepper** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore Stepper →](./components-stepper.html)
+
+---
+
 ## Switch
 
 The **Switch** component is an accessible toggle control that mimics a physical switch. It provides clear on/off states with visual and interactive feedback to enhance usability.
@@ -132,6 +196,14 @@ The **Tabs** component organizes related content into separate panels with tab n
 
 ---
 
+## Tag
+
+The **Tag** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore Tag →](./components-tag.html)
+
+---
+
 ## Tags
 
 The **Tags** component displays visual labels and tag collections with optional selection and removal capabilities. It maintains semantic markup for screen readers and keyboard users.
@@ -145,6 +217,14 @@ The **Tags** component displays visual labels and tag collections with optional 
 For multi-line text input, the **Textarea** component offers an accessible, easy-to-use solution. It supports various states and ensures that user-entered content remains legible and well-formatted.
 
 [Explore Textarea →](./components-textarea.html)
+
+---
+
+## Toast
+
+The **Toast** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore Toast →](./components-toast.html)
 
 ---
 

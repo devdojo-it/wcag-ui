@@ -3,15 +3,72 @@
     <include src="common/docs-nav.html"></include>
   </block>
   <block name="main">
-    <h1>TreeView Docs Example</h1>
-    <section>
-      <h2>TreeView</h2>
-      <p>
-        <section is="wcag-tree-view"></section>
-      </p>
-    </section>
+
+    <div class="component-hero">
+      <div class="component-hero__info">
+        <h1>Treeview</h1>
+        <p>La treeview è una struttura ad albero utilizzata per rappresentare gerarchie di informazioni o elementi con una relazione padre-figlio. Ogni nodo della treeview può essere espanso o compresso per rivelare o nascondere elementi figli.</p>
+      </div>
+      <div class="component-hero__guidelines">
+        <div class="component-hero__do">
+          <strong>Come si usa:</strong>
+          <ul>
+            <li>Usa la treeview per organizzare contenuti complessi in modo gerarchico, facilitando la navigazione e la comprensione dei dati</li>
+            <li>Consenti all'utente di espandere o comprimere i nodi in base alle necessità, migliorando la chiarezza e riducendo il sovraccarico visivo</li>
+          </ul>
+        </div>
+        <div class="component-hero__dont">
+          <strong>Come non si usa:</strong>
+          <ul>
+            <li>Non utilizzare la treeview per rappresentare strutture semplici o piatte, dove l'uso di un elenco risulterebbe più intuitivo</li>
+            <li>Evita di nascondere troppi livelli di informazioni sotto nodi compressi, poiché può confondere l'utente e rendere difficile la ricerca dei dati</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-preview">
+      <div class="component-preview__light">
+        <section is="wcag-tree-view">
+          <ul role="tree" aria-label="File structure">
+            <li role="treeitem" aria-expanded="false" tabindex="0">
+              <span>Title section</span>
+              <ul role="group" hidden>
+                <li role="treeitem" tabindex="-1">Label</li>
+                <li role="treeitem" tabindex="-1">Label</li>
+                <li role="treeitem" tabindex="-1">Label</li>
+                <li role="treeitem" tabindex="-1">Label</li>
+                <li role="treeitem" tabindex="-1">Label</li>
+              </ul>
+            </li>
+            <li role="treeitem" tabindex="-1">Title section</li>
+            <li role="treeitem" aria-disabled="true" tabindex="-1">Title section</li>
+          </ul>
+        </section>
+      </div>
+      <div class="component-preview__dark" data-theme="dark">
+        <section is="wcag-tree-view">
+          <ul role="tree" aria-label="File structure">
+            <li role="treeitem" aria-expanded="false" tabindex="0">
+              <span>Title section</span>
+              <ul role="group" hidden>
+                <li role="treeitem" tabindex="-1">Label</li>
+                <li role="treeitem" tabindex="-1">Label</li>
+                <li role="treeitem" tabindex="-1">Label</li>
+                <li role="treeitem" tabindex="-1">Label</li>
+                <li role="treeitem" tabindex="-1">Label</li>
+              </ul>
+            </li>
+            <li role="treeitem" tabindex="-1">Title section</li>
+            <li role="treeitem" aria-disabled="true" tabindex="-1">Title section</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
     <section>
       <md src="./docs/TreeView/TreeView.md"></md>
     </section>
+
   </block>
 </extends>

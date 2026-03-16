@@ -1,0 +1,85 @@
+:root {
+  --wcag-card--display: flex;
+  --wcag-card--flex-flow: column nowrap;
+
+  --wcag-card--background-color: var(--wcag-c--light);
+  --wcag-card--color: var(--wcag-c--neutral-800);
+
+  --wcag-card--border-width: 1px;
+  --wcag-card--border-style: solid;
+  --wcag-card--border-color: var(--wcag-c--neutral-100);
+  --wcag-card--border-radius: var(--wcag-r--m);
+
+  --wcag-card--box-shadow: var(--wcag-e--sm);
+
+  --wcag-card--padding: var(--wcag-s--400);
+  --wcag-card--gap: var(--wcag-s--300);
+
+  --wcag-card--overflow: hidden;
+}
+
+[is="wcag-card"] {
+  display: var(--wcag-card--display);
+  flex-flow: var(--wcag-card--flex-flow);
+  gap: var(--wcag-card--gap);
+
+  color: var(--wcag-card--color);
+  background-color: var(--wcag-card--background-color);
+
+  border-width: var(--wcag-card--border-width);
+  border-style: var(--wcag-card--border-style);
+  border-color: var(--wcag-card--border-color);
+  border-radius: var(--wcag-card--border-radius);
+
+  box-shadow: var(--wcag-card--box-shadow);
+  overflow: var(--wcag-card--overflow);
+
+  > header,
+  > footer {
+    padding-inline: var(--wcag-card--padding);
+    padding-block: var(--wcag-s--200);
+  }
+
+  > :where(:not(header):not(footer):not(img):not(picture):not(figure)) {
+    padding-inline: var(--wcag-card--padding);
+  }
+
+  > img,
+  > picture > img {
+    inline-size: 100%;
+    display: block;
+    object-fit: cover;
+  }
+}
+
+/* Flat variant: no shadow */
+[is="wcag-card"][flat] {
+  --wcag-card--box-shadow: none;
+}
+
+/* Outlined variant: no shadow, stronger border */
+[is="wcag-card"][outlined] {
+  --wcag-card--box-shadow: none;
+  --wcag-card--border-color: var(--wcag-c--neutral-200);
+}
+
+/* Elevated variant: stronger shadow */
+[is="wcag-card"][elevated] {
+  --wcag-card--box-shadow: var(--wcag-e--md);
+  --wcag-card--border-width: 0;
+}
+
+/* Clickable card: interactive */
+[is="wcag-card"][clickable] {
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    --wcag-card--box-shadow: var(--wcag-e--md);
+  }
+
+  &:focus-visible {
+    outline: var(--wcag-f--outline-width) solid var(--wcag-f--outline-color);
+    outline-offset: var(--wcag-f--outline-width);
+  }
+}

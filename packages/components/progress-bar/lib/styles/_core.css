@@ -1,0 +1,62 @@
+:root {
+  --wcag-progress-bar--height: 0.8rem;
+  --wcag-progress-bar--background-color: var(--wcag-c--neutral-100);
+  --wcag-progress-bar--fill-color: var(--wcag-c--blue-400);
+  --wcag-progress-bar--border-radius: 10rem;
+  --wcag-progress-bar--value: 0%;
+}
+
+[is="wcag-progress-bar"] {
+  display: block;
+  position: relative;
+  inline-size: 100%;
+  block-size: var(--wcag-progress-bar--height);
+  background-color: var(--wcag-progress-bar--background-color);
+  border-radius: var(--wcag-progress-bar--border-radius);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    block-size: 100%;
+    inline-size: var(--wcag-progress-bar--value);
+    background-color: var(--wcag-progress-bar--fill-color);
+    border-radius: inherit;
+    transition: inline-size 0.3s ease;
+  }
+}
+
+/* Size variants */
+[is="wcag-progress-bar"][sm] {
+  --wcag-progress-bar--height: 0.4rem;
+}
+
+[is="wcag-progress-bar"][lg] {
+  --wcag-progress-bar--height: 1.2rem;
+}
+
+/* Color variants */
+[is="wcag-progress-bar"][success] {
+  --wcag-progress-bar--fill-color: var(--wcag-c--green-400);
+}
+
+[is="wcag-progress-bar"][warning] {
+  --wcag-progress-bar--fill-color: var(--wcag-c--yellow-400);
+}
+
+[is="wcag-progress-bar"][danger] {
+  --wcag-progress-bar--fill-color: var(--wcag-c--red-500);
+}
+
+/* Indeterminate */
+[is="wcag-progress-bar"][indeterminate] {
+  &::before {
+    inline-size: 30%;
+    animation: wcag-progress-bar-indeterminate 1.5s infinite ease-in-out;
+  }
+}
+
+@keyframes wcag-progress-bar-indeterminate {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}

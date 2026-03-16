@@ -1,1 +1,2 @@
 @import "./_foundations-colors.css" layer(foundations.colors);
+@import "./_component-page.css" layer(component.page);
