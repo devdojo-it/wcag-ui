@@ -41,12 +41,6 @@ label:has([is="wcag-switch"]) {
 
   inline-size: fit-content;
 
-  &[inline] {
-    flex-flow: row nowrap;
-    place-content: start;
-    place-items: center;
-  }
-
   > span {
     position: relative;
     display: inline-flex;
@@ -92,36 +86,6 @@ label:has([is="wcag-switch"]) {
       place-self: center end;
       translate: -1.45rem;
       border-radius: 2px;
-    }
-
-    &:hover {
-      &::before {
-        border-color: hsl(245, 94%, 48%);
-      }
-    }
-  }
-
-  &:has(:checked) {
-    > span {
-      &::before {
-        place-content: start;
-
-        content: "on";
-        text-indent: 0.7rem;
-      }
-
-      &::after {
-        translate: 1.45rem;
-      }
-    }
-  }
-
-  &:has([aria-disabled="true"]) {
-    > span {
-      &::before {
-        background-color: hsl(248, 28%, 58%);
-        border-color: hsl(248, 28%, 58%);
-      }
     }
   }
 }

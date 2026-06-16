@@ -51,35 +51,3 @@
     object-fit: cover;
   }
 }
-
-/* Flat variant: no shadow */
-[is="wcag-card"][flat] {
-  --wcag-card--box-shadow: none;
-}
-
-/* Outlined variant: no shadow, stronger border */
-[is="wcag-card"][outlined] {
-  --wcag-card--box-shadow: none;
-  --wcag-card--border-color: var(--wcag-c--neutral-200);
-}
-
-/* Elevated variant: stronger shadow */
-[is="wcag-card"][elevated] {
-  --wcag-card--box-shadow: var(--wcag-e--md);
-  --wcag-card--border-width: 0;
-}
-
-/* Clickable card: interactive */
-[is="wcag-card"][clickable] {
-  cursor: pointer;
-  transition: box-shadow 0.2s ease;
-
-  &:hover {
-    --wcag-card--box-shadow: var(--wcag-e--md);
-  }
-
-  &:focus-visible {
-    outline: var(--wcag-f--outline-width) solid var(--wcag-f--outline-color);
-    outline-offset: var(--wcag-f--outline-width);
-  }
-}

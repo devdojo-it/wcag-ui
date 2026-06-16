@@ -1,0 +1,5 @@
+[is="wcag-badge"] {
+  &[success] {
+    --wcag-badge--background-color: var(--wcag-c--green-300);
+  }
+}

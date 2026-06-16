@@ -35,7 +35,7 @@ export class Editor extends HTMLElement {
   #guid;
 
   get #editable() {
-    return this.querySelector(':scope > .wcag-editor__content');
+    return this.querySelector(':scope > [contenteditable="true"][role="textbox"]');
   }
 
   get value() {
@@ -44,7 +44,9 @@ export class Editor extends HTMLElement {
 
   set value(html) {
     const el = this.#editable;
-    if (el) el.innerHTML = html;
+    if (el) {
+      DOM.insertHTML(html ?? '', el, 'append', true);
+    }
   }
 
   constructor() {
@@ -62,49 +64,55 @@ export class Editor extends HTMLElement {
   }
 
   #buildToolbar() {
-    const toolbar = DOM.createElement('div', {
-      class: 'wcag-editor__toolbar',
-      role: 'toolbar',
-      'aria-label': 'Formatting options',
+    const toolbar = DOM.createElement({
+      tag: 'div',
+      attributes: {
+        role: 'toolbar',
+        'aria-label': 'Formatting options',
+      },
     });
 
     for (const action of DEFAULT_ACTIONS) {
       if (action.separator) {
-        const sep = DOM.createElement('span', {
-          class: 'wcag-editor__separator',
-          role: 'separator',
-          'aria-orientation': 'vertical',
+        const sep = DOM.createElement({
+          tag: 'span',
+          attributes: {
+            role: 'separator',
+            'aria-orientation': 'vertical',
+          },
         });
-        toolbar.appendChild(sep);
+        DOM.insertElement(sep, toolbar, 'append');
         continue;
       }
 
-      const btn = DOM.createElement('button', {
-        type: 'button',
-        class: 'wcag-editor__action',
-        'aria-label': action.label,
-        'data-command': action.command,
-        tabindex: '-1',
+      const btn = DOM.createElement({
+        tag: 'button',
+        attributes: {
+          type: 'button',
+          'aria-label': action.label,
+          'data-command': action.command,
+          tabindex: '-1',
+        },
+        content: action.icon,
       });
-      btn.textContent = action.icon;
-      toolbar.appendChild(btn);
+      DOM.insertElement(btn, toolbar, 'append');
     }
 
     // Make first toolbar button tabbable
-    const first = toolbar.querySelector('button');
+    const first = toolbar.querySelector('button[data-command]');
     if (first) first.setAttribute('tabindex', '0');
 
-    this.prepend(toolbar);
+    DOM.insertElement(toolbar, this, 'prepend');
   }
 
   #buildEditable() {
     // If user already provided a content area, enhance it
-    let content = this.querySelector(':scope > .wcag-editor__content');
+    let content = this.#editable;
     if (!content) {
-      content = DOM.createElement('div', {
-        class: 'wcag-editor__content',
+      content = DOM.createElement({
+        tag: 'div',
       });
-      this.appendChild(content);
+      DOM.insertElement(content, this, 'append');
     }
 
     content.setAttribute('contenteditable', 'true');

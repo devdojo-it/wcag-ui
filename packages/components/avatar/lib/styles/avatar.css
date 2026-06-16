@@ -1,0 +1,5 @@
+@import "./_core.css" layer(wcag-ui.components.avatar);
+@import "./variants/variants.css" layer(wcag-ui.components.avatar);
+@import "./sizes/sizes.css" layer(wcag-ui.components.avatar);
+@import "./modifiers/modifiers.css" layer(wcag-ui.components.avatar);
+@import "./states/states.css" layer(wcag-ui.components.avatar);

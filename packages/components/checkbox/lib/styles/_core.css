@@ -40,12 +40,6 @@ label:has([is="wcag-checkbox"]) {
 
   inline-size: fit-content;
 
-  &[inline] {
-    flex-flow: row nowrap;
-    place-content: start;
-    place-items: center;
-  }
-
   > span {
     position: relative;
     display: inline-flex;
@@ -74,29 +68,6 @@ label:has([is="wcag-checkbox"]) {
       opacity: 0;
       /* biome-ignore lint/a11y/useGenericFontNames: already defined in the font-face */
       font-family: "wcag-icons";
-    }
-
-    &:hover {
-      &::before {
-        border-color: hsl(245, 94%, 48%);
-      }
-    }
-  }
-
-  &:has(:checked) {
-    > span {
-      &::after {
-        opacity: 1;
-      }
-    }
-  }
-
-  &:has([aria-disabled="true"]) {
-    > span {
-      &::before {
-        background-color: hsl(248, 28%, 58%);
-        border-color: hsl(248, 28%, 58%);
-      }
     }
   }
 }

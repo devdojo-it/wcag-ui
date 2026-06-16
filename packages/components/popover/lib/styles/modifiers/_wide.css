@@ -1,0 +1,6 @@
+[is="wcag-popover"] {
+  &[wide] {
+    --wcag-popover--min-inline-size: 32rem;
+    --wcag-popover--max-inline-size: min(48rem, calc(100vw - 2rem));
+  }
+}

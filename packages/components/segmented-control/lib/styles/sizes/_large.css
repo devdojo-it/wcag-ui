@@ -1,0 +1,9 @@
+[is="wcag-segmented-control"] {
+  &[lg] {
+    --wcag-segmented-control--padding: var(--wcag-s--100);
+    --wcag-segmented-control--gap: var(--wcag-s--100);
+    --wcag-segmented-control--segment-padding-inline: var(--wcag-s--300);
+    --wcag-segmented-control--segment-padding-block: var(--wcag-s--150);
+    --wcag-segmented-control--font-size: 1.6rem;
+  }
+}

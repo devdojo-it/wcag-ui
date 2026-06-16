@@ -1,0 +1,18 @@
+[is="wcag-editor"] {
+  > [role="toolbar"] > button[data-command] {
+    &:hover {
+      background: var(--wcag-editor--action-hover-background);
+    }
+
+    &:focus-visible {
+      outline: var(--wcag-f--outline);
+    }
+  }
+
+  > [contenteditable="true"][role="textbox"] {
+    &:focus-visible {
+      outline: var(--wcag-f--outline);
+      outline-offset: -2px;
+    }
+  }
+}

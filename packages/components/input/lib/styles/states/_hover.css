@@ -6,11 +6,13 @@
   --wcag-input--s-hov--border-color: var(--wcag-c--neutral-600);
 }
 
-[is="wcag-input"]:hover {
-  /*
-  --wcag-input--color: var(--wcag-input--s-hov--color);
-  --wcag-input--background-color: var(--wcag-input--s-hov--background-color);
-  */
+[is="wcag-input"] {
+  &:hover {
+    /*
+    --wcag-input--color: var(--wcag-input--s-hov--color);
+    --wcag-input--background-color: var(--wcag-input--s-hov--background-color);
+    */
 
-  --wcag-input--border-color: var(--wcag-input--s-hov--border-color);
+    --wcag-input--border-color: var(--wcag-input--s-hov--border-color);
+  }
 }

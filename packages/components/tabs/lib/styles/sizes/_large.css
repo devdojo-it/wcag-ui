@@ -1,0 +1,8 @@
+[is="wcag-tabs"] {
+  &[lg] {
+    --wcag-tabs--tab-padding-inline: var(--wcag-s--400);
+    --wcag-tabs--tab-padding-block: var(--wcag-s--250);
+    --wcag-tabs--tab-font-size: 1.6rem;
+    --wcag-tabs--panel-padding: var(--wcag-s--400);
+  }
+}

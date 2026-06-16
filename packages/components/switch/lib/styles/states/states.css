@@ -2,3 +2,30 @@
 @import "./_active.css" layer(states.active);
 @import "./_focus.css" layer(states.focus);
 @import "./_disabled.css" layer(states.disabled);
+
+label:has([is="wcag-switch"]) {
+  > span:hover {
+    &::before {
+      border-color: hsl(245, 94%, 48%);
+    }
+  }
+
+  &:has(:checked) > span {
+    &::before {
+      place-content: start;
+      content: "on";
+      text-indent: 0.7rem;
+    }
+
+    &::after {
+      translate: 1.45rem;
+    }
+  }
+
+  &:has([aria-disabled="true"]) > span {
+    &::before {
+      background-color: hsl(248, 28%, 58%);
+      border-color: hsl(248, 28%, 58%);
+    }
+  }
+}

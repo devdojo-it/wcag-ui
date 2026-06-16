@@ -5,6 +5,17 @@
   <block name="main">
     <h1>Popover Docs</h1>
     <section>
+      <h2>Example</h2>
+      <section is="wcag-popover">
+        <button type="button" popover-trigger>Actions</button>
+        <section popover-panel aria-label="Quick actions">
+          <p>Choose an action for the current item.</p>
+          <p><button type="button">Duplicate</button></p>
+          <p><button type="button" dismiss>Close</button></p>
+        </section>
+      </section>
+    </section>
+    <section>
       <md src="./docs/Popover/Popover.md"></md>
     </section>
   </block>

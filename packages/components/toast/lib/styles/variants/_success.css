@@ -1,0 +1,6 @@
+[is="wcag-toast"] {
+  &[variant="success"] {
+    background-color: var(--wcag-toast--v-success--background);
+    color: var(--wcag-toast--v-success--color);
+  }
+}

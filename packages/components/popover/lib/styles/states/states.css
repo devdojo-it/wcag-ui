@@ -1,0 +1,25 @@
+[is="wcag-popover"] {
+  > button[popover-trigger]:focus-visible {
+    outline: var(--wcag-f--outline);
+    outline-offset: 2px;
+  }
+
+  > :where(section[popover-panel], div[popover-panel])[popover]:popover-open {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  > :where(section[popover-panel], div[popover-panel])[popover] :focus-visible {
+    outline: var(--wcag-f--outline);
+    outline-offset: 2px;
+  }
+}
+
+@starting-style {
+  [is="wcag-popover"] {
+    > :where(section[popover-panel], div[popover-panel])[popover]:popover-open {
+      opacity: 0;
+      translate: 0 -0.4rem;
+    }
+  }
+}

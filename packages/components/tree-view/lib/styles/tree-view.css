@@ -1,1 +1,5 @@
 @import "./_core.css" layer(wcag-ui.components.tree-view);
+@import "./variants/variants.css" layer(wcag-ui.components.tree-view);
+@import "./sizes/sizes.css" layer(wcag-ui.components.tree-view);
+@import "./modifiers/modifiers.css" layer(wcag-ui.components.tree-view);
+@import "./states/states.css" layer(wcag-ui.components.tree-view);

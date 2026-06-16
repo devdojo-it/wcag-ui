@@ -26,7 +26,7 @@ Priority: **core < foundations < components** — later layers win in the cascad
 | `wcag-ui.foundations.typography` | `.fonts` | Font face, typographic scale |
 | `wcag-ui.foundations.grid-system` | `.variables`, `.container`, `.row`, `.column` | Grid system |
 | `wcag-ui.foundations.iconography` | — | Icon fonts |
-| `wcag-ui.components.<name>` | (variants, dimensions, modifiers, states) | Per component |
+| `wcag-ui.components.<name>` | (variants, sizes, modifiers, states) | Per component |
 
 ### Layers in Components
 
@@ -43,7 +43,7 @@ For complex components, additional sub-layers:
 /* Complex component (button) */
 @import "./_core.css" layer(wcag-ui.components.button);
 @import "./variants/variants.css" layer(wcag-ui.components.button);
-@import "./dimensions/dimensions.css" layer(wcag-ui.components.button);
+@import "./sizes/sizes.css" layer(wcag-ui.components.button);
 @import "./modifiers/modifiers.css" layer(wcag-ui.components.button);
 @import "./states/states.css" layer(wcag-ui.components.button);
 ```
@@ -324,8 +324,8 @@ lib/styles/
 │   ├── _primary.css
 │   ├── _secondary.css
 │   └── ...
-├── dimensions/
-│   ├── dimensions.css
+    ├── sizes/
+    │   ├── sizes.css
 │   ├── _small.css
 │   ├── _medium.css
 │   └── _large.css

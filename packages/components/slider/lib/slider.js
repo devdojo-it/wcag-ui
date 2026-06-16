@@ -29,11 +29,13 @@ export class Slider extends HTMLInputElement {
   #init() {
     this.setAttribute('type', 'range');
 
-    const fieldWrapper = DOM.wrapElement(this, { tag: 'span' });
-    const label = DOM.wrapElement(fieldWrapper, { tag: 'label' });
-    DOM.insertHTML(this.ariaLabel ?? 'aria-label N/A', label, 'prepend');
+    if (this.ariaLabel) {
+      const fieldWrapper = DOM.wrapElement(this, { tag: 'span' });
+      const label = DOM.wrapElement(fieldWrapper, { tag: 'label' });
+      DOM.insertHTML(this.ariaLabel, label, 'prepend');
 
-    this.removeAttribute('aria-label');
+      this.removeAttribute('aria-label');
+    }
 
     this.#syncFill();
   }

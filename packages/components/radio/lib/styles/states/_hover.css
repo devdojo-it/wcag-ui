@@ -6,11 +6,13 @@
   --wcag-radio--s-hov--border-color: var(--wcag-c--neutral-600);
 }
 
-[is="wcag-radio"]:hover {
-  /*
-  --wcag-radio--color: var(--wcag-radio--s-hov--color);
-  --wcag-radio--background-color: var(--wcag-radio--s-hov--background-color);
-  */
+[is="wcag-radio"] {
+  &:hover {
+    /*
+    --wcag-radio--color: var(--wcag-radio--s-hov--color);
+    --wcag-radio--background-color: var(--wcag-radio--s-hov--background-color);
+    */
 
-  --wcag-radio--border-color: var(--wcag-radio--s-hov--border-color);
+    --wcag-radio--border-color: var(--wcag-radio--s-hov--border-color);
+  }
 }

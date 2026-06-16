@@ -1,0 +1,5 @@
+@import "./_core.css" layer(wcag-ui.components.rating);
+@import "./variants/variants.css" layer(wcag-ui.components.rating);
+@import "./sizes/sizes.css" layer(wcag-ui.components.rating);
+@import "./modifiers/modifiers.css" layer(wcag-ui.components.rating);
+@import "./states/states.css" layer(wcag-ui.components.rating);

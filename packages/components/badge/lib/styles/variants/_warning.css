@@ -1,0 +1,6 @@
+[is="wcag-badge"] {
+  &[warning] {
+    --wcag-badge--background-color: var(--wcag-c--yellow-300);
+    --wcag-badge--color: var(--wcag-c--neutral-800);
+  }
+}

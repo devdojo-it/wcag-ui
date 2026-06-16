@@ -1,0 +1,9 @@
+[is="wcag-segmented-control"] {
+  &[sm] {
+    --wcag-segmented-control--padding: 0.2rem;
+    --wcag-segmented-control--gap: 0.2rem;
+    --wcag-segmented-control--segment-padding-inline: var(--wcag-s--150);
+    --wcag-segmented-control--segment-padding-block: 0.6rem;
+    --wcag-segmented-control--font-size: 1.3rem;
+  }
+}

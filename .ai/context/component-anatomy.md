@@ -31,8 +31,8 @@ For complex components, the styles folder can expand:
     │   ├── _secondary.css
     │   ├── _tertiary.css
     │   └── _destructive.css
-    ├── dimensions/
-    │   ├── dimensions.css
+    ├── sizes/
+    │   ├── sizes.css
     │   ├── _small.css
     │   ├── _medium.css
     │   └── _large.css

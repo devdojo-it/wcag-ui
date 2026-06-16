@@ -41,12 +41,6 @@ label:has([is="wcag-radio"]) {
 
   inline-size: fit-content;
 
-  &[inline] {
-    flex-flow: row nowrap;
-    place-content: start;
-    place-items: center;
-  }
-
   > span {
     position: relative;
     display: inline-flex;
@@ -79,29 +73,6 @@ label:has([is="wcag-radio"]) {
 
       background-color: hsl(245, 94%, 38%);
       border-radius: 50%;
-    }
-
-    &:hover {
-      &::before {
-        border-color: hsl(245, 94%, 48%);
-      }
-    }
-  }
-
-  &:has(:checked) {
-    > span {
-      &::after {
-        opacity: 1;
-      }
-    }
-  }
-
-  &:has([aria-disabled="true"]) {
-    > span {
-      &::before {
-        background-color: hsl(248, 28%, 58%);
-        border-color: hsl(248, 28%, 58%);
-      }
     }
   }
 }

@@ -11,7 +11,7 @@ import events from './progress-bar.events';
  * @extends {HTMLElement}
  */
 export class ProgressBar extends HTMLElement {
-  static extendsElement = 'div';
+  static extendsElement = 'section';
   static attributes = attributes;
   static events = events;
 

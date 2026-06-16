@@ -1,0 +1,9 @@
+[is="wcag-details"] {
+  &[open] {
+    gap: var(--wcag-details--gap);
+
+    summary i {
+      rotate: 180deg;
+    }
+  }
+}

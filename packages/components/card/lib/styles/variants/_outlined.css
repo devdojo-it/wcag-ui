@@ -1,0 +1,6 @@
+[is="wcag-card"] {
+  &[outlined] {
+    --wcag-card--box-shadow: none;
+    --wcag-card--border-color: var(--wcag-c--neutral-200);
+  }
+}

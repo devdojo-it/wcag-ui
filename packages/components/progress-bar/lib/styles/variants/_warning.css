@@ -1,0 +1,5 @@
+[is="wcag-progress-bar"] {
+  &[warning] {
+    --wcag-progress-bar--fill-color: var(--wcag-c--yellow-400);
+  }
+}

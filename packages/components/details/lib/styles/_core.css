@@ -1,5 +1,5 @@
 :root {
-  --wcag-details--display: flex; 
+  --wcag-details--display: flex;
   --wcag-details--flex-flow: column nowrap;
   --wcag-details--place-content: center space-between;
   --wcag-details--gap: var(--wcag-s--700);
@@ -9,25 +9,22 @@
   --wcag-details--padding: var(--wcag-s--500);
   --wcag-details--border-width: 0.5px;
   --wcag-details--border-style: solid;
-  --wcag-details--border-color: light-dark( var(--wcag-c--blue-300), var(--wcag-c--blue-200));
+  --wcag-details--border-color: light-dark(var(--wcag-c--blue-300), var(--wcag-c--blue-200));
   --wcag-details--border-radius: var(--wcag-r--s);
-
 }
 
 [is="wcag-details"] {
-
   summary {
-      display: flex;
-      flex-flow: row nowrap;
-      place-items: center start;
-      place-content: center space-between;
+    display: flex;
+    flex-flow: row nowrap;
+    place-items: center start;
+    place-content: center space-between;
 
     &::marker {
       content: "";
       display: inline-block;
 
       font-size: 0;
-      
     }
 
     &::-webkit-details-marker {
@@ -43,13 +40,6 @@
     }
   }
 
-  &[open] {
-    gap: var(--wcag-details--gap);
-    summary i {
-      rotate: 180deg;
-    }
-  }
-
   display: var(--wcag-details--display);
   flex-flow: var(--wcag-details--flex-flow);
   place-content: var(--wcag-details--place-content);
@@ -61,5 +51,4 @@
   border-width: var(--wcag-details--border-width);
   border-color: var(--wcag-details--border-color);
   border-radius: var(--wcag-details--border-radius);
-    
 }

@@ -1,0 +1,62 @@
+/** biome-ignore-all lint/suspicious/noEmptyBlock: <empty blocks can be intentional in CSS nesting> */
+:root {
+  --wcag-tooltip--padding-inline: var(--wcag-s--200);
+  --wcag-tooltip--padding-block: var(--wcag-s--100);
+  --wcag-tooltip--border-width: 1px;
+  --wcag-tooltip--border-style: solid;
+  --wcag-tooltip--border-color: var(--wcag-c--neutral-300);
+  --wcag-tooltip--border-radius: var(--wcag-r--s);
+  --wcag-tooltip--background-color: var(--wcag-c--neutral-900);
+  --wcag-tooltip--color: var(--wcag-c--neutral-00);
+  --wcag-tooltip--font-size: 1.2rem;
+  --wcag-tooltip--line-height: 1.4;
+  --wcag-tooltip--offset: var(--wcag-s--50);
+  --wcag-tooltip--max-inline-size: min(28rem, calc(100vw - 2rem));
+}
+
+[is="wcag-tooltip"] {
+  display: inline-flex;
+  cursor: help;
+
+  + span[tooltip-panel][popover] {
+    position: fixed;
+    inset: auto;
+    top: anchor(bottom);
+    left: anchor(center);
+    z-index: 1000;
+    translate: -50% 0;
+
+    max-inline-size: var(--wcag-tooltip--max-inline-size);
+    padding-inline: var(--wcag-tooltip--padding-inline);
+    padding-block: var(--wcag-tooltip--padding-block);
+
+    color: var(--wcag-tooltip--color);
+    background-color: var(--wcag-tooltip--background-color);
+    font-size: var(--wcag-tooltip--font-size);
+    line-height: var(--wcag-tooltip--line-height);
+
+    border-width: var(--wcag-tooltip--border-width);
+    border-style: var(--wcag-tooltip--border-style);
+    border-color: var(--wcag-tooltip--border-color);
+    border-radius: var(--wcag-tooltip--border-radius);
+
+    margin-block-start: var(--wcag-tooltip--offset);
+    position-try: flip-block;
+
+    opacity: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: 50%;
+      inset-block-start: 0;
+      inline-size: 1rem;
+      block-size: 1rem;
+      background-color: inherit;
+      border-inline-start: inherit;
+      border-block-start: inherit;
+      translate: -50% -50%;
+      rotate: 45deg;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+[is="wcag-slider"] {
+  &[sm] {
+    --wcag-slider--track-height: 0.4rem;
+    --wcag-slider--thumb-size: 1.6rem;
+  }
+}

@@ -1,0 +1,6 @@
+[is="wcag-card"] {
+  &[elevated] {
+    --wcag-card--box-shadow: var(--wcag-e--md);
+    --wcag-card--border-width: 0;
+  }
+}

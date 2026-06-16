@@ -1,0 +1,12 @@
+[is="wcag-toast"] {
+  &[lg] {
+    --wcag-toast--padding-inline: var(--wcag-s--400);
+    --wcag-toast--padding-block: var(--wcag-s--300);
+    --wcag-toast--gap: var(--wcag-s--300);
+    --wcag-toast--font-size: 1.6rem;
+    --wcag-toast--min-inline-size: 32rem;
+    --wcag-toast--max-inline-size: 56rem;
+    --wcag-toast--dismiss-size: 4.8rem;
+    --wcag-toast--dismiss-font-size: 2rem;
+  }
+}

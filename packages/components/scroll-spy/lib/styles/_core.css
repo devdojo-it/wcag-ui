@@ -93,21 +93,8 @@
     font-size: var(--wcag-scroll-spy--item--font-size);
     font-weight: var(--wcag-scroll-spy--item--font-weight);
     text-decoration: none;
-    transition: color 150ms ease, font-weight 150ms ease;
-
-    &:hover {
-      color: var(--wcag-scroll-spy--item--color--active);
-    }
-
-    &:focus-visible {
-      outline: var(--wcag-scroll-spy--focus--outline-width) solid var(--wcag-scroll-spy--focus--outline-color);
-      outline-offset: var(--wcag-scroll-spy--focus--outline-offset);
-      border-radius: 2px;
-    }
-  }
-
-  li.active > a {
-    color: var(--wcag-scroll-spy--item--color--active);
-    font-weight: var(--wcag-scroll-spy--item--font-weight--active);
+    transition:
+      color 150ms ease,
+      font-weight 150ms ease;
   }
 }

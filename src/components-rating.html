@@ -1,0 +1,13 @@
+<extends src="_layout.html" locals='{"title": "Docs"}'>
+  <block name="aside">
+    <include src="common/docs-nav.html"></include>
+  </block>
+  <block name="main">
+    <h1>Rating Docs Example</h1>
+    <section>
+      <h2>Rating</h2>
+      <p><section is="wcag-rating" aria-label="Product rating" value="3"></section></p>
+      <p><section is="wcag-rating" aria-label="Read-only rating" value="4" readonly></section></p>
+    </section>
+  </block>
+</extends>

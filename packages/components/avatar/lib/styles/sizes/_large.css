@@ -1,0 +1,7 @@
+[is="wcag-avatar"] {
+  &[lg] {
+    --wcag-avatar--inline-size: 5.6rem;
+    --wcag-avatar--block-size: 5.6rem;
+    --wcag-avatar--font-size: 1.8rem;
+  }
+}

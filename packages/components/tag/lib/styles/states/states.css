@@ -1,0 +1,12 @@
+[is="wcag-tag"] {
+  > button {
+    &:hover {
+      background-color: var(--wcag-c--neutral-200);
+    }
+
+    &:focus-visible {
+      outline: var(--wcag-f--outline-width) solid var(--wcag-f--outline-color);
+      outline-offset: var(--wcag-f--outline-width);
+    }
+  }
+}

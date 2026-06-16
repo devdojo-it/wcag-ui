@@ -1,0 +1,7 @@
+[is="wcag-tag"] {
+  &[warning] {
+    --wcag-tag--color: var(--wcag-c--yellow-700);
+    --wcag-tag--background-color: var(--wcag-c--yellow-100);
+    --wcag-tag--border-color: var(--wcag-c--yellow-300);
+  }
+}

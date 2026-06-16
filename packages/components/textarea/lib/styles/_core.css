@@ -36,12 +36,6 @@ label:has([is="wcag-textarea"]) {
   place-content: start;
   place-items: start;
   gap: var(--wcag-textarea--label--gap);
-
-  &[inline] {
-    flex-flow: row nowrap;
-    place-content: start;
-    place-items: center;
-  }
 }
 
 [is="wcag-textarea"] {

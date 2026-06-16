@@ -1,0 +1,18 @@
+[is="wcag-progress-bar"] {
+  &[indeterminate] {
+    &::before {
+      inline-size: 30%;
+      animation: wcag-progress-bar-indeterminate 1.5s infinite ease-in-out;
+    }
+  }
+}
+
+@keyframes wcag-progress-bar-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(400%);
+  }
+}

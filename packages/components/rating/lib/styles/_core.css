@@ -1,0 +1,27 @@
+:root {
+  --wcag-rating--gap: var(--wcag-s--50);
+  --wcag-rating--color: var(--wcag-c--neutral-300);
+  --wcag-rating--active-color: var(--wcag-c--yellow-400);
+  --wcag-rating--font-size: 2.4rem;
+}
+
+[is="wcag-rating"] {
+  display: inline-flex;
+  gap: var(--wcag-rating--gap);
+
+  > button[rating-option] {
+    all: unset;
+    display: inline-flex;
+    place-items: center;
+    place-content: center;
+
+    color: var(--wcag-rating--color);
+    font-size: var(--wcag-rating--font-size);
+    line-height: 1;
+    cursor: pointer;
+
+    &[filled] {
+      color: var(--wcag-rating--active-color);
+    }
+  }
+}

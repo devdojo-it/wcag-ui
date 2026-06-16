@@ -1,0 +1,20 @@
+[is="wcag-tooltip"] {
+  &:focus-visible {
+    outline: var(--wcag-f--outline);
+    outline-offset: 2px;
+  }
+
+  + span[tooltip-panel][popover] {
+    &:popover-open {
+      opacity: 1;
+    }
+  }
+}
+
+@starting-style {
+  [is="wcag-tooltip"] {
+    + span[tooltip-panel][popover]:popover-open {
+      opacity: 0;
+    }
+  }
+}

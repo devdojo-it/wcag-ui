@@ -1,0 +1,25 @@
+[is="wcag-stepper"] {
+  > ol > li {
+    &[aria-current="step"] {
+      &::after {
+        background-color: var(--wcag-stepper--indicator-active-background);
+      }
+
+      > span {
+        color: var(--wcag-stepper--label-active-color);
+        font-weight: 600;
+      }
+    }
+
+    &[complete] {
+      &::after {
+        background-color: var(--wcag-stepper--indicator-complete-background);
+        content: "\2713";
+      }
+
+      + li::before {
+        background-color: var(--wcag-stepper--connector-active-color);
+      }
+    }
+  }
+}

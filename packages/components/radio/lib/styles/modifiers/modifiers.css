@@ -1,0 +1,7 @@
+label:has([is="wcag-radio"]) {
+  &[inline] {
+    flex-flow: row nowrap;
+    place-content: start;
+    place-items: center;
+  }
+}

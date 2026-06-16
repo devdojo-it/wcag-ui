@@ -1,0 +1,7 @@
+[is="wcag-tag"] {
+  &[danger] {
+    --wcag-tag--color: var(--wcag-c--red-700);
+    --wcag-tag--background-color: var(--wcag-c--red-100);
+    --wcag-tag--border-color: var(--wcag-c--red-300);
+  }
+}

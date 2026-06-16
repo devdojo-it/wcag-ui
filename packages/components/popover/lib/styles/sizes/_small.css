@@ -1,0 +1,8 @@
+[is="wcag-popover"] {
+  &[sm] {
+    --wcag-popover--padding-inline: var(--wcag-s--200);
+    --wcag-popover--padding-block: var(--wcag-s--150);
+    --wcag-popover--min-inline-size: 20rem;
+    --wcag-popover--font-size: 1.3rem;
+  }
+}

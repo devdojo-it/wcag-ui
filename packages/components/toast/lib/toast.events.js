@@ -1,6 +1,6 @@
 export default {
   click(e) {
-    if (e.target.closest('.wcag-toast__close')) {
+    if (e.target.closest('button[dismiss]')) {
       this.dismiss();
     }
   },

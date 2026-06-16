@@ -1,0 +1,6 @@
+[is="wcag-rating"] {
+  &[lg] {
+    --wcag-rating--gap: var(--wcag-s--100);
+    --wcag-rating--font-size: 3rem;
+  }
+}

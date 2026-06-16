@@ -1,0 +1,13 @@
+[is="wcag-badge"] {
+  &[dot] {
+    --wcag-badge--min-inline-size: 0.8rem;
+    --wcag-badge--padding-inline: 0;
+    --wcag-badge--padding-block: 0;
+    --wcag-badge--line-height: 0;
+
+    inline-size: 0.8rem;
+    block-size: 0.8rem;
+    overflow: hidden;
+    text-indent: -9999px;
+  }
+}

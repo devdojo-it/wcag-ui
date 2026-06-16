@@ -1,0 +1,31 @@
+[is="wcag-select"] {
+  &:hover {
+    --wcag-select--border-color: var(--wcag-c--neutral-600);
+  }
+
+  &:focus-visible {
+    outline: var(--wcag-f--outline);
+    outline-offset: 2px;
+  }
+
+  &:open {
+    --wcag-select--border-color: var(--wcag-c--blue-400);
+
+    &::picker-icon {
+      rotate: 180deg;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  option {
+    &:hover,
+    &:focus-visible,
+    &:checked {
+      background-color: var(--wcag-c--neutral-100);
+    }
+  }
+}

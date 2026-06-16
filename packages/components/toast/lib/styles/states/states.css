@@ -1,0 +1,11 @@
+[is="wcag-toast"] {
+  &[hidden] {
+    display: none;
+  }
+
+  > button[dismiss] {
+    &:focus-visible {
+      outline: var(--wcag-f--outline);
+    }
+  }
+}

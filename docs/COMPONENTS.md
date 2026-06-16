@@ -12,6 +12,14 @@ The **Accordion** component organizes content into expandable sections. This des
 
 ---
 
+## Avatar
+
+The **Avatar** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore Avatar →](./components-avatar.html)
+
+---
+
 ## Badge
 
 The **Badge** component is a reusable UI element. See documentation for usage and accessibility.
@@ -90,7 +98,7 @@ The **Editor** component is a reusable UI element. See documentation for usage a
 
 [Explore Editor →](./components-editor.html)
 
-------
+---
 
 ## Input
 
@@ -148,11 +156,27 @@ The **Range** component provides a slider input for numeric value selection. It 
 
 ---
 
+## Rating
+
+The **Rating** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore Rating →](./components-rating.html)
+
+---
+
 ## ScrollSpy
 
 The **ScrollSpy** component automatically highlights navigation items based on scroll position. It is ideal for long-form content with navigation anchors, ensuring users always know their position within the document.
 
 [Explore ScrollSpy →](./components-scroll-spy.html)
+
+---
+
+## SegmentedControl
+
+The **SegmentedControl** component is a reusable UI element. See documentation for usage and accessibility.
+
+[Explore SegmentedControl →](./components-segmented-control.html)
 
 ---
 

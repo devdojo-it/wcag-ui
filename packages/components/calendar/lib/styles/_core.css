@@ -29,7 +29,7 @@
   border-radius: var(--wcag-calendar--border-radius);
   background: var(--wcag-calendar--background);
 
-  .wcag-calendar__header {
+  > header[calendar-header] {
     display: flex;
     flex-flow: row nowrap;
     place-content: center space-between;
@@ -43,7 +43,7 @@
       text-transform: capitalize;
     }
 
-    > button {
+    > button:where([previous-month], [next-month]) {
       appearance: none;
       border: none;
       background: none;
@@ -55,14 +55,6 @@
       display: grid;
       place-content: center;
       border-radius: 50%;
-
-      &:hover {
-        background: var(--wcag-calendar--cell-hover-background);
-      }
-
-      &:focus-visible {
-        outline: var(--wcag-f--outline);
-      }
     }
   }
 
@@ -83,7 +75,7 @@
       padding: 0.2rem;
     }
 
-    button {
+    button[data-date] {
       appearance: none;
       border: 2px solid transparent;
       background: none;
@@ -95,29 +87,6 @@
 
       color: var(--wcag-calendar--cell-color);
       font-size: 1.4rem;
-
-      &:hover:not(:disabled) {
-        background: var(--wcag-calendar--cell-hover-background);
-      }
-
-      &[aria-selected="true"] {
-        background: var(--wcag-calendar--cell-selected-background);
-        color: var(--wcag-calendar--cell-selected-color);
-      }
-
-      &[data-today] {
-        border: var(--wcag-calendar--cell-today-border);
-      }
-
-      &:disabled {
-        color: var(--wcag-calendar--cell-disabled-color);
-        cursor: default;
-      }
-
-      &:focus-visible {
-        outline: var(--wcag-f--outline);
-        outline-offset: 2px;
-      }
     }
   }
 }

@@ -1,0 +1,8 @@
+[is="wcag-tooltip"] {
+  &[lg] {
+    --wcag-tooltip--padding-inline: var(--wcag-s--250);
+    --wcag-tooltip--padding-block: var(--wcag-s--150);
+    --wcag-tooltip--font-size: 1.4rem;
+    --wcag-tooltip--max-inline-size: 32rem;
+  }
+}

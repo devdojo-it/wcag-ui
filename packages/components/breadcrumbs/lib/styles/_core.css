@@ -35,21 +35,6 @@
 
       > a {
         color: var(--wcag-breadcrumbs--link-color);
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-        &:focus-visible {
-          outline: var(--wcag-f--outline-width) solid var(--wcag-f--outline-color);
-          outline-offset: var(--wcag-f--outline-width);
-          border-radius: var(--wcag-r--s);
-        }
-      }
-
-      &[aria-current="page"] {
-        color: var(--wcag-breadcrumbs--current-color);
-        font-weight: 600;
       }
     }
   }

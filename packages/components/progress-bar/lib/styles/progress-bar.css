@@ -1,1 +1,5 @@
 @import "./_core.css" layer(wcag-ui.components.progress-bar);
+@import "./variants/variants.css" layer(wcag-ui.components.progress-bar);
+@import "./sizes/sizes.css" layer(wcag-ui.components.progress-bar);
+@import "./modifiers/modifiers.css" layer(wcag-ui.components.progress-bar);
+@import "./states/states.css" layer(wcag-ui.components.progress-bar);

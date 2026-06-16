@@ -1,0 +1,11 @@
+[is="wcag-toast"] {
+  &[stacked] {
+    flex-flow: column nowrap;
+    place-items: start;
+
+    > button[dismiss] {
+      align-self: end;
+      margin-inline-start: 0;
+    }
+  }
+}

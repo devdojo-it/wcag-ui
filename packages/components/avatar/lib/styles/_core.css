@@ -1,0 +1,38 @@
+:root {
+  --wcag-avatar--inline-size: 4rem;
+  --wcag-avatar--block-size: 4rem;
+  --wcag-avatar--border-radius: 50%;
+  --wcag-avatar--background-color: var(--wcag-c--neutral-200);
+  --wcag-avatar--color: var(--wcag-c--neutral-800);
+  --wcag-avatar--font-size: 1.4rem;
+  --wcag-avatar--font-weight: 700;
+}
+
+[is="wcag-avatar"] {
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+
+  inline-size: var(--wcag-avatar--inline-size);
+  block-size: var(--wcag-avatar--block-size);
+
+  color: var(--wcag-avatar--color);
+  background-color: var(--wcag-avatar--background-color);
+  border-radius: var(--wcag-avatar--border-radius);
+
+  font-size: var(--wcag-avatar--font-size);
+  font-weight: var(--wcag-avatar--font-weight);
+  text-transform: uppercase;
+
+  > img[avatar-image] {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  > span[avatar-fallback] {
+    display: inline-flex;
+    place-items: center;
+    place-content: center;
+  }
+}

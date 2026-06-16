@@ -38,12 +38,6 @@ label:has([is="wcag-input"]) {
   place-content: start;
   place-items: start;
   gap: var(--wcag-input--label--gap);
-
-  &[inline] {
-    flex-flow: row nowrap;
-    place-content: start;
-    place-items: center;
-  }
 }
 
 [is="wcag-input"] {

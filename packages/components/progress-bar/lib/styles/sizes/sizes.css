@@ -1,0 +1,9 @@
+[is="wcag-progress-bar"] {
+  &[sm] {
+    --wcag-progress-bar--height: 0.4rem;
+  }
+
+  &[lg] {
+    --wcag-progress-bar--height: 1.2rem;
+  }
+}

@@ -1,0 +1,8 @@
+[is="wcag-pagination"] {
+  &[sm] {
+    --wcag-pagination--gap: 0.2rem;
+    --wcag-pagination--item--min-size: 3.2rem;
+    --wcag-pagination--item--padding: var(--wcag-s--50);
+    --wcag-pagination--font-size: 1.2rem;
+  }
+}

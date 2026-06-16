@@ -51,13 +51,16 @@ export class Toast extends HTMLElement {
   }
 
   #addCloseButton() {
-    const btn = DOM.createElement('button', {
-      type: 'button',
-      'aria-label': 'Close',
-      class: 'wcag-toast__close',
+    const btn = DOM.createElement({
+      tag: 'button',
+      attributes: {
+        type: 'button',
+        dismiss: '',
+        'aria-label': 'Close',
+      },
+      content: '\u00D7',
     });
-    btn.textContent = '\u00D7';
-    DOM.insertElement(this, btn);
+    DOM.insertElement(btn, this, 'append');
   }
 
   #startAutoDismiss() {

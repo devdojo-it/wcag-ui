@@ -1,0 +1,10 @@
+[is="wcag-list"] {
+  &[flush] {
+    --wcag-list--border-width: 0;
+    --wcag-list--border-radius: 0;
+  }
+
+  &[interactive] > li {
+    cursor: pointer;
+  }
+}

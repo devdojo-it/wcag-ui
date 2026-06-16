@@ -1,0 +1,5 @@
+[is="wcag-card"] {
+  &[flat] {
+    --wcag-card--box-shadow: none;
+  }
+}

@@ -1,0 +1,6 @@
+[is="wcag-badge"] {
+  &[secondary] {
+    --wcag-badge--color: var(--wcag-c--blue-500);
+    --wcag-badge--background-color: var(--wcag-c--neutral-50);
+  }
+}

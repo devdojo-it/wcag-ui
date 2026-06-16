@@ -1,0 +1,6 @@
+[is="wcag-card"] {
+  &[clickable] {
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+  }
+}

@@ -1,0 +1,20 @@
+[is="wcag-stepper"] {
+  &[vertical] > ol {
+    flex-flow: column nowrap;
+
+    > li {
+      flex-flow: row nowrap;
+      place-items: center;
+
+      + li::before {
+        top: auto;
+        inset-inline-end: auto;
+        inset-inline-start: calc(var(--wcag-stepper--indicator-size) / 2);
+        inset-block-end: 100%;
+        inline-size: var(--wcag-stepper--connector-height);
+        block-size: 100%;
+        transform: translateY(0);
+      }
+    }
+  }
+}

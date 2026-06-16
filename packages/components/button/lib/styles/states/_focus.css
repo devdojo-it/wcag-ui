@@ -5,9 +5,11 @@
   --wcag-button--s-foc--outline-offset: var(--wcag-f--outline-width);
 }
 
-[is="wcag-button"]:where(:focus, :focus-visible) {
-  --wcag-button--outline-width: var(--wcag-button--s-foc--outline-width);
-  --wcag-button--outline-style: var(--wcag-button--s-foc--outline-style);
-  --wcag-button--outline-color: var(--wcag-button--s-foc--outline-color);
-  --wcag-button--outline-offset: var(--wcag-button--s-foc--outline-offset);
+[is="wcag-button"] {
+  &:where(:focus, :focus-visible) {
+    --wcag-button--outline-width: var(--wcag-button--s-foc--outline-width);
+    --wcag-button--outline-style: var(--wcag-button--s-foc--outline-style);
+    --wcag-button--outline-color: var(--wcag-button--s-foc--outline-color);
+    --wcag-button--outline-offset: var(--wcag-button--s-foc--outline-offset);
+  }
 }

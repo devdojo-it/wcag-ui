@@ -2,7 +2,7 @@ import { events } from '@wcag-ui/core';
 
 export default {
   click(e) {
-    const btn = e.target.closest('.wcag-editor__action[data-command]');
+    const btn = e.target.closest('button[data-command]');
     if (btn) {
       e.preventDefault();
       this.exec(btn.dataset.command);
@@ -11,13 +11,13 @@ export default {
 
   keydown(e) {
     // Toolbar keyboard navigation (arrow keys)
-    const action = e.target.closest('.wcag-editor__action');
+    const action = e.target.closest('button[data-command]');
     if (!action) return;
 
-    const toolbar = action.closest('.wcag-editor__toolbar');
+    const toolbar = action.closest('[role="toolbar"]');
     if (!toolbar) return;
 
-    const buttons = [...toolbar.querySelectorAll('.wcag-editor__action')];
+    const buttons = [...toolbar.querySelectorAll('button[data-command]')];
     const idx = buttons.indexOf(action);
     let next = -1;
 
@@ -33,7 +33,7 @@ export default {
   },
 
   input(e) {
-    if (e.target.closest('.wcag-editor__content')) {
+    if (e.target.closest('[contenteditable="true"][role="textbox"]')) {
       events.dispatchComponentEvent.call(this, 'change', { html: this.value });
     }
   },

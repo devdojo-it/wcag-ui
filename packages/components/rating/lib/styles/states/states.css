@@ -1,0 +1,23 @@
+[is="wcag-rating"] {
+  > button[rating-option] {
+    &:focus-visible {
+      outline: var(--wcag-f--outline);
+      outline-offset: 2px;
+      border-radius: var(--wcag-r--s);
+    }
+
+    &:hover,
+    &:hover ~ button[rating-option][filled] {
+      color: var(--wcag-rating--active-color);
+    }
+  }
+
+  &[readonly],
+  &[aria-disabled="true"] {
+    opacity: 0.6;
+
+    > button[rating-option] {
+      cursor: default;
+    }
+  }
+}

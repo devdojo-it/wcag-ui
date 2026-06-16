@@ -1,11 +1,17 @@
 import '@wcag-ui/accordion';
+import '@wcag-ui/avatar';
 import '@wcag-ui/button';
 import '@wcag-ui/checkbox';
 import '@wcag-ui/details';
 import '@wcag-ui/input';
+import '@wcag-ui/popover';
 import '@wcag-ui/radio';
+import '@wcag-ui/rating';
 import '@wcag-ui/scroll-spy';
+import '@wcag-ui/select';
+import '@wcag-ui/segmented-control';
 import '@wcag-ui/switch';
+import '@wcag-ui/tooltip';
 import '@wcag-ui/tree-view';
 
 import './_highlight.js';

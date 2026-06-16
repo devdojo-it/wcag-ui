@@ -1,0 +1,8 @@
+[is="wcag-select"] {
+  &[sm] {
+    --wcag-select--padding-inline: var(--wcag-s--150);
+    --wcag-select--padding-block: var(--wcag-s--50);
+    --wcag-select--min-block-size: 4rem;
+    --wcag-select--font-size: 1.3rem;
+  }
+}

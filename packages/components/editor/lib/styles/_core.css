@@ -27,7 +27,7 @@
   overflow: hidden;
   background: var(--wcag-editor--background);
 
-  > .wcag-editor__toolbar {
+  > [role="toolbar"] {
     display: flex;
     flex-flow: row wrap;
     place-items: center;
@@ -36,7 +36,7 @@
     border-block-end: var(--wcag-editor--toolbar-border-bottom);
     background: var(--wcag-editor--toolbar-background);
 
-    > .wcag-editor__action {
+    > button[data-command] {
       appearance: none;
       border: none;
       background: none;
@@ -51,24 +51,16 @@
       font-size: 1.4rem;
       font-weight: 700;
       border-radius: var(--wcag-editor--action-border-radius);
-
-      &:hover {
-        background: var(--wcag-editor--action-hover-background);
-      }
-
-      &:focus-visible {
-        outline: var(--wcag-f--outline);
-      }
     }
 
-    > .wcag-editor__separator {
+    > span[role="separator"] {
       inline-size: 1px;
       block-size: 2rem;
       background: var(--wcag-c--neutral-300);
     }
   }
 
-  > .wcag-editor__content {
+  > [contenteditable="true"][role="textbox"] {
     flex: 1;
     padding: var(--wcag-editor--content-padding);
     min-block-size: var(--wcag-editor--content-min-block-size);
@@ -76,11 +68,6 @@
     color: var(--wcag-editor--content-color);
     line-height: 1.6;
     overflow-y: auto;
-
-    &:focus-visible {
-      outline: var(--wcag-f--outline);
-      outline-offset: -2px;
-    }
 
     &:empty::before {
       content: attr(data-placeholder);

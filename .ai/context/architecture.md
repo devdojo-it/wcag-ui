@@ -123,7 +123,7 @@ Parcel handles:
 │      .iconography                      │
 ├────────────────────────────────────────┤
 │  @layer wcag-ui.components.<name>      │  Per component
-│    └ variants → dimensions →           │
+│    └ variants → sizes →                │
 │      modifiers → states                │
 ├────────────────────────────────────────┤
 │  @layer wcag-ui-docs.*                 │  Docs site only (not shipped)

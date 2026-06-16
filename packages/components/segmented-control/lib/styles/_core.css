@@ -1,0 +1,41 @@
+:root {
+  --wcag-segmented-control--padding: var(--wcag-s--50);
+  --wcag-segmented-control--gap: var(--wcag-s--50);
+  --wcag-segmented-control--background-color: var(--wcag-c--neutral-100);
+  --wcag-segmented-control--border-radius: var(--wcag-r--m);
+  --wcag-segmented-control--segment-padding-inline: var(--wcag-s--200);
+  --wcag-segmented-control--segment-padding-block: var(--wcag-s--100);
+  --wcag-segmented-control--segment-color: var(--wcag-c--neutral-700);
+  --wcag-segmented-control--segment-selected-background: var(--wcag-c--neutral-00);
+  --wcag-segmented-control--segment-selected-color: var(--wcag-c--neutral-900);
+  --wcag-segmented-control--font-size: 1.4rem;
+}
+
+[is="wcag-segmented-control"] {
+  display: inline-flex;
+  gap: var(--wcag-segmented-control--gap);
+  padding: var(--wcag-segmented-control--padding);
+  background-color: var(--wcag-segmented-control--background-color);
+  border-radius: var(--wcag-segmented-control--border-radius);
+
+  > button[segment] {
+    all: unset;
+    display: inline-flex;
+    place-content: center;
+    place-items: center;
+
+    padding-inline: var(--wcag-segmented-control--segment-padding-inline);
+    padding-block: var(--wcag-segmented-control--segment-padding-block);
+
+    color: var(--wcag-segmented-control--segment-color);
+    font-size: var(--wcag-segmented-control--font-size);
+    border-radius: calc(var(--wcag-segmented-control--border-radius) - var(--wcag-s--50));
+    cursor: pointer;
+
+    &[selected] {
+      color: var(--wcag-segmented-control--segment-selected-color);
+      background-color: var(--wcag-segmented-control--segment-selected-background);
+      box-shadow: var(--wcag-e--sm);
+    }
+  }
+}

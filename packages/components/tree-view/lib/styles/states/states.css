@@ -1,0 +1,47 @@
+[is="wcag-tree-view"] {
+  li[role="treeitem"] {
+    &[aria-expanded] > span::before {
+      content: "";
+      flex-shrink: 0;
+      width: var(--wcag-tree-view--chevron-size);
+      height: var(--wcag-tree-view--chevron-size);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      opacity: 0.5;
+      transition: transform 150ms ease;
+    }
+
+    &[aria-expanded="true"] > span::before {
+      transform: rotate(90deg);
+      opacity: 0.8;
+    }
+
+    &:not([aria-disabled="true"]):hover > span {
+      background-color: var(--wcag-tree-view--item--bg--hover);
+    }
+
+    &[aria-selected="true"] > span {
+      background-color: var(--wcag-tree-view--item--bg--selected);
+      box-shadow: inset 3px 0 0 var(--wcag-tree-view--item--accent);
+      padding-inline-start: calc(var(--wcag-tree-view--item--padding-inline) - 1px);
+      font-weight: 600;
+      color: var(--wcag-tree-view--item--color--selected);
+    }
+
+    &[aria-disabled="true"] {
+      cursor: not-allowed;
+
+      > span {
+        color: var(--wcag-tree-view--item--color--muted);
+        pointer-events: none;
+      }
+    }
+
+    &:focus-visible > span {
+      outline: var(--wcag-tree-view--focus--outline);
+      outline-offset: var(--wcag-tree-view--focus--outline-offset);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+[is="wcag-list"] {
+  &[interactive] > li {
+    &:hover {
+      background-color: var(--wcag-c--neutral-50);
+    }
+
+    &:focus-visible {
+      outline: var(--wcag-f--outline-width) solid var(--wcag-f--outline-color);
+      outline-offset: calc(-1 * var(--wcag-f--outline-width));
+    }
+  }
+}

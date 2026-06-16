@@ -1,0 +1,7 @@
+[is="wcag-card"] {
+  &[lg] {
+    --wcag-card--padding: var(--wcag-s--500);
+    --wcag-card--gap: var(--wcag-s--400);
+    --wcag-card--border-radius: var(--wcag-r--l);
+  }
+}

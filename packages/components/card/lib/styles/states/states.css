@@ -1,0 +1,12 @@
+[is="wcag-card"] {
+  &[clickable] {
+    &:hover {
+      --wcag-card--box-shadow: var(--wcag-e--md);
+    }
+
+    &:focus-visible {
+      outline: var(--wcag-f--outline-width) solid var(--wcag-f--outline-color);
+      outline-offset: var(--wcag-f--outline-width);
+    }
+  }
+}

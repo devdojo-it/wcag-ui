@@ -36,23 +36,24 @@ export class Calendar extends HTMLElement {
     if (!val) {
       this.#selectedDate = null;
     } else {
-      const d = new Date(val);
-      if (!Number.isNaN(d.getTime())) {
-        this.#selectedDate = d;
-        this.#viewDate = new Date(d.getFullYear(), d.getMonth(), 1);
+      const date = new Date(val);
+      if (!Number.isNaN(date.getTime())) {
+        this.#selectedDate = date;
+        this.#viewDate = new Date(date.getFullYear(), date.getMonth(), 1);
       }
     }
+
     this.render();
   }
 
   get #minDate() {
-    const v = this.getAttribute('min');
-    return v ? new Date(v) : null;
+    const value = this.getAttribute('min');
+    return value ? new Date(value) : null;
   }
 
   get #maxDate() {
-    const v = this.getAttribute('max');
-    return v ? new Date(v) : null;
+    const value = this.getAttribute('max');
+    return value ? new Date(value) : null;
   }
 
   constructor() {
@@ -65,8 +66,8 @@ export class Calendar extends HTMLElement {
     this.setAttribute('role', 'group');
     !this.hasAttribute('aria-label') && this.setAttribute('aria-label', 'Calendar');
 
-    const valAttr = this.getAttribute('value');
-    this.#selectedDate = valAttr ? new Date(valAttr) : null;
+    const initialValue = this.getAttribute('value');
+    this.#selectedDate = initialValue ? new Date(initialValue) : null;
 
     const now = this.#selectedDate ?? new Date();
     this.#viewDate = new Date(now.getFullYear(), now.getMonth(), 1);
@@ -74,23 +75,51 @@ export class Calendar extends HTMLElement {
     this.render();
   }
 
-  #formatISO(d) {
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    return `${y}-${m}-${day}`;
+  #formatISO(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }
 
   #isSameDay(a, b) {
-    return a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+    return (
+      a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate()
+    );
   }
 
-  #isDisabled(d) {
+  #isDisabled(date) {
     const min = this.#minDate;
     const max = this.#maxDate;
-    if (min && d < min) return true;
-    if (max && d > max) return true;
+    if (min && date < min) return true;
+    if (max && date > max) return true;
     return false;
+  }
+
+  #weekdayIndex(date) {
+    const weekday = date.getDay();
+    return weekday === 0 ? 6 : weekday - 1;
+  }
+
+  #buildCalendarSkeleton(labelId, monthName) {
+    DOM.insertHTML(
+      `
+        <header calendar-header>
+          <button type="button" previous-month aria-label="Previous month">&#8249;</button>
+          <span id="${labelId}" aria-live="polite">${monthName}</span>
+          <button type="button" next-month aria-label="Next month">&#8250;</button>
+        </header>
+        <table role="grid" aria-labelledby="${labelId}">
+          <thead>
+            <tr></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      `,
+      this,
+      'append',
+      true,
+    );
   }
 
   prevMonth() {
@@ -105,9 +134,21 @@ export class Calendar extends HTMLElement {
 
   selectDate(date) {
     if (this.#isDisabled(date)) return;
+
     this.#selectedDate = date;
     this.render();
     coreEvents.dispatchComponentEvent.call(this, 'date-select', { date: this.#formatISO(date) });
+  }
+
+  focusDate(date) {
+    const iso = this.#formatISO(date);
+
+    if (date.getMonth() !== this.#viewDate.getMonth() || date.getFullYear() !== this.#viewDate.getFullYear()) {
+      this.#viewDate = new Date(date.getFullYear(), date.getMonth(), 1);
+      this.render();
+    }
+
+    this.querySelector(`button[data-date="${iso}"]`)?.focus();
   }
 
   render() {
@@ -119,65 +160,72 @@ export class Calendar extends HTMLElement {
     const monthName = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(this.#viewDate);
     const weekdays = [];
     for (let i = 0; i < 7; i++) {
-      const d = new Date(2024, 0, i + 1); // Mon-Sun starting Monday
-      weekdays.push(new Intl.DateTimeFormat(locale, { weekday: 'short' }).format(d));
+      const date = new Date(2024, 0, i + 1);
+      weekdays.push({
+        full: new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(date),
+        short: new Intl.DateTimeFormat(locale, { weekday: 'short' }).format(date),
+      });
     }
 
     const labelId = `${this.#guid}-label`;
     const firstDay = new Date(year, month, 1);
-    let startDay = firstDay.getDay() - 1;
-    if (startDay < 0) startDay = 6;
-
+    const startDay = this.#weekdayIndex(firstDay);
     const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const dateFormatter = new Intl.DateTimeFormat(locale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const dateFormatter = new Intl.DateTimeFormat(locale, {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
 
-    let html = `<div class="wcag-calendar__header">`;
-    html += `<button type="button" class="wcag-calendar__prev" aria-label="Previous month">&#8249;</button>`;
-    html += `<span id="${labelId}" aria-live="polite">${monthName}</span>`;
-    html += `<button type="button" class="wcag-calendar__next" aria-label="Next month">&#8250;</button>`;
-    html += `</div>`;
+    this.#buildCalendarSkeleton(labelId, monthName);
 
-    html += `<table role="grid" aria-labelledby="${labelId}">`;
-    html += '<thead><tr>';
-    for (const wd of weekdays) {
-      html += `<th scope="col" abbr="${wd}">${wd}</th>`;
+    const headerRow = this.querySelector(':scope > table > thead > tr');
+    const body = this.querySelector(':scope > table > tbody');
+    if (!headerRow || !body) return;
+
+    for (const weekday of weekdays) {
+      DOM.insertHTML(`<th scope="col" abbr="${weekday.full}">${weekday.short}</th>`, headerRow, 'append');
     }
-    html += '</tr></thead><tbody>';
 
-    let dayNum = 1;
-    let row = '<tr>';
-    for (let i = 0; i < startDay; i++) row += '<td></td>';
+    const totalCells = Math.ceil((startDay + daysInMonth) / 7) * 7;
+    let currentRow = null;
 
-    for (let d = 1; d <= daysInMonth; d++) {
-      const cellDate = new Date(year, month, d);
+    for (let index = 0; index < totalCells; index++) {
+      if (index % 7 === 0) {
+        DOM.insertHTML('<tr></tr>', body, 'append');
+        currentRow = body.lastElementChild;
+      }
+
+      if (!currentRow) continue;
+
+      if (index < startDay || index >= startDay + daysInMonth) {
+        DOM.insertHTML('<td></td>', currentRow, 'append');
+        continue;
+      }
+
+      const day = index - startDay + 1;
+      const cellDate = new Date(year, month, day);
       const iso = this.#formatISO(cellDate);
       const isToday = this.#isSameDay(cellDate, today);
       const isSelected = this.#isSameDay(cellDate, this.#selectedDate);
       const disabled = this.#isDisabled(cellDate);
-      const fullLabel = dateFormatter.format(cellDate);
+      const tabIndex = isSelected || (!this.#selectedDate && day === 1) ? '0' : '-1';
+      const attributes = [
+        `aria-label="${dateFormatter.format(cellDate)}"`,
+        `data-date="${iso}"`,
+        `tabindex="${tabIndex}"`,
+      ];
 
-      let attrs = `aria-label="${fullLabel}" data-date="${iso}"`;
-      if (isSelected) attrs += ' aria-selected="true"';
-      if (disabled) attrs += ' aria-disabled="true" disabled';
-      if (isToday) attrs += ' data-today';
+      if (isSelected) attributes.push('aria-selected="true"');
+      if (disabled) attributes.push('aria-disabled="true"', 'disabled');
+      if (isToday) attributes.push('data-today');
 
-      const tabIdx = isSelected || (!this.#selectedDate && d === 1) ? '0' : '-1';
-      row += `<td role="gridcell"><button type="button" tabindex="${tabIdx}" ${attrs}>${d}</button></td>`;
-
-      const col = (startDay + d - 1) % 7;
-      if (col === 6 && d < daysInMonth) {
-        row += '</tr><tr>';
-      }
+      DOM.insertHTML(
+        `<td role="gridcell"><button type="button" ${attributes.join(' ')}>${day}</button></td>`,
+        currentRow,
+        'append',
+      );
     }
-
-    // Fill remaining cells
-    const lastCol = (startDay + daysInMonth - 1) % 7;
-    for (let i = lastCol + 1; i <= 6; i++) row += '<td></td>';
-    row += '</tr>';
-
-    html += row;
-    html += '</tbody></table>';
-
-    DOM.insertHTML(this, html, 'replace');
   }
 }

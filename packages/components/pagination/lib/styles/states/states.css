@@ -1,0 +1,23 @@
+[is="wcag-pagination"] {
+  :where(button, a) {
+    &:hover {
+      background-color: var(--wcag-pagination--item--hover-background);
+    }
+
+    &:focus-visible {
+      outline: var(--wcag-f--outline-width) solid var(--wcag-f--outline-color);
+      outline-offset: var(--wcag-f--outline-width);
+    }
+
+    &[aria-current="page"] {
+      color: var(--wcag-pagination--item--current-color);
+      background-color: var(--wcag-pagination--item--current-background);
+    }
+
+    &:where([disabled], [aria-disabled="true"]) {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}

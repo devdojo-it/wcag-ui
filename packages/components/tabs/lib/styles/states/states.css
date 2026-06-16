@@ -1,0 +1,27 @@
+[is="wcag-tabs"] {
+  > [role="tablist"] > [role="tab"] {
+    &[aria-selected="true"] {
+      color: var(--wcag-tabs--tab-active-color);
+      border-block-end-color: var(--wcag-tabs--tab-active-border-color);
+      font-weight: 600;
+    }
+
+    &:hover:not([aria-selected="true"]) {
+      color: var(--wcag-tabs--tab-active-color);
+    }
+
+    &:focus-visible {
+      outline: var(--wcag-f--outline);
+      outline-offset: -2px;
+      border-radius: var(--wcag-r--s);
+    }
+  }
+
+  > [role="tabpanel"] {
+    &:focus-visible {
+      outline: var(--wcag-f--outline);
+      outline-offset: 2px;
+      border-radius: var(--wcag-r--s);
+    }
+  }
+}

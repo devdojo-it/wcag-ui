@@ -6,12 +6,12 @@ export default {
       return;
     }
 
-    if (e.target.closest('.wcag-calendar__prev')) {
+    if (e.target.closest('button[previous-month]')) {
       this.prevMonth();
       return;
     }
 
-    if (e.target.closest('.wcag-calendar__next')) {
+    if (e.target.closest('button[next-month]')) {
       this.nextMonth();
     }
   },
@@ -21,6 +21,7 @@ export default {
     if (!btn) return;
 
     const current = new Date(btn.dataset.date);
+    const weekdayIndex = current.getDay() === 0 ? 6 : current.getDay() - 1;
     let next = null;
 
     switch (e.key) {
@@ -37,10 +38,10 @@ export default {
         next = new Date(current.getFullYear(), current.getMonth(), current.getDate() - 7);
         break;
       case 'Home':
-        next = new Date(current.getFullYear(), current.getMonth(), current.getDate() - current.getDay() + 1);
+        next = new Date(current.getFullYear(), current.getMonth(), current.getDate() - weekdayIndex);
         break;
       case 'End':
-        next = new Date(current.getFullYear(), current.getMonth(), current.getDate() + (7 - current.getDay()));
+        next = new Date(current.getFullYear(), current.getMonth(), current.getDate() + (6 - weekdayIndex));
         break;
       case 'PageDown':
         next = new Date(current.getFullYear(), current.getMonth() + (e.shiftKey ? 12 : 1), current.getDate());
@@ -48,23 +49,16 @@ export default {
       case 'PageUp':
         next = new Date(current.getFullYear(), current.getMonth() - (e.shiftKey ? 12 : 1), current.getDate());
         break;
+      case 'Enter':
+      case ' ':
+        e.preventDefault();
+        this.selectDate(current);
+        return;
       default:
         return;
     }
 
     e.preventDefault();
-
-    const y = next.getFullYear();
-    const m = String(next.getMonth() + 1).padStart(2, '0');
-    const d = String(next.getDate()).padStart(2, '0');
-    const iso = `${y}-${m}-${d}`;
-
-    // Navigate month if needed
-    if (next.getMonth() !== current.getMonth() || next.getFullYear() !== current.getFullYear()) {
-      this.value = iso;
-    }
-
-    const nextBtn = this.querySelector(`button[data-date="${iso}"]`);
-    nextBtn?.focus();
+    this.focusDate(next);
   },
 };

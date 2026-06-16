@@ -1,0 +1,5 @@
+@import "./_core.css" layer(wcag-ui.components.segmented-control);
+@import "./variants/variants.css" layer(wcag-ui.components.segmented-control);
+@import "./sizes/sizes.css" layer(wcag-ui.components.segmented-control);
+@import "./modifiers/modifiers.css" layer(wcag-ui.components.segmented-control);
+@import "./states/states.css" layer(wcag-ui.components.segmented-control);

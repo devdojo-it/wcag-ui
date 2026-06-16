@@ -254,7 +254,7 @@ export default {
 |-------|-----------|---------|
 | `wcag-ui.core` | `.reset`, `.helpers`, `.focus` | Reset, flex, sr-only, global focus |
 | `wcag-ui.foundations` | `.colors`, `.elevations`, `.spacings`, `.radiuses`, `.typography`, `.grid-system`, `.iconography` | Design tokens |
-| `wcag-ui.components.<name>` | variants, dimensions, modifiers, states | Per-component |
+| `wcag-ui.components.<name>` | variants, sizes, modifiers, states | Per-component |
 
 ### Simple Component CSS
 
@@ -269,7 +269,7 @@ export default {
 /* <kebab>.css */
 @import "./_core.css" layer(wcag-ui.components.<kebab>);
 @import "./variants/variants.css" layer(wcag-ui.components.<kebab>);
-@import "./dimensions/dimensions.css" layer(wcag-ui.components.<kebab>);
+@import "./sizes/sizes.css" layer(wcag-ui.components.<kebab>);
 @import "./modifiers/modifiers.css" layer(wcag-ui.components.<kebab>);
 @import "./states/states.css" layer(wcag-ui.components.<kebab>);
 ```

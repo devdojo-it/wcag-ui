@@ -1,0 +1,6 @@
+[is="wcag-toast"] {
+  &[variant="warning"] {
+    background-color: var(--wcag-toast--v-warning--background);
+    color: var(--wcag-toast--v-warning--color);
+  }
+}

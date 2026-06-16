@@ -79,50 +79,6 @@
         color: var(--wcag-stepper--label-color);
         text-align: center;
       }
-
-      /* Active step */
-      &[aria-current="step"] {
-        &::after {
-          background-color: var(--wcag-stepper--indicator-active-background);
-        }
-
-        > span {
-          color: var(--wcag-stepper--label-active-color);
-          font-weight: 600;
-        }
-      }
-
-      /* Completed step */
-      &[complete] {
-        &::after {
-          background-color: var(--wcag-stepper--indicator-complete-background);
-          content: "\2713";
-        }
-
-        + li::before {
-          background-color: var(--wcag-stepper--connector-active-color);
-        }
-      }
-    }
-  }
-}
-
-/* Vertical variant */
-[is="wcag-stepper"][vertical] > ol {
-  flex-flow: column nowrap;
-
-  > li {
-    flex-flow: row nowrap;
-    place-items: center;
-
-    + li::before {
-      top: auto;
-      inset-inline-end: auto;
-      inset-inline-start: calc(var(--wcag-stepper--indicator-size) / 2);
-      inset-block-end: 100%;
-      inline-size: var(--wcag-stepper--connector-height);
-      block-size: 100%;
-      transform: translateY(0);
     }
   }
 }

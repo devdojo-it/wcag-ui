@@ -242,7 +242,7 @@ Edit the styles under `lib/styles/`:
 - Use `:where()` for state selectors to keep specificity low
 - Support `light-dark()` for colors that differ in dark mode
 
-For complex components, add subdirectories for variants, dimensions, modifiers, and states.
+For complex components, add subdirectories for variants, sizes, modifiers, and states.
 
 ### Step 4: Create the Demo Page
 

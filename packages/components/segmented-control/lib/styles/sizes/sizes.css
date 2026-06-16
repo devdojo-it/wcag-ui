@@ -1,0 +1,2 @@
+@import "./_small.css" layer(sizes.small);
+@import "./_large.css" layer(sizes.large);

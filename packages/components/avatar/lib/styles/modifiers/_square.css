@@ -1,0 +1,5 @@
+[is="wcag-avatar"] {
+  &[square] {
+    --wcag-avatar--border-radius: var(--wcag-r--m);
+  }
+}

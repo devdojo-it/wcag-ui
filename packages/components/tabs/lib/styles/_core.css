@@ -40,34 +40,14 @@
 
       border-block-end: 2px solid transparent;
       margin-block-end: -2px;
-      transition: color 0.2s ease, border-color 0.2s ease;
+      transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
       white-space: nowrap;
-
-      &[aria-selected="true"] {
-        color: var(--wcag-tabs--tab-active-color);
-        border-block-end-color: var(--wcag-tabs--tab-active-border-color);
-        font-weight: 600;
-      }
-
-      &:hover:not([aria-selected="true"]) {
-        color: var(--wcag-tabs--tab-active-color);
-      }
-
-      &:focus-visible {
-        outline: var(--wcag-f--outline);
-        outline-offset: -2px;
-        border-radius: var(--wcag-r--s);
-      }
     }
   }
 
   > [role="tabpanel"] {
     padding: var(--wcag-tabs--panel-padding);
-
-    &:focus-visible {
-      outline: var(--wcag-f--outline);
-      outline-offset: 2px;
-      border-radius: var(--wcag-r--s);
-    }
   }
 }

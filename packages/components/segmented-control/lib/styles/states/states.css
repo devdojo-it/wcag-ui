@@ -1,0 +1,10 @@
+[is="wcag-segmented-control"] {
+  > button[segment]:hover {
+    color: var(--wcag-segmented-control--segment-selected-color);
+  }
+
+  > button[segment]:focus-visible {
+    outline: var(--wcag-f--outline);
+    outline-offset: 2px;
+  }
+}

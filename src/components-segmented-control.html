@@ -1,0 +1,18 @@
+<extends src="_layout.html" locals='{"title": "Docs"}'>
+  <block name="aside">
+    <include src="common/docs-nav.html"></include>
+  </block>
+  <block name="main">
+    <h1>SegmentedControl Docs Example</h1>
+    <section>
+      <h2>SegmentedControl</h2>
+      <p>
+        <section is="wcag-segmented-control" aria-label="View selector" value="grid">
+          <button value="list">List</button>
+          <button value="grid">Grid</button>
+          <button value="board">Board</button>
+        </section>
+      </p>
+    </section>
+  </block>
+</extends>

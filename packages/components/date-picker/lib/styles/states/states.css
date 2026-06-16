@@ -1,0 +1,52 @@
+[is="wcag-date-picker"] {
+  > button[toggle] {
+    &:hover {
+      background-color: var(--wcag-c--neutral-100);
+    }
+
+    &:focus-visible {
+      outline: var(--wcag-f--outline);
+    }
+  }
+
+  > section[dropdown] {
+    &[hidden] {
+      display: none;
+    }
+
+    > header[calendar-header] > button:where([previous-month], [next-month]) {
+      &:hover {
+        background: var(--wcag-c--neutral-100);
+      }
+
+      &:focus-visible {
+        outline: var(--wcag-f--outline);
+      }
+    }
+
+    table button[data-date] {
+      &:hover:not(:disabled) {
+        background: var(--wcag-c--neutral-100);
+      }
+
+      &[aria-selected="true"] {
+        background: var(--wcag-c--blue-400);
+        color: var(--wcag-c--neutral-00);
+      }
+
+      &[data-today] {
+        border-color: var(--wcag-c--blue-400);
+      }
+
+      &:disabled {
+        color: var(--wcag-c--neutral-300);
+        cursor: default;
+      }
+
+      &:focus-visible {
+        outline: var(--wcag-f--outline);
+        outline-offset: 2px;
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+[is="wcag-progress-bar"] {
+  &[danger] {
+    --wcag-progress-bar--fill-color: var(--wcag-c--red-500);
+  }
+}

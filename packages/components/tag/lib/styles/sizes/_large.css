@@ -1,0 +1,11 @@
+[is="wcag-tag"] {
+  &[lg] {
+    --wcag-tag--gap: var(--wcag-s--150);
+    --wcag-tag--padding-inline: var(--wcag-s--250);
+    --wcag-tag--padding-block: var(--wcag-s--100);
+    --wcag-tag--font-size: 1.6rem;
+    --wcag-tag--line-height: 2.2rem;
+    --wcag-tag--dismiss-size: 1.8rem;
+    --wcag-tag--dismiss-font-size: 1.6rem;
+  }
+}

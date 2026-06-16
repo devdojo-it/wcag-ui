@@ -18,22 +18,24 @@
   --wcag-button--v-des--s-dis--border-color: var(--wcag-button--v-des--s-dis--background-color);
 }
 
-[is="wcag-button"][destructive] {
-  --wcag-button--color: var(--wcag-button--v-des--color);
-  --wcag-button--background-color: var(--wcag-button--v-des--background-color);
-  --wcag-button--border-color: var(--wcag-button--v-des--border-color);
+[is="wcag-button"] {
+  &[destructive] {
+    --wcag-button--color: var(--wcag-button--v-des--color);
+    --wcag-button--background-color: var(--wcag-button--v-des--background-color);
+    --wcag-button--border-color: var(--wcag-button--v-des--border-color);
 
-  --wcag-button--s-hov--color: var(--wcag-button--v-des--s-hov--color);
-  --wcag-button--s-hov--background-color: var(--wcag-button--v-des--s-hov--background-color);
-  --wcag-button--s-hov--border-color: var(--wcag-button--v-des--s-hov--border-color);
-  
-  --wcag-button--s-foc--outline-color: var(--wcag-button--v-des--s-foc--outline-color);
+    --wcag-button--s-hov--color: var(--wcag-button--v-des--s-hov--color);
+    --wcag-button--s-hov--background-color: var(--wcag-button--v-des--s-hov--background-color);
+    --wcag-button--s-hov--border-color: var(--wcag-button--v-des--s-hov--border-color);
 
-  --wcag-button--s-act--color: var(--wcag-button--v-des--s-act--color);
-  --wcag-button--s-act--background-color: var(--wcag-button--v-des--s-act--background-color);
-  --wcag-button--s-act--border-color: var(--wcag-button--v-des--s-act--border-color);
+    --wcag-button--s-foc--outline-color: var(--wcag-button--v-des--s-foc--outline-color);
 
-  --wcag-button--s-dis--color: var(--wcag-button--v-des--s-dis--color);
-  --wcag-button--s-dis--background-color: var(--wcag-button--v-des--s-dis--background-color);
-  --wcag-button--s-dis--border-color: var(--wcag-button--v-des--s-dis--border-color);
+    --wcag-button--s-act--color: var(--wcag-button--v-des--s-act--color);
+    --wcag-button--s-act--background-color: var(--wcag-button--v-des--s-act--background-color);
+    --wcag-button--s-act--border-color: var(--wcag-button--v-des--s-act--border-color);
+
+    --wcag-button--s-dis--color: var(--wcag-button--v-des--s-dis--color);
+    --wcag-button--s-dis--background-color: var(--wcag-button--v-des--s-dis--background-color);
+    --wcag-button--s-dis--border-color: var(--wcag-button--v-des--s-dis--border-color);
+  }
 }

@@ -20,7 +20,7 @@
     flex: 1;
   }
 
-  > .wcag-date-picker__toggle {
+  > button[toggle] {
     appearance: none;
     border: 1px solid var(--wcag-c--neutral-200);
     background: var(--wcag-c--neutral-00);
@@ -31,17 +31,9 @@
     place-content: center;
     border-radius: var(--wcag-r--s);
     font-size: 1.6rem;
-
-    &:hover {
-      background-color: var(--wcag-c--neutral-100);
-    }
-
-    &:focus-visible {
-      outline: var(--wcag-f--outline);
-    }
   }
 
-  > .wcag-date-picker__dropdown {
+  > section[dropdown] {
     position: absolute;
     inset-block-start: 100%;
     inset-inline-start: 0;
@@ -54,12 +46,7 @@
     box-shadow: var(--wcag-date-picker--dropdown-elevation);
     padding: var(--wcag-date-picker--dropdown-padding);
 
-    &[hidden] {
-      display: none;
-    }
-
-    /* Reuse calendar styles inside dropdown */
-    .wcag-calendar__header {
+    > header[calendar-header] {
       display: flex;
       flex-flow: row nowrap;
       place-content: center space-between;
@@ -72,7 +59,7 @@
         text-transform: capitalize;
       }
 
-      > button {
+      > button:where([previous-month], [next-month]) {
         appearance: none;
         border: none;
         background: none;
@@ -83,14 +70,6 @@
         display: grid;
         place-content: center;
         border-radius: 50%;
-
-        &:hover {
-          background: var(--wcag-c--neutral-100);
-        }
-
-        &:focus-visible {
-          outline: var(--wcag-f--outline);
-        }
       }
     }
 
@@ -110,7 +89,7 @@
         padding: 0.2rem;
       }
 
-      button {
+      button[data-date] {
         appearance: none;
         border: 2px solid transparent;
         background: none;
@@ -120,29 +99,6 @@
         border-radius: 50%;
         font-size: 1.4rem;
         color: var(--wcag-c--neutral-800);
-
-        &:hover:not(:disabled) {
-          background: var(--wcag-c--neutral-100);
-        }
-
-        &[aria-selected="true"] {
-          background: var(--wcag-c--blue-400);
-          color: var(--wcag-c--neutral-00);
-        }
-
-        &[data-today] {
-          border-color: var(--wcag-c--blue-400);
-        }
-
-        &:disabled {
-          color: var(--wcag-c--neutral-300);
-          cursor: default;
-        }
-
-        &:focus-visible {
-          outline: var(--wcag-f--outline);
-          outline-offset: 2px;
-        }
       }
     }
   }

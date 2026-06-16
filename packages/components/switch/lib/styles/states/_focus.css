@@ -5,9 +5,11 @@
   --wcag-switch--s-foc--outline-offset: var(--wcag-f--outline-width);
 }
 
-[is="wcag-switch"]:where(:focus, :focus-visible) {
-  --wcag-switch--outline-width: var(--wcag-switch--s-foc--outline-width);
-  --wcag-switch--outline-style: var(--wcag-switch--s-foc--outline-style);
-  --wcag-switch--outline-color: var(--wcag-switch--s-foc--outline-color);
-  --wcag-switch--outline-offset: var(--wcag-switch--s-foc--outline-offset);
+[is="wcag-switch"] {
+  &:where(:focus, :focus-visible) {
+    --wcag-switch--outline-width: var(--wcag-switch--s-foc--outline-width);
+    --wcag-switch--outline-style: var(--wcag-switch--s-foc--outline-style);
+    --wcag-switch--outline-color: var(--wcag-switch--s-foc--outline-color);
+    --wcag-switch--outline-offset: var(--wcag-switch--s-foc--outline-offset);
+  }
 }

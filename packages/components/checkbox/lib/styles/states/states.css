@@ -2,3 +2,24 @@
 @import "./_active.css" layer(states.active);
 @import "./_focus.css" layer(states.focus);
 @import "./_disabled.css" layer(states.disabled);
+
+label:has([is="wcag-checkbox"]) {
+  > span:hover {
+    &::before {
+      border-color: hsl(245, 94%, 48%);
+    }
+  }
+
+  &:has(:checked) > span {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:has([aria-disabled="true"]) > span {
+    &::before {
+      background-color: hsl(248, 28%, 58%);
+      border-color: hsl(248, 28%, 58%);
+    }
+  }
+}

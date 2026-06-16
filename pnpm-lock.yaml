@@ -11,6 +11,9 @@ importers:
       '@wcag-ui/accordion':
         specifier: workspace:^0.1.0-alpha.0
         version: link:packages/components/accordion
+      '@wcag-ui/avatar':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:packages/components/avatar
       '@wcag-ui/badge':
         specifier: workspace:^0.1.0-alpha.0
         version: link:packages/components/badge
@@ -65,15 +68,24 @@ importers:
       '@wcag-ui/pagination':
         specifier: workspace:^0.1.0-alpha.0
         version: link:packages/components/pagination
+      '@wcag-ui/popover':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:packages/components/popover
       '@wcag-ui/progress-bar':
         specifier: workspace:^0.1.0-alpha.0
         version: link:packages/components/progress-bar
       '@wcag-ui/radio':
         specifier: workspace:^0.1.0-alpha.0
         version: link:packages/components/radio
+      '@wcag-ui/rating':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:packages/components/rating
       '@wcag-ui/scroll-spy':
         specifier: workspace:^0.1.0-alpha.0
         version: link:packages/components/scroll-spy
+      '@wcag-ui/segmented-control':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:packages/components/segmented-control
       '@wcag-ui/select':
         specifier: workspace:^0.1.0-alpha.0
         version: link:packages/components/select
@@ -164,6 +176,15 @@ importers:
         version: 4.0.1
 
   packages/components/accordion:
+    dependencies:
+      '@wcag-ui/core':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:../../js/core
+      '@wcag-ui/dom':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:../../js/dom
+
+  packages/components/avatar:
     dependencies:
       '@wcag-ui/core':
         specifier: workspace:^0.1.0-alpha.0
@@ -274,6 +295,15 @@ importers:
         specifier: workspace:^0.1.0-alpha.0
         version: link:../../js/core
 
+  packages/components/popover:
+    dependencies:
+      '@wcag-ui/core':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:../../js/core
+      '@wcag-ui/dom':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:../../js/dom
+
   packages/components/progress-bar:
     dependencies:
       '@wcag-ui/core':
@@ -289,7 +319,25 @@ importers:
         specifier: workspace:^0.1.0-alpha.0
         version: link:../../js/dom
 
+  packages/components/rating:
+    dependencies:
+      '@wcag-ui/core':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:../../js/core
+      '@wcag-ui/dom':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:../../js/dom
+
   packages/components/scroll-spy:
+    dependencies:
+      '@wcag-ui/core':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:../../js/core
+      '@wcag-ui/dom':
+        specifier: workspace:^0.1.0-alpha.0
+        version: link:../../js/dom
+
+  packages/components/segmented-control:
     dependencies:
       '@wcag-ui/core':
         specifier: workspace:^0.1.0-alpha.0
